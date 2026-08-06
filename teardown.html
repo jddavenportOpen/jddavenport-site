@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Running 30 Agents in Production: The Full Teardown · JD Davenport</title>
+<meta name="description" content="The full production teardown of a 30-agent AI organization: the architecture, three real failures with root causes and fixes, the review pipeline, real API costs, and the safety constraint that makes it runnable.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.jddavenport.com/teardown">
+<meta property="og:title" content="Running 30 Agents in Production: The Full Teardown">
+<meta property="og:description" content="Architecture, three real failures with root causes, the review pipeline, real API costs, and the safety constraint that makes a 30-agent organization runnable.">
+<meta property="og:image" content="https://jddavenport.com/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Running 30 Agents in Production: The Full Teardown">
+<meta name="twitter:description" content="Architecture, three real failures with root causes, the review pipeline, real API costs, and the safety constraint that makes a 30-agent organization runnable.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --canvas:#0E0C0A;--sunken:#090705;--surface-1:#15120F;--surface-2:#1D1A17;--surface-3:#26221E;
+  --accent:#F5A623;--accent-hover:#FFB44B;--accent-text:#F8C384;--on-accent:#1C140C;
+  --text-1:#ECEBEA;--text-2:#AEABA8;--text-3:#827F7C;
+  --working:#7CB4CF;--ready:#69B27A;
+  --hairline:rgba(255,255,255,0.07);--border-default:rgba(255,255,255,0.10);--border-strong:rgba(255,255,255,0.14);
+  --radius-sm:6px;--radius-md:8px;--radius-lg:12px;
+  --font-ui:'Geist',system-ui,-apple-system,sans-serif;
+  --font-mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-ui);background:var(--canvas);color:var(--text-1);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;letter-spacing:-0.005em}
+h1,h2,h3{font-weight:600;line-height:1.15;letter-spacing:-0.02em}
+a{color:var(--accent-text);text-decoration:none;transition:color .18s ease}
+a:hover{color:var(--accent-hover)}
+.mono{font-family:var(--font-mono)}
+.container{max-width:780px;margin:0 auto;padding:0 24px}
+.kicker{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:var(--accent-text);margin-bottom:14px;display:flex;align-items:center;gap:9px;font-weight:500}
+.kicker::before{content:'●';color:var(--accent);font-size:.6rem}
+header{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:rgba(14,12,10,.85);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--hairline)}
+header .hcontainer{max-width:780px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--font-mono);font-weight:600;font-size:.92rem;color:var(--text-1);display:flex;align-items:center;gap:9px;letter-spacing:.02em}
+.logo .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.backlink{font-family:var(--font-mono);font-size:.8rem;color:var(--text-2)}
+.backlink:hover{color:var(--text-1)}
+.article{padding:132px 0 72px}
+.article h1{font-size:clamp(1.85rem,4.4vw,2.7rem);margin-bottom:18px}
+.byline{font-family:var(--font-mono);font-size:.78rem;color:var(--text-3);letter-spacing:.04em;margin-bottom:40px;display:flex;gap:14px;flex-wrap:wrap}
+.article h2{font-size:1.45rem;margin:52px 0 14px;color:var(--text-1)}
+.article h3{font-size:1.08rem;margin:32px 0 10px;color:var(--text-1)}
+.article p{color:var(--text-2);font-size:.98rem;line-height:1.75;margin-bottom:16px}
+.article p b{color:var(--text-1);font-weight:600}
+.article ul{margin:0 0 16px 20px}
+.article li{color:var(--text-2);font-size:.98rem;line-height:1.7;margin-bottom:10px}
+.article li b{color:var(--text-1);font-weight:600}
+.amber{color:var(--accent-text)}
+.stackline{background:var(--surface-1);border:1px solid var(--hairline);border-left:2px solid var(--accent);border-radius:var(--radius-md);padding:16px 20px;font-family:var(--font-mono);font-size:.84rem;line-height:1.7;color:var(--text-2);margin:20px 0 26px}
+.stackline b{color:var(--text-1);font-weight:600}
+.diagram-wrap{background:var(--surface-1);border:1px solid var(--hairline);border-radius:var(--radius-lg);padding:22px 18px 10px;margin:26px 0}
+.diagram-wrap svg{width:100%;height:auto;display:block}
+.diagram-cap{font-size:.8rem;color:var(--text-3);padding:10px 4px 10px;line-height:1.55}
+.pullquote{border-left:2px solid var(--accent);padding:6px 0 6px 20px;margin:26px 0;color:var(--text-1);font-size:1.05rem;line-height:1.6;font-weight:500}
+.footer-cta{margin-top:60px;background:var(--surface-2);border:1px solid var(--hairline);border-radius:var(--radius-lg);padding:28px 30px}
+.footer-cta h3{margin:0 0 8px}
+.footer-cta p{margin-bottom:16px}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:var(--radius-sm);font-weight:600;font-size:.87rem;transition:all .18s;border:1px solid transparent}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{background:var(--accent-hover);color:var(--on-accent)}
+.btn-outline{border:1px solid var(--border-default);color:var(--text-1);background:transparent;margin-left:10px}
+.btn-outline:hover{border-color:var(--border-strong);background:var(--surface-2);color:var(--text-1)}
+footer{border-top:1px solid var(--hairline);padding:30px 0;text-align:center;margin-top:40px}
+.footer-copy{color:var(--text-3);font-size:.78rem;font-family:var(--font-mono);letter-spacing:.02em}
+:focus-visible{outline:none;box-shadow:0 0 0 2px var(--canvas),0 0 0 4px rgba(245,166,35,.55);border-radius:var(--radius-sm)}
+@media print{body{background:#fff;color:#111}.article p,.article li{color:#333}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hcontainer">
+    <a href="/" class="logo"><span class="dot"></span>jd_davenport</a>
+    <a href="/" class="backlink">← jddavenport.com</a>
+  </div>
+</header>
+
+<article class="article">
+  <div class="container">
+    <div class="kicker">Production teardown</div>
+    <h1>Running 30 agents in production: what it actually takes</h1>
+    <div class="byline">
+      <span>JD DAVENPORT</span>
+      <span>UPDATED 2026-07-02</span>
+      <span>~9 MIN READ</span>
+    </div>
+
+    <p>Anyone can demo an agent. Keeping a fleet of them alive for months, with real permissions and real consequences, is a different job, and almost nothing published about agents describes it honestly. This is the teardown of the Nerve Center, a 30-agent AI organization I designed, built, and operate in production: the architecture, three failures with root causes and the systemic fixes, how changes get reviewed, what it costs in real dollars, and the one constraint that makes the whole thing safe to hand authority.</p>
+    <p>The build itself stays private because it runs my actual life and work. Everything below is the real operating record, sanitized only where it has to be.</p>
+
+    <h2>The architecture</h2>
+    <p>The system in one sentence: a supervising daemon owns long-lived agent sessions, a message bus routes work between them and me, a shared memory graph gives them recall, Postgres holds durable state, and a watchdog layer assumes everything above it will eventually fail.</p>
+    <div class="stackline"><b>The stack:</b> Python daemons for orchestration and services · TypeScript/Next.js cockpit (Vercel) · Postgres on Supabase for durable state · vector + graph stores for memory · local LLM routing for rote jobs · launchd supervision on always-on hardware</div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 900 620" role="img" aria-label="Nerve Center architecture diagram: operator and cockpit connect through a message bus to a supervising daemon that owns agent sessions; memory graph and Postgres sit beside them; a watchdog layer monitors everything; all outbound messages pass through a send gate.">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#827F7C"/>
+          </marker>
+        </defs>
+        <style>
+          .box{fill:#1D1A17;stroke:rgba(255,255,255,0.14);rx:8}
+          .boxhi{fill:#1D1A17;stroke:#F5A623;stroke-width:1.4}
+          .lbl{font-family:'Geist Mono',ui-monospace,Menlo,monospace;font-size:15px;fill:#ECEBEA;font-weight:600}
+          .sub{font-family:'Geist Mono',ui-monospace,Menlo,monospace;font-size:11.5px;fill:#AEABA8}
+          .tag{font-family:'Geist Mono',ui-monospace,Menlo,monospace;font-size:11px;fill:#F8C384;letter-spacing:1.5px}
+          .edge{stroke:#827F7C;stroke-width:1.3;fill:none;marker-end:url(#arr)}
+          .edge2{stroke:#827F7C;stroke-width:1.3;fill:none;marker-end:url(#arr);marker-start:url(#arr)}
+          .dash{stroke-dasharray:5 4}
+        </style>
+
+        <!-- Operator -->
+        <rect class="box" x="330" y="16" width="240" height="52" rx="8"/>
+        <text class="lbl" x="450" y="38" text-anchor="middle">operator (me)</text>
+        <text class="sub" x="450" y="56" text-anchor="middle">phone · desktop · chat</text>
+
+        <!-- Cockpit -->
+        <rect class="box" x="330" y="104" width="240" height="56" rx="8"/>
+        <text class="lbl" x="450" y="127" text-anchor="middle">cockpit</text>
+        <text class="sub" x="450" y="146" text-anchor="middle">TypeScript / Next.js · tombstone sync</text>
+
+        <!-- Message bus -->
+        <rect class="boxhi" x="290" y="198" width="320" height="56" rx="8"/>
+        <text class="lbl" x="450" y="221" text-anchor="middle">message bus / bridge</text>
+        <text class="sub" x="450" y="240" text-anchor="middle">Python · routes work, sessions, events</text>
+
+        <!-- Supervising daemon -->
+        <rect class="boxhi" x="290" y="292" width="320" height="56" rx="8"/>
+        <text class="lbl" x="450" y="315" text-anchor="middle">supervising daemon</text>
+        <text class="sub" x="450" y="334" text-anchor="middle">launchd-owned · guarded restarts only</text>
+
+        <!-- Agent sessions -->
+        <rect class="box" x="240" y="388" width="420" height="76" rx="8"/>
+        <text class="lbl" x="450" y="412" text-anchor="middle">agent sessions (PTY children)</text>
+        <text class="sub" x="450" y="431" text-anchor="middle">1 CEO agent → 30 specialists · 14 domains</text>
+        <text class="sub" x="450" y="449" text-anchor="middle">frontier models for hard work · small models for rote</text>
+
+        <!-- Memory graph (left) -->
+        <rect class="box" x="24" y="292" width="212" height="76" rx="8"/>
+        <text class="lbl" x="130" y="316" text-anchor="middle">memory graph</text>
+        <text class="sub" x="130" y="335" text-anchor="middle">vector + graph store</text>
+        <text class="sub" x="130" y="353" text-anchor="middle">retrieve before act</text>
+
+        <!-- Postgres (right) -->
+        <rect class="box" x="664" y="292" width="212" height="76" rx="8"/>
+        <text class="lbl" x="770" y="316" text-anchor="middle">durable state</text>
+        <text class="sub" x="770" y="335" text-anchor="middle">Postgres / Supabase</text>
+        <text class="sub" x="770" y="353" text-anchor="middle">250+ tables · workflows</text>
+
+        <!-- Watchdog layer -->
+        <rect class="box dash" x="24" y="500" width="852" height="52" rx="8" style="stroke:rgba(255,255,255,0.22);fill:#15120F"/>
+        <text class="lbl" x="450" y="522" text-anchor="middle">watchdog layer</text>
+        <text class="sub" x="450" y="540" text-anchor="middle">liveness = work completed, not uptime · death-cluster detector · auto-unwedge · stale-job alerts</text>
+
+        <!-- Send gate -->
+        <rect class="boxhi" x="290" y="572" width="320" height="40" rx="8"/>
+        <text class="lbl" x="450" y="597" text-anchor="middle">send gate → the outside world</text>
+
+        <!-- Edges -->
+        <path class="edge2" d="M450 68 L450 104"/>
+        <path class="edge2" d="M450 160 L450 198"/>
+        <path class="edge" d="M450 254 L450 292"/>
+        <path class="edge" d="M450 348 L450 388"/>
+        <path class="edge2" d="M236 388 C 180 388 130 380 130 368"/>
+        <path class="edge2" d="M664 388 C 720 388 770 380 770 368"/>
+        <path class="edge" d="M450 464 L450 572" style="stroke-dasharray:5 4"/>
+        <text class="tag" x="466" y="527" text-anchor="start"></text>
+      </svg>
+      <div class="diagram-cap">Sanitized architecture. Every agent session is a PTY child of the supervising daemon. The watchdog layer observes every component above it. Every outbound message, no exceptions, exits through the send gate.</div>
+    </div>
+
+    <h3>The pieces, briefly</h3>
+    <ul>
+      <li><b>Supervising daemon and sessions.</b> Every agent session runs as a PTY child of one supervising daemon. That gives clean lifecycle control and one place to enforce policy, and it creates the exact blast radius described in Failure 1. Architecture is a set of tradeoffs you choose on purpose; this one I keep because the failure is now machine-guarded.</li>
+      <li><b>Message bus.</b> A Python bridge routes inbound requests (chat, schedules, webhooks) to the right session and streams results back to the cockpit. Agents also message each other through it by name, so a domain specialist can ask the CEO agent for a decision instead of guessing.</li>
+      <li><b>Memory graph.</b> A vector store plus a graph store, queried together: semantic search finds candidate facts, one-hop graph expansion pulls in connected entities and decisions. Agents retrieve before they act. Without this, 30 agents are 30 goldfish.</li>
+      <li><b>Durable state.</b> Postgres on Supabase, 250+ tables: workflow runs, task ledgers, approval queues, cost records. If it matters, it lives in a table, not in a context window. Sessions rotate; state does not.</li>
+      <li><b>Sync layer.</b> The cockpit syncs open sessions across devices with per-entry tombstones and semantic writes rather than state blobs. Failure 2 explains why that distinction is load-bearing.</li>
+      <li><b>Watchdog layer.</b> Detectors that measure work completed, not process uptime: a death-cluster detector, an auto-unwedger for stuck prompts, stale-job alerting with catch-up semantics after reboots. The design assumption is that every layer above will eventually lie about its own health.</li>
+    </ul>
+
+    <h2>Failure 1: one restart killed 12 sessions at once</h2>
+    <p>Every agent session runs as a child of the supervising daemon. One agent restarted that daemon with a raw process-manager command instead of the guarded reload script. The OS killed the whole process group, and all 12 live sessions died within the same two seconds, including the one that issued the command.</p>
+    <p>The root cause was not the command. It was that the safety check lived inside one script on the honor system, and nothing stopped an agent from going around it. An agent under token pressure or a confused plan will eventually take the shortest path, and prose instructions are not a barrier.</p>
+    <p>The fix came in three layers: a pre-execution hook that blocks raw restarts of protected services outright, reload scripts that refuse to run while sessions are live and print the casualty list if forced, and a detector that watches for multi-session death clusters and names the exact culprit session and command within five minutes. The postmortem is a file in the repo, and the rule it produced is enforced by a machine, not a memo.</p>
+    <div class="pullquote">Prose rules do not survive contact with autonomous agents. Machine enforcement does.</div>
+
+    <h2>Failure 2: a stale phone tab resurrected dead sessions</h2>
+    <p>The cockpit syncs open sessions across devices. A phone tab left open overnight held an old copy of that state, and its writes were last-write-wins. So it kept reviving sessions I had already closed and killed: zombie entries that burned tokens, confused the fleet, and reappeared no matter how many times I killed them.</p>
+    <p>This is a classic distributed-systems bug wearing an AI costume. The moment two devices can write the same state, a full-blob write is a time machine: the staler device overwrites the newer truth. The fix was to stop syncing state and start syncing intent. Per-entry tombstones make a close a fact that cannot be overwritten by anything, and semantic writes mean a device can only add what it knows, never erase what it missed.</p>
+    <p>The regression suite now pins that exact interleaving, a stale reader racing a newer writer, so the bug class stays dead rather than the bug instance. UI changes run end-to-end on phone and desktop viewports, because this failure taught me the device matters.</p>
+
+    <h2>Failure 3: a confirmation modal froze the org for 4.5 hours</h2>
+    <p>The CLI under one daemon hit a usage limit and popped a confirmation modal. The daemon's turn loop sat waiting on a prompt no human would ever see, and inbound messages queued invisibly for four and a half hours. Nothing crashed, so nothing alerted.</p>
+    <p>That is the nastiest failure shape in agent systems: alive but wedged. Process supervision says healthy, the port answers, and no work is happening. Any liveness check based on uptime is blind to it by construction.</p>
+    <p>The fix was a watchdog that detects the stuck state and auto-confirms the modal, plus liveness checks that measure output: messages processed, work completed, state advanced. The same principle got applied fleet-wide, because a relay once wedged the same way on a dead database socket and silently swallowed outbound messages for hours. Now anything that can wedge has a detector that asks "did you do work?" instead of "are you running?"</p>
+
+    <h2>How changes get in</h2>
+    <p>Nothing merges on one agent's word. Every substantive change goes through adversarial review by three separate agents with different instructions, one of which is explicitly told to try to reject the change. Then CI gates: a QA gate, an architecture gate, and a unit-test suite. Any bug that reached production gets a fixture test reproducing the exact failure interleaving before the fix lands, which is how the failures above became regression suites instead of stories.</p>
+    <p>The same pipeline governs the autonomous work. An agent that fixes a bug does it in an isolated worktree, proves it with a failing test that passes after, and clears blast-radius caps and a deny-list before merge. I open-sourced that engine because the governance model is the interesting part.</p>
+
+    <h2>What it costs</h2>
+    <p>Real numbers, because "AI is expensive" and "AI is cheap" are both lazy. A heavy build session runs $30 to $35 in API cost; two recent ones came in at $34.67 across 201 model calls and $32.13 across 188. A five-reviewer audit panel is roughly 300k tokens. A rote heartbeat that formats a status report costs pennies on a small model.</p>
+    <p>So the system tiers cost by work type: frontier models for building, reviewing, and deciding; small models pinned to rote jobs like heartbeats and report formatting; local models for bulk extraction where latency and privacy beat quality. Cost is tracked per run in the same tables as everything else. The question is never the bill. It is whether the work earns the model.</p>
+
+    <h2>The constraint I chose on purpose</h2>
+    <p>The system can draft anything: email, messages, posts. It can send nothing. Every external message routes through one gated chokepoint with a global freeze switch and single-use approval tokens, and it transmits only after an explicit yes from me. I built it that way after watching how many places an autonomous system will grow an ungated send path if you let it; an audit found five separate paths that could have sent email without approval, all of them added for convenience, none of them malicious. They are all closed, and the gate is enforced at the same pre-execution layer as the restart guard.</p>
+    <div class="pullquote">An autonomous system is only as trustworthy as what stops it.</div>
+    <p>That principle sits under every design decision here. Capability is easy to add. The stop conditions, the tombstones, the freeze switch, the deny-list, the liveness detectors: those are the difference between a demo and something you can hand real authority.</p>
+
+    <h2>If you are building one of these</h2>
+    <ul>
+      <li><b>State outlives sessions.</b> Anything that matters goes to a table or a file, never to a context window.</li>
+      <li><b>Sync intent, not state.</b> The moment two writers exist, blob sync is a time machine. Tombstones and semantic writes.</li>
+      <li><b>Liveness is work completed.</b> Uptime checks are blind to the wedged state, and the wedged state is the common one.</li>
+      <li><b>Enforce with machines.</b> Every rule that matters gets a hook, a gate, or a detector. Prose is documentation, not enforcement.</li>
+      <li><b>Gate the sends.</b> One chokepoint for everything outbound, with a freeze switch you can hit from your phone.</li>
+    </ul>
+
+    <div class="footer-cta">
+      <h3>Who wrote this</h3>
+      <p>JD Davenport. Product leader: $2M to $20M+ at National Grid, founder of the BYU AI Foundry, production AI at Siemens, MBA candidate at BYU Marriott. The Nerve Center is what happens when a P&amp;L operator encodes the operating model in software.</p>
+      <a href="/" class="btn btn-primary">Full site + case study →</a>
+      <a href="mailto:me@jddavenport.com" class="btn btn-outline">me@jddavenport.com</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-copy">© 2026 JD Davenport · built in the warm-graphite system</div>
+</footer>
+
+</body>
+</html>

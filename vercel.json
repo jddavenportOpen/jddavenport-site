@@ -1,0 +1,9 @@
+{
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "framework": null,
+  "rewrites": [
+    { "source": "/book", "destination": "/book.html" },
+    { "source": "/teardown", "destination": "/teardown.html" }
+  ]
+}
