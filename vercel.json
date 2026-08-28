@@ -2,8 +2,11 @@
   "buildCommand": "",
   "outputDirectory": ".",
   "framework": null,
+  "redirects": [
+    { "source": "/book", "destination": "https://book.jddavenport.com", "permanent": false },
+    { "source": "/book.html", "destination": "https://book.jddavenport.com", "permanent": false }
+  ],
   "rewrites": [
-    { "source": "/book", "destination": "/book.html" },
     { "source": "/teardown", "destination": "/teardown.html" }
   ]
 }
