@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book a Meeting · JD Davenport</title>
 <meta name="description" content="Grab 30 minutes with JD Davenport. Pick a time that works and a calendar invite with a Google Meet link lands in your inbox.">
+<link rel="canonical" href="https://jddavenport.com/book">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.jddavenport.com/book">
+<meta property="og:url" content="https://jddavenport.com/book">
 <meta property="og:title" content="Book a Meeting · JD Davenport">
 <meta property="og:description" content="Grab 30 minutes with JD. Pick a time, get a calendar invite with a Meet link.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -219,7 +220,7 @@ footer{border-top:1px solid var(--hairline);padding:26px 0;text-align:center}
   function renderDays() {
     var open = state.days.filter(function (d) { return d.slots.length > 0; });
     if (open.length === 0) {
-      dayRow.innerHTML = '<span class="empty-note">Nothing open in the next two weeks. Email <a href="mailto:jddavenport46@gmail.com">jddavenport46@gmail.com</a> and we will find a time.</span>';
+      dayRow.innerHTML = '<span class="empty-note">Nothing open in the next two weeks. Email <a href="mailto:me@jddavenport.com">me@jddavenport.com</a> and we will find a time.</span>';
       return;
     }
     dayRow.innerHTML = '';
@@ -318,7 +319,7 @@ footer{border-top:1px solid var(--hairline);padding:26px 0;text-align:center}
         renderDays();
       })
       .catch(function () {
-        dayRow.innerHTML = '<span class="empty-note">Could not load availability. Refresh the page, or email <a href="mailto:jddavenport46@gmail.com">jddavenport46@gmail.com</a>.</span>';
+        dayRow.innerHTML = '<span class="empty-note">Could not load availability. Refresh the page, or email <a href="mailto:me@jddavenport.com">me@jddavenport.com</a>.</span>';
       });
   }
 

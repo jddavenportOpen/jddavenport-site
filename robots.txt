@@ -1,0 +1,10 @@
+# jddavenport.com
+# The apex is canonical; www 307s to it.
+
+User-agent: *
+Allow: /
+
+# The booking API returns live availability and is not useful to a crawler.
+Disallow: /api/
+
+Sitemap: https://jddavenport.com/sitemap.xml

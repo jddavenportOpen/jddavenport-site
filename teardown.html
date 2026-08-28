@@ -3,17 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Running 30 Agents in Production: The Full Teardown · JD Davenport</title>
-<meta name="description" content="The full production teardown of a 30-agent AI organization: the architecture, three real failures with root causes and fixes, the review pipeline, real API costs, and the safety constraint that makes it runnable.">
+<title>Running Agents in Production: The Full Teardown · JD Davenport</title>
+<!-- One counting rule, stamped everywhere a count appears in STATIC copy:
+     "30+ agents in daily production · 100+ built over time."
+     No precise definition count in hand-written text: the public roster is
+     curated and moves, and an exact number typed here goes stale against the
+     page it links to. Precise counts live only where they are generated. -->
+<meta name="description" content="The full production teardown of a working AI organization: 30+ agents in daily production, 100+ built over time. The architecture, three real failures with root causes and fixes, the review pipeline, real API costs, and the safety constraint that makes it runnable.">
+<link rel="canonical" href="https://jddavenport.com/teardown">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://www.jddavenport.com/teardown">
-<meta property="og:title" content="Running 30 Agents in Production: The Full Teardown">
-<meta property="og:description" content="Architecture, three real failures with root causes, the review pipeline, real API costs, and the safety constraint that makes a 30-agent organization runnable.">
+<meta property="og:url" content="https://jddavenport.com/teardown">
+<meta property="og:title" content="Running Agents in Production: The Full Teardown">
+<meta property="og:description" content="Architecture, three real failures with root causes, the review pipeline, real API costs, and the safety constraint that makes a production AI organization runnable.">
 <meta property="og:image" content="https://jddavenport.com/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Running 30 Agents in Production: The Full Teardown">
-<meta name="twitter:description" content="Architecture, three real failures with root causes, the review pipeline, real API costs, and the safety constraint that makes a 30-agent organization runnable.">
+<meta name="twitter:title" content="Running Agents in Production: The Full Teardown">
+<meta name="twitter:description" content="Architecture, three real failures with root causes, the review pipeline, real API costs, and the safety constraint that makes a production AI organization runnable.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<!-- Vercel Web Analytics. Inert (404s, deferred) until Web Analytics is
+     switched ON for this project in the Vercel dashboard. TOGGLE IT ON. -->
+<script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -61,6 +70,9 @@ header .hcontainer{max-width:780px;margin:0 auto;padding:0 24px;display:flex;ali
 .diagram-wrap svg{width:100%;height:auto;display:block}
 .diagram-cap{font-size:.8rem;color:var(--text-3);padding:10px 4px 10px;line-height:1.55}
 .pullquote{border-left:2px solid var(--accent);padding:6px 0 6px 20px;margin:26px 0;color:var(--text-1);font-size:1.05rem;line-height:1.6;font-weight:500}
+.addendum{margin-top:48px;background:var(--surface-1);border:1px solid var(--hairline);border-left:2px solid var(--accent);border-radius:var(--radius-md);padding:18px 22px}
+.addendum .addendum-date{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent-text);margin-bottom:8px}
+.addendum p{margin-bottom:0;font-size:.93rem}
 .footer-cta{margin-top:60px;background:var(--surface-2);border:1px solid var(--hairline);border-radius:var(--radius-lg);padding:28px 30px}
 .footer-cta h3{margin:0 0 8px}
 .footer-cta p{margin-bottom:16px}
@@ -90,16 +102,17 @@ footer{border-top:1px solid var(--hairline);padding:30px 0;text-align:center;mar
     <h1>Running 30 agents in production: what it actually takes</h1>
     <div class="byline">
       <span>JD DAVENPORT</span>
-      <span>UPDATED 2026-07-02</span>
+      <span>UPDATED 2026-08-28</span>
       <span>~9 MIN READ</span>
     </div>
 
-    <p>Anyone can demo an agent. Keeping a fleet of them alive for months, with real permissions and real consequences, is a different job, and almost nothing published about agents describes it honestly. This is the teardown of the Nerve Center, a 30-agent AI organization I designed, built, and operate in production: the architecture, three failures with root causes and the systemic fixes, how changes get reviewed, what it costs in real dollars, and the one constraint that makes the whole thing safe to hand authority.</p>
-    <p>The build itself stays private because it runs my actual life and work. Everything below is the real operating record, sanitized only where it has to be.</p>
+    <p>Anyone can demo an agent. Keeping a fleet of them alive for months, with real permissions and real consequences, is a different job, and almost nothing published about agents describes it honestly. This is the teardown of the Nerve Center, the AI organization I designed, built, and operate in production: 30+ agents in daily production, 100+ built over time. The architecture, three failures with root causes and the systemic fixes, how changes get reviewed, what it costs in real dollars, and the one constraint that makes the whole thing safe to hand authority.</p>
+    <p>The build itself stays private because it runs my actual life and work. Everything below is the real operating record, sanitized only where it has to be. The system does publish its own census: <a href="https://nerve-center-showcase.vercel.app" target="_blank" rel="noopener">the live capabilities page</a> is regenerated from live state every day, and the numbers on the homepage come from the same feed.</p>
 
     <h2>The architecture</h2>
     <p>The system in one sentence: a supervising daemon owns long-lived agent sessions, a message bus routes work between them and me, a shared memory graph gives them recall, Postgres holds durable state, and a watchdog layer assumes everything above it will eventually fail.</p>
-    <div class="stackline"><b>The stack:</b> Python daemons for orchestration and services · TypeScript/Next.js cockpit (Vercel) · Postgres on Supabase for durable state · vector + graph stores for memory · local LLM routing for rote jobs · launchd supervision on always-on hardware</div>
+    <div class="stackline"><b>The stack:</b> Python daemons for orchestration and services · TypeScript/Next.js cockpit (Vercel) · Postgres on Supabase for durable state · vector + graph stores for memory · local LLM routing for rote jobs · launchd supervision on always-on hardware<br><b>The agent layer:</b> Claude Code sessions · MCP servers for capability · PreToolUse hooks for policy · sub-agents for fan-out</div>
+    <p>Concretely, the agent layer is Claude Code. Every session is a Claude Code process under the supervising daemon; capability is extended through MCP servers rather than bespoke tool code; policy is enforced by PreToolUse hooks that run before any command executes, deterministically, regardless of what the model believes it is allowed to do; and fan-out work runs as sub-agents with their own tool grants and their own blast radius. Every guardrail described below lands in one of those four places.</p>
 
     <div class="diagram-wrap">
       <svg viewBox="0 0 900 620" role="img" aria-label="Nerve Center architecture diagram: operator and cockpit connect through a message bus to a supervising daemon that owns agent sessions; memory graph and Postgres sit beside them; a watchdog layer monitors everything; all outbound messages pass through a send gate.">
@@ -142,7 +155,7 @@ footer{border-top:1px solid var(--hairline);padding:30px 0;text-align:center;mar
         <!-- Agent sessions -->
         <rect class="box" x="240" y="388" width="420" height="76" rx="8"/>
         <text class="lbl" x="450" y="412" text-anchor="middle">agent sessions (PTY children)</text>
-        <text class="sub" x="450" y="431" text-anchor="middle">1 CEO agent → 30 specialists · 14 domains</text>
+        <text class="sub" x="450" y="431" text-anchor="middle">1 CEO agent → 30+ specialists in daily production</text>
         <text class="sub" x="450" y="449" text-anchor="middle">frontier models for hard work · small models for rote</text>
 
         <!-- Memory graph (left) -->
@@ -207,7 +220,7 @@ footer{border-top:1px solid var(--hairline);padding:30px 0;text-align:center;mar
 
     <h2>How changes get in</h2>
     <p>Nothing merges on one agent's word. Every substantive change goes through adversarial review by three separate agents with different instructions, one of which is explicitly told to try to reject the change. Then CI gates: a QA gate, an architecture gate, and a unit-test suite. Any bug that reached production gets a fixture test reproducing the exact failure interleaving before the fix lands, which is how the failures above became regression suites instead of stories.</p>
-    <p>The same pipeline governs the autonomous work. An agent that fixes a bug does it in an isolated worktree, proves it with a failing test that passes after, and clears blast-radius caps and a deny-list before merge. I open-sourced that engine because the governance model is the interesting part.</p>
+    <p>The same pipeline governs the autonomous work. An agent that fixes a bug does it in an isolated worktree, proves it with a failing test that passes after, and clears blast-radius caps and a deny-list before merge. I open-sourced that engine, <a href="https://github.com/jddavenportOpen/claude-bug-squash" target="_blank" rel="noopener">claude-bug-squash</a>, because the governance model is the interesting part: out of the box it can never merge. The orchestration and permission core is open too, as <a href="https://github.com/jddavenportOpen/orchestra-agents" target="_blank" rel="noopener">orchestra-agents</a>, and the same controls packaged for an enterprise are <a href="https://github.com/jddavenportOpen/claude-deploy-kit" target="_blank" rel="noopener">claude-deploy-kit</a>.</p>
 
     <h2>What it costs</h2>
     <p>Real numbers, because "AI is expensive" and "AI is cheap" are both lazy. A heavy build session runs $30 to $35 in API cost; two recent ones came in at $34.67 across 201 model calls and $32.13 across 188. A five-reviewer audit panel is roughly 300k tokens. A rote heartbeat that formats a status report costs pennies on a small model.</p>
@@ -227,10 +240,16 @@ footer{border-top:1px solid var(--hairline);padding:30px 0;text-align:center;mar
       <li><b>Gate the sends.</b> One chokepoint for everything outbound, with a freeze switch you can hit from your phone.</li>
     </ul>
 
+    <div class="addendum">
+      <div class="addendum-date">Addendum · 2026-08-28</div>
+      <p>The metrics on the homepage are now generated daily by the system itself. Token volume, turns, agent counts and the 30-day chart all come from the same feed the <a href="https://nerve-center-showcase.vercel.app" target="_blank" rel="noopener">live capabilities page</a> republishes from live state. A number a person types by hand starts decaying the same day; this one cannot, because nobody types it. The written copy across every public surface now says the same durable thing, 30+ agents in daily production and 100+ built over time, and the exact roster count appears only where a generator produces it.</p>
+    </div>
+
     <div class="footer-cta">
       <h3>Who wrote this</h3>
-      <p>JD Davenport. Product leader: $2M to $20M+ at National Grid, founder of the BYU AI Foundry, production AI at Siemens, MBA candidate at BYU Marriott. The Nerve Center is what happens when a P&amp;L operator encodes the operating model in software.</p>
-      <a href="/" class="btn btn-primary">Full site + case study →</a>
+      <p>JD Davenport. Product leader: $2M to $20M+ at National Grid, founder of the BYU AI Foundry, AI Builder at Siemens, MBA candidate at BYU Marriott. The Nerve Center is what happens when a P&amp;L operator encodes the operating model in software.</p>
+      <a href="/" class="btn btn-primary">Full site →</a>
+      <a href="https://github.com/jddavenportOpen/agent-safety-case-study" target="_blank" rel="noopener" class="btn btn-outline">Capability-vs-risk case study ↗</a>
       <a href="mailto:me@jddavenport.com" class="btn btn-outline">me@jddavenport.com</a>
     </div>
   </div>

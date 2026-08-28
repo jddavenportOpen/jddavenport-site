@@ -4,20 +4,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JD Davenport · AI Product Leader · Agent Expert</title>
-<meta name="description" content="AI product leader. Agent expert. I grow businesses and build agent systems that run in production: $2M to $20M+ at National Grid, the BYU AI Foundry, and a 30-agent AI organization.">
+<!-- One counting rule, stamped everywhere a count appears in STATIC copy:
+     "30+ agents in daily production · 100+ built over time."
+     Static text never names a precise definition count. The roster the public
+     showcase publishes is curated and moves, so any exact number written by
+     hand here goes stale against the page every one of these links points at.
+     Precise counts belong only where they are generated: the stat strip and
+     the telemetry band, both fed by /api/metrics. -->
+<meta name="description" content="AI product leader. Agent expert. I grow businesses and build agent systems that run in production: $2M to $20M+ at National Grid, the BYU AI Foundry, and a production AI organization with 30+ agents in daily production and 100+ built over time.">
+<link rel="canonical" href="https://jddavenport.com/">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.jddavenport.com">
+<meta property="og:url" content="https://jddavenport.com/">
 <meta property="og:title" content="JD Davenport · AI Product Leader · Agent Expert">
-<meta property="og:description" content="AI product leader. Agent expert. I grow businesses and build agent systems that run in production: $2M to $20M+ at National Grid, the BYU AI Foundry, and a 30-agent AI organization.">
+<meta property="og:description" content="AI product leader. Agent expert. I grow businesses and build agent systems that run in production: $2M to $20M+ at National Grid, the BYU AI Foundry, and a production AI organization with 30+ agents in daily production and 100+ built over time.">
 <meta property="og:image" content="https://jddavenport.com/images/og-image.png">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="JD Davenport · AI Product Leader · Agent Expert">
-<meta name="twitter:description" content="AI product leader. Agent expert. I grow businesses and build agent systems that run in production: $2M to $20M+ at National Grid, the BYU AI Foundry, and a 30-agent AI organization.">
+<meta name="twitter:description" content="AI product leader. Agent expert. I grow businesses and build agent systems that run in production: $2M to $20M+ at National Grid, the BYU AI Foundry, and a production AI organization with 30+ agents in daily production and 100+ built over time.">
 <meta name="twitter:image" content="https://jddavenport.com/images/og-image.png">
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "JD Davenport",
+  "url": "https://jddavenport.com/",
+  "image": "https://jddavenport.com/images/headshot.png",
+  "jobTitle": "AI Product Leader",
+  "email": "mailto:me@jddavenport.com",
+  "description": "AI product leader and agent expert. Scaled a fixed-price digital services business from $2M to $20M+ at National Grid, founded the BYU AI Foundry, and runs a production AI organization with 30+ agents in daily production and 100+ built over time.",
+  "alumniOf": {"@type": "CollegeOrUniversity", "name": "BYU Marriott School of Business"},
+  "worksFor": {"@type": "Organization", "name": "Siemens"},
+  "sameAs": [
+    "https://www.linkedin.com/in/jd-davenport/",
+    "https://github.com/jddavenportOpen"
+  ]
+}
+</script>
+<!-- Vercel Web Analytics. This script 404s until Web Analytics is switched ON
+     for this project in the Vercel dashboard (Project → Analytics → Enable).
+     Harmless while off: `defer` means it never blocks render. TOGGLE IT ON. -->
+<script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -132,7 +162,11 @@ nav a:not(.btn):hover{color:var(--text-1)}
 .showcase-note{font-size:.86rem;color:var(--text-3);max-width:560px;line-height:1.55}
 
 /* Builds grid */
-.builds-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+/* min(Npx,100%) on the minimum track, not a bare Npx: auto-fill/auto-fit will
+   not shrink a track below its stated minimum, so a bare value wider than the
+   available width pushes the grid past the viewport and the whole page scrolls
+   sideways on a phone. The min() lets the track collapse instead. */
+.builds-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:16px}
 .build-card{background:var(--surface-2);border:1px solid var(--hairline);border-radius:var(--radius-md);padding:0;transition:border-color .2s,transform .2s;display:flex;flex-direction:column;overflow:hidden;position:relative}
 .build-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent);opacity:.55}
 .build-card:hover{border-color:var(--border-strong);transform:translateY(-2px)}
@@ -147,6 +181,54 @@ nav a:not(.btn):hover{color:var(--text-1)}
 .pill{display:inline-block;font-family:var(--font-mono);font-size:.64rem;padding:2px 8px;border-radius:9999px;letter-spacing:.06em;text-transform:uppercase}
 .pill-oss{color:var(--ready);background:rgba(105,178,122,.14)}
 .pill-live{color:var(--working);background:rgba(124,180,207,.14)}
+.pill-case{color:var(--accent);background:rgba(245,166,35,.15)}
+
+/* Build tiers. The headline row is the artifact; everything else supports it. */
+.tier-label{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--text-3);margin:0 0 14px;display:flex;align-items:center;gap:12px}
+.tier-label::after{content:'';flex:1;height:1px;background:var(--hairline)}
+.tier-label.first{margin-top:0}
+.tier-note{font-size:.85rem;color:var(--text-3);line-height:1.6;margin:0 0 18px;max-width:640px}
+.builds-grid + .tier-label{margin-top:44px}
+
+/* Headline: three panels of one arc, visually elevated */
+.builds-grid.headline{grid-template-columns:repeat(auto-fit,minmax(min(288px,100%),1fr))}
+/* Strong: four cards, so two columns instead of three. A 3-wide grid orphans
+   the fourth card in a row of its own and leaves two empty tracks beside it. */
+.builds-grid.strong{grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr))}
+.headline .build-card{background:var(--surface-2);border-color:var(--border-default);box-shadow:0 0 0 1px rgba(245,166,35,.12),0 12px 32px -22px rgba(0,0,0,.9)}
+.headline .build-card::before{width:3px;opacity:1}
+.headline .build-card:hover{border-color:rgba(245,166,35,.42)}
+.headline .build-body{padding:20px 20px 20px}
+.headline .build-name{font-size:1.08rem}
+.headline .build-tag{color:var(--accent)}
+
+/* Supporting: one compact line each, no cards */
+.support-strip{border:1px solid var(--hairline);border-radius:var(--radius-md);background:var(--surface-1);overflow:hidden}
+.support-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;padding:13px 18px;border-bottom:1px solid var(--hairline)}
+.support-row:last-child{border-bottom:none}
+.support-row:hover{background:var(--surface-2)}
+.support-name{font-family:var(--font-mono);font-size:.84rem;font-weight:600;color:var(--text-1);flex:0 0 auto}
+.support-desc{font-size:.85rem;color:var(--text-2);flex:1 1 260px;line-height:1.5}
+.support-links{display:flex;gap:12px;font-family:var(--font-mono);font-size:.74rem;flex:0 0 auto}
+
+/* System telemetry band: numbers the system generates about itself */
+.telemetry{margin-top:24px;border:1px solid var(--hairline);border-radius:var(--radius-lg);background:var(--surface-1);overflow:hidden}
+.telemetry-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding:13px 20px;border-bottom:1px solid var(--hairline)}
+.telemetry-head .t-kicker{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--accent-text);display:flex;align-items:center;gap:8px}
+.telemetry-head .t-kicker::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.telemetry-head .t-src{font-family:var(--font-mono);font-size:.7rem;color:var(--text-3);margin-left:auto;letter-spacing:.03em}
+.telemetry-body{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:22px;padding:20px}
+.spark-wrap{min-width:0}
+.spark-wrap svg{width:100%;height:auto;display:block}
+.spark-cap{font-family:var(--font-mono);font-size:.68rem;color:var(--text-3);letter-spacing:.03em;display:flex;justify-content:space-between;gap:10px;margin-top:7px}
+.spark-title{font-size:.82rem;color:var(--text-2);line-height:1.5;margin-bottom:10px}
+.spark-title b{color:var(--text-1);font-weight:600;font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.tele-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:16px 20px;align-content:start}
+.tele-num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:1.18rem;font-weight:600;color:var(--accent);line-height:1.15}
+.tele-num a{color:var(--accent)}
+.tele-num a:hover{color:var(--accent-hover)}
+.tele-lbl{font-size:.75rem;color:var(--text-2);margin-top:3px;line-height:1.45}
+.telemetry-foot{padding:12px 20px;border-top:1px solid var(--hairline);font-size:.76rem;color:var(--text-3);line-height:1.55}
 
 /* Enterprise band */
 .enterprise{background:var(--surface-1);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
@@ -201,10 +283,16 @@ footer .container{display:flex;flex-direction:column;align-items:center;gap:14px
   .nav-toggle{display:block}
   nav.open{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(14,12,10,.97);backdrop-filter:blur(18px);padding:16px 24px;border-bottom:1px solid var(--hairline);gap:4px}
   nav.open a{display:block;padding:12px 0;text-align:left;width:100%}
+  .telemetry-body{grid-template-columns:1fr;gap:20px;padding:18px}
+  .telemetry-head .t-src{margin-left:0;flex-basis:100%}
 }
 @media(max-width:480px){
   .stat-cell{min-width:50%;flex:1 1 50%;border-bottom:1px solid var(--hairline)}
   .contact-links{flex-direction:column;align-items:stretch}
+  .hero-ctas{gap:9px}
+  .support-row{padding:12px 14px}
+  .support-name{flex-basis:100%}
+  .tele-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 </style>
 <script>document.documentElement.classList.add('js')</script>
@@ -234,20 +322,27 @@ footer .container{display:flex;flex-direction:column;align-items:center;gap:14px
       <div class="hero-content">
         <span class="eyebrow thinking"><span class="live-dot"></span><span id="thinking-word">Fandangling&hellip;</span></span>
         <h1>AI product leader. <span class="amber">Agent expert.</span></h1>
-        <p class="hero-sub">I lead product orgs, own the P&amp;L, and run a 30-agent AI organization that ships while I sleep.</p>
+        <p class="hero-sub">I lead product orgs, own the P&amp;L, and run a production AI organization that ships while I sleep: <strong>30+ agents in daily production, 100+ built over time.</strong></p>
         <p class="hero-target">BYU MBA class of 2027. Open to AI product and applied-AI leadership conversations now.</p>
         <div class="hero-ctas">
           <a href="#builds" class="btn btn-primary">See the work ↓</a>
-          <a href="/resume.pdf" target="_blank" rel="noopener" class="btn btn-outline">Resume (PDF) ↓</a>
+          <a href="/teardown" class="btn btn-outline">Teardown →</a>
+          <a href="/resume.pdf" target="_blank" rel="noopener" class="btn btn-outline">Resume ↓</a>
+          <a href="https://github.com/jddavenportOpen" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
           <a href="/book" class="btn btn-ghost">Book a meeting →</a>
         </div>
+        <!-- Career stats are resume-provenance and stay static. System stats are
+             telemetry: the values below are a real dated snapshot baked into the
+             HTML, and /api/metrics upgrades them in place when it answers. If the
+             fetch fails or JS is off, the snapshot is what renders. -->
         <div class="stat-strip">
           <div class="stat-cell"><div class="stat-num">$20M+</div><div class="stat-lbl">business scaled, from $2M</div></div>
           <div class="stat-cell"><div class="stat-num">5→35</div><div class="stat-lbl">engineering org grown</div></div>
-          <div class="stat-cell"><div class="stat-num">30</div><div class="stat-lbl">agents live · 14 domains</div></div>
-          <div class="stat-cell"><div class="stat-num">100+</div><div class="stat-lbl">agents built</div></div>
+          <div class="stat-cell"><div class="stat-num" id="stat-agents">38</div><div class="stat-lbl">agents on the public roster</div></div>
+          <div class="stat-cell"><div class="stat-num" id="stat-tokens">587M</div><div class="stat-lbl">tokens processed yesterday</div></div>
+          <div class="stat-cell"><div class="stat-num" id="stat-users">13,256</div><div class="stat-lbl">users across shipped products <span class="mono" id="stat-users-asof" style="color:var(--text-3)">(Aug 2026)</span></div></div>
         </div>
-        <div class="stat-asof">SNAPSHOT · 2026-08-26 · every build below is a live link or a clone-able repo</div>
+        <div class="stat-asof" id="stat-asof">SNAPSHOT · 2026-08-28 · every build below is a live link or a clone-able repo</div>
       </div>
       <div class="hero-avatar">
         <img src="images/headshot.png" alt="JD Davenport" width="200" height="200">
@@ -260,19 +355,66 @@ footer .container{display:flex;flex-direction:column;align-items:center;gap:14px
 <section class="section" id="nerve-center">
   <div class="container">
     <div class="kicker">The flagship build</div>
-    <h2 class="section-title fade-in">The Nerve Center: a 30-agent AI organization</h2>
-    <p class="section-sub fade-in">One CEO agent fans out to 30 specialists across 14 life and work domains: roughly 200 durable workflows, a live memory graph, every layer designed and built by me, including the design system on this page.</p>
+    <h2 class="section-title fade-in">The Nerve Center: a production AI organization</h2>
+    <p class="section-sub fade-in">One CEO agent fans out to specialists across my life and work domains: <strong style="color:var(--text-1);font-weight:600">30+ agents in daily production, 100+ built over time</strong>. Roughly 200 durable workflows, a live memory graph, every layer designed and built by me, including the design system on this page.</p>
 
     <div class="showcase-frame fade-in">
       <div class="frame-bar">
         <span class="fdot"></span><span class="fdot"></span><span class="fdot"></span>
-        <span class="furl">nerve center · production dashboard · july 2026</span>
+        <span class="furl">nerve center · memory graph · june 2026</span>
       </div>
       <img src="images/builds/nc_memory.jpg" alt="Nerve Center memory graph, an amber galaxy of the agent org's memory nodes" loading="lazy">
     </div>
 
+    <!-- System telemetry. Every value here is baked as a real dated snapshot and
+         upgraded in place by /api/metrics when it answers. The token figure is
+         deliberately never called "spend": plan consumption and list-price
+         repricing are two different measurements and conflating them is wrong. -->
+    <div class="telemetry fade-in" id="telemetry">
+      <div class="telemetry-head">
+        <span class="t-kicker">System telemetry</span>
+        <span class="t-src" id="tele-src">snapshot · 2026-08-27</span>
+      </div>
+      <div class="telemetry-body">
+        <div class="spark-wrap">
+          <p class="spark-title"><b id="tele-tokens">587M</b> tokens and <b id="tele-turns">4,794</b> turns yesterday. Work volume through the system, list-price equivalent.</p>
+          <!-- Baked points are the generator's own 30-day series through
+               2026-08-27, so the no-JS snapshot draws the same shape the live
+               fetch would. drawSpark() overwrites both on a successful fetch. -->
+          <svg id="tele-spark" viewBox="0 0 320 44" role="img" aria-label="Thirty-day chart of daily token volume through the Nerve Center, 2026-07-29 to 2026-08-27. Peak day 2.2 billion tokens.">
+            <polygon id="tele-spark-area" fill="rgba(245,166,35,0.10)" points="0,44 0.0,10.5 11.0,15.1 22.1,9.4 33.1,10.3 44.1,11.1 55.2,32.8 66.2,20.4 77.2,36.6 88.3,27.7 99.3,30.2 110.3,16.7 121.4,7.7 132.4,16.2 143.4,3.0 154.5,22.1 165.5,33.3 176.6,38.5 187.6,36.6 198.6,32.7 209.7,23.1 220.7,29.7 231.7,22.5 242.8,27.1 253.8,38.5 264.8,38.5 275.9,36.0 286.9,31.7 297.9,35.8 309.0,14.6 320.0,31.2 320,44"></polygon>
+            <polyline id="tele-spark-line" fill="none" stroke="#F5A623" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" points="0.0,10.5 11.0,15.1 22.1,9.4 33.1,10.3 44.1,11.1 55.2,32.8 66.2,20.4 77.2,36.6 88.3,27.7 99.3,30.2 110.3,16.7 121.4,7.7 132.4,16.2 143.4,3.0 154.5,22.1 165.5,33.3 176.6,38.5 187.6,36.6 198.6,32.7 209.7,23.1 220.7,29.7 231.7,22.5 242.8,27.1 253.8,38.5 264.8,38.5 275.9,36.0 286.9,31.7 297.9,35.8 309.0,14.6 320.0,31.2"></polyline>
+          </svg>
+          <div class="spark-cap"><span id="tele-spark-from">2026-07-29</span><span>30 days</span><span id="tele-spark-to">2026-08-27</span></div>
+        </div>
+        <div class="tele-grid">
+          <div>
+            <div class="tele-num" id="tele-days">140</div>
+            <div class="tele-lbl">days in daily production, since 2026-04-10</div>
+          </div>
+          <div>
+            <!-- Links to /teardown, which documents exactly these incidents in
+                 full. The generator publishes the count, so pointing it at a
+                 page describing a different number would re-open the mismatch
+                 this whole pass exists to close. -->
+            <div class="tele-num"><a href="/teardown" id="tele-incidents">3 →</a></div>
+            <div class="tele-lbl">incidents documented, with root causes and fixes</div>
+          </div>
+          <div>
+            <div class="tele-num" id="tele-tests">16,086</div>
+            <div class="tele-lbl">tests in the estate, one per guardrail that matters</div>
+          </div>
+          <div>
+            <div class="tele-num"><a href="https://github.com/jddavenportOpen" target="_blank" rel="noopener" id="tele-repos">40 ↗</a></div>
+            <div class="tele-lbl">public repos on jddavenportOpen</div>
+          </div>
+        </div>
+      </div>
+      <div class="telemetry-foot">Token volume is a list-price repricing of local transcripts: what the work would cost at published rates. It is not a bill and not plan consumption, which are different measurements. <span id="tele-live-note"></span></div>
+    </div>
+
     <div class="teardown fade-in">
-      <p style="margin-top:20px">It runs in production, which means it breaks in production. I run it anyway, behind machine-enforced guardrails and a send gate that stops it. If you want the architecture, the failures, and the fixes: <a href="/teardown">read the production teardown →</a></p>
+      <p style="margin-top:20px">It runs in production, which means it breaks in production. I run it anyway, behind machine-enforced guardrails and a send gate that stops it. If you want the architecture, the failures, and the fixes: <a href="/teardown">read the production teardown →</a> The system also publishes its own census every day: <a href="https://nerve-center-showcase.vercel.app" target="_blank" rel="noopener">see the live capabilities page ↗</a></p>
     </div>
   </div>
 </section>
@@ -284,16 +426,78 @@ footer .container{display:flex;flex-direction:column;align-items:center;gap:14px
   <div class="container">
     <div class="kicker">Shipped &amp; clickable</div>
     <h2 class="section-title fade-in">Things I've built. Clone them, click them.</h2>
-    <p class="section-sub fade-in">No slideware. Two of these are public MIT repos you can clone right now; the rest are live URLs. Pick anything.</p>
+    <p class="section-sub fade-in">No slideware. Every item here is a public repo you can clone or a URL you can open. The first row is one arc: the story, the system it came from, and the same controls packaged for an enterprise.</p>
 
-    <div class="builds-grid">
+    <p class="tier-label first fade-in">The artifact</p>
+    <p class="tier-note fade-in">Capability paired with the risk it carries, the control that bounds it, and the incident where the control failed anyway. Read the case study, then run the code it describes.</p>
+
+    <div class="builds-grid headline">
 
       <div class="build-card fade-in">
-        <img class="build-thumb" src="images/builds/bug_squash_og.png" alt="claude-bug-squash: autonomous bug fixing with governance built in. Open source, MIT." loading="lazy" style="object-position:center">
-        <div class="build-body">
+        <div class="build-body" style="padding-top:20px">
+          <div class="build-tag">Case study · start here</div>
+          <div class="build-name">agent-safety-case-study <span class="pill pill-case">public</span></div>
+          <p class="build-desc">Every capability this organization has, the concrete risk it carries, the control that bounds it, the tradeoff I accepted, and one incident where the control failed and what changed as a result.</p>
+          <div class="build-links">
+            <a href="https://github.com/jddavenportOpen/agent-safety-case-study" target="_blank" rel="noopener">github ↗</a>
+            <a href="/teardown">read the teardown →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="build-card fade-in">
+        <div class="build-body" style="padding-top:20px">
+          <div class="build-tag">Open source · MIT · Python</div>
+          <div class="build-name">orchestra-agents <span class="pill pill-oss">public repo</span></div>
+          <p class="build-desc">The production core as installable code: fleet fan-out under bounded concurrency, a durable message bus that dead-letters loudly, circuit breakers, best-of-N with an adversarial judge, and permission tiers from read to irreversible.</p>
+          <div class="build-links">
+            <a href="https://github.com/jddavenportOpen/orchestra-agents" target="_blank" rel="noopener">github ↗</a>
+            <span style="color:var(--text-3)">git clone &amp; run</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="build-card fade-in">
+        <div class="build-body" style="padding-top:20px">
+          <div class="build-tag">Open source · MIT · Python</div>
+          <div class="build-name">claude-deploy-kit <span class="pill pill-oss">public repo</span></div>
+          <p class="build-desc">The same controls shaped for an enterprise: one policy chokepoint that defaults to deny, a destructive-command hook that holds even under skip-permissions, a fail-closed eval gate, and a redacting audit log.</p>
+          <div class="build-links">
+            <a href="https://github.com/jddavenportOpen/claude-deploy-kit" target="_blank" rel="noopener">github ↗</a>
+            <span style="color:var(--text-3)">git clone &amp; run</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="tier-label fade-in">The system behind it</p>
+
+    <div class="builds-grid strong">
+
+      <div class="build-card fade-in">
+        <div class="build-body" style="padding-top:20px">
+          <div class="build-tag">Open source · MIT · MCP server</div>
+          <div class="build-name">mcp-judge <span class="pill pill-oss">public repo</span></div>
+          <p class="build-desc">A calibrated multi-persona LLM judge, exposed as an MCP server and shipped with the eval harness that proves the calibration. It names the four ways judges fail and tests for each one.</p>
+          <div class="build-links">
+            <a href="https://github.com/jddavenportOpen/mcp-judge" target="_blank" rel="noopener">github ↗</a>
+            <span style="color:var(--text-3)">git clone &amp; run</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thumbnail removed. images/builds/bug_squash_og.png is the repo's own
+           social card, and it renders "GITHUB.COM/JDDAVENPORT" as visible text.
+           That account returns 404 to every logged-out visitor, so the image
+           put a dead account in front of the reader in a way no link check can
+           see. It was also the only thumbnail in this four-card row, which left
+           a ~350px hole in the card beside it. -->
+      <div class="build-card fade-in">
+        <div class="build-body" style="padding-top:20px">
           <div class="build-tag">Open source · MIT</div>
           <div class="build-name">claude-bug-squash <span class="pill pill-oss">public repo</span></div>
-          <p class="build-desc">Autonomous bug fixing for any repo: every fix proven by a test and gated behind a three-agent review.</p>
+          <p class="build-desc">Point it at a repo and it triages, fixes in an isolated worktree, and proves red to green. Every fix clears blast-radius caps, a never-touch deny-list, and a three-seat adversarial review. Out of the box it can never merge.</p>
           <div class="build-links">
             <a href="https://github.com/jddavenportOpen/claude-bug-squash" target="_blank" rel="noopener">github ↗</a>
             <span style="color:var(--text-3)">git clone &amp; run</span>
@@ -301,67 +505,65 @@ footer .container{display:flex;flex-direction:column;align-items:center;gap:14px
         </div>
       </div>
 
+      <!-- Deliberately text-only. images/builds/nc_org.jpg is a real cockpit
+           screenshot, but it renders "33 agents · 15 domains" and a daily
+           dollar figure in its chrome. Putting it here would introduce a
+           fourth agent count and a "spend" number onto the one page whose
+           argument is that the numbers agree. -->
       <div class="build-card fade-in">
-        <img class="build-thumb" src="images/builds/deep_research_og.png" alt="deep-research-agent: a research agent that finds the gaps in its own knowledge and fact-checks every claim. Open source, MIT." loading="lazy" style="object-position:center">
-        <div class="build-body">
-          <div class="build-tag">Open source · MIT</div>
-          <div class="build-name">deep-research-agent <span class="pill pill-oss">public repo</span></div>
-          <p class="build-desc">A research agent that finds its own knowledge gaps, pulls 9 sources in parallel, and fact-checks every claim.</p>
+        <div class="build-body" style="padding-top:20px">
+          <div class="build-tag">Production system</div>
+          <div class="build-name">The Nerve Center <span class="pill pill-live">in production</span></div>
+          <p class="build-desc">The private system everything above came out of. It runs my actual life and work, so it stays closed. The receipts are open: a full teardown, and a capabilities page the system regenerates from live state every day.</p>
           <div class="build-links">
-            <a href="https://github.com/jddavenportOpen/deep-research-agent" target="_blank" rel="noopener">github ↗</a>
+            <a href="/teardown">read the teardown →</a>
+            <a href="https://nerve-center-showcase.vercel.app" target="_blank" rel="noopener">live capabilities ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="build-card fade-in">
+        <div class="build-body" style="padding-top:20px">
+          <div class="build-tag">Open source · MIT · Claude Code skills</div>
+          <div class="build-name">recruit-copilot <span class="pill pill-oss">public repo</span></div>
+          <p class="build-desc">A job search treated as a verification problem: one experience bank built from the resumes you already have, roles scored against goals you set, a resume tailored per posting and proven machine-readable. It does not apply for you. That is the point, not a limitation.</p>
+          <div class="build-links">
+            <a href="https://github.com/jddavenportOpen/recruit-copilot" target="_blank" rel="noopener">github ↗</a>
             <span style="color:var(--text-3)">git clone &amp; run</span>
           </div>
         </div>
       </div>
 
-      <div class="build-card fade-in">
-        <img class="build-thumb" src="images/builds/helios.jpg" alt="HELIOS Mars Fleet Mission Control" loading="lazy">
-        <div class="build-body">
-          <div class="build-tag">Design-system demo</div>
-          <div class="build-name">HELIOS Mission Control <span class="pill pill-live">live</span></div>
-          <p class="build-desc">A Mars-fleet simulation built to pressure-test the cockpit's design system. A demo, labeled as one.</p>
-          <div class="build-links">
-            <a href="https://helios-mission-control.vercel.app" target="_blank" rel="noopener">open live ↗</a>
-          </div>
-        </div>
-      </div>
+    </div>
 
-      <div class="build-card fade-in">
-        <img class="build-thumb" src="images/builds/aifoundry.jpg" alt="BYU AI Foundry site" loading="lazy">
-        <div class="build-body">
-          <div class="build-tag">Live app</div>
-          <div class="build-name">BYU AI Foundry <span class="pill pill-live">live</span></div>
-          <p class="build-desc">Founded and created the AI Foundry at BYU Marriott: student builders shipping production AI for real clients.</p>
-          <div class="build-links">
-            <a href="https://byu-aifoundry.com" target="_blank" rel="noopener">open live ↗</a>
-          </div>
-        </div>
-      </div>
+    <p class="tier-label fade-in">Also shipped</p>
 
-      <div class="build-card fade-in">
-        <div class="build-body" style="padding-top:20px">
-          <div class="build-tag">Live suite</div>
-          <div class="build-name">BYU MBA Office stack <span class="pill pill-live">7 apps live</span></div>
-          <p class="build-desc">Internal software for the BYU Marriott MBA Office: recruiter hub, placement dashboard, student portal, course bidding. In use.</p>
-          <div class="build-links">
-            <a href="https://github.com/jddavenportOpen/mba-bidding" target="_blank" rel="noopener">bidding repo ↗</a>
-            <a href="https://github.com/jddavenportOpen/byu-mba-alumni-portal" target="_blank" rel="noopener">alumni portal ↗</a>
-          </div>
-        </div>
+    <div class="support-strip fade-in">
+      <div class="support-row">
+        <span class="support-name">deep-research-agent</span>
+        <span class="support-desc">Iterative research with a knowledge-gap loop, nine parallel sources, and per-claim refute-or-survive verification.</span>
+        <span class="support-links"><a href="https://github.com/jddavenportOpen/deep-research-agent" target="_blank" rel="noopener">github ↗</a></span>
       </div>
-
-      <div class="build-card fade-in">
-        <div class="build-body" style="padding-top:20px">
-          <div class="build-tag">Documentation &amp; newsletter</div>
-          <div class="build-name">docs.agenttree.army <span class="pill pill-live">live</span></div>
-          <p class="build-desc">Engineering docs plus the Agent Dispatch newsletter: agent architecture and orchestration write-ups from running the org.</p>
-          <div class="build-links">
-            <a href="https://docs.agenttree.army" target="_blank" rel="noopener">read the docs ↗</a>
-            <a href="https://docs.agenttree.army/newsletter" target="_blank" rel="noopener">newsletter ↗</a>
-          </div>
-        </div>
+      <div class="support-row">
+        <span class="support-name">context-kit</span>
+        <span class="support-desc">Four personal-context templates and five Claude Code skills, so an agent starts with real context instead of guessing. One-command install.</span>
+        <span class="support-links"><a href="https://github.com/jddavenportOpen/context-kit" target="_blank" rel="noopener">github ↗</a><a href="https://docs.agenttree.army/articles/personal-ai-os/" target="_blank" rel="noopener">write-up ↗</a></span>
       </div>
-
+      <div class="support-row">
+        <span class="support-name">BYU AI Foundry</span>
+        <span class="support-desc">The program I founded at BYU Marriott: student builders shipping production AI for real clients. Its jobs board is scored by resume-grader, a documented LLM judge.</span>
+        <span class="support-links"><a href="https://byu-aifoundry.com" target="_blank" rel="noopener">open live ↗</a><a href="https://github.com/jddavenportOpen/resume-grader" target="_blank" rel="noopener">resume-grader ↗</a></span>
+      </div>
+      <div class="support-row">
+        <span class="support-name">clawdling · fleetwright · harnessview</span>
+        <span class="support-desc">The open bring-your-own-key engine behind the private org, a self-hosted fleet cockpit, and a harness inspector.</span>
+        <span class="support-links"><a href="https://github.com/jddavenportOpen/clawdling" target="_blank" rel="noopener">clawdling ↗</a><a href="https://github.com/jddavenportOpen/fleetwright" target="_blank" rel="noopener">fleetwright ↗</a><a href="https://github.com/jddavenportOpen/harnessview" target="_blank" rel="noopener">harnessview ↗</a></span>
+      </div>
+      <div class="support-row">
+        <span class="support-name">docs.agenttree.army</span>
+        <span class="support-desc">Engineering write-ups and the Agent Dispatch newsletter: architecture and orchestration notes from running the org.</span>
+        <span class="support-links"><a href="https://docs.agenttree.army" target="_blank" rel="noopener">docs ↗</a><a href="https://docs.agenttree.army/newsletter" target="_blank" rel="noopener">newsletter ↗</a></span>
+      </div>
     </div>
   </div>
 </section>
@@ -499,8 +701,123 @@ footer .container{display:flex;flex-direction:column;align-items:center;gap:14px
 <script>
 (function(){
   var w=document.getElementById('thinking-word');if(!w)return;
-  var words=['Fandangling','Orchestrating 30 agents','Delegating','Wrangling the fleet','Percolating','Adversarially reviewing','Reticulating splines','Shipping'];
+  var words=['Fandangling','Orchestrating the fleet','Delegating','Wrangling 30 agents','Percolating','Adversarially reviewing','Reticulating splines','Shipping'];
   var i=0;setInterval(function(){i=(i+1)%words.length;w.innerHTML=words[i]+'&hellip;';},2800);
+})();
+</script>
+<script>
+// Live system telemetry.
+//
+// Progressive enhancement, strictly. Every number rendered above is already a
+// real, dated snapshot baked into the HTML. This script upgrades a number ONLY
+// when /api/metrics actually hands one over. No JS, a failed fetch, a degraded
+// upstream: all three leave the snapshot standing. Nothing here can blank a value.
+(function(){
+  var PROD_START = '2026-04-10';   // first day the org ran unattended, daily
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  function el(id){ return document.getElementById(id); }
+  function setText(id, value){
+    var node = el(id);
+    if (node && value !== null && value !== undefined && value !== '') node.textContent = value;
+  }
+  function isNum(v){ return typeof v === 'number' && isFinite(v); }
+
+  // 587,530,615 -> "587M". Truncates rather than rounds, so the page never
+  // reads higher than the measurement behind it.
+  function fmtTokens(n){
+    if (!isNum(n) || n <= 0) return null;
+    if (n >= 1e9) return (Math.floor(n / 1e8) / 10).toFixed(1).replace(/\.0$/, '') + 'B';
+    if (n >= 1e6) return Math.floor(n / 1e6) + 'M';
+    if (n >= 1e3) return Math.floor(n / 1e3) + 'K';
+    return String(n);
+  }
+  function fmtInt(n){ return isNum(n) ? n.toLocaleString('en-US') : null; }
+  function asOfMonth(iso){
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(iso || '')) return null;
+    var parts = iso.split('-');
+    return '(' + MONTHS[parseInt(parts[1], 10) - 1] + ' ' + parts[0] + ')';
+  }
+
+  // 30-day sparkline, drawn from the same {d,total} points the API returns.
+  function drawSpark(points){
+    var svg = el('tele-spark'), line = el('tele-spark-line'), area = el('tele-spark-area');
+    if (!svg || !line || !area || !points || points.length < 2) return;
+    var W = 320, H = 44, PAD = 3, max = 0, i;
+    for (i = 0; i < points.length; i++) { if (points[i].total > max) max = points[i].total; }
+    if (!max) return;
+    var coords = [];
+    for (i = 0; i < points.length; i++) {
+      var x = (i / (points.length - 1)) * W;
+      var y = H - PAD - (points[i].total / max) * (H - PAD * 2);
+      coords.push(x.toFixed(1) + ',' + y.toFixed(1));
+    }
+    var pts = coords.join(' ');
+    line.setAttribute('points', pts);
+    area.setAttribute('points', '0,' + H + ' ' + pts + ' ' + W + ',' + H);
+    setText('tele-spark-from', points[0].d);
+    setText('tele-spark-to', points[points.length - 1].d);
+    svg.setAttribute('aria-label',
+      'Chart of daily token volume through the Nerve Center, ' + points[0].d +
+      ' to ' + points[points.length - 1].d + '. Peak day ' + fmtTokens(max) + ' tokens.');
+  }
+
+  // Days in production is derived locally, so it stays correct and keeps
+  // counting whether or not the API ever answers.
+  function setDays(startIso){
+    var started = Date.parse(startIso + 'T00:00:00Z');
+    if (!isFinite(started)) return;
+    var days = Math.floor((Date.now() - started) / 86400000);
+    if (days > 0) setText('tele-days', fmtInt(days));
+  }
+  setDays(PROD_START);
+
+  function apply(payload){
+    if (!payload || typeof payload !== 'object') return;
+    var stats = payload.stats || {};
+    var m = payload.metrics || {};
+    var asOf = payload.as_of || m.as_of || null;
+
+    // The curated public roster is what the showcase actually displays, and it
+    // is the number every link off this page can be checked against.
+    // stats.agents is the raw feed header and can lag a curation pass, so it
+    // is only the fallback.
+    var agents = (m.tools && m.tools.agents);
+    if (!isNum(agents)) agents = stats.agents;
+    setText('stat-agents', fmtInt(agents));
+
+    if (/^\d{4}-\d{2}-\d{2}$/.test(m.production_since || '')) setDays(m.production_since);
+
+    var tokens = m.tokens_yesterday && m.tokens_yesterday.total;
+    setText('stat-tokens', fmtTokens(tokens));
+    setText('tele-tokens', fmtTokens(tokens));
+    setText('tele-turns', fmtInt(m.turns_yesterday));
+
+    setText('stat-users', fmtInt(m.live_users));
+    setText('stat-users-asof', asOfMonth(asOf));
+
+    setText('tele-tests', fmtInt(m.tests_estate));
+    if (isNum(m.incidents_documented)) setText('tele-incidents', m.incidents_documented + ' →');
+    // Deliberately NOT wired to m.repos.public. The feed's repos field is an
+    // aggregate across two GitHub accounts, and one of those accounts is not
+    // reachable by a logged-out visitor, so that total is a number the reader
+    // cannot check. The static 40 is the jddavenportOpen count, one click away.
+
+    drawSpark(m.tokens_30d_sparkline);
+
+    // The honest-provenance flip: only a real answer earns the LIVE label.
+    if (asOf) {
+      setText('stat-asof', 'LIVE · generated daily by the system it measures · ' + asOf);
+      setText('tele-src', 'live · ' + asOf);
+      setText('tele-live-note', 'Regenerated ' + asOf + ' by the system it measures.');
+    }
+  }
+
+  if (!window.fetch) return;
+  fetch('/api/metrics', { headers: { accept: 'application/json' } })
+    .then(function(r){ if (!r.ok) throw new Error('metrics ' + r.status); return r.json(); })
+    .then(apply)
+    .catch(function(){ /* keep the baked snapshot; it is real and dated */ });
 })();
 </script>
 </body>

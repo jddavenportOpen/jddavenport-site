@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>og-card source</title>
+<!--
+  Source for images/og-image.png. Render with:
+      python3.12 tools/render-og.py
+  which screenshots this file at exactly 1200x630 (Playwright, deviceScaleFactor 1).
+
+  Every token below is copied from index.html's :root. If the site's palette
+  changes, change it here too and re-render, so the link-preview card can never
+  drift into a previous generation of the design the way the old one did.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --canvas:#0E0C0A;
+  --surface-1:#15120F;
+  --accent:#F5A623;
+  --accent-text:#F8C384;
+  --text-1:#ECEBEA;
+  --text-2:#AEABA8;
+  --text-3:#827F7C;
+  --hairline:rgba(255,255,255,0.07);
+  --border-default:rgba(255,255,255,0.10);
+  --font-ui:'Geist',system-ui,-apple-system,sans-serif;
+  --font-mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{
+  background:var(--canvas);
+  color:var(--text-1);
+  font-family:var(--font-ui);
+  letter-spacing:-0.005em;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+/* The 2px amber left edge that every build card on the site carries. */
+.edge{position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--accent)}
+/* A very soft amber bloom in the lower right, the one gradient the system allows. */
+.bloom{position:absolute;right:-160px;bottom:-220px;width:720px;height:720px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,166,35,.13) 0%,rgba(245,166,35,.04) 45%,rgba(245,166,35,0) 70%)}
+.card{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 84px}
+.kicker{font-family:var(--font-mono);font-size:20px;text-transform:uppercase;letter-spacing:.18em;
+  color:var(--accent-text);display:flex;align-items:center;gap:14px;font-weight:500;margin-bottom:30px}
+.kicker::before{content:'';width:11px;height:11px;border-radius:50%;background:var(--accent);flex:0 0 auto}
+h1{font-size:82px;font-weight:600;line-height:1.02;letter-spacing:-0.025em;margin-bottom:26px}
+.tagline{font-size:38px;font-weight:600;line-height:1.2;letter-spacing:-0.02em;color:var(--text-1);margin-bottom:34px}
+.tagline .amber{color:var(--accent)}
+.rule{height:1px;background:var(--border-default);margin-bottom:28px}
+.count{font-family:var(--font-mono);font-size:23px;line-height:1.55;color:var(--text-2);letter-spacing:.01em;
+  font-variant-numeric:tabular-nums}
+.count b{color:var(--text-1);font-weight:600}
+.foot{position:absolute;left:84px;right:84px;bottom:52px;display:flex;align-items:baseline;justify-content:space-between}
+.domain{font-family:var(--font-mono);font-size:26px;font-weight:600;color:var(--accent);letter-spacing:.01em}
+.wordmark{font-family:var(--font-mono);font-size:17px;text-transform:uppercase;letter-spacing:.14em;color:var(--text-3)}
+</style>
+</head>
+<body>
+  <div class="edge"></div>
+  <div class="bloom"></div>
+  <div class="card">
+    <div class="kicker">Production AI organization</div>
+    <h1>JD Davenport</h1>
+    <div class="tagline">AI product leader. <span class="amber">Agent expert.</span></div>
+    <div class="rule"></div>
+    <!-- Durable phrasing only. A link-preview card is cached by every platform
+         that has ever seen it, so an exact roster count baked here outlives any
+         correction and is the single worst place on the estate to put a number
+         that moves. That is exactly how the previous card ended up still
+         claiming "50+ autonomous agents" long after nothing else said it. -->
+    <div class="count"><b>30+</b> agents in daily production &middot; <b>100+</b> built over time</div>
+  </div>
+  <div class="foot">
+    <span class="domain">jddavenport.com</span>
+    <span class="wordmark">Built in the warm-graphite system</span>
+  </div>
+</body>
+</html>
