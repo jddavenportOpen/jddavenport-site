@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Showcase · JD Davenport · AI Product Leader</title>
+<meta name="description" content="JD Davenport, AI product leader. A live map of the multi-agent AI operating system he runs, the open-source projects pulled out of it, and links to shipped work. Everything on this page is running, cloneable, or clickable.">
+<meta name="theme-color" content="#0E0C0A">
+<link rel="canonical" href="https://jddavenport.com/showcase">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jddavenport.com/showcase">
+<meta property="og:title" content="JD Davenport · AI Product Leader · Showcase">
+<meta property="og:description" content="Everything on this page is running, cloneable, or clickable. No slideware.">
+<meta property="og:image" content="https://jddavenport.com/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://nerve-center-showcase.vercel.app" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#0E0C0A;--surface-1:#15120F;--surface-2:#1D1A17;--surface-3:#26221E;--surface-4:#302C27;--sunken:#090705;--text-1:#ECEBEA;--text-2:#AEABA8;--text-3:#827F7C;--accent:#F5A623;--accent-text:#F8C384;--accent-hover:#FFB44B;--on-accent:#1C140C;--hairline:rgba(255,255,255,.07);--border-default:rgba(255,255,255,.10);--border-strong:rgba(255,255,255,.14);--ready:#69B27A;--radius-md:8px;--radius-lg:12px;--font-ui:'Geist',system-ui,-apple-system,sans-serif;--font-mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--canvas);color:var(--text-1);font-family:var(--font-ui);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--accent-text);text-decoration:none}
+a:hover{color:var(--accent-hover)}
+h1,h2,h3{font-family:var(--font-ui);font-weight:600;line-height:1.15;letter-spacing:-0.02em;margin:0}
+p{margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px;border-bottom:1px solid var(--hairline)}
+.brand{font-family:var(--font-mono);font-size:.82rem;color:var(--text-2)}
+.brand b{color:var(--text-1);font-weight:600}
+@media (max-width:479px){.brand .dom{display:none}}
+.topnav{display:flex;gap:18px;font-family:var(--font-mono);font-size:.78rem}
+.topnav a{color:var(--text-2)}
+.topnav a:hover{color:var(--text-1)}
+.hero{padding-top:36px;padding-bottom:30px}
+.hero-id{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.hero-id img{width:56px;height:56px;border-radius:50%;border:1px solid var(--border-strong);background:var(--surface-2);object-fit:cover}
+.eyebrow{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:var(--accent-text)}
+h1{font-size:clamp(2.3rem,9vw,3.8rem);font-weight:700;letter-spacing:-0.035em}
+.role{display:block;color:var(--accent);font-size:clamp(1.25rem,5vw,1.7rem);font-weight:600;letter-spacing:-0.02em;margin-top:6px}
+.tagline{margin-top:18px;font-size:clamp(1.05rem,3.6vw,1.25rem);color:var(--text-2);max-width:40ch}
+.tagline strong{color:var(--text-1);font-weight:600}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;border-radius:var(--radius-md);border:1px solid var(--border-strong);background:var(--surface-2);color:var(--text-1);font:500 .95rem/1 var(--font-ui);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.btn:hover{border-color:rgba(245,166,35,.5);color:var(--text-1)}
+.btn-accent{background:var(--accent);border-color:transparent;color:var(--on-accent);font-weight:600}
+.btn-accent:hover{background:var(--accent-hover);color:var(--on-accent)}
+section{padding:44px 0;border-top:1px solid var(--hairline)}
+.kicker{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:var(--accent-text);margin-bottom:12px;font-weight:500}
+h2{font-size:clamp(1.6rem,6vw,2.4rem)}
+.lead{color:var(--text-2);margin-top:12px;max-width:62ch}
+.lead b{color:var(--text-1);font-weight:600}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:999px;border:1px solid var(--border-strong);color:var(--text-2);white-space:nowrap}
+.chip .dot{width:7px;height:7px;border-radius:50%;background:var(--text-3)}
+.chip.live{color:#A9DDB4;border-color:rgba(105,178,122,.45)}
+.chip.live .dot{background:var(--ready);animation:ping 2s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(105,178,122,.7)}80%,100%{box-shadow:0 0 0 7px rgba(105,178,122,0)}}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:22px}
+.stat{background:var(--surface-1);border:1px solid var(--border-default);border-radius:10px;padding:13px 14px;min-width:0}
+.stat b{display:block;font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:1.55rem;font-weight:600;line-height:1.1}
+.stat span{display:block;font-size:.78rem;color:var(--text-3);margin-top:4px;line-height:1.35}
+.spark{display:block;width:100%;height:24px;margin-top:8px}
+.spark rect{fill:var(--accent);opacity:.75}
+.sys{margin-top:18px;display:grid;gap:16px}
+.diagram{background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:12px 12px 10px;min-width:0}
+.dtool{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.dtool .hint{font-family:var(--font-mono);font-size:.7rem;color:var(--text-3);text-align:right}
+#sys{display:block;width:100%;height:auto;overflow:visible}
+#sys .band{fill:var(--sunken);stroke:rgba(255,255,255,.12);stroke-dasharray:3 4}
+#sys .rl{font-family:var(--font-mono);font-size:8px;letter-spacing:.12em;fill:var(--text-3)}
+#sys .edge{fill:none;stroke:rgba(255,255,255,.2);stroke-width:1.2;transition:stroke .3s,opacity .3s}
+#sys .edge.hl{stroke:var(--accent);stroke-width:1.8}
+#sys .pkt{fill:var(--accent)}
+#sys .node{cursor:pointer;outline:none;transition:opacity .3s;-webkit-tap-highlight-color:transparent}
+#sys .node rect{fill:var(--surface-2);stroke:var(--border-strong);stroke-width:1;transition:stroke .2s,fill .2s}
+#sys .node:hover rect,#sys .node:focus-visible rect{stroke:var(--accent-hover);stroke-width:1.6}
+#sys .node.sel rect,#sys .node.hl rect{stroke:var(--accent);stroke-width:1.8;fill:var(--surface-3)}
+#sys .node.accent rect{fill:var(--surface-3);stroke:rgba(245,166,35,.7)}
+#sys .node.gate rect{fill:rgba(245,166,35,.08);stroke:rgba(245,166,35,.55)}
+#sys .node.heal rect{stroke:rgba(105,178,122,.7);stroke-dasharray:4 3}
+#sys .node.store rect{fill:var(--surface-1)}
+#sys .nt{font-family:var(--font-ui);font-size:11px;font-weight:600;fill:var(--text-1);text-anchor:middle;pointer-events:none}
+#sys .ns{font-family:var(--font-mono);font-size:8.3px;fill:var(--text-2);text-anchor:middle;pointer-events:none}
+#sys .pulse{fill:var(--accent);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+#sys.touring .node:not(.hl){opacity:.28}
+#sys.touring .edge:not(.hl){opacity:.18}
+.cap{min-height:44px;margin-top:10px;padding:10px 12px;border-radius:var(--radius-md);background:var(--sunken);border:1px solid var(--hairline);font-size:.88rem;color:var(--text-2);display:flex;align-items:center}
+.cap b{color:var(--accent-text);font-family:var(--font-mono);font-weight:500;font-size:.72rem;margin-right:8px;white-space:nowrap}
+.panel{display:grid;gap:14px;align-content:start;min-width:0}
+.box{background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:16px 18px}
+.dk{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);margin-bottom:8px}
+.box h3{font-size:1.1rem;margin-bottom:8px}
+.box p{color:var(--text-2);font-size:.93rem}
+.box p+p{margin-top:10px}
+.box .tech{font-family:var(--font-mono);font-size:.78rem;color:var(--text-3);line-height:1.5}
+.flow{margin:0;padding:0 0 0 20px;color:var(--text-2);font-size:.92rem}
+.flow li{padding:4px 0;transition:color .3s}
+.flow li::marker{color:var(--text-3);font-family:var(--font-mono);font-size:.8rem}
+.flow li.on{color:var(--text-1)}
+.flow li.on::marker{color:var(--accent)}
+#sheet{display:none;position:relative}
+#sheet.open{display:block}
+.x{position:absolute;top:8px;right:8px;width:36px;height:36px;border-radius:8px;border:1px solid var(--border-default);background:var(--surface-2);color:var(--text-2);font-size:1.1rem;cursor:pointer}
+.fine{font-family:var(--font-mono);font-size:.72rem;color:var(--text-3);margin-top:14px;line-height:1.6;max-width:80ch}
+.fine a{color:var(--text-2);text-decoration:underline;text-decoration-color:rgba(255,255,255,.25);text-underline-offset:2px}
+.cards{display:grid;gap:12px;margin-top:22px}
+.card{display:block;padding:18px;border-radius:var(--radius-lg);background:var(--surface-1);border:1px solid var(--border-default);color:inherit;transition:border-color .15s,transform .15s}
+.card:hover{border-color:rgba(245,166,35,.5);color:inherit;transform:translateY(-1px)}
+.card-top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px}
+.card h3{font-family:var(--font-mono);font-size:1rem;font-weight:600;letter-spacing:0;color:var(--text-1);word-break:break-word}
+.lang{font-family:var(--font-mono);font-size:.68rem;color:var(--text-3)}
+.card p{font-size:.92rem;color:var(--text-2);margin-top:10px}
+.card .why{color:var(--text-1)}
+.card .why span{display:block;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);margin-bottom:3px}
+.go{display:block;margin-top:14px;font-family:var(--font-mono);font-size:.72rem;color:var(--accent-text);word-break:break-all}
+.proof{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px}
+.proof li{background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-lg);transition:border-color .15s;min-width:0}
+.proof li:hover{border-color:rgba(245,166,35,.5)}
+.pr{display:block;padding:16px 18px 14px;color:inherit}
+.pr:hover{color:inherit}
+.badge{display:inline-block;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:5px;border:1px solid var(--border-strong);color:var(--text-2)}
+.badge.live{background:rgba(105,178,122,.14);border-color:rgba(105,178,122,.5);color:#A9DDB4}
+.badge.app{background:rgba(245,166,35,.12);border-color:rgba(245,166,35,.45);color:var(--accent-text)}
+.pr h3{font-size:1.04rem;margin-top:10px}
+.pr p{color:var(--text-2);font-size:.9rem;margin-top:5px}
+.url{display:block;margin-top:9px;font-family:var(--font-mono);font-size:.72rem;color:var(--text-3);word-break:break-all}
+.src{display:inline-block;margin:0 18px 14px;font-family:var(--font-mono);font-size:.72rem;color:var(--accent-text)}
+.contact{display:grid;gap:14px}
+.contact .ctas{margin-top:6px}
+footer{border-top:1px solid var(--hairline);padding-top:26px;padding-bottom:40px;font-family:var(--font-mono);font-size:.72rem;color:var(--text-3);line-height:1.7}
+footer a{color:var(--text-2)}
+@media (max-width:899px){
+ #sheet.open{position:fixed;left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom));z-index:50;max-height:58vh;overflow:auto;box-shadow:0 -12px 48px rgba(0,0,0,.7);border-color:rgba(245,166,35,.45);padding-right:52px}
+}
+@media (min-width:720px){
+ .wrap{padding:0 28px}
+ body{font-size:17px}
+ section{padding:64px 0}
+ .stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .cards{grid-template-columns:1fr 1fr}
+ .proof{grid-template-columns:1fr 1fr}
+ .hero{padding-top:56px;padding-bottom:44px}
+}
+@media (min-width:900px){
+ .sys{grid-template-columns:minmax(0,470px) minmax(0,1fr);gap:28px;align-items:start}
+ .panel{position:sticky;top:18px}
+}
+@media (prefers-reduced-motion:reduce){
+ #sys .pkt{display:none}
+ #sys .pulse,.chip.live .dot{animation:none}
+ html{scroll-behavior:auto}
+ .card{transition:none}
+}
+</style>
+</head>
+<body>
+<header class="wrap topbar">
+ <a class="brand" href="/"><b>JD Davenport</b><span class="dom"> · jddavenport.com</span></a>
+ <nav class="topnav" aria-label="Sections"><a href="#system">System</a><a href="#projects">Projects</a><a href="#proof">Proof</a></nav>
+</header>
+
+<main>
+<div class="wrap hero">
+ <div class="hero-id"><img src="/images/jd-160.jpg" width="56" height="56" alt="JD Davenport"><span class="eyebrow">Showcase</span></div>
+ <h1>JD Davenport<span class="role">AI Product Leader</span></h1>
+ <p class="tagline"><strong>Everything on this page is running, cloneable, or clickable.</strong> No slideware.</p>
+ <div class="ctas">
+  <a class="btn btn-accent" href="https://book.jddavenport.com">Book time with me</a>
+  <a class="btn" href="/resume.pdf">Résumé (PDF)</a>
+  <a class="btn" href="mailto:me@jddavenport.com">Email</a>
+  <a class="btn" href="https://www.linkedin.com/in/jd-davenport/">LinkedIn</a>
+  <a class="btn" href="https://github.com/jddavenportOpen">GitHub</a>
+ </div>
+</div>
+
+<section id="system">
+ <div class="wrap">
+  <div class="sec-head">
+   <div>
+    <div class="kicker">01 · Live system view</div>
+    <h2>The AI operating system I run my work on</h2>
+   </div>
+   <span id="live-chip" class="chip"><span class="dot"></span><span id="chip-text">Snapshot · 2026-09-24</span></span>
+  </div>
+  <p class="lead">One orchestrator, <b data-k="agents">48</b> specialized agents, a durable job queue, and a gate on every irreversible action. It runs 24/7 on a Mac mini and republishes its own inventory when it ships.</p>
+
+  <div class="stats">
+   <div class="stat"><b data-k="agents">48</b><span>specialized agents</span></div>
+   <div class="stat"><b data-k="automations">237</b><span>background jobs</span></div>
+   <div class="stat"><b data-k="watchdogs">60</b><span>of those jobs are watchdogs</span></div>
+   <div class="stat"><b data-k="ships">1,029</b><span>shipped-work log entries, last 30 days</span><svg class="spark" id="spark" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="2.0" width="3" height="26.0" rx="1"/><rect x="4" y="16.8" width="3" height="11.2" rx="1"/><rect x="8" y="19.0" width="3" height="9.0" rx="1"/><rect x="12" y="24.0" width="3" height="4.0" rx="1"/><rect x="16" y="12.5" width="3" height="15.5" rx="1"/><rect x="20" y="18.2" width="3" height="9.8" rx="1"/><rect x="24" y="12.5" width="3" height="15.5" rx="1"/><rect x="28" y="8.9" width="3" height="19.1" rx="1"/><rect x="32" y="14.6" width="3" height="13.4" rx="1"/><rect x="36" y="9.2" width="3" height="18.8" rx="1"/><rect x="40" y="13.2" width="3" height="14.8" rx="1"/><rect x="44" y="19.0" width="3" height="9.0" rx="1"/><rect x="48" y="18.2" width="3" height="9.8" rx="1"/><rect x="52" y="10.7" width="3" height="17.3" rx="1"/><rect x="56" y="10.7" width="3" height="17.3" rx="1"/><rect x="60" y="25.8" width="3" height="2.2" rx="1"/><rect x="64" y="4.5" width="3" height="23.5" rx="1"/><rect x="68" y="10.7" width="3" height="17.3" rx="1"/><rect x="72" y="21.1" width="3" height="6.9" rx="1"/><rect x="76" y="20.8" width="3" height="7.2" rx="1"/><rect x="80" y="24.4" width="3" height="3.6" rx="1"/><rect x="84" y="19.7" width="3" height="8.3" rx="1"/><rect x="88" y="26.2" width="3" height="1.8" rx="1"/><rect x="92" y="21.5" width="3" height="6.5" rx="1"/><rect x="96" y="20.8" width="3" height="7.2" rx="1"/><rect x="100" y="6.7" width="3" height="21.3" rx="1"/><rect x="104" y="12.8" width="3" height="15.2" rx="1"/><rect x="108" y="11.8" width="3" height="16.2" rx="1"/><rect x="112" y="8.5" width="3" height="19.5" rx="1"/><rect x="116" y="25.8" width="3" height="2.2" rx="1"/></svg></div>
+  </div>
+
+  <div class="sys">
+   <div class="diagram">
+    <div class="dtool">
+     <button id="tour" class="btn btn-accent" type="button" aria-pressed="false">▶ Follow one job</button>
+     <span class="hint">or tap any box</span>
+    </div>
+    <svg id="sys" viewBox="0 0 344 596" role="group" aria-label="Architecture map of JD Davenport's multi-agent AI operating system"><rect class="band" x="0.5" y="504" width="343" height="86" rx="10"/><text class="rl" x="10" y="523">MEMORY + STATE · every layer reads and writes here</text><text class="rl" x="0" y="13">IN</text><text class="rl" x="0" y="93">ROUTE</text><text class="rl" x="0" y="179">DISPATCH</text><text class="rl" x="0" y="263">WORK</text><text class="rl" x="0" y="343">GUARD</text><text class="rl" x="0" y="425">SHIP</text><path class="edge" id="e-c1" d="M54 60 C54 80 80 80 80 100"/><path class="edge" id="e-c2" d="M172 60 C172 80 150 80 150 100"/><path class="edge" id="e-c3" d="M290 60 C290 82 210 78 210 100"/><path class="edge" id="e-cb" d="M226 123 L236 123"/><path class="edge" id="e-c4" d="M54 146 L54 186"/><path class="edge" id="e-c5" d="M172 146 L172 186"/><path class="edge" id="e-c6" d="M214 146 C214 166 290 166 290 186"/><path class="edge" id="e-cq" d="M108 208 L118 208"/><path class="edge" id="e-c7" d="M150 230 C150 250 70 250 70 270"/><path class="edge" id="e-c8" d="M172 230 L172 270"/><path class="edge" id="e-c9" d="M290 230 L290 270"/><path class="edge" id="e-c10" d="M54 316 L54 350"/><path class="edge" id="e-c11" d="M172 316 L172 350"/><path class="edge" id="e-c12" d="M290 316 L290 350"/><path class="edge" id="e-c13" d="M83 398 L83 432"/><circle class="pkt" r="2.8"><animateMotion dur="6s" repeatCount="indefinite" path="M54 60 C54 80 80 80 80 100" keyPoints="0;0;1;1" keyTimes="0;0.0;0.15;1" calcMode="linear"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.0;0.01;0.14;0.15;1"/></circle><circle class="pkt" r="2.8"><animateMotion dur="6s" repeatCount="indefinite" path="M172 60 C172 80 150 80 150 100" keyPoints="0;0;1;1" keyTimes="0;0.0;0.15;1" calcMode="linear"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.0;0.01;0.14;0.15;1"/></circle><circle class="pkt" r="2.8"><animateMotion dur="6s" repeatCount="indefinite" path="M290 60 C290 82 210 78 210 100" keyPoints="0;0;1;1" keyTimes="0;0.0;0.15;1" calcMode="linear"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.0;0.01;0.14;0.15;1"/></circle><circle class="pkt" r="2.8"><animateMotion dur="6s" repeatCount="indefinite" path="M54 146 L54 186" keyPoints="0;0;1;1" keyTimes="0;0.17;0.32;1" calcMode="linear"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.17;0.18;0.31;0.32;1"/></circle><circle class="pkt" r="2.8"><animateMotion dur="6s" repeatCount="indefinite" path="M172 146 L172 186" keyPoints="0;0;1;1" keyTimes="0;0.17;0.32;1" calcMode="linear"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.17;0.18;0.31;0.32;1"/></circle><circle class="pkt" r="2.8"><animateMotion dur="6s" repeatCount="indefinite" path="M214 146 C214 166 290 166 290 186" keyPoints="0;0;1;1" keyTimes="0;0.17;0.32;1" calcMode="linear"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.17;0.18;0.31;0.32;1"/></circle><circle class="pkt" r="2.8"><animateMotion dur="6s" repeatCount="indefinite" path="M150 230 C150 250 70 250 70 270" keyPoints="0;0;1;1" keyTimes="0;0.34;0.49;1" calcMode="linear"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.34;0.35;0.48;0.49;1"/></circle><circle class="pkt" r="2.8"><animateMotion dur="6s" repeatCount="indefinite" path="M172 230 L172 270" keyPoints="0;0;1;1" keyTimes="0;0.34;0.49;1" calcMode="linear"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.34;0.35;0.48;0.49;1"/></circle><circle class="pkt" r="2.8"><animateMotion dur="6s" repeatCount="indefinite" path="M290 230 L290 270" keyPoints="0;0;1;1" keyTimes="0;0.34;0.49;1" calcMode="linear"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.34;0.35;0.48;0.49;1"/></circle><circle class="pkt" r="2.8"><animateMotion dur="6s" repeatCount="indefinite" path="M54 316 L54 350" keyPoints="0;0;1;1" keyTimes="0;0.51;0.66;1" calcMode="linear"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.51;0.52;0.65;0.66;1"/></circle><circle class="pkt" r="2.8"><animateMotion dur="6s" repeatCount="indefinite" path="M172 316 L172 350" keyPoints="0;0;1;1" keyTimes="0;0.51;0.66;1" calcMode="linear"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.51;0.52;0.65;0.66;1"/></circle><circle class="pkt" r="2.8"><animateMotion dur="6s" repeatCount="indefinite" path="M290 316 L290 350" keyPoints="0;0;1;1" keyTimes="0;0.51;0.66;1" calcMode="linear"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.51;0.52;0.65;0.66;1"/></circle><circle class="pkt" r="2.8"><animateMotion dur="6s" repeatCount="indefinite" path="M83 398 L83 432" keyPoints="0;0;1;1" keyTimes="0;0.68;0.82;1" calcMode="linear"/><animate attributeName="opacity" dur="6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0;0.68;0.69;0.81;0.82;1"/></circle><g class="node " data-id="tg" tabindex="0" role="button" aria-label="Telegram: text + voice. Show details"><rect x="0" y="20" width="108" height="40" rx="8"/><text class="nt" x="54.0" y="37.0">Telegram</text><text class="ns" x="54.0" y="51.0">text + voice</text></g><g class="node " data-id="cockpit" tabindex="0" role="button" aria-label="Cockpit: web + iOS. Show details"><rect x="118" y="20" width="108" height="40" rx="8"/><text class="nt" x="172.0" y="37.0">Cockpit</text><text class="ns" x="172.0" y="51.0">web + iOS</text></g><g class="node " data-id="sched" tabindex="0" role="button" aria-label="Schedules: jobs + watchers. Show details"><rect x="236" y="20" width="108" height="40" rx="8"/><text class="nt" x="290.0" y="37.0">Schedules</text><text class="ns" x="290.0" y="51.0">jobs + watchers</text></g><g class="node accent" data-id="orch" tabindex="0" role="button" aria-label="Orchestrator: Opus · triage, delegate, verify. Show details"><rect x="0" y="100" width="226" height="46" rx="8"/><circle class="pulse" cx="14" cy="123.0" r="3"/><text class="nt" x="113.0" y="120.0">Orchestrator</text><text class="ns" x="113.0" y="134.0">Opus · triage, delegate, verify</text></g><g class="node " data-id="models" tabindex="0" role="button" aria-label="Model router: one registry. Show details"><rect x="236" y="100" width="108" height="46" rx="8"/><text class="nt" x="290.0" y="120.0">Model router</text><text class="ns" x="290.0" y="134.0">one registry</text></g><g class="node " data-id="queue" tabindex="0" role="button" aria-label="Job queue: Postgres rows. Show details"><rect x="0" y="186" width="108" height="44" rx="8"/><text class="nt" x="54.0" y="205.0">Job queue</text><text class="ns" x="54.0" y="219.0">Postgres rows</text></g><g class="node " data-id="runner" tabindex="0" role="button" aria-label="Durable runner: DBOS workflows. Show details"><rect x="118" y="186" width="108" height="44" rx="8"/><text class="nt" x="172.0" y="205.0">Durable runner</text><text class="ns" x="172.0" y="219.0">DBOS workflows</text></g><g class="node " data-id="bus" tabindex="0" role="button" aria-label="Agent bus: receipted. Show details"><rect x="236" y="186" width="108" height="44" rx="8"/><text class="nt" x="290.0" y="205.0">Agent bus</text><text class="ns" x="290.0" y="219.0">receipted</text></g><g class="node " data-id="domain" tabindex="0" role="button" aria-label="Domain agents: one per area. Show details"><rect x="0" y="270" width="108" height="46" rx="8"/><text class="nt" x="54.0" y="290.0">Domain agents</text><text class="ns" x="54.0" y="304.0">one per area</text></g><g class="node " data-id="fleet" tabindex="0" role="button" aria-label="Worker fleet: own worktree. Show details"><rect x="118" y="270" width="108" height="46" rx="8"/><text class="nt" x="172.0" y="290.0">Worker fleet</text><text class="ns" x="172.0" y="304.0">own worktree</text></g><g class="node " data-id="experts" tabindex="0" role="button" aria-label="Expert agents: KB-grounded. Show details"><rect x="236" y="270" width="108" height="46" rx="8"/><text class="nt" x="290.0" y="290.0">Expert agents</text><text class="ns" x="290.0" y="304.0">KB-grounded</text></g><g class="node gate" data-id="gate" tabindex="0" role="button" aria-label="Ethos gate: sends, spends, deploys wait for a human yes. Show details"><rect x="0" y="350" width="344" height="48" rx="8"/><text class="nt" x="172.0" y="371.0">Ethos gate</text><text class="ns" x="172.0" y="385.0">sends, spends, deploys wait for a human yes</text></g><g class="node " data-id="relay" tabindex="0" role="button" aria-label="Relay outbox: receipt on every send. Show details"><rect x="0" y="432" width="167" height="46" rx="8"/><text class="nt" x="83.5" y="452.0">Relay outbox</text><text class="ns" x="83.5" y="466.0">receipt on every send</text></g><g class="node heal" data-id="warden" tabindex="0" role="button" aria-label="Warden + watchdogs: detect · fix · roll back. Show details"><rect x="177" y="432" width="167" height="46" rx="8"/><text class="nt" x="260.5" y="452.0">Warden + watchdogs</text><text class="ns" x="260.5" y="466.0">detect · fix · roll back</text></g><g class="node store" data-id="pg" tabindex="0" role="button" aria-label="Postgres: Supabase. Show details"><rect x="0" y="534" width="81" height="44" rx="8"/><text class="nt" x="40.5" y="553.0">Postgres</text><text class="ns" x="40.5" y="567.0">Supabase</text></g><g class="node store" data-id="vec" tabindex="0" role="button" aria-label="Qdrant: vectors. Show details"><rect x="87.5" y="534" width="81" height="44" rx="8"/><text class="nt" x="128.0" y="553.0">Qdrant</text><text class="ns" x="128.0" y="567.0">vectors</text></g><g class="node store" data-id="graph" tabindex="0" role="button" aria-label="Kùzu: graph. Show details"><rect x="175" y="534" width="81" height="44" rx="8"/><text class="nt" x="215.5" y="553.0">Kùzu</text><text class="ns" x="215.5" y="567.0">graph</text></g><g class="node store" data-id="files" tabindex="0" role="button" aria-label="Markdown: git + vault. Show details"><rect x="262.5" y="534" width="81.5" height="44" rx="8"/><text class="nt" x="303.25" y="553.0">Markdown</text><text class="ns" x="303.25" y="567.0">git + vault</text></g></svg>
+    <div class="cap" id="cap" aria-live="polite"><span>Amber dots are work moving through the system.</span></div>
+   </div>
+   <div class="panel">
+    <div class="box" id="sheet" role="dialog" aria-label="Component details"></div>
+    <div class="box">
+     <div class="dk">How work moves</div>
+     <ol class="flow" id="flow"><li data-step="0">A request lands: a Telegram voice note, a cockpit message, or a scheduled job firing on its own.</li><li data-step="1">The orchestrator triages it and picks the agent that owns it. The router picks the model.</li><li data-step="2">It becomes a job row in Postgres. A durable runner claims it, and agents coordinate over the bus.</li><li data-step="3">An agent does the work, in its own git worktree if it touches code, reading memory and state as it goes.</li><li data-step="4">Anything irreversible or outward-facing stops at the gate until I say yes.</li><li data-step="5">The result ships through the relay with a receipt. Watchdogs keep checking after it lands.</li></ol>
+    </div>
+   </div>
+  </div>
+  <p class="fine">The map is drawn by hand from the running system: component names are real, hostnames and credentials are left out. The counts load live from <a href="https://nerve-center-showcase.vercel.app/capabilities.json">capabilities.json</a>, which the system regenerates and republishes on its own. If that request fails you see the snapshot from 2026-09-24.</p>
+ </div>
+</section>
+
+<section id="projects">
+ <div class="wrap">
+  <div class="kicker">02 · Projects</div>
+  <h2>Open source, cloneable today</h2>
+  <p class="lead">10 public repos. Most are pulled out of the system above and generalized so anyone can run them.</p>
+  <div class="cards"><a class="card" href="https://github.com/jddavenportOpen/recruit-copilot"><div class="card-top"><h3>recruit-copilot</h3><span class="lang">Python · Claude Code skill</span></div><p>Treats a job search as a verification problem. It merges your resumes into one experience bank, tailors a resume per posting, then reads the finished PDF back and runs three independent judges before it will say yes.</p><p class="why"><span>Why it matters</span>It measures its own output instead of trusting it, and it deliberately has no submit path.</p><span class="go">github.com/jddavenportOpen/recruit-copilot ↗</span></a><a class="card" href="https://github.com/jddavenportOpen/mcp-judge"><div class="card-top"><h3>mcp-judge</h3><span class="lang">Python · MCP server</span></div><p>A calibrated multi-persona LLM-as-judge that any MCP client can call as a tool to score a document against a rubric.</p><p class="why"><span>Why it matters</span>It fixes the four ways LLM graders fail (mid-band compression, severity bias, score and verdict drifting apart, run-to-run noise) and ships the eval harness that proves it.</p><span class="go">github.com/jddavenportOpen/mcp-judge ↗</span></a><a class="card" href="https://github.com/jddavenportOpen/claude-deploy-kit"><div class="card-top"><h3>claude-deploy-kit</h3><span class="lang">Python</span></div><p>Five working controls for putting Claude agents inside an enterprise: a policy chokepoint, a destructive-command deny-hook, an eval gate, a redacting audit log and pluggable secrets.</p><p class="why"><span>Why it matters</span>The questions every enterprise deployment asks, answered in code instead of a slide.</p><span class="go">github.com/jddavenportOpen/claude-deploy-kit ↗</span></a><a class="card" href="https://github.com/jddavenportOpen/clawd-agent-os"><div class="card-top"><h3>clawd-agent-os</h3><span class="lang">Python</span></div><p>The orchestration core of the system above: tiered agent authority, a durable message bus, git-worktree-isolated fleet spawning and one model registry.</p><p class="why"><span>Why it matters</span>Parallel agents that cannot overwrite each other&#x27;s files, and messages that cannot silently disappear.</p><span class="go">github.com/jddavenportOpen/clawd-agent-os ↗</span></a><a class="card" href="https://github.com/jddavenportOpen/ethos-gate"><div class="card-top"><h3>ethos-gate</h3><span class="lang">Python · Claude Code hooks</span></div><p>PreToolUse and Stop hooks for autonomous Claude sessions: irreversible commands wait for tests, credential stores stay off-limits, outbound GitHub actions get judged.</p><p class="why"><span>Why it matters</span>It enforces at the tool boundary what a system prompt can only ask for.</p><span class="go">github.com/jddavenportOpen/ethos-gate ↗</span></a><a class="card" href="https://github.com/jddavenportOpen/warden"><div class="card-top"><h3>warden</h3><span class="lang">Python · zero dependencies</span></div><p>A governor for autonomous fixes. An action runs unattended only if it can be undone, and it undoes itself if the health signal does not go green.</p><p class="why"><span>Why it matters</span>Autonomy admitted by reversibility, not confidence. Every test runs offline.</p><span class="go">github.com/jddavenportOpen/warden ↗</span></a><a class="card" href="https://github.com/jddavenportOpen/claude-code-behavior-specs"><div class="card-top"><h3>claude-code-behavior-specs</h3><span class="lang">Specs + runnable repros</span></div><p>Target-behavior specs for the Claude Code CLI, written from production incidents. Each pairs observed and expected behavior with a reproduction you can run and a proposed eval.</p><p class="why"><span>Why it matters</span>What breaks when the CLI runs unattended, at concurrency, for months, written so a product team can act on it.</p><span class="go">github.com/jddavenportOpen/claude-code-behavior-specs ↗</span></a><a class="card" href="https://github.com/jddavenportOpen/claude-bug-squash"><div class="card-top"><h3>claude-bug-squash</h3><span class="lang">Python</span></div><p>Point Claude Code at a repo and a bug report. It triages, fixes in an isolated worktree, proves the bug goes red to green, and runs the fix through a layered gate.</p><p class="why"><span>Why it matters</span>Safe by default: it proposes and gates, and never merges until you turn that on.</p><span class="go">github.com/jddavenportOpen/claude-bug-squash ↗</span></a><a class="card" href="https://github.com/jddavenportOpen/deep-research-agent"><div class="card-top"><h3>deep-research-agent</h3><span class="lang">Python</span></div><p>A research loop that searches 9 sources in parallel until a knowledge-gap check says it is done, argues against its own draft, then fact-checks every claim with a 3-vote refute-or-survive pass.</p><p class="why"><span>Why it matters</span>It treats a draft as a hypothesis to attack, not an answer to trust.</p><span class="go">github.com/jddavenportOpen/deep-research-agent ↗</span></a><a class="card" href="https://github.com/jddavenportOpen/context-kit"><div class="card-top"><h3>context-kit</h3><span class="lang">Markdown · Claude Code skills</span></div><p>Four Markdown templates and five skills that give Claude Code a durable model of you: who you are, how you decide, how you write, and your hard rules.</p><p class="why"><span>Why it matters</span>Stop re-explaining yourself every session. One-command install.</p><span class="go">github.com/jddavenportOpen/context-kit ↗</span></a></div>
+ </div>
+</section>
+
+<section id="proof">
+ <div class="wrap">
+  <div class="kicker">03 · Proof</div>
+  <h2>Shipped, public, clickable</h2>
+  <p class="lead">Live apps, the production teardown, and the writing behind them.</p>
+  <ul class="proof"><li><a class="pr" href="https://nerve-center-showcase.vercel.app"><span class="badge live">Live</span><h3>Nerve Center capability catalog</h3><p>The system&#x27;s own inventory of agents, skills and background jobs, regenerated and republished automatically.</p><span class="url">nerve-center-showcase.vercel.app ↗</span></a></li><li><a class="pr" href="https://jddavenport.com/teardown"><span class="badge doc">Case study</span><h3>Running agents in production: the full teardown</h3><p>Each capability, its risk, the control that bounds it, and the incident that taught it.</p><span class="url">jddavenport.com/teardown ↗</span></a><a class="src" href="https://github.com/jddavenportOpen/agent-safety-case-study">Source: agent-safety-case-study ↗</a></li><li><a class="pr" href="https://aifoundry.byu.edu/jobs"><span class="badge app">Live app</span><h3>AI Foundry Jobs</h3><p>Startup roles across Utah and California VC portfolio companies, with resume matching. The code behind it is public.</p><span class="url">aifoundry.byu.edu/jobs ↗</span></a><a class="src" href="https://github.com/jddavenportOpen/vc-job-board">Source: vc-job-board ↗</a></li><li><a class="pr" href="https://book.jddavenport.com"><span class="badge app">Live app</span><h3>BookJD</h3><p>A self-hosted booking app, my own Calendly: Next.js, Supabase and Google Calendar availability.</p><span class="url">book.jddavenport.com ↗</span></a><a class="src" href="https://github.com/jddavenportOpen/bookjd">Source: bookjd ↗</a></li><li><a class="pr" href="https://clawdacademy.app"><span class="badge app">Live app</span><h3>Clawdacademy</h3><p>An interactive trainer for hands-on AI fluency.</p><span class="url">clawdacademy.app ↗</span></a><a class="src" href="https://github.com/jddavenportOpen/ai-fluency-trainer">Source: ai-fluency-trainer ↗</a></li><li><a class="pr" href="https://docs.agenttree.army"><span class="badge doc">Docs</span><h3>Agent Tree Knowledge Hub</h3><p>Guides on building agent systems, written from running this one.</p><span class="url">docs.agenttree.army ↗</span></a></li><li><a class="pr" href="https://docs.agenttree.army/articles/personal-ai-os/"><span class="badge doc">Essay</span><h3>I ran my life on a fleet of AI agents for 6 months</h3><p>What worked, what broke, and what I would build again.</p><span class="url">docs.agenttree.army/articles/personal-ai-os ↗</span></a></li><li><a class="pr" href="https://docs.agenttree.army/newsletter"><span class="badge doc">Newsletter</span><h3>Raising Clawd</h3><p>AI builds, frameworks and intel, from someone running agents daily.</p><span class="url">docs.agenttree.army/newsletter ↗</span></a></li></ul>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="wrap contact">
+  <div class="kicker">Talk to me</div>
+  <h2>Hiring for AI product or applied AI?</h2>
+  <p class="lead">Pick a time or send a note. The fastest way to see how I work is to ask me to walk you through the system above.</p>
+  <div class="ctas">
+   <a class="btn btn-accent" href="https://book.jddavenport.com">Book time</a>
+   <a class="btn" href="mailto:me@jddavenport.com">me@jddavenport.com</a>
+   <a class="btn" href="/resume.pdf">Résumé (PDF)</a>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer class="wrap">
+ One static HTML file: no framework, no tracking. <a href="https://github.com/jddavenportOpen/jddavenport-site/blob/main/showcase.html">View source</a> · <a href="/">jddavenport.com</a>
+</footer>
+
+<script>
+(function(){
+ var D={"tg": {"k": "Work enters", "t": "Telegram", "b": "My main line into the system. I text or send a voice note, the orchestrator answers, and it can answer in voice too.", "x": "Headless transport with a write-ahead journal, so a message sent during a restart is not lost."}, "cockpit": {"k": "Work enters", "t": "Cockpit", "b": "A private web app plus an iPhone shell: one live chat per agent, a model picker, and fleet and org views.", "x": "Next.js on Vercel, in front of a Python bridge that drives real Claude Code sessions."}, "sched": {"k": "Work enters", "t": "Schedules + watchers", "b": "Most work starts without anyone asking. Background jobs run on a schedule, and watchers wait for a condition (a reply lands, a file appears), fire once, and expire.", "x": "{automations} background jobs registered as macOS LaunchAgents, plus cron. A promise made in chat becomes a machine loop, never a note."}, "orch": {"k": "Route", "t": "Orchestrator", "b": "A Claude Opus seat that triages each request, hands it to the agent that owns it, and verifies the result before it reaches me.", "x": "Tiered authority: human, orchestrator, domain agents, specialists, workers. Delegate down, verify up."}, "models": {"k": "Route", "t": "Model router", "b": "One registry maps every job to a model tier: Opus by default, Sonnet and Haiku for routine volume, GPT and local models for second opinions and offload.", "x": "A new Claude model is adopted automatically, but only after a live probe and a 10-task benchmark pass. A failed check rolls it back."}, "queue": {"k": "Dispatch", "t": "Job queue", "b": "Work is a row in Postgres. Workers claim jobs with row locks, so two workers never pick up the same job.", "x": "Supabase Postgres, claimed with FOR UPDATE SKIP LOCKED."}, "runner": {"k": "Dispatch", "t": "Durable runner", "b": "Runs each job as a durable workflow with retries, a ledger and a killswitch. A crash resumes from the last completed step instead of starting over.", "x": "DBOS workflows on Postgres."}, "bus": {"k": "Dispatch", "t": "Agent bus", "b": "Agents message each other through a durable bus. Every message is written to Postgres before delivery, retried if it fails, and dead-lettered loudly if it cannot land. It never silently returns empty.", "x": "A resident drain daemon, plus a daily round-trip probe that proves the bus still works end to end."}, "domain": {"k": "Work", "t": "Domain agents", "b": "Long-lived agents that each own one area, like recruiting, school, growth or daily operations, with their own state files and reports.", "x": "{agents} specialized agents in total, counted live from the system's own inventory."}, "fleet": {"k": "Work", "t": "Worker fleet", "b": "Parallel Claude Code workers for build and research jobs. Each one gets its own git worktree, so parallel agents cannot overwrite each other's files.", "x": "Headless Claude Code in tmux, reaped automatically after a wall-clock ceiling."}, "experts": {"k": "Work", "t": "Expert agents", "b": "Advisors grounded in curated knowledge bases: course experts, a tax advisor, a certification-exam mentor, a case-competition coach. They cite sources instead of answering from memory.", "x": "Retrieval over a vetted KB, with the sources returned alongside every answer."}, "gate": {"k": "Guard", "t": "Ethos gate", "b": "Every tool call passes a PreToolUse gate. Anything irreversible or outward-facing, like a send, a spend or a push to someone else's repo, is blocked unless a human approved that exact action.", "x": "Also a GitHub governor, a credential-scrape guard, and a weekly audit for any agent that holds private data, untrusted input and an outbound channel at the same time."}, "relay": {"k": "Ship", "t": "Relay outbox", "b": "Everything that leaves the system goes through one outbox and gets a receipt. Emails and posts are drafted in my voice and wait for my explicit yes.", "x": "Receipts, held rows and dead-letters are all queryable, so 'did that send?' has an answer."}, "warden": {"k": "Ship", "t": "Warden + watchdogs", "b": "Watchdogs check invariants around the clock. The Warden turns violations into bug tickets, applies fixes that can be undone, and reverts on its own if the health signal does not recover.", "x": "{watchdogs} of the background jobs are watchdogs. The governor is open source as warden: autonomy admitted by reversibility, not confidence."}, "pg": {"k": "Memory + state", "t": "Postgres", "b": "Queues, the agent bus, tasks, open loops and delivery receipts.", "x": "Supabase, with realtime."}, "vec": {"k": "Memory + state", "t": "Qdrant", "b": "Vector memory for semantic recall across notes, projects, people and past sessions.", "x": "Embeddings from a local model (nomic-embed-text on Ollama)."}, "graph": {"k": "Memory + state", "t": "Kùzu", "b": "Graph memory: people, projects and decisions as linked entities. Recall is vector search plus a one-hop graph expansion.", "x": "Hybrid retrieval, re-ingested nightly."}, "files": {"k": "Memory + state", "t": "Markdown state", "b": "File-based state over chat memory. Every domain and project keeps plain Markdown and YAML in git, plus an Obsidian vault.", "x": "If a session dies, the next one reads the files and picks up where it left off."}}, STEPS=[{"n": ["tg", "cockpit", "sched"], "e": ["c1", "c2", "c3"], "c": "A request lands: a Telegram voice note, a cockpit message, or a scheduled job firing on its own."}, {"n": ["orch", "models"], "e": ["cb"], "c": "The orchestrator triages it and picks the agent that owns it. The router picks the model."}, {"n": ["queue", "runner", "bus", "pg"], "e": ["c4", "c5", "c6", "cq"], "c": "It becomes a job row in Postgres. A durable runner claims it, and agents coordinate over the bus."}, {"n": ["domain", "fleet", "experts", "vec", "graph", "files"], "e": ["c7", "c8", "c9"], "c": "An agent does the work, in its own git worktree if it touches code, reading memory and state as it goes."}, {"n": ["gate"], "e": ["c10", "c11", "c12"], "c": "Anything irreversible or outward-facing stops at the gate until I say yes."}, {"n": ["relay", "warden", "orch"], "e": ["c13"], "c": "The result ships through the relay with a receipt. Watchdogs keep checking after it lands."}], live={"agents": 48, "automations": 237, "watchdogs": 60, "ships": 1029};
+ var svg=document.getElementById('sys'), sheet=document.getElementById('sheet'), cap=document.getElementById('cap');
+ var flow=document.getElementById('flow'), btn=document.getElementById('tour');
+ var nodes=[].slice.call(svg.querySelectorAll('.node')), edges=[].slice.call(svg.querySelectorAll('.edge'));
+ var mq=window.matchMedia?matchMedia('(prefers-reduced-motion: reduce)'):null;
+ if(mq&&mq.matches&&svg.pauseAnimations)svg.pauseAnimations();
+ function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+ function nf(n){return Number(n).toLocaleString('en-US')}
+ function fill(t){return t.replace(/\{(\w+)\}/g,function(m,k){return live[k]!=null?nf(live[k]):m})}
+ function sel(id){nodes.forEach(function(n){n.classList.toggle('sel',n.getAttribute('data-id')===id)})}
+ function closeSheet(){sheet.classList.remove('open');sheet.innerHTML='';sel(null)}
+ function show(id){
+  var d=D[id];if(!d)return;
+  sheet.innerHTML='<button class="x" type="button" aria-label="Close details">×</button><div class="dk">'+esc(d.k)+'</div><h3>'+esc(d.t)+'</h3><p>'+esc(fill(d.b))+'</p><p class="tech">'+esc(fill(d.x))+'</p>';
+  sheet.classList.add('open');sel(id);
+  sheet.querySelector('.x').addEventListener('click',closeSheet);
+  cap.innerHTML='<b>'+esc(d.k.toUpperCase())+'</b><span>'+esc(d.t)+': details open</span>';
+ }
+ nodes.forEach(function(n){
+  n.addEventListener('click',function(){stopTour();show(n.getAttribute('data-id'))});
+  n.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();stopTour();show(n.getAttribute('data-id'))}});
+ });
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSheet()});
+ var timer=null,idx=0,items=[].slice.call(flow.querySelectorAll('li'));
+ function paint(i){
+  var s=STEPS[i];svg.classList.add('touring');
+  nodes.forEach(function(n){n.classList.toggle('hl',s.n.indexOf(n.getAttribute('data-id'))>=0)});
+  edges.forEach(function(e){e.classList.toggle('hl',s.e.indexOf(e.id.slice(2))>=0)});
+  items.forEach(function(li,j){li.classList.toggle('on',j===i)});
+  cap.innerHTML='<b>STEP '+(i+1)+'/'+STEPS.length+'</b><span>'+esc(s.c)+'</span>';
+ }
+ function stopTour(){
+  if(timer){clearInterval(timer);timer=null}
+  svg.classList.remove('touring');
+  nodes.forEach(function(n){n.classList.remove('hl')});edges.forEach(function(e){e.classList.remove('hl')});
+  items.forEach(function(li){li.classList.remove('on')});
+  btn.textContent='▶ Follow one job';btn.setAttribute('aria-pressed','false');
+ }
+ btn.addEventListener('click',function(){
+  if(timer){stopTour();return}
+  closeSheet();idx=0;paint(0);btn.textContent='■ Stop';btn.setAttribute('aria-pressed','true');
+  timer=setInterval(function(){idx++;if(idx>=STEPS.length){stopTour();cap.innerHTML='<b>DONE</b><span>That is one job, end to end. Tap any box for details.</span>';return}paint(idx)},3200);
+ });
+ function spark(v){
+  var m=Math.max.apply(null,v)||1,h='';
+  for(var i=0;i<v.length;i++){var y=Math.max(1.5,26*v[i]/m);h+='<rect x="'+(i*4)+'" y="'+(28-y).toFixed(1)+'" width="3" height="'+y.toFixed(1)+'" rx="1"/>'}
+  document.getElementById('spark').innerHTML=h;
+ }
+ var chip=document.getElementById('live-chip'),ct=document.getElementById('chip-text');
+ var ctl=window.AbortController?new AbortController():null,to=setTimeout(function(){if(ctl)ctl.abort()},6000);
+ fetch('https://nerve-center-showcase.vercel.app/capabilities.json',{signal:ctl?ctl.signal:undefined}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(j){
+  clearTimeout(to);
+  var s=j.stats||{},c=(j.automation&&j.automation.counts)||{};
+  var v={agents:s.agents,automations:s.automations,watchdogs:c['self-heal / watchdog'],ships:s.ships_last_30d};
+  Object.keys(v).forEach(function(k){if(typeof v[k]==='number'){live[k]=v[k];[].forEach.call(document.querySelectorAll('[data-k="'+k+'"]'),function(el){el.textContent=nf(v[k])})}});
+  if(j.timeline&&j.timeline.sparkline&&j.timeline.sparkline.length)spark(j.timeline.sparkline);
+  var lu=j.last_updated||'';
+  var t=new Date(lu+'T00:00:00'),n=new Date();n.setHours(0,0,0,0);
+  var days=Math.round((n-t)/864e5);
+  if(!isNaN(days)&&days<=2){chip.className='chip live';ct.textContent='Live · published '+(days<=0?'today':days===1?'yesterday':'2 days ago')}
+  else if(lu){ct.textContent='Published by the system · '+lu}
+ }).catch(function(){});
+})();
+</script>
+</body>
+</html>
