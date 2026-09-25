@@ -47,13 +47,18 @@ projects. Leave them alone; do not treat them as the site.
   branch `master`. Full working history.
 - `jddavenportOpen/jddavenport-site` is **public** and is the **deploy source**.
   It carries a curated subset: `index.html`, `teardown.html`, `book.html`,
-  `favicon.svg`, `resume.pdf`, `robots.txt`, `sitemap.xml`, `images/`, `public/`,
+  `showcase.html`, `brain.html`, `favicon.svg`, `resume.pdf`, `robots.txt`, `sitemap.xml`, `images/`, `public/`,
   `api/{book-slots,book-create,metrics}.js`, `api/lib/`, `api/package.json`,
   `vercel.json`, `.gitignore`, `LICENSE`, `README.md`.
 
 Pushing a branch here does **not** reach production. Changes have to be mirrored
 into the public repo (`~/agent-system/scripts/gh-mirror-to-open.sh`) and any new
 served file has to be added to that curated set or it will 404 in prod.
+
+`/showcase` is the QR target printed on JD's business cards (2026-09-24) and
+`/brain` is linked from it. Removing either breaks printed cards: both are
+watched for uptime. `resume.pdf` is the 2-page Anthropic master
+(`JD-Davenport-Anthropic-PM-BusinessTechnology-2page-v17`, recruiting pipeline).
 
 The curation is load-bearing, not cosmetic: `api/send-email-via-gog.js` in this
 private repo contains a hardcoded `GOG_KEYRING_PASSWORD`, and it is not in the
