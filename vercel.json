@@ -3,11 +3,29 @@
   "outputDirectory": ".",
   "framework": null,
   "redirects": [
-    { "source": "/book", "destination": "https://book.jddavenport.com", "permanent": false },
-    { "source": "/book.html", "destination": "https://book.jddavenport.com", "permanent": false }
+    {
+      "source": "/book",
+      "destination": "https://book.jddavenport.com",
+      "permanent": false
+    },
+    {
+      "source": "/book.html",
+      "destination": "https://book.jddavenport.com",
+      "permanent": false
+    }
   ],
   "rewrites": [
-    { "source": "/teardown", "destination": "/teardown.html" },
-    { "source": "/showcase", "destination": "/showcase.html" }
+    {
+      "source": "/teardown",
+      "destination": "/teardown.html"
+    },
+    {
+      "source": "/showcase",
+      "destination": "/showcase.html"
+    },
+    {
+      "source": "/brain",
+      "destination": "/brain.html"
+    }
   ]
 }

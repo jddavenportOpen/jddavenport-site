@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The live brain · JD Davenport</title>
+<meta name="description" content="A live graph of every agent, skill and background job in the AI operating system JD Davenport runs. Counted live, names and data hidden: the architecture, not the contents.">
+<meta name="theme-color" content="#0E0C0A">
+<link rel="canonical" href="https://jddavenport.com/brain">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jddavenport.com/brain">
+<meta property="og:title" content="The live brain · JD Davenport">
+<meta property="og:description" content="Every agent, skill and background job in a running multi-agent system, counted live. Names hidden, structure real.">
+<meta property="og:image" content="https://jddavenport.com/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#0E0C0A;--surface-1:#15120F;--surface-2:#1D1A17;--surface-3:#26221E;--sunken:#090705;--text-1:#ECEBEA;--text-2:#AEABA8;--text-3:#827F7C;--accent:#F5A623;--accent-text:#F8C384;--accent-hover:#FFB44B;--on-accent:#1C140C;--hairline:rgba(255,255,255,.07);--border-default:rgba(255,255,255,.10);--border-strong:rgba(255,255,255,.14);--ready:#69B27A;--working:#7CB4CF;--memory:#B8A4DC;--font-ui:'Geist',system-ui,-apple-system,sans-serif;--font-mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--canvas);color:var(--text-1);font-family:var(--font-ui);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--accent-text);text-decoration:none}
+a:hover{color:var(--accent-hover)}
+h1,h2{font-weight:600;line-height:1.12;letter-spacing:-0.03em;margin:0}
+p{margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px;border-bottom:1px solid var(--hairline);font-family:var(--font-mono);font-size:.8rem}
+.topbar a{color:var(--text-2)}
+.topbar a:hover{color:var(--text-1)}
+.hero{padding-top:30px;padding-bottom:10px}
+.kicker{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:var(--accent-text);margin-bottom:12px;font-weight:500}
+h1{font-size:clamp(2.2rem,9vw,3.4rem);font-weight:700}
+.lead{color:var(--text-2);margin-top:12px;max-width:60ch}
+.lead b{color:var(--text-1);font-weight:600}
+.chip{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:999px;border:1px solid var(--border-strong);color:var(--text-2);white-space:nowrap}
+.chip .dot{width:7px;height:7px;border-radius:50%;background:var(--text-3)}
+.chip.live{color:#A9DDB4;border-color:rgba(105,178,122,.45)}
+.chip.live .dot{background:var(--ready);animation:ping 2s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(105,178,122,.7)}80%,100%{box-shadow:0 0 0 7px rgba(105,178,122,0)}}
+.layout{display:grid;gap:18px;margin-top:22px}
+.stage{background:radial-gradient(circle at 50% 46%,#1a1612 0%,var(--surface-1) 55%,var(--sunken) 100%);border:1px solid var(--border-default);border-radius:14px;padding:10px;min-width:0}
+#brain{display:block;width:100%;height:auto;touch-action:manipulation;cursor:crosshair}
+#brain .spoke{stroke:rgba(245,166,35,.26);stroke-width:1}
+#brain .tick{stroke:rgba(255,255,255,.16);stroke-width:1}
+#brain .busring{fill:none;stroke:rgba(255,255,255,.22);stroke-width:1.2;stroke-dasharray:2 4}
+#brain .orb{fill:var(--accent)}
+#brain .halo{fill:none;stroke:var(--accent);stroke-width:1.2}
+#brain .dom{fill:var(--surface-3);stroke:var(--accent);stroke-width:1.4}
+#brain .spec{fill:rgba(124,180,207,.22);stroke:var(--working);stroke-width:1.1}
+#brain .skill{fill:var(--text-2);opacity:.75}
+#brain .job{opacity:.8;transition:opacity .4s}
+#brain .job.on{opacity:1}
+#brain .pulse{fill:#FFD28A}
+#brain .ring{fill:none;stroke:var(--text-1);stroke-width:1.4}
+.probe{margin-top:10px;min-height:48px;padding:10px 12px;border-radius:8px;background:var(--sunken);border:1px solid var(--hairline);font-size:.88rem;color:var(--text-2)}
+.probe b{display:block;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text);font-weight:500;margin-bottom:2px}
+.side{display:grid;gap:14px;align-content:start;min-width:0}
+.box{background:var(--surface-1);border:1px solid var(--border-default);border-radius:12px;padding:16px 18px}
+.dk{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);margin-bottom:10px}
+.legend{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.legend li{display:grid;grid-template-columns:18px 1fr auto;align-items:center;gap:10px;font-size:.92rem;color:var(--text-2)}
+.legend b{font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:var(--text-1);font-weight:600}
+.sw{width:12px;height:12px;border-radius:50%;justify-self:center}
+.cats{list-style:none;margin:10px 0 0 28px;padding:0;display:grid;gap:5px}
+.cats li{display:grid;grid-template-columns:10px 1fr auto;align-items:center;gap:9px;font-size:.82rem;color:var(--text-3)}
+.cats .sw{width:8px;height:8px}
+.cats b{font-family:var(--font-mono);color:var(--text-2);font-weight:500}
+.act{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{background:var(--surface-1);border:1px solid var(--border-default);border-radius:10px;padding:13px 14px;min-width:0}
+.stat b{display:block;font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:1.45rem;font-weight:600;line-height:1.1}
+.stat span{display:block;font-size:.76rem;color:var(--text-3);margin-top:4px;line-height:1.35}
+.spark{display:block;width:100%;height:24px;margin-top:8px}
+.spark rect{fill:var(--accent);opacity:.75}
+.spark.alt rect{fill:var(--working)}
+.fine{font-family:var(--font-mono);font-size:.72rem;color:var(--text-3);line-height:1.65;margin-top:18px;max-width:80ch}
+.fine a{color:var(--text-2);text-decoration:underline;text-decoration-color:rgba(255,255,255,.25);text-underline-offset:2px}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:8px;border:1px solid var(--border-strong);background:var(--surface-2);color:var(--text-1);font:500 .95rem/1 var(--font-ui)}
+.btn:hover{border-color:rgba(245,166,35,.5);color:var(--text-1)}
+.btn-accent{background:var(--accent);border-color:transparent;color:var(--on-accent);font-weight:600}
+.btn-accent:hover{background:var(--accent-hover);color:var(--on-accent)}
+footer{border-top:1px solid var(--hairline);margin-top:36px;padding-top:22px;padding-bottom:40px;font-family:var(--font-mono);font-size:.72rem;color:var(--text-3)}
+footer a{color:var(--text-2)}
+@media (min-width:720px){.wrap{padding:0 28px}.hero{padding-top:48px}}
+@media (min-width:940px){.layout{grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:28px;align-items:start}.side{position:sticky;top:18px}}
+@media (prefers-reduced-motion:reduce){.chip.live .dot{animation:none}}
+</style>
+</head>
+<body>
+<header class="wrap topbar"><a href="/showcase">← Showcase</a><a href="/">jddavenport.com</a></header>
+<main class="wrap">
+ <div class="hero">
+  <div class="kicker">Live agent graph</div>
+  <h1>The live brain</h1>
+  <p class="lead">Every dot is a real part of the AI operating system I run, counted live from the inventory it publishes about itself. <b>Names and data are hidden on purpose:</b> this shows the architecture, not the contents.</p>
+  <span id="live-chip" class="chip"><span class="dot"></span><span id="chip-text">Snapshot · 2026-09-24</span></span>
+ </div>
+ <div class="layout">
+  <div class="stage">
+   <svg id="brain" viewBox="-262 -262 524 524" role="img" aria-label="Radial graph of the agent system"></svg>
+   <div class="probe" id="probe" aria-live="polite"><b>Tap any dot</b>You will see what it is, never what is in it.</div>
+  </div>
+  <div class="side">
+   <div class="box">
+    <div class="dk">What you are looking at</div>
+    <ul class="legend">
+     <li><span class="sw" style="background:var(--accent)"></span><span>Orchestrator, at the center</span><b data-k="orch">1</b></li>
+     <li><span class="sw" style="background:var(--surface-3);border:1.5px solid var(--accent)"></span><span>Domain agents: one per area of work</span><b data-k="dom">16</b></li>
+     <li><span class="sw" style="border:1.5px dashed rgba(255,255,255,.5)"></span><span>Agent bus: the ring they all talk through</span><b>1</b></li>
+     <li><span class="sw" style="background:rgba(124,180,207,.3);border:1.5px solid var(--working)"></span><span>Specialist agents: shared services</span><b data-k="spec">31</b></li>
+     <li><span class="sw" style="background:var(--text-2)"></span><span>Skills agents load on demand</span><b data-k="skills">46</b></li>
+     <li><span class="sw" style="background:conic-gradient(var(--ready) 0 25%,var(--working) 0 37%,var(--accent) 0 51%,var(--accent-text) 0 65%,var(--memory) 0 72%,var(--text-3) 0)"></span><span>Background jobs</span><b data-k="jobs">237</b></li>
+    </ul>
+    <ul class="cats" id="cats"><li><span class="sw" style="background:#69B27A"></span><span>Self-healing watchdogs</span><b>60</b></li><li><span class="sw" style="background:#7CB4CF"></span><span>Routing and infrastructure</span><b>27</b></li><li><span class="sw" style="background:#F5A623"></span><span>Delivery</span><b>17</b></li><li><span class="sw" style="background:#F8C384"></span><span>Capture</span><b>17</b></li><li><span class="sw" style="background:#B8A4DC"></span><span>Memory</span><b>7</b></li><li><span class="sw" style="background:#827F7C"></span><span>Backup and storage</span><b>10</b></li><li><span class="sw" style="background:#5E5B58"></span><span>Other</span><b>99</b></li></ul>
+   </div>
+   <div class="act">
+    <div class="stat"><b data-k="turns">13,831</b><span>model turns yesterday</span><svg class="spark alt" id="spark-tok" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"><rect x="0.00" y="26.4" width="3.00" height="1.6" rx="1"/><rect x="4.00" y="19.8" width="3.00" height="8.2" rx="1"/><rect x="8.00" y="25.0" width="3.00" height="3.0" rx="1"/><rect x="12.00" y="25.5" width="3.00" height="2.5" rx="1"/><rect x="16.00" y="25.7" width="3.00" height="2.3" rx="1"/><rect x="20.00" y="23.3" width="3.00" height="4.7" rx="1"/><rect x="24.00" y="24.5" width="3.00" height="3.5" rx="1"/><rect x="28.00" y="21.5" width="3.00" height="6.5" rx="1"/><rect x="32.00" y="21.9" width="3.00" height="6.1" rx="1"/><rect x="36.00" y="23.8" width="3.00" height="4.2" rx="1"/><rect x="40.00" y="17.0" width="3.00" height="11.0" rx="1"/><rect x="44.00" y="8.0" width="3.00" height="20.0" rx="1"/><rect x="48.00" y="14.7" width="3.00" height="13.3" rx="1"/><rect x="52.00" y="17.0" width="3.00" height="11.0" rx="1"/><rect x="56.00" y="21.2" width="3.00" height="6.8" rx="1"/><rect x="60.00" y="20.9" width="3.00" height="7.1" rx="1"/><rect x="64.00" y="24.8" width="3.00" height="3.2" rx="1"/><rect x="68.00" y="12.9" width="3.00" height="15.1" rx="1"/><rect x="72.00" y="18.6" width="3.00" height="9.4" rx="1"/><rect x="76.00" y="25.8" width="3.00" height="2.2" rx="1"/><rect x="80.00" y="26.0" width="3.00" height="2.0" rx="1"/><rect x="84.00" y="26.5" width="3.00" height="1.5" rx="1"/><rect x="88.00" y="25.4" width="3.00" height="2.6" rx="1"/><rect x="92.00" y="25.1" width="3.00" height="2.9" rx="1"/><rect x="96.00" y="26.2" width="3.00" height="1.8" rx="1"/><rect x="100.00" y="25.4" width="3.00" height="2.6" rx="1"/><rect x="104.00" y="12.9" width="3.00" height="15.1" rx="1"/><rect x="108.00" y="2.0" width="3.00" height="26.0" rx="1"/><rect x="112.00" y="4.4" width="3.00" height="23.6" rx="1"/><rect x="116.00" y="12.3" width="3.00" height="15.7" rx="1"/></svg></div>
+    <div class="stat"><b data-k="ships">1,029</b><span>shipped-work log entries, 30 days</span><svg class="spark" id="spark-ship" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"><rect x="0.00" y="2.0" width="3.00" height="26.0" rx="1"/><rect x="4.00" y="16.8" width="3.00" height="11.2" rx="1"/><rect x="8.00" y="19.0" width="3.00" height="9.0" rx="1"/><rect x="12.00" y="24.0" width="3.00" height="4.0" rx="1"/><rect x="16.00" y="12.5" width="3.00" height="15.5" rx="1"/><rect x="20.00" y="18.2" width="3.00" height="9.8" rx="1"/><rect x="24.00" y="12.5" width="3.00" height="15.5" rx="1"/><rect x="28.00" y="8.9" width="3.00" height="19.1" rx="1"/><rect x="32.00" y="14.6" width="3.00" height="13.4" rx="1"/><rect x="36.00" y="9.2" width="3.00" height="18.8" rx="1"/><rect x="40.00" y="13.2" width="3.00" height="14.8" rx="1"/><rect x="44.00" y="19.0" width="3.00" height="9.0" rx="1"/><rect x="48.00" y="18.2" width="3.00" height="9.8" rx="1"/><rect x="52.00" y="10.7" width="3.00" height="17.3" rx="1"/><rect x="56.00" y="10.7" width="3.00" height="17.3" rx="1"/><rect x="60.00" y="25.8" width="3.00" height="2.2" rx="1"/><rect x="64.00" y="4.5" width="3.00" height="23.5" rx="1"/><rect x="68.00" y="10.7" width="3.00" height="17.3" rx="1"/><rect x="72.00" y="21.1" width="3.00" height="6.9" rx="1"/><rect x="76.00" y="20.8" width="3.00" height="7.2" rx="1"/><rect x="80.00" y="24.4" width="3.00" height="3.6" rx="1"/><rect x="84.00" y="19.7" width="3.00" height="8.3" rx="1"/><rect x="88.00" y="26.2" width="3.00" height="1.8" rx="1"/><rect x="92.00" y="21.5" width="3.00" height="6.5" rx="1"/><rect x="96.00" y="20.8" width="3.00" height="7.2" rx="1"/><rect x="100.00" y="6.7" width="3.00" height="21.3" rx="1"/><rect x="104.00" y="12.8" width="3.00" height="15.2" rx="1"/><rect x="108.00" y="11.8" width="3.00" height="16.2" rx="1"/><rect x="112.00" y="8.5" width="3.00" height="19.5" rx="1"/><rect x="116.00" y="25.8" width="3.00" height="2.2" rx="1"/></svg></div>
+   </div>
+  </div>
+ </div>
+ <p class="fine">How this works: the page reads <a href="/api/metrics">/api/metrics</a>, a server-side filter over the inventory the system republishes whenever it ships. It forwards numbers only. No agent, skill or job name, and no content, ever reaches your browser. The dots are placed from those counts; the moving pulses illustrate the routing path (orchestrator, domain agent, bus, specialist) and are not a message feed. Sparklines: daily model activity and daily shipped-work log entries over the last 30 days. If the live request fails you see the snapshot from 2026-09-24.</p>
+ <div class="ctas"><a class="btn btn-accent" href="/showcase">See the full showcase</a><a class="btn" href="https://book.jddavenport.com">Book time</a></div>
+</main>
+<footer class="wrap">One static HTML file plus one serverless filter. <a href="https://github.com/jddavenportOpen/jddavenport-site/blob/main/brain.html">View source</a> · <a href="/">jddavenport.com</a></footer>
+<script>
+(function(){
+ var SNAP={"as_of": "2026-09-24", "stats": {"agents": 48, "skills": 46, "automations": 237, "ships_last_30d": 1029}, "metrics": {"turns_yesterday": 13831, "tokens_30d_sparkline": [{"d": "2026-08-25", "total": 311417798}, {"d": "2026-08-26", "total": 1590935843}, {"d": "2026-08-27", "total": 587530615}, {"d": "2026-08-28", "total": 479925437}, {"d": "2026-08-29", "total": 456699562}, {"d": "2026-08-30", "total": 921735644}, {"d": "2026-08-31", "total": 683089888}, {"d": "2026-09-01", "total": 1272965489}, {"d": "2026-09-02", "total": 1184069663}, {"d": "2026-09-03", "total": 817651678}, {"d": "2026-09-04", "total": 2134676567}, {"d": "2026-09-05", "total": 3900831789}, {"d": "2026-09-06", "total": 2591771467}, {"d": "2026-09-07", "total": 2134243437}, {"d": "2026-09-08", "total": 1325313857}, {"d": "2026-09-09", "total": 1378292836}, {"d": "2026-09-10", "total": 615555772}, {"d": "2026-09-11", "total": 2935370921}, {"d": "2026-09-12", "total": 1839132061}, {"d": "2026-09-13", "total": 421648628}, {"d": "2026-09-14", "total": 393602434}, {"d": "2026-09-15", "total": 199141887}, {"d": "2026-09-16", "total": 508597678}, {"d": "2026-09-17", "total": 562204780}, {"d": "2026-09-18", "total": 355828899}, {"d": "2026-09-19", "total": 509587704}, {"d": "2026-09-20", "total": 2941378310}, {"d": "2026-09-21", "total": 5063258172}, {"d": "2026-09-22", "total": 4604921100}, {"d": "2026-09-23", "total": 3051794573}]}, "structure": {"agents_by_kind": {"orchestrator": 1, "domain": 16, "python-package": 28, "skill-backed": 3}, "skills_by_scope": {"system": 40, "global": 6}, "jobs_by_category": {"backup / storage": 10, "capture": 17, "delivery": 17, "memory": 7, "other": 99, "routing / infra": 27, "self-heal / watchdog": 60}, "ships_per_day": [72, 31, 25, 11, 43, 27, 43, 53, 37, 52, 41, 25, 27, 48, 48, 6, 65, 48, 19, 20, 10, 23, 5, 18, 20, 59, 42, 45, 54, 6]}};
+ var CAT=[['self-heal / watchdog','var(--ready)','#69B27A','Self-healing watchdogs'],['routing / infra','var(--working)','#7CB4CF','Routing and infrastructure'],['delivery','var(--accent)','#F5A623','Delivery'],['capture','var(--accent-text)','#F8C384','Capture'],['memory','var(--memory)','#B8A4DC','Memory'],['backup / storage','var(--text-3)','#827F7C','Backup and storage'],['other','var(--text-3)','#5E5B58','Other']];
+ var NS='http://www.w3.org/2000/svg', svg=document.getElementById('brain'), probe=document.getElementById('probe');
+ var R={dom:90,bus:124,spec:152,skill:190,job:232};
+ var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var pts=[], doms=[], specs=[], jobs=[], ring=null, model=null;
+ function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e}
+ function nf(n){return Number(n).toLocaleString('en-US')}
+ function polar(r,a){return [r*Math.cos(a),r*Math.sin(a)]}
+ function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+ function num(v,d){return typeof v==='number'&&isFinite(v)?v:d}
+ function counts(j){
+  var s=j.structure||{},a=s.agents_by_kind||{},sk=s.skills_by_scope||{},jb=s.jobs_by_category||{},st=j.stats||{};
+  var spec=num(a['python-package'],0)+num(a['skill-backed'],0)+num(a.unclassified,0);
+  var skills=0;for(var k in sk)skills+=num(sk[k],0);
+  return {orch:num(a.orchestrator,1)||1,dom:num(a.domain,0),spec:spec,skills:skills||num(st.skills,0),jobs:jb,jobsTotal:num(st.automations,0),turns:num((j.metrics||{}).turns_yesterday,null),ships:num(st.ships_last_30d,null),tok:(j.metrics||{}).tokens_30d_sparkline,shipDays:s.ships_per_day};
+ }
+ function draw(c){
+  model=c;svg.innerHTML='';pts=[];doms=[];specs=[];jobs=[];
+  var off=-Math.PI/2,i,a,p;
+  el('circle',{class:'busring',cx:0,cy:0,r:R.bus});
+  for(i=0;i<c.dom;i++){a=off+2*Math.PI*i/c.dom;p=polar(R.dom,a);var q=polar(R.dom+8,a),b=polar(R.bus,a);
+   el('line',{class:'spoke',x1:0,y1:0,x2:p[0],y2:p[1]});el('line',{class:'tick',x1:q[0],y1:q[1],x2:b[0],y2:b[1]});doms.push(a)}
+  for(i=0;i<c.spec;i++){a=off+Math.PI/c.spec+2*Math.PI*i/c.spec;var s1=polar(R.bus,a),s2=polar(R.spec-5.5,a);el('line',{class:'tick',x1:s1[0],y1:s1[1],x2:s2[0],y2:s2[1]});specs.push(a)}
+  el('circle',{class:'halo',cx:0,cy:0,r:26,opacity:.5});
+  var orb=el('circle',{class:'orb',cx:0,cy:0,r:17});pts.push({x:0,y:0,t:'orch'});
+  if(!reduce){var h=el('circle',{class:'halo',cx:0,cy:0,r:18});el('animate',{attributeName:'r',values:'18;40',dur:'2.4s',repeatCount:'indefinite'},h);el('animate',{attributeName:'opacity',values:'.8;0',dur:'2.4s',repeatCount:'indefinite'},h)}
+  doms.forEach(function(a,i){var p=polar(R.dom,a);el('circle',{class:'dom',cx:p[0],cy:p[1],r:7.5});pts.push({x:p[0],y:p[1],t:'dom',i:i+1})});
+  specs.forEach(function(a,i){var p=polar(R.spec,a);el('circle',{class:'spec',cx:p[0],cy:p[1],r:5.2});pts.push({x:p[0],y:p[1],t:'spec',i:i+1})});
+  for(i=0;i<c.skills;i++){a=off+2*Math.PI*i/c.skills;p=polar(R.skill,a);el('circle',{class:'skill',cx:p[0],cy:p[1],r:2.6});pts.push({x:p[0],y:p[1],t:'skill',i:i+1})}
+  var list=[],gap=3,total=0;CAT.forEach(function(k){var n=num(c.jobs[k[0]],0);if(n){list.push([k,n]);total+=n}});
+  if(!total&&c.jobsTotal){list=[[CAT[6],c.jobsTotal]];total=c.jobsTotal}
+  var slots=total+gap*list.length,s=0;
+  list.forEach(function(g){for(var j=0;j<g[1];j++){a=off+2*Math.PI*(s+j)/slots;p=polar(R.job,a);jobs.push(el('circle',{class:'job',cx:p[0],cy:p[1],r:2.4,fill:g[0][2]}));pts.push({x:p[0],y:p[1],t:'job',cat:g[0][3],n:g[1]})}s+=g[1]+gap});
+  ring=el('circle',{class:'ring',cx:0,cy:0,r:0,opacity:0});
+  svg.setAttribute('aria-label','Radial graph: 1 orchestrator, '+c.dom+' domain agents on the inner ring, the agent bus, '+c.spec+' specialist agents, '+c.skills+' skills and '+total+' background jobs on the outer ring. Names hidden.');
+ }
+ var TXT={orch:['Orchestrator','The Claude Opus seat at the center. It triages every request, delegates it down, and verifies the result. Contents hidden.'],dom:['Domain agent','Owns one area of work, with its own state files and reports. Name hidden.'],spec:['Specialist agent','A shared service any agent can call through the bus. Name hidden.'],skill:['Skill','A packaged capability an agent loads on demand. Name hidden.'],job:['Background job','Runs on a schedule or a trigger. Name hidden.']};
+ svg.addEventListener('click',function(e){
+  var m=svg.getScreenCTM();if(!m)return;var pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;var q=pt.matrixTransform(m.inverse());
+  var best=null,bd=18*18;pts.forEach(function(p){var d=(p.x-q.x)*(p.x-q.x)+(p.y-q.y)*(p.y-q.y);if(d<bd){bd=d;best=p}});
+  if(!best){probe.innerHTML='<b>Empty space</b>Tap a dot to see what it is.';ring.setAttribute('opacity',0);return}
+  var t=TXT[best.t],head=t[0]+(best.i?' '+best.i+' of '+(best.t==='dom'?model.dom:best.t==='spec'?model.spec:model.skills):'');
+  var body=best.t==='job'?'Category: '+best.cat+' ('+best.n+' jobs). '+t[1]:t[1];
+  probe.innerHTML='<b>'+esc(head)+'</b>'+esc(body);
+  ring.setAttribute('cx',best.x);ring.setAttribute('cy',best.y);ring.setAttribute('r',best.t==='orch'?22:best.t==='dom'?11.5:best.t==='spec'?9:6);ring.setAttribute('opacity',1);
+ });
+ function fillText(c){
+  var set=function(k,v){if(v==null)return;[].forEach.call(document.querySelectorAll('[data-k="'+k+'"]'),function(x){x.textContent=nf(v)})};
+  set('orch',c.orch);set('dom',c.dom);set('spec',c.spec);set('skills',c.skills);
+  var t=0;for(var k in c.jobs)t+=num(c.jobs[k],0);set('jobs',t||c.jobsTotal);set('turns',c.turns);set('ships',c.ships);
+  var h='';CAT.forEach(function(k){var n=num(c.jobs[k[0]],0);if(n)h+='<li><span class="sw" style="background:'+k[2]+'"></span><span>'+esc(k[3])+'</span><b>'+nf(n)+'</b></li>'});
+  if(h)document.getElementById('cats').innerHTML=h;
+  if(c.tok&&c.tok.length)bars('spark-tok',c.tok.map(function(p){return num(p&&p.total,0)}));
+  if(c.shipDays&&c.shipDays.length)bars('spark-ship',c.shipDays);
+ }
+ function bars(id,v){var m=Math.max.apply(null,v)||1,h='',w=120/v.length;for(var i=0;i<v.length;i++){var y=Math.max(1.5,26*v[i]/m);h+='<rect x="'+(i*w).toFixed(2)+'" y="'+(28-y).toFixed(1)+'" width="'+(w*0.75).toFixed(2)+'" height="'+y.toFixed(1)+'" rx="1"/>'}document.getElementById(id).innerHTML=h}
+ // Pulses: orchestrator -> domain agent -> bus -> around the ring -> specialist. Illustrative routing, not a message feed.
+ var pool=[],running=false,visible=true,last=0,acc=0;
+ function route(){var a1=doms[Math.floor(Math.random()*doms.length)],a2=specs[Math.floor(Math.random()*specs.length)];var d=a2-a1;while(d>Math.PI)d-=2*Math.PI;while(d<-Math.PI)d+=2*Math.PI;return {a1:a1,d:d,t:0}}
+ function pos(r){var t=r.t;if(t<.35){var k=t/.35;return polar(R.dom*k,r.a1)}if(t<.5){var k2=(t-.35)/.15;return polar(R.dom+(R.bus-R.dom)*k2,r.a1)}if(t<.82){var k3=(t-.5)/.32;return polar(R.bus,r.a1+r.d*k3)}var k4=Math.min(1,(t-.82)/.18);return polar(R.bus+(R.spec-R.bus)*k4,r.a1+r.d)}
+ function frame(ts){
+  if(!running)return;var dt=last?Math.min(64,ts-last):16;last=ts;acc+=dt;
+  if(acc>420&&pool.filter(function(p){return p.r}).length<9&&doms.length&&specs.length){acc=0;var free=pool.find(function(p){return !p.r});if(!free){free={c:el('circle',{class:'pulse',r:2.6})};pool.push(free)}free.r=route()}
+  pool.forEach(function(p){if(!p.r){p.c.setAttribute('opacity',0);return}p.r.t+=dt/2200;if(p.r.t>=1){p.r=null;p.c.setAttribute('opacity',0);return}var q=pos(p.r);p.c.setAttribute('cx',q[0].toFixed(1));p.c.setAttribute('cy',q[1].toFixed(1));p.c.setAttribute('opacity',p.r.t>.92?(1-p.r.t)/.08:1)});
+  if(jobs.length&&Math.random()<.18){var j=jobs[Math.floor(Math.random()*jobs.length)];j.classList.add('on');j.setAttribute('r',3.4);setTimeout(function(){j.classList.remove('on');j.setAttribute('r',2.4)},500)}
+  requestAnimationFrame(frame);
+ }
+ function start(){if(reduce||running||!visible||document.hidden)return;running=true;last=0;requestAnimationFrame(frame)}
+ function stop(){running=false}
+ document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
+ if('IntersectionObserver' in window){new IntersectionObserver(function(es){visible=es[0].isIntersecting;visible?start():stop()}).observe(svg)}
+ var c0=counts(SNAP);draw(c0);fillText(c0);start();
+ var chip=document.getElementById('live-chip'),ct=document.getElementById('chip-text');
+ var ctl=window.AbortController?new AbortController():null,to=setTimeout(function(){if(ctl)ctl.abort()},6000);
+ fetch('/api/metrics',{signal:ctl?ctl.signal:undefined}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(j){
+  clearTimeout(to);if(!j||!j.structure||!j.structure.agents_by_kind)return;
+  var c=counts(j);pool=[];stop();draw(c);fillText(c);start();
+  var lu=j.as_of||'',t=new Date(lu+'T00:00:00'),n=new Date();n.setHours(0,0,0,0);var days=Math.round((n-t)/864e5);
+  if(!isNaN(days)&&days<=2){chip.className='chip live';ct.textContent='Live · published '+(days<=0?'today':days===1?'yesterday':'2 days ago')}else if(lu){ct.textContent='Published by the system · '+lu}
+ }).catch(function(){});
+})();
+</script>
+</body>
+</html>

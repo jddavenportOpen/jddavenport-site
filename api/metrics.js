@@ -91,6 +91,50 @@ function isIsoDate(value) {
   return typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value);
 }
 
+// Structure: COUNTS ONLY. Upstream `fleet` and `skills` are lists that carry
+// names and descriptions; here they are reduced to per-kind counts and the
+// lists themselves are never forwarded. That is what lets /brain draw the
+// real shape of the system with every name hidden. Kind/scope/category keys
+// are allowlisted literals owned by this file, so an upstream value can only
+// ever land in a count, never in a key.
+const FLEET_KINDS = ['orchestrator', 'domain', 'python-package', 'skill-backed'];
+const SKILL_SCOPES = ['system', 'global'];
+const JOB_CATEGORIES = [
+  'capture', 'memory', 'delivery', 'self-heal / watchdog',
+  'backup / storage', 'routing / infra', 'other',
+];
+
+function countBy(list, field, allowed) {
+  if (!Array.isArray(list)) return undefined;
+  const out = {};
+  for (const k of allowed) out[k] = 0;
+  let unclassified = 0;
+  for (const item of list) {
+    const v = item && typeof item === 'object' ? item[field] : undefined;
+    if (allowed.includes(v)) out[v] += 1;
+    else unclassified += 1;
+  }
+  if (unclassified) out.unclassified = unclassified;
+  return out;
+}
+
+function pickStructure(src) {
+  const s = {};
+  const agents = countBy(src.fleet, 'kind', FLEET_KINDS);
+  if (agents) s.agents_by_kind = agents;
+  const skills = countBy(src.skills, 'scope', SKILL_SCOPES);
+  if (skills) s.skills_by_scope = skills;
+  const auto = src.automation && typeof src.automation === 'object' ? src.automation : {};
+  const jobs = pickNumbers(auto.counts, JOB_CATEGORIES);
+  if (Object.keys(jobs).length) s.jobs_by_category = jobs;
+  const tl = src.timeline && typeof src.timeline === 'object' ? src.timeline.sparkline : undefined;
+  if (Array.isArray(tl)) {
+    const pts = tl.slice(-31).map(num).filter((v) => v !== undefined);
+    if (pts.length) s.ships_per_day = pts;
+  }
+  return s;
+}
+
 async function fetchUpstream() {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS);
@@ -157,5 +201,7 @@ module.exports = async function handler(req, res) {
     stats: pickNumbers(src.stats, STAT_KEYS),
     // Empty object when the upstream metrics block is not published yet.
     metrics,
+    // Counts-only shape of the system for /showcase and /brain. No names.
+    structure: pickStructure(src),
   });
 };

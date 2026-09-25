@@ -16,7 +16,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://nerve-center-showcase.vercel.app" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--canvas:#0E0C0A;--surface-1:#15120F;--surface-2:#1D1A17;--surface-3:#26221E;--surface-4:#302C27;--sunken:#090705;--text-1:#ECEBEA;--text-2:#AEABA8;--text-3:#827F7C;--accent:#F5A623;--accent-text:#F8C384;--accent-hover:#FFB44B;--on-accent:#1C140C;--hairline:rgba(255,255,255,.07);--border-default:rgba(255,255,255,.10);--border-strong:rgba(255,255,255,.14);--ready:#69B27A;--radius-md:8px;--radius-lg:12px;--font-ui:'Geist',system-ui,-apple-system,sans-serif;--font-mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;color-scheme:dark}
@@ -66,6 +65,15 @@ h2{font-size:clamp(1.6rem,6vw,2.4rem)}
 .stat span{display:block;font-size:.78rem;color:var(--text-3);margin-top:4px;line-height:1.35}
 .spark{display:block;width:100%;height:24px;margin-top:8px}
 .spark rect{fill:var(--accent);opacity:.75}
+.brain-cta{display:flex;align-items:center;gap:14px;margin-top:12px;padding:14px 16px;border-radius:12px;border:1px solid rgba(245,166,35,.45);background:linear-gradient(90deg,rgba(245,166,35,.10),rgba(245,166,35,.02));color:var(--text-1)}
+.brain-cta:hover{border-color:var(--accent);color:var(--text-1)}
+.bc-dot{flex:none;width:14px;height:14px;border-radius:50%;background:var(--accent);animation:pinga 2s ease-out infinite}
+@keyframes pinga{0%{box-shadow:0 0 0 0 rgba(245,166,35,.6)}80%,100%{box-shadow:0 0 0 9px rgba(245,166,35,0)}}
+.bc-body{display:flex;flex-direction:column;min-width:0}
+.bc-k{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text)}
+.bc-t{font-weight:600;font-size:1.05rem}
+.bc-s{font-size:.82rem;color:var(--text-2);line-height:1.4}
+.bc-go{margin-left:auto;font-size:1.3rem;color:var(--accent)}
 .sys{margin-top:18px;display:grid;gap:16px}
 .diagram{background:var(--surface-1);border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:12px 12px 10px;min-width:0}
 .dtool{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
@@ -153,7 +161,7 @@ footer a{color:var(--text-2)}
 }
 @media (prefers-reduced-motion:reduce){
  #sys .pkt{display:none}
- #sys .pulse,.chip.live .dot{animation:none}
+ #sys .pulse,.chip.live .dot,.bc-dot{animation:none}
  html{scroll-behavior:auto}
  .card{transition:none}
 }
@@ -162,7 +170,7 @@ footer a{color:var(--text-2)}
 <body>
 <header class="wrap topbar">
  <a class="brand" href="/"><b>JD Davenport</b><span class="dom"> · jddavenport.com</span></a>
- <nav class="topnav" aria-label="Sections"><a href="#system">System</a><a href="#projects">Projects</a><a href="#proof">Proof</a></nav>
+ <nav class="topnav" aria-label="Sections"><a href="#system">System</a><a href="/brain">Brain</a><a href="#projects">Projects</a><a href="#proof">Proof</a></nav>
 </header>
 
 <main>
@@ -197,6 +205,12 @@ footer a{color:var(--text-2)}
    <div class="stat"><b data-k="ships">1,029</b><span>shipped-work log entries, last 30 days</span><svg class="spark" id="spark" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="2.0" width="3" height="26.0" rx="1"/><rect x="4" y="16.8" width="3" height="11.2" rx="1"/><rect x="8" y="19.0" width="3" height="9.0" rx="1"/><rect x="12" y="24.0" width="3" height="4.0" rx="1"/><rect x="16" y="12.5" width="3" height="15.5" rx="1"/><rect x="20" y="18.2" width="3" height="9.8" rx="1"/><rect x="24" y="12.5" width="3" height="15.5" rx="1"/><rect x="28" y="8.9" width="3" height="19.1" rx="1"/><rect x="32" y="14.6" width="3" height="13.4" rx="1"/><rect x="36" y="9.2" width="3" height="18.8" rx="1"/><rect x="40" y="13.2" width="3" height="14.8" rx="1"/><rect x="44" y="19.0" width="3" height="9.0" rx="1"/><rect x="48" y="18.2" width="3" height="9.8" rx="1"/><rect x="52" y="10.7" width="3" height="17.3" rx="1"/><rect x="56" y="10.7" width="3" height="17.3" rx="1"/><rect x="60" y="25.8" width="3" height="2.2" rx="1"/><rect x="64" y="4.5" width="3" height="23.5" rx="1"/><rect x="68" y="10.7" width="3" height="17.3" rx="1"/><rect x="72" y="21.1" width="3" height="6.9" rx="1"/><rect x="76" y="20.8" width="3" height="7.2" rx="1"/><rect x="80" y="24.4" width="3" height="3.6" rx="1"/><rect x="84" y="19.7" width="3" height="8.3" rx="1"/><rect x="88" y="26.2" width="3" height="1.8" rx="1"/><rect x="92" y="21.5" width="3" height="6.5" rx="1"/><rect x="96" y="20.8" width="3" height="7.2" rx="1"/><rect x="100" y="6.7" width="3" height="21.3" rx="1"/><rect x="104" y="12.8" width="3" height="15.2" rx="1"/><rect x="108" y="11.8" width="3" height="16.2" rx="1"/><rect x="112" y="8.5" width="3" height="19.5" rx="1"/><rect x="116" y="25.8" width="3" height="2.2" rx="1"/></svg></div>
   </div>
 
+  <a class="brain-cta" href="/brain">
+   <span class="bc-dot" aria-hidden="true"></span>
+   <span class="bc-body"><span class="bc-k">Live agent graph</span><span class="bc-t">Open the live brain</span><span class="bc-s">Every agent, skill and background job in the system, counted live. Names and data hidden.</span></span>
+   <span class="bc-go" aria-hidden="true">→</span>
+  </a>
+
   <div class="sys">
    <div class="diagram">
     <div class="dtool">
@@ -214,7 +228,7 @@ footer a{color:var(--text-2)}
     </div>
    </div>
   </div>
-  <p class="fine">The map is drawn by hand from the running system: component names are real, hostnames and credentials are left out. The counts load live from <a href="https://nerve-center-showcase.vercel.app/capabilities.json">capabilities.json</a>, which the system regenerates and republishes on its own. If that request fails you see the snapshot from 2026-09-24.</p>
+  <p class="fine">The map is drawn by hand from the running system: component names are real, hostnames and credentials are left out. The counts load live from <a href="/api/metrics">/api/metrics</a>, a server-side filter over the inventory the system republishes on its own. It forwards numbers only, never names or contents. If that request fails you see the snapshot from 2026-09-24.</p>
  </div>
 </section>
 
@@ -232,7 +246,7 @@ footer a{color:var(--text-2)}
   <div class="kicker">03 · Proof</div>
   <h2>Shipped, public, clickable</h2>
   <p class="lead">Live apps, the production teardown, and the writing behind them.</p>
-  <ul class="proof"><li><a class="pr" href="https://nerve-center-showcase.vercel.app"><span class="badge live">Live</span><h3>Nerve Center capability catalog</h3><p>The system&#x27;s own inventory of agents, skills and background jobs, regenerated and republished automatically.</p><span class="url">nerve-center-showcase.vercel.app ↗</span></a></li><li><a class="pr" href="https://jddavenport.com/teardown"><span class="badge doc">Case study</span><h3>Running agents in production: the full teardown</h3><p>Each capability, its risk, the control that bounds it, and the incident that taught it.</p><span class="url">jddavenport.com/teardown ↗</span></a><a class="src" href="https://github.com/jddavenportOpen/agent-safety-case-study">Source: agent-safety-case-study ↗</a></li><li><a class="pr" href="https://aifoundry.byu.edu/jobs"><span class="badge app">Live app</span><h3>AI Foundry Jobs</h3><p>Startup roles across Utah and California VC portfolio companies, with resume matching. The code behind it is public.</p><span class="url">aifoundry.byu.edu/jobs ↗</span></a><a class="src" href="https://github.com/jddavenportOpen/vc-job-board">Source: vc-job-board ↗</a></li><li><a class="pr" href="https://book.jddavenport.com"><span class="badge app">Live app</span><h3>BookJD</h3><p>A self-hosted booking app, my own Calendly: Next.js, Supabase and Google Calendar availability.</p><span class="url">book.jddavenport.com ↗</span></a><a class="src" href="https://github.com/jddavenportOpen/bookjd">Source: bookjd ↗</a></li><li><a class="pr" href="https://clawdacademy.app"><span class="badge app">Live app</span><h3>Clawdacademy</h3><p>An interactive trainer for hands-on AI fluency.</p><span class="url">clawdacademy.app ↗</span></a><a class="src" href="https://github.com/jddavenportOpen/ai-fluency-trainer">Source: ai-fluency-trainer ↗</a></li><li><a class="pr" href="https://docs.agenttree.army"><span class="badge doc">Docs</span><h3>Agent Tree Knowledge Hub</h3><p>Guides on building agent systems, written from running this one.</p><span class="url">docs.agenttree.army ↗</span></a></li><li><a class="pr" href="https://docs.agenttree.army/articles/personal-ai-os/"><span class="badge doc">Essay</span><h3>I ran my life on a fleet of AI agents for 6 months</h3><p>What worked, what broke, and what I would build again.</p><span class="url">docs.agenttree.army/articles/personal-ai-os ↗</span></a></li><li><a class="pr" href="https://docs.agenttree.army/newsletter"><span class="badge doc">Newsletter</span><h3>Raising Clawd</h3><p>AI builds, frameworks and intel, from someone running agents daily.</p><span class="url">docs.agenttree.army/newsletter ↗</span></a></li></ul>
+  <ul class="proof"><li><a class="pr" href="https://jddavenport.com/brain"><span class="badge live">Live</span><h3>The live brain</h3><p>Every agent, skill and background job in the running system as a live graph. Names and data hidden; the structure is real.</p><span class="url">jddavenport.com/brain ↗</span></a></li><li><a class="pr" href="https://jddavenport.com/teardown"><span class="badge doc">Case study</span><h3>Running agents in production: the full teardown</h3><p>Each capability, its risk, the control that bounds it, and the incident that taught it.</p><span class="url">jddavenport.com/teardown ↗</span></a><a class="src" href="https://github.com/jddavenportOpen/agent-safety-case-study">Source: agent-safety-case-study ↗</a></li><li><a class="pr" href="https://aifoundry.byu.edu/jobs"><span class="badge app">Live app</span><h3>AI Foundry Jobs</h3><p>Startup roles across Utah and California VC portfolio companies, with resume matching. The code behind it is public.</p><span class="url">aifoundry.byu.edu/jobs ↗</span></a><a class="src" href="https://github.com/jddavenportOpen/vc-job-board">Source: vc-job-board ↗</a></li><li><a class="pr" href="https://book.jddavenport.com"><span class="badge app">Live app</span><h3>BookJD</h3><p>A self-hosted booking app, my own Calendly: Next.js, Supabase and Google Calendar availability.</p><span class="url">book.jddavenport.com ↗</span></a><a class="src" href="https://github.com/jddavenportOpen/bookjd">Source: bookjd ↗</a></li><li><a class="pr" href="https://clawdacademy.app"><span class="badge app">Live app</span><h3>Clawdacademy</h3><p>An interactive trainer for hands-on AI fluency.</p><span class="url">clawdacademy.app ↗</span></a><a class="src" href="https://github.com/jddavenportOpen/ai-fluency-trainer">Source: ai-fluency-trainer ↗</a></li><li><a class="pr" href="https://docs.agenttree.army"><span class="badge doc">Docs</span><h3>Agent Tree Knowledge Hub</h3><p>Guides on building agent systems, written from running this one.</p><span class="url">docs.agenttree.army ↗</span></a></li><li><a class="pr" href="https://docs.agenttree.army/articles/personal-ai-os/"><span class="badge doc">Essay</span><h3>I ran my life on a fleet of AI agents for 6 months</h3><p>What worked, what broke, and what I would build again.</p><span class="url">docs.agenttree.army/articles/personal-ai-os ↗</span></a></li><li><a class="pr" href="https://docs.agenttree.army/newsletter"><span class="badge doc">Newsletter</span><h3>Raising Clawd</h3><p>AI builds, frameworks and intel, from someone running agents daily.</p><span class="url">docs.agenttree.army/newsletter ↗</span></a></li></ul>
  </div>
 </section>
 
@@ -306,13 +320,13 @@ footer a{color:var(--text-2)}
  }
  var chip=document.getElementById('live-chip'),ct=document.getElementById('chip-text');
  var ctl=window.AbortController?new AbortController():null,to=setTimeout(function(){if(ctl)ctl.abort()},6000);
- fetch('https://nerve-center-showcase.vercel.app/capabilities.json',{signal:ctl?ctl.signal:undefined}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(j){
+ fetch('/api/metrics',{signal:ctl?ctl.signal:undefined}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(j){
   clearTimeout(to);
-  var s=j.stats||{},c=(j.automation&&j.automation.counts)||{};
+  var s=j.stats||{},st=j.structure||{},c=st.jobs_by_category||{};
   var v={agents:s.agents,automations:s.automations,watchdogs:c['self-heal / watchdog'],ships:s.ships_last_30d};
   Object.keys(v).forEach(function(k){if(typeof v[k]==='number'){live[k]=v[k];[].forEach.call(document.querySelectorAll('[data-k="'+k+'"]'),function(el){el.textContent=nf(v[k])})}});
-  if(j.timeline&&j.timeline.sparkline&&j.timeline.sparkline.length)spark(j.timeline.sparkline);
-  var lu=j.last_updated||'';
+  if(st.ships_per_day&&st.ships_per_day.length)spark(st.ships_per_day);
+  var lu=j.as_of||'';
   var t=new Date(lu+'T00:00:00'),n=new Date();n.setHours(0,0,0,0);
   var days=Math.round((n-t)/864e5);
   if(!isNaN(days)&&days<=2){chip.className='chip live';ct.textContent='Live · published '+(days<=0?'today':days===1?'yesterday':'2 days ago')}
