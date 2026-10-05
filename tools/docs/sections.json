@@ -3,7 +3,16 @@
     "id": "ai-core-skills",
     "title": "AI Core Skills",
     "description": "One in-demand AI skill at a time: what top roles pay for it, where it came from, how to do it with AI, how to check your work, and a kit you can use tonight.",
-    "groups": ["#1 Agent evals"]
+    "groups": [
+      "#1 Agent evals"
+    ],
+    "cta": {
+      "kicker": "Join the series",
+      "title": "Get the next AI Core Skill",
+      "text": "Comment \"AI Core Skills\" on my LinkedIn post and I'll add you to the series. Make sure we're connected first so I can send it.",
+      "url": "https://www.linkedin.com/posts/jd-davenport_two-things-are-true-right-now-and-they-dont-activity-7510693989826748417-uLDI",
+      "label": "Comment on the post"
+    }
   },
   {
     "id": "start-here",
@@ -14,31 +23,55 @@
     "id": "fundamentals",
     "title": "Fundamentals",
     "description": "Tier 1. The working parts of Claude Code: context, files as state, CLAUDE.md, tools, MCP, skills, hooks, settings, git, logging and cost. Ends with your first agent.",
-    "groups": ["How it works", "Extending Claude Code", "Working habits", "Capstone"]
+    "groups": [
+      "How it works",
+      "Extending Claude Code",
+      "Working habits",
+      "Capstone"
+    ]
   },
   {
     "id": "patterns",
     "title": "Patterns",
     "description": "Tier 2. The patterns that hold up when many agents run for months: delegation, isolation, orchestration, routing, memory, loops, and shipping without breaking things.",
-    "groups": ["Agents", "Loops and schedules", "Shipping", "Running the org"]
+    "groups": [
+      "Agents",
+      "Loops and schedules",
+      "Shipping",
+      "Running the org"
+    ]
   },
   {
     "id": "nerve-center",
     "title": "Inside the Nerve Center",
     "description": "Tier 3. How my production AI organization works today: the architecture, the story, orchestration, memory, the cockpit, and how I talk to it.",
-    "groups": ["Overview", "Orchestration", "Memory and context", "The cockpit", "Interfaces and tools"]
+    "groups": [
+      "Overview",
+      "Orchestration",
+      "Memory and context",
+      "The cockpit",
+      "Interfaces and tools"
+    ]
   },
   {
     "id": "safety-and-operations",
     "title": "Safety and operations",
     "description": "What makes it safe to hand an AI organization real authority: one send gate, QA against user stories, gated self-repair, watchdogs, and durable state.",
-    "groups": ["Guardrails", "Keeping it running"]
+    "groups": [
+      "Guardrails",
+      "Keeping it running"
+    ]
   },
   {
     "id": "builds",
     "title": "Builds",
     "description": "Case studies of specific things I built: what each one does, what broke, what it taught me, and the repo you can clone where there is one.",
-    "groups": ["Commerce", "Research and content", "School and work", "Open source"]
+    "groups": [
+      "Commerce",
+      "Research and content",
+      "School and work",
+      "Open source"
+    ]
   },
   {
     "id": "field-notes",

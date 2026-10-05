@@ -495,6 +495,7 @@ class Section:
     description: str
     groups: list
     articles: list = field(default_factory=list)
+    cta: dict = field(default_factory=dict)
 
     @property
     def url(self) -> str:
@@ -532,7 +533,7 @@ def load_sections(path: Path) -> list[Section]:
         if not SLUG_RE.match(sid) or sid in seen:
             raise SystemExit(f"sections.json: bad or duplicate id {sid!r}")
         seen.add(sid)
-        secs.append(Section(sid, s["title"], s.get("description", ""), list(s.get("groups") or [])))
+        secs.append(Section(sid, s["title"], s.get("description", ""), list(s.get("groups") or []), cta=dict(s.get("cta") or {})))
     return secs
 
 
@@ -764,6 +765,7 @@ def article_page(a: Article, sec: Section, sections: list[Section], prev: Articl
   <div class="prose">
 {a.body_html}
   </div>
+  {cta_block(sec)}
   <nav class="prev-next" aria-label="Previous and next">{"".join(pn)}</nav>
 </article>
 </main>
@@ -773,6 +775,20 @@ def article_page(a: Article, sec: Section, sections: list[Section], prev: Articl
 </body>
 </html>
 """
+
+
+def cta_block(sec: Section, compact: bool = False) -> str:
+    """Series call to action, configured per section in sections.json ("cta")."""
+    c = sec.cta
+    if not c or not c.get("url"):
+        return ""
+    cls = "series-cta compact" if compact else "series-cta"
+    return (f'<aside class="{cls}" aria-label="{E(c.get("title", "Join the series"))}">'
+            f'<div class="kicker">{E(c.get("kicker", "Join the series"))}</div>'
+            f'<p class="series-cta-title">{E(c.get("title", ""))}</p>'
+            f'<p class="series-cta-text">{E(c.get("text", ""))}</p>'
+            f'<a class="btn btn-primary" href="{E(c["url"])}" target="_blank" rel="noopener">{E(c.get("label", "Open the post"))} ↗</a>'
+            f'</aside>')
 
 
 def article_card(a: Article) -> str:
@@ -805,6 +821,7 @@ def section_page(sec: Section, sections: list[Section]) -> str:
   <p class="doc-lead">{E(desc)}</p>
   <p class="doc-meta"><span>{n} article{'s' if n != 1 else ''}</span><span aria-hidden="true">·</span><span>{sum(a.minutes for a in sec.articles)} min total</span></p>
   <p class="section-start"><a class="btn btn-primary" href="{first.url}">Start reading →</a></p>
+  {cta_block(sec)}
   {"".join(blocks)}
 </div>
 </main>
@@ -834,6 +851,7 @@ def landing_page(sections: list[Section]) -> str:
       <h2 id="feat-title">{E(featured.title)}</h2>
       <p>{E(featured.description)}</p>
       <div class="feat-ctas"><a class="btn btn-primary" href="{first.url}">Start reading →</a><a class="btn btn-outline" href="{featured.url}">Section overview</a></div>
+      {cta_block(featured, compact=True)}
     </div>
     <div class="feat-index">{"".join(groups)}</div>
   </section>"""

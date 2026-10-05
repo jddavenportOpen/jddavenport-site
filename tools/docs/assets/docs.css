@@ -325,3 +325,15 @@ a:hover{color:var(--accent-hover)}
   .prose,.doc-lead{color:#333}
   .doc h1,.prose h2,.prose h3,.prose strong{color:#111}
 }
+
+/* Series call to action (sections.json "cta") */
+.series-cta{margin:40px 0 8px;padding:22px 24px;background:var(--surface-2);border:1px solid var(--border-default);border-left:2px solid var(--accent);border-radius:var(--radius-lg)}
+.series-cta .kicker{margin-bottom:8px}
+.series-cta-title{font-size:1.15rem;font-weight:600;color:var(--text-1);margin:0 0 6px;letter-spacing:-0.01em}
+.series-cta-text{color:var(--text-2);margin:0 0 16px;line-height:1.6}
+.series-cta .btn{display:inline-flex}
+.series-cta.compact{margin:22px 0 0;padding:16px 18px;background:transparent}
+.series-cta.compact .series-cta-title{font-size:1rem}
+.series-cta.compact .series-cta-text{font-size:.92rem;margin-bottom:12px}
+.featured .series-cta-title{color:var(--text-1);margin:0 0 6px}
+.featured .series-cta-text{margin:0 0 12px}
