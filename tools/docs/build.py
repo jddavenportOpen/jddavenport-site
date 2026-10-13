@@ -601,7 +601,8 @@ FOOTER_LINKS = [
     ("LinkedIn", "https://www.linkedin.com/in/jd-davenport/", True),
     ("GitHub", "https://github.com/jddavenportOpen", True),
     ("Docs", "/docs/", False),
-    ("Newsletter", "https://docs.agenttree.army/newsletter", True),
+    ("Newsletter", "/newsletter", False),
+    ("X", "https://x.com/theJDDavenport", True),
     ("Book", "https://book.jddavenport.com", False),
     ("Email", "mailto:me@jddavenport.com", False),
 ]
