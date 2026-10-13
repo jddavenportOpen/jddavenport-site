@@ -26,6 +26,10 @@
     {
       "source": "/brain",
       "destination": "/brain.html"
+    },
+    {
+      "source": "/newsletter",
+      "destination": "/newsletter.html"
     }
   ]
 }
