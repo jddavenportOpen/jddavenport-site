@@ -30,6 +30,18 @@
     {
       "source": "/newsletter",
       "destination": "/newsletter.html"
+    },
+    {
+      "source": "/api/confirm",
+      "destination": "https://docs.agenttree.army/api/confirm"
+    },
+    {
+      "source": "/api/unsubscribe",
+      "destination": "https://docs.agenttree.army/api/unsubscribe"
+    },
+    {
+      "source": "/downloads/:path*",
+      "destination": "https://docs.agenttree.army/downloads/:path*"
     }
   ]
 }
