@@ -4,7 +4,8 @@
     "title": "AI Core Skills",
     "description": "One in-demand AI skill at a time: what top roles pay for it, where it came from, how to do it with AI, how to check your work, and a kit you can use tonight.",
     "groups": [
-      "#1 Agent evals"
+      "#1 Agent evals",
+      "#2 Agent tracing"
     ],
     "cta": {
       "kicker": "Join the series",
