@@ -138,6 +138,7 @@ a:hover{color:var(--accent-hover)}
 /* Prose */
 .prose{color:var(--text-2);font-size:.98rem;line-height:1.75;overflow-wrap:break-word}
 .prose>*:first-child{margin-top:0}
+.prose img{display:block;max-width:100%;height:auto;margin:14px 0 22px;border:1px solid var(--border-default);border-radius:10px}
 .prose h2,.prose h3,.prose h4{position:relative;color:var(--text-1);scroll-margin-top:calc(var(--header-h) + var(--bar-h) + 24px)}
 .prose h2{font-size:1.45rem;margin:52px 0 14px}
 .prose h3{font-size:1.1rem;margin:34px 0 10px;letter-spacing:-0.01em}

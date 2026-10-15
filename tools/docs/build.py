@@ -134,7 +134,8 @@ def slugify(text: str) -> str:
 
 def strip_inline_md(text: str) -> str:
     """Plain text of an inline Markdown string (for ids, TOC, search)."""
-    t = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)
+    t = re.sub(r"!\[([^\]]*)\]\([^)]*\)", r"\1", text)
+    t = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", t)
     t = re.sub(r"\\([\\`*_\[\]|>#-])", r"\1", t)
     t = t.replace("`", "")
     t = re.sub(r"\*\*(.+?)\*\*", r"\1", t)
@@ -163,6 +164,7 @@ def _link_attrs(url: str, ctx: RenderCtx) -> str:
     return f'href="{href}"'
 
 
+IMG_RE = re.compile(r"!\[([^\]]*)\]\(\s*([^()\s]+)\s*\)")
 LINK_RE = re.compile(r"\[((?:[^\[\]]|\[[^\[\]]*\])+)\]\(\s*((?:[^()\s]|\([^()\s]*\))+)\s*\)")
 
 
@@ -178,6 +180,8 @@ def render_inline(text: str, ctx: RenderCtx, allow_links: bool = True) -> str:
     # 2. code spans (any run of backticks, matched to an equal run)
     t = re.sub(r"(`+)(.+?)(?<!`)\1(?!`)",
                lambda m: put(f"<code>{html.escape(m.group(2).strip() if m.group(2).strip() else m.group(2))}</code>"), t)
+    # 2b. images: ![alt](src)
+    t = IMG_RE.sub(lambda m: put(f'<img src="{html.escape(m.group(2))}" alt="{html.escape(m.group(1))}" loading="lazy">'), t)
     # 3. links
     if allow_links:
         def link(m):
