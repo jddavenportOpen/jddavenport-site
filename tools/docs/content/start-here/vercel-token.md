@@ -10,15 +10,15 @@ Claude Code can build you a website in minutes. To put it live on the internet, 
 
 This takes about 5 minutes. Do it before class.
 
-**You need:** a laptop with Claude Code installed, a phone that can receive texts, and a GitHub account (free at [github.com](https://github.com) if you don't have one).
+**You need:** a laptop with Claude Code installed and a phone that can receive texts. A GitHub account (free at [github.com](https://github.com)) is preferred, since your site's code will live there, but any email works for Vercel.
 
 > **Warning:** Treat the token like a password. Anyone who has it can control your Vercel account. Don't paste it into a chat, a doc, Slack, or GitHub. You only give it to Claude Code, in step 8.
 
-## 1. Sign up with GitHub
+## 1. Sign up
 
-Go to [vercel.com/signup](https://vercel.com/signup) and click **Continue with GitHub**. Approve the GitHub screen that follows.
+Go to [vercel.com/signup](https://vercel.com/signup). **Continue with GitHub** is preferred. Any email works too: click **Continue with Email**, enter your email, and type the code Vercel emails you.
 
-![Vercel sign-up page with Continue with GitHub highlighted](https://jddavenport.com/images/docs/vercel-token/01-sign-up.png)
+![Vercel sign-up page with Continue with GitHub highlighted as preferred, and Continue with Email as the alternative](https://jddavenport.com/images/docs/vercel-token/01-sign-up.png)
 
 ## 2. Verify your phone
 
