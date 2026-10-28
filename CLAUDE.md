@@ -102,7 +102,7 @@ Recurring idioms, all already in the markup. Reuse them rather than inventing:
 - Container 1120px (content pages 780px), sections 72px, body letter-spacing
   `-0.005em`, headings `-0.02em`.
 
-Single committed dark theme. There is no light variant and none is wanted.
+**Home page (index.html) since 2026-10-28: the sunset/blue "dusk" design** (warm white #FFFBF6 → peach → pale blue → night #0D1B2E/#090D18, electric blue #0358F7, sunset text #A3481F; tokens + reasoning in ~/clawd/projects/jd-portfolio/site-research-2026-10-26/REPORT.md section 7, source in ~/clawd/projects/jd-portfolio/theme-lab-2026-10-23/v4/combined/). The other pages (teardown, docs, newsletter, showcase, brain) are still the dark Warm Graphite theme above until they are re-themed; that split is known and temporary. Never use violet, gold, or BYU blues (#002E5D, #0047BA, #0072CE) on the new design.
 
 **Hard rules for anything you write here:**
 
