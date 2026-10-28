@@ -637,7 +637,7 @@ def head(title: str, description: str, url: str, og_type: str = "article") -> st
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/docs/docs.css">
 <script>document.documentElement.classList.add('js')</script>
 <script defer src="/docs/docs.js"></script>
@@ -671,7 +671,7 @@ def site_footer() -> str:
   <div class="footer-inner">
     <div class="footer-links">{"".join(links)}</div>
     <div class="wordmark">JD Davenport</div>
-    <div class="footer-copy">© 2026 · built in the warm-graphite system</div>
+    <div class="footer-copy">© 2026 JD Davenport</div>
   </div>
 </footer>"""
 

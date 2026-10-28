@@ -25,66 +25,85 @@
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+/* Dusk tokens, mirrored from index.html (site-research-2026-10-26/REPORT.md section 7).
+   Long-form reading sits on the dawn ground; the closing author block and the footer fall to night. */
 :root{
-  --canvas:#0E0C0A;--sunken:#090705;--surface-1:#15120F;--surface-2:#1D1A17;--surface-3:#26221E;
-  --accent:#F5A623;--accent-hover:#FFB44B;--accent-text:#F8C384;--on-accent:#1C140C;
-  --text-1:#ECEBEA;--text-2:#AEABA8;--text-3:#827F7C;
-  --working:#7CB4CF;--ready:#69B27A;
-  --hairline:rgba(255,255,255,0.07);--border-default:rgba(255,255,255,0.10);--border-strong:rgba(255,255,255,0.14);
-  --radius-sm:6px;--radius-md:8px;--radius-lg:12px;
-  --font-ui:'Geist',system-ui,-apple-system,sans-serif;
-  --font-mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --f-serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --bg:#FFFBF6;--ink:#1A2236;--muted:#566079;--blue:#0358F7;--on-blue:#FFFFFF;--sun:#A3481F;
+  --line:rgba(26,34,54,.16);--card:#FFFFFF;--pale:#EAF2FF;
+  --coral:#FF8A5C;--night:#090D18;--dusk:#0D1B2E;--dusk-card:#12233A;
+  --n-ink:#F7F0E8;--n-muted:#A8B2CA;--n-blue:#8DB0FF;--n-line:rgba(247,240,232,.18);
+  --gutter:16px;
 }
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:var(--font-ui);background:var(--canvas);color:var(--text-1);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;letter-spacing:-0.005em}
-h1,h2,h3{font-weight:600;line-height:1.15;letter-spacing:-0.02em}
-a{color:var(--accent-text);text-decoration:none;transition:color .18s ease}
-a:hover{color:var(--accent-hover)}
-.mono{font-family:var(--font-mono)}
-.container{max-width:780px;margin:0 auto;padding:0 24px}
-.kicker{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:var(--accent-text);margin-bottom:14px;display:flex;align-items:center;gap:9px;font-weight:500}
-.kicker::before{content:'●';color:var(--accent);font-size:.6rem}
-header{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:rgba(14,12,10,.85);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--hairline)}
-header .hcontainer{max-width:780px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:var(--font-mono);font-weight:600;font-size:.92rem;color:var(--text-1);display:flex;align-items:center;gap:9px;letter-spacing:.02em}
-.logo .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
-.backlink{font-family:var(--font-mono);font-size:.8rem;color:var(--text-2)}
-.backlink:hover{color:var(--text-1)}
-.article{padding:132px 0 72px}
-.article h1{font-size:clamp(1.85rem,4.4vw,2.7rem);margin-bottom:18px}
-.byline{font-family:var(--font-mono);font-size:.78rem;color:var(--text-3);letter-spacing:.04em;margin-bottom:40px;display:flex;gap:14px;flex-wrap:wrap}
-.article h2{font-size:1.45rem;margin:52px 0 14px;color:var(--text-1)}
-.article h3{font-size:1.08rem;margin:32px 0 10px;color:var(--text-1)}
-.article p{color:var(--text-2);font-size:.98rem;line-height:1.75;margin-bottom:16px}
-.article p b{color:var(--text-1);font-weight:600}
-.article ul{margin:0 0 16px 20px}
-.article li{color:var(--text-2);font-size:.98rem;line-height:1.7;margin-bottom:10px}
-.article li b{color:var(--text-1);font-weight:600}
-.amber{color:var(--accent-text)}
-.stackline{background:var(--surface-1);border:1px solid var(--hairline);border-left:2px solid var(--accent);border-radius:var(--radius-md);padding:16px 20px;font-family:var(--font-mono);font-size:.84rem;line-height:1.7;color:var(--text-2);margin:20px 0 26px}
-.stackline b{color:var(--text-1);font-weight:600}
-.diagram-wrap{background:var(--surface-1);border:1px solid var(--hairline);border-radius:var(--radius-lg);padding:22px 18px 10px;margin:26px 0}
+@media (min-width:720px){:root{--gutter:32px}}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%;background:var(--bg)}
+body{font:400 17px/1.6 var(--f-sans);background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-weight:400}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+.mono{font-family:var(--f-mono)}
+.container{max-width:780px;margin:0 auto;padding:0 var(--gutter)}
+.kicker{font:500 .78rem/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.16em;color:var(--sun);margin-bottom:16px;display:flex;align-items:center;gap:9px}
+.kicker::before{content:'●';color:var(--sun);font-size:.6rem}
+
+/* header: the home page's top bar, kept fixed as this page always was */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,251,246,.9);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line)}
+header .hcontainer{max-width:1120px;margin:0 auto;padding:4px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:inline-flex;align-items:center;gap:9px;min-height:44px;font:500 19px/1 var(--f-serif);letter-spacing:-.01em;color:var(--ink);text-decoration:none;white-space:nowrap}
+.logo .dot{width:7px;height:7px;border-radius:50%;background:var(--sun)}
+.backlink{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:1px solid var(--ink);border-radius:999px;font:400 15px/1.2 var(--f-sans);color:var(--ink);text-decoration:none;white-space:nowrap}
+.backlink:hover{background:var(--ink);color:var(--bg)}
+@media (min-width:720px){header .hcontainer{padding-top:10px;padding-bottom:10px}.backlink{font-size:16px}}
+
+/* article: warm-white reading ground; blue carries the structure, sunset only marks */
+.article{padding:112px 0 80px;background:linear-gradient(180deg,#FFFBF6 0,#FFFBF6 calc(100% - 320px),#FFF0E3 calc(100% - 180px),#FFE3CC 100%)}
+@media (min-width:720px){.article{padding-top:136px}}
+.article h1{font:400 clamp(2.2rem,1.4rem + 3.4vw,3.6rem)/1.06 var(--f-serif);letter-spacing:-.022em;color:var(--ink);margin-bottom:20px;text-wrap:balance}
+.byline{font:500 .78rem/1.4 var(--f-mono);color:var(--muted);letter-spacing:.06em;margin-bottom:40px;padding-bottom:18px;border-bottom:1px solid var(--line);display:flex;gap:6px 16px;flex-wrap:wrap}
+.article h2{font:400 clamp(1.6rem,1.3rem + 1.3vw,2.1rem)/1.15 var(--f-serif);letter-spacing:-.012em;margin:56px 0 14px;color:var(--ink);text-wrap:balance}
+.article h3{font:600 1.08rem/1.35 var(--f-sans);margin:34px 0 10px;color:var(--ink)}
+.article p{color:var(--ink);font-size:1.0625rem;line-height:1.72;margin-bottom:18px}
+.article p b{font-weight:600}
+.article ul{margin:0 0 18px 20px}
+.article li{color:var(--ink);font-size:1.0625rem;line-height:1.68;margin-bottom:10px}
+.article li::marker{color:var(--sun)}
+.article li b{font-weight:600}
+.amber{color:var(--sun)}
+.stackline{background:var(--pale);border:1px solid rgba(3,88,247,.22);border-left:3px solid var(--blue);border-radius:6px;padding:16px 18px;font:400 .88rem/1.75 var(--f-mono);color:var(--ink);margin:22px 0 28px;overflow-wrap:anywhere}
+.stackline b{color:var(--blue);font-weight:600}
+.diagram-wrap{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:20px 14px 8px;margin:28px 0}
 .diagram-wrap svg{width:100%;height:auto;display:block}
-.diagram-cap{font-size:.8rem;color:var(--text-3);padding:10px 4px 10px;line-height:1.55}
-.pullquote{border-left:2px solid var(--accent);padding:6px 0 6px 20px;margin:26px 0;color:var(--text-1);font-size:1.05rem;line-height:1.6;font-weight:500}
-.addendum{margin-top:48px;background:var(--surface-1);border:1px solid var(--hairline);border-left:2px solid var(--accent);border-radius:var(--radius-md);padding:18px 22px}
-.addendum .addendum-date{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent-text);margin-bottom:8px}
-.addendum p{margin-bottom:0;font-size:.93rem}
-.footer-cta{margin-top:60px;background:var(--surface-2);border:1px solid var(--hairline);border-radius:var(--radius-lg);padding:28px 30px}
-.footer-cta h3{margin:0 0 8px}
-.footer-cta p{margin-bottom:16px}
-.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:var(--radius-sm);font-weight:600;font-size:.87rem;transition:all .18s;border:1px solid transparent}
-.btn-primary{background:var(--accent);color:var(--on-accent)}
-.btn-primary:hover{background:var(--accent-hover);color:var(--on-accent)}
-.btn-outline{border:1px solid var(--border-default);color:var(--text-1);background:transparent;margin-left:10px}
-.btn-outline:hover{border-color:var(--border-strong);background:var(--surface-2);color:var(--text-1)}
-footer{border-top:1px solid var(--hairline);padding:30px 0;text-align:center;margin-top:40px}
-.footer-copy{color:var(--text-3);font-size:.78rem;font-family:var(--font-mono);letter-spacing:.02em}
-:focus-visible{outline:none;box-shadow:0 0 0 2px var(--canvas),0 0 0 4px rgba(245,166,35,.55);border-radius:var(--radius-sm)}
-@media print{body{background:#fff;color:#111}.article p,.article li{color:#333}}
+.diagram-cap{font-size:.9rem;color:var(--muted);padding:12px 4px 10px;line-height:1.55;border-top:1px solid var(--line);margin-top:14px}
+.pullquote{border-left:3px solid var(--sun);padding:4px 0 4px 20px;margin:30px 0;color:var(--ink);font:400 clamp(1.3rem,1.15rem + .7vw,1.6rem)/1.35 var(--f-serif);letter-spacing:-.008em}
+.addendum{margin-top:52px;background:var(--pale);border:1px solid rgba(3,88,247,.22);border-left:3px solid var(--blue);border-radius:6px;padding:18px 20px}
+.addendum .addendum-date{font:500 .78rem/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.14em;color:var(--sun);margin-bottom:8px}
+.addendum p{margin-bottom:0;font-size:1rem}
+
+/* closing author block: night tokens, coral button with a dark label, as on the home page */
+.footer-cta{margin-top:56px;background:var(--dusk);color:var(--n-ink);border:1px solid var(--n-line);border-radius:6px;padding:26px 22px 18px}
+@media (min-width:720px){.footer-cta{padding:30px 32px 22px}}
+.footer-cta h3{margin:0 0 10px;color:var(--n-ink);font:400 1.7rem/1.1 var(--f-serif);letter-spacing:-.012em}
+.article .footer-cta p{color:var(--n-muted);margin-bottom:18px}
+.footer-cta a:not(.btn){color:var(--n-blue)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;margin:0 8px 10px 0;border-radius:999px;font:500 16px/1.2 var(--f-sans);text-decoration:none;border:1px solid transparent;max-width:100%;text-align:center}
+.btn-primary{background:var(--coral);color:var(--night);border-color:var(--coral);font-weight:600}
+.btn-primary:hover{background:#FFA27A;border-color:#FFA27A;color:var(--night)}
+.btn-outline{border-color:var(--n-ink);color:var(--n-ink);background:transparent}
+.btn-outline:hover{background:var(--n-ink);color:var(--dusk)}
+@media (max-width:480px){.btn{width:100%;margin-right:0;padding:10px 18px}}
+
+/* footer: the home page's night footer */
+footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n-line);padding:26px 0 40px}
+.footer-copy{max-width:780px;margin:0 auto;padding:0 var(--gutter);font-size:16px;color:var(--n-muted)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:3px}
+.footer-cta :focus-visible,footer :focus-visible{outline-color:var(--n-blue)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+@media print{header{position:static}body,.article{background:#fff;color:#111}.article p,.article li{color:#333}.footer-cta{background:#fff;color:#111}}
 </style>
 </head>
 <body>
@@ -118,17 +137,17 @@ footer{border-top:1px solid var(--hairline);padding:30px 0;text-align:center;mar
       <svg viewBox="0 0 900 620" role="img" aria-label="Nerve Center architecture diagram: operator and cockpit connect through a message bus to a supervising daemon that owns agent sessions; memory graph and Postgres sit beside them; a watchdog layer monitors everything; all outbound messages pass through a send gate.">
         <defs>
           <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="#827F7C"/>
+            <path d="M0,0 L10,5 L0,10 z" fill="#0358F7"/>
           </marker>
         </defs>
         <style>
-          .box{fill:#1D1A17;stroke:rgba(255,255,255,0.14);rx:8}
-          .boxhi{fill:#1D1A17;stroke:#F5A623;stroke-width:1.4}
-          .lbl{font-family:'Geist Mono',ui-monospace,Menlo,monospace;font-size:15px;fill:#ECEBEA;font-weight:600}
-          .sub{font-family:'Geist Mono',ui-monospace,Menlo,monospace;font-size:11.5px;fill:#AEABA8}
-          .tag{font-family:'Geist Mono',ui-monospace,Menlo,monospace;font-size:11px;fill:#F8C384;letter-spacing:1.5px}
-          .edge{stroke:#827F7C;stroke-width:1.3;fill:none;marker-end:url(#arr)}
-          .edge2{stroke:#827F7C;stroke-width:1.3;fill:none;marker-end:url(#arr);marker-start:url(#arr)}
+          .box{fill:#FFFFFF;stroke:rgba(26,34,54,0.28);rx:6}
+          .boxhi{fill:#FFFBF6;stroke:#0358F7;stroke-width:1.4}
+          .lbl{font-family:'Geist Mono',ui-monospace,Menlo,monospace;font-size:15px;fill:#1A2236;font-weight:600}
+          .sub{font-family:'Geist Mono',ui-monospace,Menlo,monospace;font-size:11.5px;fill:#566079}
+          .tag{font-family:'Geist Mono',ui-monospace,Menlo,monospace;font-size:11px;fill:#A3481F;letter-spacing:1.5px}
+          .edge{stroke:#0358F7;stroke-width:1.3;fill:none;marker-end:url(#arr)}
+          .edge2{stroke:#0358F7;stroke-width:1.3;fill:none;marker-end:url(#arr);marker-start:url(#arr)}
           .dash{stroke-dasharray:5 4}
         </style>
 
@@ -171,7 +190,7 @@ footer{border-top:1px solid var(--hairline);padding:30px 0;text-align:center;mar
         <text class="sub" x="770" y="353" text-anchor="middle">250+ tables · workflows</text>
 
         <!-- Watchdog layer -->
-        <rect class="box dash" x="24" y="500" width="852" height="52" rx="8" style="stroke:rgba(255,255,255,0.22);fill:#15120F"/>
+        <rect class="box dash" x="24" y="500" width="852" height="52" rx="8" style="stroke:#0358F7;fill:#EAF2FF"/>
         <text class="lbl" x="450" y="522" text-anchor="middle">watchdog layer</text>
         <text class="sub" x="450" y="540" text-anchor="middle">liveness = work completed, not uptime · death-cluster detector · auto-unwedge · stale-job alerts</text>
 
@@ -256,7 +275,7 @@ footer{border-top:1px solid var(--hairline);padding:30px 0;text-align:center;mar
 </article>
 
 <footer>
-  <div class="footer-copy">© 2026 JD Davenport · built in the warm-graphite system</div>
+  <div class="footer-copy">© 2026 JD Davenport</div>
 </footer>
 
 </body>

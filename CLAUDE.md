@@ -102,7 +102,7 @@ Recurring idioms, all already in the markup. Reuse them rather than inventing:
 - Container 1120px (content pages 780px), sections 72px, body letter-spacing
   `-0.005em`, headings `-0.02em`.
 
-**Home page (index.html) since 2026-10-28: the sunset/blue "dusk" design** (warm white #FFFBF6 → peach → pale blue → night #0D1B2E/#090D18, electric blue #0358F7, sunset text #A3481F; tokens + reasoning in ~/clawd/projects/jd-portfolio/site-research-2026-10-26/REPORT.md section 7, source in ~/clawd/projects/jd-portfolio/theme-lab-2026-10-23/v4/combined/). The other pages (teardown, docs, newsletter, showcase, brain) are still the dark Warm Graphite theme above until they are re-themed; that split is known and temporary. Never use violet, gold, or BYU blues (#002E5D, #0047BA, #0072CE) on the new design.
+**Home page (index.html) since 2026-10-28: the sunset/blue "dusk" design** (warm white #FFFBF6 → peach → pale blue → night #0D1B2E/#090D18, electric blue #0358F7, sunset text #A3481F; tokens + reasoning in ~/clawd/projects/jd-portfolio/site-research-2026-10-26/REPORT.md section 7, source in ~/clawd/projects/jd-portfolio/theme-lab-2026-10-23/v4/combined/). Since 2026-10-28 teardown and newsletter use the same warm-white/night tokens, docs use the quieter "Field Notes" sibling (linen #F3EFE7, cerulean #0D6397; source tools/docs/assets/docs.css, rebuilt by tools/docs/build.py), and the og-image/favicon match. Only showcase.html and brain.html are still dark Warm Graphite. Never use violet, gold, or BYU blues (#002E5D, #0047BA, #0072CE) on the new design.
 
 **Hard rules for anything you write here:**
 
