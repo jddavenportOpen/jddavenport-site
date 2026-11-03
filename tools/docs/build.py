@@ -593,12 +593,14 @@ def load_articles(content: Path, sections: list[Section], errors: list[str], war
 
 E = lambda s: html.escape(str(s), quote=True)  # noqa: E731
 
+# Mirrors the home page's primary nav (index.html <nav aria-label="Primary">).
+# check.py fails the build if a "/#id" here has no matching id on the home page.
 SITE_NAV = [
-    ("Nerve Center", "/#nerve-center"),
-    ("Builds", "/#builds"),
-    ("Experience", "/#enterprise"),
+    ("Work", "/work"),
+    ("Teardown", "/teardown"),
     ("Docs", "/docs/"),
-    ("Contact", "/#contact"),
+    ("Newsletter", "/newsletter"),
+    ("Resume", "/resume.pdf"),
 ]
 
 FOOTER_LINKS = [

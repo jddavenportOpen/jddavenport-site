@@ -223,6 +223,7 @@ details.txt li{margin:6px 0}
 .copybox{margin:6px 0 10px;padding:12px 14px;background:#FFFBF6;border:1px solid var(--line);border-radius:4px;font-size:16px;line-height:1.5;color:var(--ink)}
 .copybox p{margin:0 0 6px;color:var(--ink)}
 .copybox p:last-child{margin:0}
+html:not(.js) .copy{display:none}
 .copy{font:500 16px/1 var(--f-sans);min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
 .copy:hover{background:var(--ink);color:var(--bg)}
 .row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}
@@ -272,7 +273,7 @@ details.txt li{margin:6px 0}
 
 <header data-stage="dawn">
   <div class="wrap top">
-    <a class="mark tap" href="#top">JD Davenport</a>
+    <a class="mark tap" href="/">JD Davenport</a>
     <nav aria-label="Primary">
       <ul>
         <li><a class="tap" href="/work">Work</a></li>
@@ -598,6 +599,7 @@ details.txt li{margin:6px 0}
     var ok = false; try{ ok = document.execCommand('copy'); }catch(e){}
     document.body.removeChild(ta); return ok;
   }
+  document.documentElement.classList.add('js');
   [].forEach.call(document.querySelectorAll('[data-copy]'), function(btn){
     btn.addEventListener('click', function(){
       var src = document.getElementById(btn.getAttribute('data-copy'));

@@ -266,7 +266,7 @@ a:hover{color:var(--link-deep)}
 @media(max-width:860px){
   .site-header nav a:not(.btn){display:none}
   .nav-toggle{display:inline-flex}
-  .site-header nav.open{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;background:rgba(243,239,231,.98);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:12px 24px 18px;border-bottom:1px solid var(--hairline);gap:2px}
+  .site-header nav.open{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--canvas);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:12px 24px 18px;border-bottom:1px solid var(--hairline);gap:2px}
   .site-header nav.open a{display:block;padding:12px 0;text-align:left;width:100%}
   .site-header nav.open a.btn{text-align:center;margin-top:8px;justify-content:center}
   .site-header nav.open a.active::after{display:none}

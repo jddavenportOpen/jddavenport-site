@@ -94,6 +94,8 @@
         if (heads[i].getBoundingClientRect().top < 140) current = heads[i]; else break;
       }
       if (!current) current = heads[0];
+      // At the bottom of the page the last headings can never reach the line above; light the last one.
+      if (window.innerHeight + window.scrollY >= d.documentElement.scrollHeight - 2) current = heads[heads.length - 1];
       Array.prototype.forEach.call(tocLinks, function (a) { a.classList.toggle('active', map[current.id] === a); });
     };
     var io = new IntersectionObserver(function (entries) {

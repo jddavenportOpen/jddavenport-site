@@ -12,9 +12,33 @@
       "source": "/book.html",
       "destination": "https://book.jddavenport.com",
       "permanent": false
+    },
+    {
+      "source": "/:page(teardown|showcase|brain|newsletter|work)/",
+      "destination": "/:page",
+      "permanent": true
+    },
+    {
+      "source": "/work/:slug/",
+      "destination": "/work/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/api/book-slots",
+      "destination": "https://book.jddavenport.com",
+      "permanent": false
+    },
+    {
+      "source": "/api/book-create",
+      "destination": "https://book.jddavenport.com",
+      "permanent": false
     }
   ],
   "rewrites": [
+    {
+      "source": "/favicon.ico",
+      "destination": "/favicon.svg"
+    },
     {
       "source": "/teardown",
       "destination": "/teardown.html"

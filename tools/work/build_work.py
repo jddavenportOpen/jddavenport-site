@@ -468,7 +468,7 @@ def build_case(item, prev_item, next_item):
     page += f"""
 <main id="main" data-stage="dawn">
   <article class="wrap article">
-    <a class="back tap" href="/work?kind=case-study">← Back to all work</a>
+    <a class="back tap" href="/work?kind=case-study">← All case studies</a>
     <p class="kicker">Case study</p>
     <h1>{esc(item["title"])}</h1>
     <ul class="meta">{''.join(meta)}</ul>
@@ -494,6 +494,9 @@ NEVER_SERVED = ("jd_needs_to_confirm", "receipts", "status")
 def main():
     with open(DATA, encoding="utf-8") as f:
         data = json.load(f)
+    # Site rule (CLAUDE.md): no em/en-dashes and no emoji in visible copy.
+    bad = re.findall(r"[\u2013\u2014\U0001F300-\U0001FAFF\u2600-\u27BF]", json.dumps(data, ensure_ascii=False))
+    assert not bad, f"work.json has forbidden characters (dashes or emoji): {sorted(set(bad))}"
     seen = set()
     for i in data["items"]:
         assert i["slug"] not in seen, "duplicate slug " + i["slug"]

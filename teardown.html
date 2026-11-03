@@ -18,6 +18,7 @@
 <meta property="og:image" content="https://jddavenport.com/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Running Agents in Production: The Full Teardown">
+<meta name="twitter:image" content="https://jddavenport.com/images/og-image.png">
 <meta name="twitter:description" content="Architecture, three real failures with root causes, the review pipeline, real API costs, and the safety constraint that makes a production AI organization runnable.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <!-- Vercel Web Analytics. Inert (404s, deferred) until Web Analytics is
@@ -118,7 +119,7 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
 <article class="article">
   <div class="container">
     <div class="kicker">Production teardown</div>
-    <h1>Running 30 agents in production: what it actually takes</h1>
+    <h1>Running 30+ agents in production: what it actually takes</h1>
     <div class="byline">
       <span>JD DAVENPORT</span>
       <span>UPDATED 2026-08-28</span>
@@ -215,7 +216,7 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
     <ul>
       <li><b>Supervising daemon and sessions.</b> Every agent session runs as a PTY child of one supervising daemon. That gives clean lifecycle control and one place to enforce policy, and it creates the exact blast radius described in Failure 1. Architecture is a set of tradeoffs you choose on purpose; this one I keep because the failure is now machine-guarded.</li>
       <li><b>Message bus.</b> A Python bridge routes inbound requests (chat, schedules, webhooks) to the right session and streams results back to the cockpit. Agents also message each other through it by name, so a domain specialist can ask the CEO agent for a decision instead of guessing.</li>
-      <li><b>Memory graph.</b> A vector store plus a graph store, queried together: semantic search finds candidate facts, one-hop graph expansion pulls in connected entities and decisions. Agents retrieve before they act. Without this, 30 agents are 30 goldfish.</li>
+      <li><b>Memory graph.</b> A vector store plus a graph store, queried together: semantic search finds candidate facts, one-hop graph expansion pulls in connected entities and decisions. Agents retrieve before they act. Without this, every agent is a goldfish.</li>
       <li><b>Durable state.</b> Postgres on Supabase, 250+ tables: workflow runs, task ledgers, approval queues, cost records. If it matters, it lives in a table, not in a context window. Sessions rotate; state does not.</li>
       <li><b>Sync layer.</b> The cockpit syncs open sessions across devices with per-entry tombstones and semantic writes rather than state blobs. Failure 2 explains why that distinction is load-bearing.</li>
       <li><b>Watchdog layer.</b> Detectors that measure work completed, not process uptime: a death-cluster detector, an auto-unwedger for stuck prompts, stale-job alerting with catch-up semantics after reboots. The design assumption is that every layer above will eventually lie about its own health.</li>

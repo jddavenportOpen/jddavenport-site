@@ -29,8 +29,6 @@ const UPSTREAM_TIMEOUT_MS = 6000;
 const STAT_KEYS = ['agents', 'skills', 'automations', 'domains', 'ships_last_30d'];
 const METRIC_NUMBER_KEYS = [
   'turns_yesterday',
-  'usd_equivalent_yesterday',
-  'live_users',
   'building_since',
   'incidents_documented',
   'tests_estate',

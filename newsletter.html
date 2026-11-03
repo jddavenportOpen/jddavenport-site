@@ -13,6 +13,7 @@
 <meta property="og:image" content="https://jddavenport.com/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Raising Clawd · JD Davenport's newsletter">
+<meta name="twitter:image" content="https://jddavenport.com/images/og-image.png">
 <meta name="twitter:description" content="What I learn building an AI organization that runs real work, what holds up in production, and what breaks.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <script defer src="/_vercel/insights/script.js"></script>
@@ -51,7 +52,7 @@ header .container{display:flex;align-items:center;justify-content:space-between;
 .logo{display:inline-flex;align-items:center;gap:9px;min-height:44px;font:500 19px/1 var(--f-serif);letter-spacing:-.01em;color:var(--ink);text-decoration:none;white-space:nowrap}
 .logo .dot{width:7px;height:7px;border-radius:50%;background:var(--sun)}
 .top-links{display:flex;gap:16px;font-size:16px}
-.top-links a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);text-decoration:none}
+.top-links a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;justify-content:center;color:var(--ink);text-decoration:none}
 .top-links a:hover{text-decoration:underline}
 @media (min-width:720px){.top-links{gap:28px}}
 
@@ -129,7 +130,7 @@ footer a:hover{text-decoration:underline}
           <input type="text" id="company-website" name="company_website" tabindex="-1" autocomplete="off">
         </div>
         <label for="subscribe-email" class="hp-wrap">Email address</label>
-        <input type="email" id="subscribe-email" name="email" placeholder="you@example.com" required autocomplete="email" inputmode="email">
+        <input type="email" id="subscribe-email" name="email" placeholder="you@example.com" required autocomplete="email" inputmode="email" maxlength="254">
         <button type="submit" id="subscribe-btn">Subscribe</button>
       </form>
       <p id="form-status" class="status" role="status" aria-live="polite"></p>

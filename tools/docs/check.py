@@ -208,6 +208,22 @@ def resolve_docs_url(url: str) -> bool:
     return target.is_file() or (target / "index.html").is_file()
 
 
+def root_target_ok(url: str) -> bool:
+    """A site-root link from the docs ("/work", "/teardown", "/#builds") must hit a served
+    file, and a "/#id" must name an id that exists on the home page. The home page was
+    rebuilt on 2026-10-28 and the docs kept linking to its old section ids for a week."""
+    path, _, frag = url.partition("#")
+    path = path.split("?", 1)[0]
+    if path in ("", "/"):
+        if not frag:
+            return True
+        hp = LinkParser()
+        hp.feed((ROOT / "index.html").read_text(encoding="utf-8", errors="replace"))
+        return frag in hp.ids
+    stem = path.strip("/")
+    return any((ROOT / c).is_file() for c in (stem, stem + ".html", stem + "/index.html"))
+
+
 def check_generated(r: Report, articles: dict[str, Path], plan_urls: set[str], allow_planned: bool):
     if not OUT.is_dir():
         r.f("docs/", "generated tree missing: run python3 tools/docs/build.py")
@@ -231,6 +247,9 @@ def check_generated(r: Report, articles: dict[str, Path], plan_urls: set[str], a
                     r.w(f"{rel(p)}:{ln}", f"links planned article not written yet: {href}")
                 else:
                     r.f(f"{rel(p)}:{ln}", f"internal link does not resolve: {href}")
+            if (href.startswith("/") and not href.startswith(("/docs", "//", "/_vercel/"))
+                    and not root_target_ok(href)):
+                r.f(f"{rel(p)}:{ln}", f"site link has no target: {href}")
             if href.startswith("#") and len(href) > 1 and href[1:] not in lp.ids:
                 r.f(f"{rel(p)}:{ln}", f"in-page anchor has no target: {href}")
         for ln, data in lp.text_outside_code:
