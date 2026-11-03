@@ -126,7 +126,7 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
     </div>
 
     <p>Anyone can demo an agent. Keeping a fleet of them alive for months, with real permissions and real consequences, is a different job, and almost nothing published about agents describes it honestly. This is the teardown of the Nerve Center, the AI organization I designed, built, and operate in production: 30+ agents in daily production, 100+ built over time. The architecture, three failures with root causes and the systemic fixes, how changes get reviewed, what it costs in real dollars, and the one constraint that makes the whole thing safe to hand authority.</p>
-    <p>The build itself stays private because it runs my actual life and work. Everything below is the real operating record, sanitized only where it has to be. The system does publish its own census: <a href="https://nerve-center-showcase.vercel.app" target="_blank" rel="noopener">the live capabilities page</a> is regenerated from live state every day, and the numbers on the homepage come from the same feed.</p>
+    <p>The build itself stays private because it runs my actual life and work. Everything below is the real operating record, sanitized only where it has to be. The system does publish its own census: <a href="/brain">the live capabilities page</a> is regenerated from live state every day, and the numbers on the homepage come from the same feed.</p>
 
     <h2>The architecture</h2>
     <p>The system in one sentence: a supervising daemon owns long-lived agent sessions, a message bus routes work between them and me, a shared memory graph gives them recall, Postgres holds durable state, and a watchdog layer assumes everything above it will eventually fail.</p>
@@ -261,7 +261,7 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
 
     <div class="addendum">
       <div class="addendum-date">Addendum · 2026-08-28</div>
-      <p>The metrics on the homepage are now generated daily by the system itself. Token volume, turns, agent counts and the 30-day chart all come from the same feed the <a href="https://nerve-center-showcase.vercel.app" target="_blank" rel="noopener">live capabilities page</a> republishes from live state. A number a person types by hand starts decaying the same day; this one cannot, because nobody types it. The written copy across every public surface now says the same durable thing, 30+ agents in daily production and 100+ built over time, and the exact roster count appears only where a generator produces it.</p>
+      <p>The metrics on the homepage are now generated daily by the system itself. Token volume, turns, agent counts and the 30-day chart all come from the same feed the <a href="/brain">live capabilities page</a> republishes from live state. A number a person types by hand starts decaying the same day; this one cannot, because nobody types it. The written copy across every public surface now says the same durable thing, 30+ agents in daily production and 100+ built over time, and the exact roster count appears only where a generator produces it.</p>
     </div>
 
     <div class="footer-cta">
