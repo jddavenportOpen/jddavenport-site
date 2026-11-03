@@ -32,6 +32,14 @@
       "destination": "/newsletter.html"
     },
     {
+      "source": "/work",
+      "destination": "/work.html"
+    },
+    {
+      "source": "/work/:slug",
+      "destination": "/work/:slug.html"
+    },
+    {
       "source": "/api/confirm",
       "destination": "https://docs.agenttree.army/api/confirm"
     },

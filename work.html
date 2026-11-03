@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work · JD Davenport</title>
+<meta name="description" content="Products I built or helped build, open source, and case studies for work under NDA.">
+<link rel="canonical" href="https://jddavenport.com/work">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jddavenport.com/work">
+<meta property="og:title" content="Work · JD Davenport">
+<meta property="og:description" content="Products I built or helped build, open source, and case studies for work under NDA.">
+<meta property="og:image" content="https://jddavenport.com/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Work · JD Davenport">
+<meta name="twitter:description" content="Products I built or helped build, open source, and case studies for work under NDA.">
+<meta name="twitter:image" content="https://jddavenport.com/images/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#FFFBF6">
+<script>if(location.protocol!=='file:'){var va=document.createElement('script');va.defer=true;va.src='/_vercel/insights/script.js';document.head.appendChild(va);}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --f-serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --coral:#FF8A5C;
+  --gutter:16px;
+  --max:1120px;
+}
+[data-stage=dawn]  {--bg:#FFFBF6;--ink:#1A2236;--muted:#566079;--blue:#0358F7;--on-blue:#FFFFFF;--sun:#A3481F;--line:rgba(26,34,54,.16);--card:#FFFFFF}
+[data-stage=night] {--bg:#090D18;--ink:#F6EFE8;--muted:#A3AEC8;--blue:#8DB0FF;--on-blue:#090D18;--sun:#FFA27A;--line:rgba(246,239,232,.16);--card:#0F1524}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:#FFFBF6}
+body{margin:0;background:#FFFBF6;color:#1A2236;font:400 17px/1.6 var(--f-sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%}
+img{display:block}
+a{color:var(--blue);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:3px}
+.skip{position:absolute;left:-9999px;top:8px;background:#1A2236;color:#fff;padding:12px 14px;z-index:50}
+.skip:focus{left:var(--gutter)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tap{display:inline-flex;align-items:center;min-height:44px}
+section[data-stage],footer[data-stage],header[data-stage],main[data-stage]{background:var(--bg);color:var(--ink)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+@media (min-width:720px){:root{--gutter:32px}}
+h1,h2,h3{margin:0;font-weight:400}
+h2{font:400 clamp(1.85rem,1.3rem + 2.2vw,2.9rem)/1.1 var(--f-serif);letter-spacing:-.012em;max-width:24ch;text-wrap:balance}
+.lede{color:var(--muted);max-width:62ch;margin:16px 0 0;font-size:1.0625rem}
+/* header */
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:6px;padding-bottom:0}
+.mark{font:500 19px/1 var(--f-serif);color:var(--ink);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.top nav ul{display:flex;gap:10px;list-style:none;margin:0;padding:0;font-size:16px}
+.top nav a{color:var(--ink);text-decoration:none}
+.top nav a:hover,.top nav a[aria-current]{text-decoration:underline}
+.top nav a.cv{min-height:36px;margin:4px 0;padding:0 10px;border:1px solid var(--ink);border-radius:999px}
+.top nav a.cv:hover{background:var(--ink);color:var(--bg);text-decoration:none}
+@media (min-width:720px){.top{padding-top:18px}.top nav ul{gap:28px}}
+@media (max-width:479px){.top{flex-wrap:wrap;row-gap:0}.top nav ul{gap:16px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 20px;border-radius:999px;font:500 16px/1.2 var(--f-sans);text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn.sun{background:var(--coral);color:#090D18;border-color:var(--coral);font-weight:600;justify-self:start}
+.btn.sun:hover{background:#FFA27A;border-color:#FFA27A}
+/* footer */
+.sub-strip{padding-top:72px;padding-bottom:72px;display:grid;gap:26px}
+@media (min-width:860px){.sub-strip{grid-template-columns:1fr auto;align-items:end;gap:64px;padding-bottom:100px}}
+.sub-strip h2{max-width:20ch}
+.foot{border-top:1px solid var(--line);padding-top:26px;padding-bottom:40px;display:grid;gap:18px;font-size:16px;color:var(--muted)}
+@media (min-width:860px){.foot{grid-template-columns:1fr auto;align-items:start}}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0 22px}
+.foot a{color:var(--ink);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.foot .who{color:var(--ink);font:400 22px/1.2 var(--f-serif)}
+.foot p{margin:6px 0 0}
+h1{font:400 clamp(2.45rem,1.4rem + 4.4vw,4.9rem)/1.03 var(--f-serif);letter-spacing:-.024em;color:var(--ink);max-width:18ch;text-wrap:balance}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+.hero{padding-top:28px;padding-bottom:12px}
+@media (min-width:720px){.hero{padding-top:56px}}
+.hero .lede{font:400 clamp(1.125rem,1rem + .55vw,1.45rem)/1.42 var(--f-serif);color:var(--ink);max-width:48ch;margin-top:16px}
+.controls{margin-top:28px;display:grid;gap:14px}
+.controls[hidden]{display:none}
+.search label{display:block;font-weight:500;font-size:16px;margin-bottom:6px}
+.search input{width:100%;max-width:560px;min-height:48px;padding:0 16px;font:400 17px/1.2 var(--f-sans);color:var(--ink);background:#FFFFFF;border:1px solid #6B7389;border-radius:999px}
+.search input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;border:0;min-width:0}
+.chips legend{font-weight:500;font-size:16px;margin-bottom:6px;padding:0;width:100%}
+.chip{min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:500 15px/1 var(--f-sans);cursor:pointer}
+.chip:hover{background:#EAF2FF}
+.chip[aria-pressed=true]{background:var(--ink);color:#FFFBF6}
+.chip .n{opacity:.8;margin-left:4px;font-variant-numeric:tabular-nums}
+.count{margin:18px 0 0;font-size:16px;color:var(--muted)}
+.cards{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:16px}
+@media (min-width:720px){.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}}
+@media (min-width:1040px){.cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.card[hidden]{display:none}
+.thumb{display:block;aspect-ratio:8/5;background:#EAF2FF;border-bottom:1px solid var(--line);overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top}
+.card .in{padding:18px 20px 16px;display:flex;flex-direction:column;flex:1;min-width:0}
+.card .kind{margin:0 0 6px;font-size:15px;color:var(--sun);font-weight:500}
+.card h3{font:400 1.35rem/1.25 var(--f-serif);letter-spacing:-.005em;color:var(--ink);overflow-wrap:anywhere}
+.card p.d{margin:8px 0 0;font-size:16px;color:var(--ink)}
+.card p.r{margin:8px 0 0;font-size:15px;color:var(--muted)}
+.card p.r b{font-weight:600;color:var(--ink)}
+.card p.w{margin:4px 0 0;font-size:15px;color:var(--muted)}
+.tags{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.tags li{font-size:14px;line-height:1;padding:6px 9px;border-radius:999px;background:#F2EDE6;color:#3E475E}
+.card .go{margin-top:auto;padding-top:14px}
+.card .go a{font-weight:500}
+.card .go .arr{margin-left:.35em}
+.empty{margin:24px 0 0;padding:24px;border:1px dashed var(--line);border-radius:6px;background:var(--card)}
+.empty[hidden]{display:none}
+.empty p{margin:0 0 12px}
+.reset{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:500 16px/1 var(--f-sans);cursor:pointer}
+.reset:hover{background:var(--ink);color:#FFFBF6}
+.listing{padding-bottom:64px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header data-stage="dawn">
+  <div class="wrap top">
+    <a class="mark tap" href="/">JD Davenport</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a class="tap" href="/work" aria-current="page">Work</a></li>
+        <li><a class="tap" href="/teardown">Teardown</a></li>
+        <li><a class="tap" href="/newsletter">Newsletter</a></li>
+        <li><a class="tap cv" href="/resume.pdf">Resume</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" data-stage="dawn">
+  <section class="wrap hero" aria-labelledby="work-h">
+    <h1 id="work-h">Work</h1>
+    <p class="lede">Products I built or helped build, open source, and case studies for work under NDA.</p>
+    <div class="controls" id="controls" hidden>
+      <div class="search" role="search">
+        <label for="q">Search work</label>
+        <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Try “evals”, “Siemens” or “safety”" aria-describedby="count">
+      </div>
+      <fieldset class="chips">
+        <legend>Kind</legend>
+        <button type="button" class="chip" data-set-kind="" aria-pressed="true">All<span class="n">33</span></button><button type="button" class="chip" data-set-kind="live-product" aria-pressed="false">Live products<span class="n">13</span></button><button type="button" class="chip" data-set-kind="open-source" aria-pressed="false">Open source<span class="n">16</span></button><button type="button" class="chip" data-set-kind="case-study" aria-pressed="false">Case studies<span class="n">4</span></button>
+      </fieldset>
+      <fieldset class="chips">
+        <legend>Topic</legend>
+        <button type="button" class="chip" data-set-tag="agents" aria-pressed="false">agents<span class="n">11</span></button><button type="button" class="chip" data-set-tag="claude-code" aria-pressed="false">Claude Code<span class="n">10</span></button><button type="button" class="chip" data-set-tag="ai-safety" aria-pressed="false">AI safety<span class="n">7</span></button><button type="button" class="chip" data-set-tag="developer-tools" aria-pressed="false">developer tools<span class="n">7</span></button><button type="button" class="chip" data-set-tag="family-venture" aria-pressed="false">family venture<span class="n">7</span></button><button type="button" class="chip" data-set-tag="education" aria-pressed="false">education<span class="n">6</span></button><button type="button" class="chip" data-set-tag="gtm-seo" aria-pressed="false">GTM &amp; SEO<span class="n">6</span></button><button type="button" class="chip" data-set-tag="evals" aria-pressed="false">evals<span class="n">5</span></button><button type="button" class="chip" data-set-tag="product-strategy" aria-pressed="false">product strategy<span class="n">5</span></button><button type="button" class="chip" data-set-tag="consumer" aria-pressed="false">consumer<span class="n">4</span></button><button type="button" class="chip" data-set-tag="enterprise-ai" aria-pressed="false">enterprise AI<span class="n">4</span></button><button type="button" class="chip" data-set-tag="leadership" aria-pressed="false">leadership<span class="n">3</span></button><button type="button" class="chip" data-set-tag="b2b" aria-pressed="false">B2B<span class="n">2</span></button><button type="button" class="chip" data-set-tag="full-stack" aria-pressed="false">full-stack<span class="n">2</span></button><button type="button" class="chip" data-set-tag="mobile" aria-pressed="false">mobile<span class="n">2</span></button><button type="button" class="chip" data-set-tag="observability" aria-pressed="false">observability<span class="n">2</span></button>
+      </fieldset>
+    </div>
+  </section>
+  <section class="wrap listing" aria-label="All work">
+    <p class="count" id="count" role="status" aria-live="polite">Showing all 33 items</p>
+    <ul class="cards">
+    <li class="card" data-kind="case-study" data-tags="enterprise-ai agents product-strategy leadership" data-search="siemens: an ai agent platform for the us workforce built and launched spark ai, a 120+ agent platform for 1,000+ siemens us employees across every major function, and presented a 3/6/12-month ai roadmap to us leadership. ai product strategist, xps program at siemens enterprise ai agents product strategy leadership">
+      <div class="in">
+        <p class="kind">Case study · 2026</p>
+        <h3>Siemens: an AI agent platform for the US workforce</h3>
+        <p class="d">Built and launched Spark AI, a 120+ agent platform for 1,000+ Siemens US employees across every major function, and presented a 3/6/12-month AI roadmap to US leadership.</p>
+        <p class="r"><b>Role:</b> AI Product Strategist, XPS Program</p>
+        <p class="w">at Siemens</p>
+        <ul class="tags" aria-label="Tags"><li>enterprise AI</li><li>agents</li><li>product strategy</li><li>leadership</li></ul>
+        <p class="go"><a class="tap" href="/work/siemens-spark-ai">Read case study<span class="sr">: Siemens: an AI agent platform for the US workforce</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="case-study" data-tags="enterprise-ai product-strategy leadership" data-search="national grid: a cloud and ai platform for a siloed enterprise owned the cloud and ai/ml roadmap at a 20,000-person utility: launched a rag-based generative ai platform to 3,000+ monthly users and grew digital services revenue from $2m to $20m+ annualized. principal product manager at national grid enterprise ai product strategy leadership">
+      <div class="in">
+        <p class="kind">Case study · 2022–2025</p>
+        <h3>National Grid: a cloud and AI platform for a siloed enterprise</h3>
+        <p class="d">Owned the cloud and AI/ML roadmap at a 20,000-person utility: launched a RAG-based generative AI platform to 3,000+ monthly users and grew digital services revenue from $2M to $20M+ annualized.</p>
+        <p class="r"><b>Role:</b> Principal Product Manager</p>
+        <p class="w">at National Grid</p>
+        <ul class="tags" aria-label="Tags"><li>enterprise AI</li><li>product strategy</li><li>leadership</li></ul>
+        <p class="go"><a class="tap" href="/work/national-grid-cloud-ai-platform">Read case study<span class="sr">: National Grid: a cloud and AI platform for a siloed enterprise</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="case-study" data-tags="machine-learning enterprise-ai" data-search="deloitte: machine learning for fortune 100 clients ml and data work on fortune 100 engagements: an ml contact-center product for pfizer that cut average queue time from 75 to 15 minutes, and a clustering model for gm that saved $17.5m. machine learning consultant at deloitte machine learning enterprise ai">
+      <div class="in">
+        <p class="kind">Case study · 2020–2022</p>
+        <h3>Deloitte: machine learning for Fortune 100 clients</h3>
+        <p class="d">ML and data work on Fortune 100 engagements: an ML contact-center product for Pfizer that cut average queue time from 75 to 15 minutes, and a clustering model for GM that saved $17.5M.</p>
+        <p class="r"><b>Role:</b> Machine Learning Consultant</p>
+        <p class="w">at Deloitte</p>
+        <ul class="tags" aria-label="Tags"><li>machine learning</li><li>enterprise AI</li></ul>
+        <p class="go"><a class="tap" href="/work/deloitte-ml-consulting">Read case study<span class="sr">: Deloitte: machine learning for Fortune 100 clients</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="case-study" data-tags="full-stack product-strategy" data-search="brio energy: sales and accounting systems for a solar company built a custom crm that cut the sales-to-accounting turnaround from 5 days to 15 minutes, a marketing site producing 175+ qualified leads a week, and microservices that cut accounting spend by $745k a year. senior full-stack developer / product owner at brio energy full-stack product strategy">
+      <div class="in">
+        <p class="kind">Case study · 2018–2020</p>
+        <h3>Brio Energy: sales and accounting systems for a solar company</h3>
+        <p class="d">Built a custom CRM that cut the sales-to-accounting turnaround from 5 days to 15 minutes, a marketing site producing 175+ qualified leads a week, and microservices that cut accounting spend by $745K a year.</p>
+        <p class="r"><b>Role:</b> Senior Full-Stack Developer / Product Owner</p>
+        <p class="w">at Brio Energy</p>
+        <ul class="tags" aria-label="Tags"><li>full-stack</li><li>product strategy</li></ul>
+        <p class="go"><a class="tap" href="/work/brio-energy-sales-ops-systems">Read case study<span class="sr">: Brio Energy: sales and accounting systems for a solar company</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="live-product" data-tags="leadership education product-strategy" data-search="byu ai foundry an ai product studio and experiential program of byu marriott where student builders ship production ai for paying clients. founder and managing director byu marriott school of business leadership education product strategy">
+      <a class="thumb" href="https://byu-aifoundry.com" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/images/work/byu-ai-foundry.png" alt="" width="960" height="600" loading="lazy" decoding="async"></a><div class="in">
+        <p class="kind">Live product</p>
+        <h3>BYU AI Foundry</h3>
+        <p class="d">An AI product studio and experiential program of BYU Marriott where student builders ship production AI for paying clients.</p>
+        <p class="r"><b>Role:</b> Founder and Managing Director</p>
+        <p class="w">BYU Marriott School of Business</p>
+        <ul class="tags" aria-label="Tags"><li>leadership</li><li>education</li><li>product strategy</li></ul>
+        <p class="go"><a class="tap" href="https://byu-aifoundry.com" rel="noopener">Visit site<span class="sr">: BYU AI Foundry</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="live-product" data-tags="agents claude-code ai-safety" data-search="nerve center teardown and live brain a public teardown plus a live graph of the agents, skills and jobs in the ai operating system i run, with names and data hidden. i built and run the private system and published the teardown and the architecture map.  agents claude code ai safety">
+      <a class="thumb" href="https://jddavenport.com/teardown" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/images/work/nerve-center-teardown.png" alt="" width="960" height="600" loading="lazy" decoding="async"></a><div class="in">
+        <p class="kind">Live product</p>
+        <h3>Nerve Center teardown and live brain</h3>
+        <p class="d">A public teardown plus a live graph of the agents, skills and jobs in the AI operating system I run, with names and data hidden.</p>
+        <p class="r"><b>Role:</b> I built and run the private system and published the teardown and the architecture map.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>agents</li><li>Claude Code</li><li>AI safety</li></ul>
+        <p class="go"><a class="tap" href="https://jddavenport.com/teardown" rel="noopener">Visit site<span class="sr">: Nerve Center teardown and live brain</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="live-product" data-tags="consumer mobile education gtm-seo family-venture" data-search="speedprep a math speed game for kids that teaches 84 shortcuts, with timed tests under 5 minutes and races with friends on nearby phones. built the speed mode v2 arena and led the two-mode restructure, the app store and play launch kit, a ux audit and the launch ad plan. with john davenport (fable software) consumer mobile education gtm &amp; seo family venture">
+      <a class="thumb" href="https://speedprep.ai" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/images/work/speedprep.png" alt="" width="960" height="600" loading="lazy" decoding="async"></a><div class="in">
+        <p class="kind">Live product</p>
+        <h3>SpeedPrep</h3>
+        <p class="d">A math speed game for kids that teaches 84 shortcuts, with timed tests under 5 minutes and races with friends on nearby phones.</p>
+        <p class="r"><b>Role:</b> Built the Speed Mode V2 arena and led the two-mode restructure, the App Store and Play launch kit, a UX audit and the launch ad plan.</p>
+        <p class="w">with John Davenport (Fable Software)</p>
+        <ul class="tags" aria-label="Tags"><li>consumer</li><li>mobile</li><li>education</li><li>GTM &amp; SEO</li><li>family venture</li></ul>
+        <p class="go"><a class="tap" href="https://speedprep.ai" rel="noopener">Visit site<span class="sr">: SpeedPrep</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="live-product" data-tags="education" data-search="clawdacademy a site that shows how well you use ai and where to improve. i built the interactive ai fluency trainer.  education">
+      <a class="thumb" href="https://clawdacademy.app" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/images/work/clawdacademy.png" alt="" width="960" height="600" loading="lazy" decoding="async"></a><div class="in">
+        <p class="kind">Live product</p>
+        <h3>Clawdacademy</h3>
+        <p class="d">A site that shows how well you use AI and where to improve.</p>
+        <p class="r"><b>Role:</b> I built the interactive AI fluency trainer.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>education</li></ul>
+        <p class="go"><a class="tap" href="https://clawdacademy.app" rel="noopener">Visit site<span class="sr">: Clawdacademy</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="live-product" data-tags="education claude-code" data-search="field notes docs plain-language docs on how to build and run a production ai organization with claude code, plus ai core skills. i wrote the docs.  education claude code">
+      <a class="thumb" href="https://jddavenport.com/docs/" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/images/work/field-notes-docs.png" alt="" width="960" height="600" loading="lazy" decoding="async"></a><div class="in">
+        <p class="kind">Live product</p>
+        <h3>Field Notes docs</h3>
+        <p class="d">Plain-language docs on how to build and run a production AI organization with Claude Code, plus AI Core Skills.</p>
+        <p class="r"><b>Role:</b> I wrote the docs.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>education</li><li>Claude Code</li></ul>
+        <p class="go"><a class="tap" href="https://jddavenport.com/docs/" rel="noopener">Visit site<span class="sr">: Field Notes docs</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="live-product" data-tags="full-stack" data-search="bookjd a booking app on next.js, supabase and google calendar availability, live and open source. i built it as a self-hosted calendly replacement.  full-stack">
+      <a class="thumb" href="https://bookjd.vercel.app" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/images/work/bookjd.png" alt="" width="960" height="600" loading="lazy" decoding="async"></a><div class="in">
+        <p class="kind">Live product</p>
+        <h3>BookJD</h3>
+        <p class="d">A booking app on Next.js, Supabase and Google Calendar availability, live and open source.</p>
+        <p class="r"><b>Role:</b> I built it as a self-hosted Calendly replacement.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>full-stack</li></ul>
+        <p class="go"><a class="tap" href="https://bookjd.vercel.app" rel="noopener">Visit site<span class="sr">: BookJD</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="live-product" data-tags="developer-tools" data-search="vibe coding detector a tool that detects ai-generated or vibe-coded code. i built it.  developer tools">
+      <a class="thumb" href="https://vibe-fe-nine.vercel.app" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/images/work/vibe-coding-detector.png" alt="" width="960" height="600" loading="lazy" decoding="async"></a><div class="in">
+        <p class="kind">Live product</p>
+        <h3>Vibe Coding Detector</h3>
+        <p class="d">A tool that detects AI-generated or vibe-coded code.</p>
+        <p class="r"><b>Role:</b> I built it.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>developer tools</li></ul>
+        <p class="go"><a class="tap" href="https://vibe-fe-nine.vercel.app" rel="noopener">Visit site<span class="sr">: Vibe Coding Detector</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="live-product" data-tags="b2b mobile gtm-seo family-venture" data-search="solarknock a door-to-door canvassing app for solar sales teams, with territories, leaderboards, instant solar estimates and homeowner data. go-to-market, seo and positioning, plus a build audit. with john davenport (fable software) b2b mobile gtm &amp; seo family venture">
+      <a class="thumb" href="https://solarknock.com" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/images/work/solarknock.png" alt="" width="960" height="600" loading="lazy" decoding="async"></a><div class="in">
+        <p class="kind">Live product</p>
+        <h3>SolarKnock</h3>
+        <p class="d">A door-to-door canvassing app for solar sales teams, with territories, leaderboards, instant solar estimates and homeowner data.</p>
+        <p class="r"><b>Role:</b> Go-to-market, SEO and positioning, plus a build audit.</p>
+        <p class="w">with John Davenport (Fable Software)</p>
+        <ul class="tags" aria-label="Tags"><li>B2B</li><li>mobile</li><li>GTM &amp; SEO</li><li>family venture</li></ul>
+        <p class="go"><a class="tap" href="https://solarknock.com" rel="noopener">Visit site<span class="sr">: SolarKnock</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="live-product" data-tags="developer-tools b2b gtm-seo family-venture" data-search="readystack free docker images of open-source community edition software, with handbooks checked against the exact image, tested seed data and a build kit that rebuilds it offline. product requirements and workplan, seo and developer-adoption plan, plus a build audit. with john davenport (fable software) developer tools b2b gtm &amp; seo family venture">
+      <a class="thumb" href="https://readystack.dev" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/images/work/readystack.png" alt="" width="960" height="600" loading="lazy" decoding="async"></a><div class="in">
+        <p class="kind">Live product</p>
+        <h3>ReadyStack</h3>
+        <p class="d">Free Docker images of open-source Community Edition software, with handbooks checked against the exact image, tested seed data and a build kit that rebuilds it offline.</p>
+        <p class="r"><b>Role:</b> Product requirements and workplan, SEO and developer-adoption plan, plus a build audit.</p>
+        <p class="w">with John Davenport (Fable Software)</p>
+        <ul class="tags" aria-label="Tags"><li>developer tools</li><li>B2B</li><li>GTM &amp; SEO</li><li>family venture</li></ul>
+        <p class="go"><a class="tap" href="https://readystack.dev" rel="noopener">Visit site<span class="sr">: ReadyStack</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="live-product" data-tags="developer-tools product-strategy family-venture" data-search="ce.rodeo (community edition rodeo) a daily index that grades docker images for 152 open-source projects by security grade, project health and community votes, so developers can pick which image to pull. i wrote an independent product review of the scoring and ranking. with john davenport (fable software) developer tools product strategy family venture">
+      <a class="thumb" href="https://ce.rodeo" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/images/work/ce-rodeo.png" alt="" width="960" height="600" loading="lazy" decoding="async"></a><div class="in">
+        <p class="kind">Live product</p>
+        <h3>ce.rodeo (Community Edition Rodeo)</h3>
+        <p class="d">A daily index that grades Docker images for 152 open-source projects by security grade, project health and community votes, so developers can pick which image to pull.</p>
+        <p class="r"><b>Role:</b> I wrote an independent product review of the scoring and ranking.</p>
+        <p class="w">with John Davenport (Fable Software)</p>
+        <ul class="tags" aria-label="Tags"><li>developer tools</li><li>product strategy</li><li>family venture</li></ul>
+        <p class="go"><a class="tap" href="https://ce.rodeo" rel="noopener">Visit site<span class="sr">: ce.rodeo (Community Edition Rodeo)</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="live-product" data-tags="consumer gtm-seo family-venture" data-search="beefshopper a ranking site that compares 247 home-delivery ribeye steaks from 28 companies by price per pound, usda grade, aging and sourcing, with every claim cited. go-to-market, seo and affiliate-growth plan, plus a build audit and market research. with john davenport (fable software) consumer gtm &amp; seo family venture">
+      <a class="thumb" href="https://beefshopper.com" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/images/work/beefshopper.png" alt="" width="960" height="600" loading="lazy" decoding="async"></a><div class="in">
+        <p class="kind">Live product</p>
+        <h3>BeefShopper</h3>
+        <p class="d">A ranking site that compares 247 home-delivery ribeye steaks from 28 companies by price per pound, USDA grade, aging and sourcing, with every claim cited.</p>
+        <p class="r"><b>Role:</b> Go-to-market, SEO and affiliate-growth plan, plus a build audit and market research.</p>
+        <p class="w">with John Davenport (Fable Software)</p>
+        <ul class="tags" aria-label="Tags"><li>consumer</li><li>GTM &amp; SEO</li><li>family venture</li></ul>
+        <p class="go"><a class="tap" href="https://beefshopper.com" rel="noopener">Visit site<span class="sr">: BeefShopper</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="live-product" data-tags="consumer gtm-seo family-venture" data-search="trendzion an illustrated atlas of latter-day saint words and ideas where people compare how teachings and language changed across nearly two centuries of sermons and scripture. positioning and rebrand plan, plus a build audit and market research. with john davenport (fable software) consumer gtm &amp; seo family venture">
+      <a class="thumb" href="https://trendzion.com" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/images/work/trendzion.png" alt="" width="960" height="600" loading="lazy" decoding="async"></a><div class="in">
+        <p class="kind">Live product</p>
+        <h3>TrendZion</h3>
+        <p class="d">An illustrated atlas of Latter-day Saint words and ideas where people compare how teachings and language changed across nearly two centuries of sermons and scripture.</p>
+        <p class="r"><b>Role:</b> Positioning and rebrand plan, plus a build audit and market research.</p>
+        <p class="w">with John Davenport (Fable Software)</p>
+        <ul class="tags" aria-label="Tags"><li>consumer</li><li>GTM &amp; SEO</li><li>family venture</li></ul>
+        <p class="go"><a class="tap" href="https://trendzion.com" rel="noopener">Visit site<span class="sr">: TrendZion</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="live-product" data-tags="consumer developer-tools gtm-seo family-venture" data-search="deckboard a free web app that turns any screen with a browser into a photorealistic split-flap display, with engineered sound, live channels and a documented api. seo and go-to-market plan, plus a build audit and competitor research. with john davenport (fable software) consumer developer tools gtm &amp; seo family venture">
+      <a class="thumb" href="https://deckboard.party" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/images/work/deckboard.png" alt="" width="960" height="600" loading="lazy" decoding="async"></a><div class="in">
+        <p class="kind">Live product</p>
+        <h3>Deckboard</h3>
+        <p class="d">A free web app that turns any screen with a browser into a photorealistic split-flap display, with engineered sound, live channels and a documented API.</p>
+        <p class="r"><b>Role:</b> SEO and go-to-market plan, plus a build audit and competitor research.</p>
+        <p class="w">with John Davenport (Fable Software)</p>
+        <ul class="tags" aria-label="Tags"><li>consumer</li><li>developer tools</li><li>GTM &amp; SEO</li><li>family venture</li></ul>
+        <p class="go"><a class="tap" href="https://deckboard.party" rel="noopener">Visit site<span class="sr">: Deckboard</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="ai-safety claude-code agents" data-search="ethos-gate a pretooluse safety gate that blocks irreversible or outward-facing agent actions unless a human approved that exact content. i built the gate and extracted it from the system i run.  ai safety claude code agents">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>ethos-gate</h3>
+        <p class="d">A PreToolUse safety gate that blocks irreversible or outward-facing agent actions unless a human approved that exact content.</p>
+        <p class="r"><b>Role:</b> I built the gate and extracted it from the system I run.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>AI safety</li><li>Claude Code</li><li>agents</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/ethos-gate" rel="noopener">View repo<span class="sr">: ethos-gate</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="ai-safety agents" data-search="agent safety case study a capability-versus-risk write-up of a 30+ agent organization: each capability, the control that bounds it, and an incident where the control failed. i wrote it from incidents in the system i run.  ai safety agents">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>Agent safety case study</h3>
+        <p class="d">A capability-versus-risk write-up of a 30+ agent organization: each capability, the control that bounds it, and an incident where the control failed.</p>
+        <p class="r"><b>Role:</b> I wrote it from incidents in the system I run.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>AI safety</li><li>agents</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/agent-safety-case-study" rel="noopener">View repo<span class="sr">: Agent safety case study</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="ai-safety agents" data-search="warden a governor for autonomous agents that admits autonomy by reversibility rather than confidence, with signal-bound rollback and offline tests. i designed and built it, with four production post-mortems behind it.  ai safety agents">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>warden</h3>
+        <p class="d">A governor for autonomous agents that admits autonomy by reversibility rather than confidence, with signal-bound rollback and offline tests.</p>
+        <p class="r"><b>Role:</b> I designed and built it, with four production post-mortems behind it.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>AI safety</li><li>agents</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/warden" rel="noopener">View repo<span class="sr">: warden</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="agents evals" data-search="orchestra-agents multi-agent orchestration on claude with bounded fan-out, a durable message bus, circuit breakers, best-of-n with an adversarial judge and permission tiers. i extracted the production orchestration core and wrote the eval harness.  agents evals">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>orchestra-agents</h3>
+        <p class="d">Multi-agent orchestration on Claude with bounded fan-out, a durable message bus, circuit breakers, best-of-N with an adversarial judge and permission tiers.</p>
+        <p class="r"><b>Role:</b> I extracted the production orchestration core and wrote the eval harness.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>agents</li><li>evals</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/orchestra-agents" rel="noopener">View repo<span class="sr">: orchestra-agents</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="enterprise-ai ai-safety claude-code" data-search="claude-deploy-kit enterprise controls for deploying claude agents: a policy chokepoint, destructive-command deny hook, eval gate and redacting audit log. i generalized our production controls into an enterprise kit.  enterprise ai ai safety claude code">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>claude-deploy-kit</h3>
+        <p class="d">Enterprise controls for deploying Claude agents: a policy chokepoint, destructive-command deny hook, eval gate and redacting audit log.</p>
+        <p class="r"><b>Role:</b> I generalized our production controls into an enterprise kit.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>enterprise AI</li><li>AI safety</li><li>Claude Code</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/claude-deploy-kit" rel="noopener">View repo<span class="sr">: claude-deploy-kit</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="observability claude-code developer-tools" data-search="ccstitch a local trace store for claude code opentelemetry spans that repairs orphaned headless turns and nests child runs under the launching tool call. i built it to fix a gap i hit running headless claude code.  observability claude code developer tools">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>ccstitch</h3>
+        <p class="d">A local trace store for Claude Code OpenTelemetry spans that repairs orphaned headless turns and nests child runs under the launching tool call.</p>
+        <p class="r"><b>Role:</b> I built it to fix a gap I hit running headless Claude Code.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>observability</li><li>Claude Code</li><li>developer tools</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/ccstitch" rel="noopener">View repo<span class="sr">: ccstitch</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="claude-code agents observability" data-search="clawdling shows your claude code projects as an org on one map, who is working and who needs you, with a receipt when an agent says done. i built it as an open-source map of a person&#x27;s claude code agents.  claude code agents observability">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>Clawdling</h3>
+        <p class="d">Shows your Claude Code projects as an org on one map, who is working and who needs you, with a receipt when an agent says done.</p>
+        <p class="r"><b>Role:</b> I built it as an open-source map of a person&#x27;s Claude Code agents.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>Claude Code</li><li>agents</li><li>observability</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/clawdling" rel="noopener">View repo<span class="sr">: Clawdling</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="claude-code ai-safety developer-tools" data-search="claude-bug-squash triages a repo, fixes in an isolated worktree, proves red to green, and gates every fix behind blast-radius caps and a three-seat review. i built it as a gated autonomous bug fixer that can never merge.  claude code ai safety developer tools">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>claude-bug-squash</h3>
+        <p class="d">Triages a repo, fixes in an isolated worktree, proves red to green, and gates every fix behind blast-radius caps and a three-seat review.</p>
+        <p class="r"><b>Role:</b> I built it as a gated autonomous bug fixer that can never merge.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>Claude Code</li><li>AI safety</li><li>developer tools</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/claude-bug-squash" rel="noopener">View repo<span class="sr">: claude-bug-squash</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="claude-code evals" data-search="claude code behavior specs target-behavior specs for the claude code cli with observed versus expected behavior, runnable reproductions and proposed evals. i wrote them from production incidents.  claude code evals">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>Claude Code behavior specs</h3>
+        <p class="d">Target-behavior specs for the Claude Code CLI with observed versus expected behavior, runnable reproductions and proposed evals.</p>
+        <p class="r"><b>Role:</b> I wrote them from production incidents.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>Claude Code</li><li>evals</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/claude-code-behavior-specs" rel="noopener">View repo<span class="sr">: Claude Code behavior specs</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="agents claude-code" data-search="clawd-agent-os orchestrates claude agents in tiered hierarchies with worktree-isolated fleet spawning and a durable bus that never silently returns empty. i extracted it from the 24/7 system i run.  agents claude code">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>clawd-agent-os</h3>
+        <p class="d">Orchestrates Claude agents in tiered hierarchies with worktree-isolated fleet spawning and a durable bus that never silently returns empty.</p>
+        <p class="r"><b>Role:</b> I extracted it from the 24/7 system I run.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>agents</li><li>Claude Code</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/clawd-agent-os" rel="noopener">View repo<span class="sr">: clawd-agent-os</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="evals developer-tools" data-search="mcp-judge a calibrated multi-persona llm judge exposed as an mcp server, shipped with an eval harness that proves the calibration. i built it, open-sourced through the byu ai foundry.  evals developer tools">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>mcp-judge</h3>
+        <p class="d">A calibrated multi-persona LLM judge exposed as an MCP server, shipped with an eval harness that proves the calibration.</p>
+        <p class="r"><b>Role:</b> I built it, open-sourced through the BYU AI Foundry.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>evals</li><li>developer tools</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/mcp-judge" rel="noopener">View repo<span class="sr">: mcp-judge</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="evals education" data-search="agent-evals-starter learn agent evals by running them: a support agent, 24 tasks, code graders, an llm judge and do-nothing controls, all offline. i built it as a teaching repo for agent evals.  evals education">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>agent-evals-starter</h3>
+        <p class="d">Learn agent evals by running them: a support agent, 24 tasks, code graders, an LLM judge and do-nothing controls, all offline.</p>
+        <p class="r"><b>Role:</b> I built it as a teaching repo for agent evals.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>evals</li><li>education</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/agent-evals-starter" rel="noopener">View repo<span class="sr">: agent-evals-starter</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="agents ai-safety" data-search="ai-phone-desk a vapi voice agent where nothing dials until a human approves the exact request. i built it as a human-approval pattern for voice agents.  agents ai safety">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>ai-phone-desk</h3>
+        <p class="d">A Vapi voice agent where nothing dials until a human approves the exact request.</p>
+        <p class="r"><b>Role:</b> I built it as a human-approval pattern for voice agents.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>agents</li><li>AI safety</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/ai-phone-desk" rel="noopener">View repo<span class="sr">: ai-phone-desk</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="agents" data-search="deep-research-agent iterative multi-source research with a knowledge-gap loop and per-claim refute-or-survive verification. i built it.  agents">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>deep-research-agent</h3>
+        <p class="d">Iterative multi-source research with a knowledge-gap loop and per-claim refute-or-survive verification.</p>
+        <p class="r"><b>Role:</b> I built it.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>agents</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/deep-research-agent" rel="noopener">View repo<span class="sr">: deep-research-agent</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="claude-code agents" data-search="context-kit four personal-context templates and five claude code skills that give any ai agent deep context, installed in one command. i built the templates and skills.  claude code agents">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>context-kit</h3>
+        <p class="d">Four personal-context templates and five Claude Code skills that give any AI agent deep context, installed in one command.</p>
+        <p class="r"><b>Role:</b> I built the templates and skills.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>Claude Code</li><li>agents</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/context-kit" rel="noopener">View repo<span class="sr">: context-kit</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    <li class="card" data-kind="open-source" data-tags="education evals" data-search="mastery-engine an evidence-grounded curriculum generator with mastery gates where claims are verified against source material on disk. i built it.  education evals">
+      <div class="in">
+        <p class="kind">Open source</p>
+        <h3>mastery-engine</h3>
+        <p class="d">An evidence-grounded curriculum generator with mastery gates where claims are verified against source material on disk.</p>
+        <p class="r"><b>Role:</b> I built it.</p>
+        
+        <ul class="tags" aria-label="Tags"><li>education</li><li>evals</li></ul>
+        <p class="go"><a class="tap" href="https://github.com/jddavenportOpen/mastery-engine" rel="noopener">View repo<span class="sr">: mastery-engine</span><span class="arr" aria-hidden="true">→</span></a></p>
+      </div>
+    </li>
+    </ul>
+    <div class="empty" id="empty" hidden>
+      <p>Nothing matches that search. Try a broader word, or clear the filters.</p>
+      <button type="button" class="reset" id="reset">Clear search and filters</button>
+    </div>
+  </section>
+</main>
+
+<footer data-stage="night">
+  <div class="wrap">
+    <div class="sub-strip">
+      <div>
+        <h2 id="sub-h">Raising Clawd, in your inbox.</h2>
+        <p class="lede">My newsletter from inside Nerve Center: what 30+ agents in daily production teach me, what broke, and the guard I added after.</p>
+      </div>
+      <a class="btn sun" href="/newsletter">Subscribe <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="foot">
+      <div>
+        <div class="who">JD Davenport</div>
+        <p>Founder &amp; Managing Director, BYU AI Foundry</p>
+        <p><a class="tap" href="mailto:me@jddavenport.com">me@jddavenport.com</a></p>
+      </div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a class="tap" href="/resume.pdf">Resume</a></li>
+          <li><a class="tap" href="/work">Work</a></li>
+          <li><a class="tap" href="/teardown">Teardown</a></li>
+          <li><a class="tap" href="/docs/">Docs</a></li>
+          <li><a class="tap" href="/newsletter">Newsletter</a></li>
+          <li><a class="tap" href="https://www.linkedin.com/in/jd-davenport/">LinkedIn</a></li>
+          <li><a class="tap" href="https://github.com/jddavenportOpen">GitHub</a></li>
+          <li><a class="tap" href="https://byu-aifoundry.com">BYU AI Foundry</a></li>
+        </ul>
+        <p>© 2026 JD Davenport</p>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  var q=document.getElementById('q'), count=document.getElementById('count'), empty=document.getElementById('empty');
+  var kindBtns=[].slice.call(document.querySelectorAll('[data-set-kind]'));
+  var tagBtns=[].slice.call(document.querySelectorAll('[data-set-tag]'));
+  var state={q:'',kind:'',tag:''};
+  var validKinds={}, validTags={};
+  kindBtns.forEach(function(b){validKinds[b.getAttribute('data-set-kind')]=1;});
+  tagBtns.forEach(function(b){validTags[b.getAttribute('data-set-tag')]=1;});
+  function read(){
+    var p=new URLSearchParams(location.search);
+    state.q=p.get('q')||'';
+    state.kind=validKinds[p.get('kind')]?p.get('kind'):'';
+    state.tag=validTags[p.get('tag')]?p.get('tag'):'';
+  }
+  function write(){
+    var p=new URLSearchParams();
+    if(state.q)p.set('q',state.q);
+    if(state.kind)p.set('kind',state.kind);
+    if(state.tag)p.set('tag',state.tag);
+    var s=p.toString();
+    try{history.replaceState(null,'',location.pathname+(s?'?'+s:'')+location.hash);}catch(e){}
+  }
+  function apply(){
+    var terms=state.q.toLowerCase().split(/\s+/).filter(Boolean), n=0;
+    cards.forEach(function(c){
+      var ok=(!state.kind||c.getAttribute('data-kind')===state.kind)
+        &&(!state.tag||(' '+c.getAttribute('data-tags')+' ').indexOf(' '+state.tag+' ')>-1);
+      if(ok){var hay=c.getAttribute('data-search');for(var i=0;i<terms.length;i++){if(hay.indexOf(terms[i])<0){ok=false;break;}}}
+      c.hidden=!ok; if(ok)n++;
+    });
+    count.textContent=n===cards.length?'Showing all '+n+' items':'Showing '+n+' of '+cards.length+' items';
+    empty.hidden=n!==0;
+    kindBtns.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-set-kind')===state.kind));});
+    tagBtns.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-set-tag')===state.tag));});
+  }
+  read();
+  q.value=state.q;
+  document.getElementById('controls').hidden=false;
+  q.addEventListener('input',function(){state.q=q.value.trim();write();apply();});
+  kindBtns.forEach(function(b){b.addEventListener('click',function(){state.kind=b.getAttribute('data-set-kind');write();apply();});});
+  tagBtns.forEach(function(b){b.addEventListener('click',function(){var t=b.getAttribute('data-set-tag');state.tag=state.tag===t?'':t;write();apply();});});
+  document.getElementById('reset').addEventListener('click',function(){state={q:'',kind:'',tag:''};q.value='';write();apply();q.focus();});
+  window.addEventListener('popstate',function(){read();q.value=state.q;apply();});
+  apply();
+})();
+</script>
+</body>
+</html>
