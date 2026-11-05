@@ -1,0 +1,6 @@
+# Repo internals: never serve these. Keep api/ and page files out of this list.
+CLAUDE.md
+README.md
+deploy.sh
+tools
+.gitignore
