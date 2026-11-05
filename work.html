@@ -544,13 +544,18 @@ h1{font:400 clamp(2.45rem,1.4rem + 4.4vw,4.9rem)/1.03 var(--f-serif);letter-spac
     state.kind=validKinds[p.get('kind')]?p.get('kind'):'';
     state.tag=validTags[p.get('tag')]?p.get('tag'):'';
   }
-  function write(){
+  // discrete=true (a pill or reset click) adds a history entry so Back undoes the filter; typing replaces.
+  function write(discrete){
     var p=new URLSearchParams();
     if(state.q)p.set('q',state.q);
     if(state.kind)p.set('kind',state.kind);
     if(state.tag)p.set('tag',state.tag);
     var s=p.toString();
-    try{history.replaceState(null,'',location.pathname+(s?'?'+s:'')+location.hash);}catch(e){}
+    var url=location.pathname+(s?'?'+s:'')+location.hash;
+    try{
+      if(discrete&&url!==location.pathname+location.search+location.hash)history.pushState(null,'',url);
+      else history.replaceState(null,'',url);
+    }catch(e){}
   }
   function apply(){
     var terms=state.q.toLowerCase().split(/\s+/).filter(Boolean), n=0;
@@ -569,9 +574,9 @@ h1{font:400 clamp(2.45rem,1.4rem + 4.4vw,4.9rem)/1.03 var(--f-serif);letter-spac
   q.value=state.q;
   document.getElementById('controls').hidden=false;
   q.addEventListener('input',function(){state.q=q.value.trim();write();apply();});
-  kindBtns.forEach(function(b){b.addEventListener('click',function(){state.kind=b.getAttribute('data-set-kind');write();apply();});});
-  tagBtns.forEach(function(b){b.addEventListener('click',function(){var t=b.getAttribute('data-set-tag');state.tag=state.tag===t?'':t;write();apply();});});
-  document.getElementById('reset').addEventListener('click',function(){state={q:'',kind:'',tag:''};q.value='';write();apply();q.focus();});
+  kindBtns.forEach(function(b){b.addEventListener('click',function(){state.kind=b.getAttribute('data-set-kind');write(true);apply();});});
+  tagBtns.forEach(function(b){b.addEventListener('click',function(){var t=b.getAttribute('data-set-tag');state.tag=state.tag===t?'':t;write(true);apply();});});
+  document.getElementById('reset').addEventListener('click',function(){state={q:'',kind:'',tag:''};q.value='';write(true);apply();q.focus();});
   window.addEventListener('popstate',function(){read();q.value=state.q;apply();});
   apply();
 })();

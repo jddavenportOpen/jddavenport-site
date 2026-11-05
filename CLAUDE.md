@@ -201,6 +201,18 @@ Element ids the script writes: `stat-agents`, `stat-tokens`, `stat-users`,
 `tele-spark-area`, `tele-spark-from`, `tele-spark-to`, `tele-days`,
 `tele-incidents`, `tele-tests`, `tele-src`, `tele-live-note`.
 
+### The fallback snapshot on /brain and /showcase
+
+`bash deploy.sh` runs `tools/metrics/refresh_snapshot.py` before it stamps: it
+pulls `/api/metrics` and rewrites the snapshot block, chip date, fine-print date
+and baked numbers in `brain.html` and `showcase.html`, then commits them so
+`version.json` names the commit that holds them. Any failure keeps the old
+snapshot and the deploy continues. It is allowlisted (no dollar field can arrive)
+and refuses a precise agent count in static prose. These two pages are edited by
+hand now: the old one-shot generators in
+`~/clawd/projects/jd-portfolio/showcase/` are behind on copy and must not be
+re-run over them.
+
 `tele-repos` is deliberately **not** wired to `metrics.repos.public`: that field
 aggregates two GitHub accounts and one of them is invisible to logged-out
 visitors, so the total is unverifiable by the reader.

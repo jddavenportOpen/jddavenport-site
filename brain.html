@@ -31,7 +31,7 @@ h1,h2{font-weight:600;line-height:1.12;letter-spacing:-0.03em;margin:0}
 p{margin:0}
 .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px;border-bottom:1px solid var(--hairline);font-family:var(--font-mono);font-size:.8rem}
-.topbar a{color:var(--text-2)}
+.topbar a{color:var(--text-2);display:inline-flex;align-items:center;min-height:44px;min-width:44px}
 .topbar a:hover{color:var(--text-1)}
 .hero{padding-top:30px;padding-bottom:10px}
 .kicker{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:var(--accent-text);margin-bottom:12px;font-weight:500}
@@ -58,6 +58,9 @@ h1{font-size:clamp(2.2rem,9vw,3.4rem);font-weight:700}
 #brain .job.on{opacity:1}
 #brain .pulse{fill:#FFD28A}
 #brain .ring{fill:none;stroke:var(--text-1);stroke-width:1.4}
+#brain .nd{outline:none}
+#brain .frng{fill:none;stroke:var(--accent-hover);stroke-width:2.6;pointer-events:none}
+@media (hover:none){.kbd{display:none}}
 .probe{margin-top:10px;min-height:48px;padding:10px 12px;border-radius:8px;background:var(--sunken);border:1px solid var(--hairline);font-size:.88rem;color:var(--text-2)}
 .probe b{display:block;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text);font-weight:500;margin-bottom:2px}
 .side{display:grid;gap:14px;align-content:start;min-width:0}
@@ -79,14 +82,15 @@ h1{font-size:clamp(2.2rem,9vw,3.4rem);font-weight:700}
 .spark rect{fill:var(--accent);opacity:.75}
 .spark.alt rect{fill:var(--working)}
 .fine{font-family:var(--font-mono);font-size:.72rem;color:var(--text-3);line-height:1.65;margin-top:18px;max-width:80ch}
-.fine a{color:var(--text-2);text-decoration:underline;text-decoration-color:rgba(255,255,255,.25);text-underline-offset:2px}
+.fine a{color:var(--text-2);text-decoration:underline;text-decoration-color:rgba(255,255,255,.25);text-underline-offset:2px;position:relative}
+.fine a::after{content:"";position:absolute;left:0;right:0;top:50%;height:44px;margin-top:-22px}
 .ctas{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 8px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:8px;border:1px solid var(--border-strong);background:var(--surface-2);color:var(--text-1);font:500 .95rem/1 var(--font-ui)}
 .btn:hover{border-color:rgba(245,166,35,.5);color:var(--text-1)}
 .btn-accent{background:var(--accent);border-color:transparent;color:var(--on-accent);font-weight:600}
 .btn-accent:hover{background:var(--accent-hover);color:var(--on-accent)}
 footer{border-top:1px solid var(--hairline);margin-top:36px;padding-top:22px;padding-bottom:40px;font-family:var(--font-mono);font-size:.72rem;color:var(--text-3)}
-footer a{color:var(--text-2)}
+footer a{color:var(--text-2);display:inline-flex;align-items:center;min-height:44px}
 @media (min-width:720px){.wrap{padding:0 28px}.hero{padding-top:48px}}
 @media (min-width:940px){.layout{grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:28px;align-items:start}.side{position:sticky;top:18px}}
 @media (prefers-reduced-motion:reduce){.chip.live .dot{animation:none}}
@@ -99,44 +103,44 @@ footer a{color:var(--text-2)}
   <div class="kicker">Live agent graph</div>
   <h1>The live brain</h1>
   <p class="lead">Every dot is a real part of the AI operating system I run, counted live from the inventory it publishes about itself. <b>Names and data are hidden on purpose:</b> this shows the architecture, not the contents.</p>
-  <span id="live-chip" class="chip"><span class="dot"></span><span id="chip-text">Snapshot · 2026-09-24</span></span>
+  <span id="live-chip" class="chip"><span class="dot"></span><span id="chip-text">Snapshot · 2026-11-04</span></span>
  </div>
  <div class="layout">
   <div class="stage">
-   <svg id="brain" viewBox="-262 -262 524 524" role="img" aria-label="Radial graph of the agent system"></svg>
-   <div class="probe" id="probe" aria-live="polite"><b>Tap any dot</b>You will see what it is, never what is in it.</div>
+   <svg id="brain" viewBox="-262 -262 524 524" role="group" aria-label="Radial graph of the agent system"></svg>
+   <div class="probe" id="probe" aria-live="polite"><b>Tap any dot</b>You will see what it is, never what is in it.<span class="kbd"> On a keyboard: Tab to the graph, arrow keys to move, Enter to open, Esc to close.</span></div>
   </div>
   <div class="side">
    <div class="box">
     <div class="dk">What you are looking at</div>
     <ul class="legend">
      <li><span class="sw" style="background:var(--accent)"></span><span>Orchestrator, at the center</span><b data-k="orch">1</b></li>
-     <li><span class="sw" style="background:var(--surface-3);border:1.5px solid var(--accent)"></span><span>Domain agents: one per area of work</span><b data-k="dom">16</b></li>
+     <li><span class="sw" style="background:var(--surface-3);border:1.5px solid var(--accent)"></span><span>Domain agents: one per area of work</span><b data-k="dom">15</b></li>
      <li><span class="sw" style="border:1.5px dashed rgba(255,255,255,.5)"></span><span>Agent bus: the ring they all talk through</span><b>1</b></li>
-     <li><span class="sw" style="background:rgba(124,180,207,.3);border:1.5px solid var(--working)"></span><span>Specialist agents: shared services</span><b data-k="spec">31</b></li>
-     <li><span class="sw" style="background:var(--text-2)"></span><span>Skills agents load on demand</span><b data-k="skills">46</b></li>
-     <li><span class="sw" style="background:conic-gradient(var(--ready) 0 25%,var(--working) 0 37%,var(--accent) 0 51%,var(--accent-text) 0 65%,var(--memory) 0 72%,var(--text-3) 0)"></span><span>Background jobs</span><b data-k="jobs">237</b></li>
+     <li><span class="sw" style="background:rgba(124,180,207,.3);border:1.5px solid var(--working)"></span><span>Specialist agents: shared services</span><b data-k="spec">33</b></li>
+     <li><span class="sw" style="background:var(--text-2)"></span><span>Skills agents load on demand</span><b data-k="skills">58</b></li>
+     <li><span class="sw" style="background:conic-gradient(var(--ready) 0 25%,var(--working) 0 37%,var(--accent) 0 51%,var(--accent-text) 0 65%,var(--memory) 0 72%,var(--text-3) 0)"></span><span>Background jobs</span><b data-k="jobs">309</b></li>
     </ul>
-    <ul class="cats" id="cats"><li><span class="sw" style="background:#69B27A"></span><span>Self-healing watchdogs</span><b>60</b></li><li><span class="sw" style="background:#7CB4CF"></span><span>Routing and infrastructure</span><b>27</b></li><li><span class="sw" style="background:#F5A623"></span><span>Delivery</span><b>17</b></li><li><span class="sw" style="background:#F8C384"></span><span>Capture</span><b>17</b></li><li><span class="sw" style="background:#B8A4DC"></span><span>Memory</span><b>7</b></li><li><span class="sw" style="background:#827F7C"></span><span>Backup and storage</span><b>10</b></li><li><span class="sw" style="background:#5E5B58"></span><span>Other</span><b>99</b></li></ul>
+    <ul class="cats" id="cats"><li><span class="sw" style="background:#69B27A"></span><span>Self-healing watchdogs</span><b>65</b></li><li><span class="sw" style="background:#7CB4CF"></span><span>Routing and infrastructure</span><b>29</b></li><li><span class="sw" style="background:#F5A623"></span><span>Delivery</span><b>18</b></li><li><span class="sw" style="background:#F8C384"></span><span>Capture</span><b>15</b></li><li><span class="sw" style="background:#B8A4DC"></span><span>Memory</span><b>7</b></li><li><span class="sw" style="background:#827F7C"></span><span>Backup and storage</span><b>10</b></li><li><span class="sw" style="background:#5E5B58"></span><span>Other</span><b>165</b></li></ul>
    </div>
    <div class="act">
-    <div class="stat"><b data-k="turns">13,831</b><span>model turns yesterday</span><svg class="spark alt" id="spark-tok" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"><rect x="0.00" y="26.4" width="3.00" height="1.6" rx="1"/><rect x="4.00" y="19.8" width="3.00" height="8.2" rx="1"/><rect x="8.00" y="25.0" width="3.00" height="3.0" rx="1"/><rect x="12.00" y="25.5" width="3.00" height="2.5" rx="1"/><rect x="16.00" y="25.7" width="3.00" height="2.3" rx="1"/><rect x="20.00" y="23.3" width="3.00" height="4.7" rx="1"/><rect x="24.00" y="24.5" width="3.00" height="3.5" rx="1"/><rect x="28.00" y="21.5" width="3.00" height="6.5" rx="1"/><rect x="32.00" y="21.9" width="3.00" height="6.1" rx="1"/><rect x="36.00" y="23.8" width="3.00" height="4.2" rx="1"/><rect x="40.00" y="17.0" width="3.00" height="11.0" rx="1"/><rect x="44.00" y="8.0" width="3.00" height="20.0" rx="1"/><rect x="48.00" y="14.7" width="3.00" height="13.3" rx="1"/><rect x="52.00" y="17.0" width="3.00" height="11.0" rx="1"/><rect x="56.00" y="21.2" width="3.00" height="6.8" rx="1"/><rect x="60.00" y="20.9" width="3.00" height="7.1" rx="1"/><rect x="64.00" y="24.8" width="3.00" height="3.2" rx="1"/><rect x="68.00" y="12.9" width="3.00" height="15.1" rx="1"/><rect x="72.00" y="18.6" width="3.00" height="9.4" rx="1"/><rect x="76.00" y="25.8" width="3.00" height="2.2" rx="1"/><rect x="80.00" y="26.0" width="3.00" height="2.0" rx="1"/><rect x="84.00" y="26.5" width="3.00" height="1.5" rx="1"/><rect x="88.00" y="25.4" width="3.00" height="2.6" rx="1"/><rect x="92.00" y="25.1" width="3.00" height="2.9" rx="1"/><rect x="96.00" y="26.2" width="3.00" height="1.8" rx="1"/><rect x="100.00" y="25.4" width="3.00" height="2.6" rx="1"/><rect x="104.00" y="12.9" width="3.00" height="15.1" rx="1"/><rect x="108.00" y="2.0" width="3.00" height="26.0" rx="1"/><rect x="112.00" y="4.4" width="3.00" height="23.6" rx="1"/><rect x="116.00" y="12.3" width="3.00" height="15.7" rx="1"/></svg></div>
-    <div class="stat"><b data-k="ships">1,029</b><span>shipped-work log entries, 30 days</span><svg class="spark" id="spark-ship" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"><rect x="0.00" y="2.0" width="3.00" height="26.0" rx="1"/><rect x="4.00" y="16.8" width="3.00" height="11.2" rx="1"/><rect x="8.00" y="19.0" width="3.00" height="9.0" rx="1"/><rect x="12.00" y="24.0" width="3.00" height="4.0" rx="1"/><rect x="16.00" y="12.5" width="3.00" height="15.5" rx="1"/><rect x="20.00" y="18.2" width="3.00" height="9.8" rx="1"/><rect x="24.00" y="12.5" width="3.00" height="15.5" rx="1"/><rect x="28.00" y="8.9" width="3.00" height="19.1" rx="1"/><rect x="32.00" y="14.6" width="3.00" height="13.4" rx="1"/><rect x="36.00" y="9.2" width="3.00" height="18.8" rx="1"/><rect x="40.00" y="13.2" width="3.00" height="14.8" rx="1"/><rect x="44.00" y="19.0" width="3.00" height="9.0" rx="1"/><rect x="48.00" y="18.2" width="3.00" height="9.8" rx="1"/><rect x="52.00" y="10.7" width="3.00" height="17.3" rx="1"/><rect x="56.00" y="10.7" width="3.00" height="17.3" rx="1"/><rect x="60.00" y="25.8" width="3.00" height="2.2" rx="1"/><rect x="64.00" y="4.5" width="3.00" height="23.5" rx="1"/><rect x="68.00" y="10.7" width="3.00" height="17.3" rx="1"/><rect x="72.00" y="21.1" width="3.00" height="6.9" rx="1"/><rect x="76.00" y="20.8" width="3.00" height="7.2" rx="1"/><rect x="80.00" y="24.4" width="3.00" height="3.6" rx="1"/><rect x="84.00" y="19.7" width="3.00" height="8.3" rx="1"/><rect x="88.00" y="26.2" width="3.00" height="1.8" rx="1"/><rect x="92.00" y="21.5" width="3.00" height="6.5" rx="1"/><rect x="96.00" y="20.8" width="3.00" height="7.2" rx="1"/><rect x="100.00" y="6.7" width="3.00" height="21.3" rx="1"/><rect x="104.00" y="12.8" width="3.00" height="15.2" rx="1"/><rect x="108.00" y="11.8" width="3.00" height="16.2" rx="1"/><rect x="112.00" y="8.5" width="3.00" height="19.5" rx="1"/><rect x="116.00" y="25.8" width="3.00" height="2.2" rx="1"/></svg></div>
+    <div class="stat"><b data-k="turns">6,709</b><span>model turns yesterday</span><svg class="spark alt" id="spark-tok" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"><rect x="0.00" y="6.9" width="3.00" height="21.1" rx="1"/><rect x="4.00" y="2.2" width="3.00" height="25.8" rx="1"/><rect x="8.00" y="15.8" width="3.00" height="12.2" rx="1"/><rect x="12.00" y="24.3" width="3.00" height="3.7" rx="1"/><rect x="16.00" y="26.5" width="3.00" height="1.5" rx="1"/><rect x="20.00" y="26.5" width="3.00" height="1.5" rx="1"/><rect x="24.00" y="19.9" width="3.00" height="8.1" rx="1"/><rect x="28.00" y="2.0" width="3.00" height="26.0" rx="1"/><rect x="32.00" y="19.1" width="3.00" height="8.9" rx="1"/><rect x="36.00" y="26.5" width="3.00" height="1.5" rx="1"/><rect x="40.00" y="24.4" width="3.00" height="3.6" rx="1"/><rect x="44.00" y="15.2" width="3.00" height="12.8" rx="1"/><rect x="48.00" y="24.6" width="3.00" height="3.4" rx="1"/><rect x="52.00" y="26.5" width="3.00" height="1.5" rx="1"/><rect x="56.00" y="23.2" width="3.00" height="4.8" rx="1"/><rect x="60.00" y="22.3" width="3.00" height="5.7" rx="1"/><rect x="64.00" y="20.5" width="3.00" height="7.5" rx="1"/><rect x="68.00" y="17.8" width="3.00" height="10.2" rx="1"/><rect x="72.00" y="12.7" width="3.00" height="15.3" rx="1"/><rect x="76.00" y="17.4" width="3.00" height="10.6" rx="1"/><rect x="80.00" y="17.2" width="3.00" height="10.8" rx="1"/><rect x="84.00" y="16.6" width="3.00" height="11.4" rx="1"/><rect x="88.00" y="18.4" width="3.00" height="9.6" rx="1"/><rect x="92.00" y="9.3" width="3.00" height="18.7" rx="1"/><rect x="96.00" y="24.8" width="3.00" height="3.2" rx="1"/><rect x="100.00" y="20.4" width="3.00" height="7.6" rx="1"/><rect x="104.00" y="17.9" width="3.00" height="10.1" rx="1"/><rect x="108.00" y="22.5" width="3.00" height="5.5" rx="1"/><rect x="112.00" y="22.3" width="3.00" height="5.7" rx="1"/><rect x="116.00" y="21.2" width="3.00" height="6.8" rx="1"/></svg></div>
+    <div class="stat"><b data-k="ships">1,169</b><span>shipped-work log entries, 30 days</span><svg class="spark" id="spark-ship" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true"><rect x="0.00" y="5.8" width="3.00" height="22.2" rx="1"/><rect x="4.00" y="22.4" width="3.00" height="5.6" rx="1"/><rect x="8.00" y="26.4" width="3.00" height="1.6" rx="1"/><rect x="12.00" y="26.5" width="3.00" height="1.5" rx="1"/><rect x="16.00" y="26.5" width="3.00" height="1.5" rx="1"/><rect x="20.00" y="19.2" width="3.00" height="8.8" rx="1"/><rect x="24.00" y="13.0" width="3.00" height="15.0" rx="1"/><rect x="28.00" y="20.5" width="3.00" height="7.5" rx="1"/><rect x="32.00" y="26.5" width="3.00" height="1.5" rx="1"/><rect x="36.00" y="21.0" width="3.00" height="7.0" rx="1"/><rect x="40.00" y="13.0" width="3.00" height="15.0" rx="1"/><rect x="44.00" y="26.5" width="3.00" height="1.5" rx="1"/><rect x="48.00" y="25.9" width="3.00" height="2.1" rx="1"/><rect x="52.00" y="21.0" width="3.00" height="7.0" rx="1"/><rect x="56.00" y="15.4" width="3.00" height="12.6" rx="1"/><rect x="60.00" y="18.9" width="3.00" height="9.1" rx="1"/><rect x="64.00" y="18.4" width="3.00" height="9.6" rx="1"/><rect x="68.00" y="5.2" width="3.00" height="22.8" rx="1"/><rect x="72.00" y="18.4" width="3.00" height="9.6" rx="1"/><rect x="76.00" y="12.7" width="3.00" height="15.3" rx="1"/><rect x="80.00" y="13.0" width="3.00" height="15.0" rx="1"/><rect x="84.00" y="15.9" width="3.00" height="12.1" rx="1"/><rect x="88.00" y="2.0" width="3.00" height="26.0" rx="1"/><rect x="92.00" y="22.6" width="3.00" height="5.4" rx="1"/><rect x="96.00" y="10.3" width="3.00" height="17.7" rx="1"/><rect x="100.00" y="18.6" width="3.00" height="9.4" rx="1"/><rect x="104.00" y="22.1" width="3.00" height="5.9" rx="1"/><rect x="108.00" y="17.3" width="3.00" height="10.7" rx="1"/><rect x="112.00" y="17.0" width="3.00" height="11.0" rx="1"/><rect x="116.00" y="21.0" width="3.00" height="7.0" rx="1"/></svg></div>
    </div>
   </div>
  </div>
- <p class="fine">How this works: the page reads <a href="/api/metrics">/api/metrics</a>, a server-side filter over the inventory the system republishes whenever it ships. It forwards numbers only. No agent, skill or job name, and no content, ever reaches your browser. The dots are placed from those counts; the moving pulses illustrate the routing path (orchestrator, domain agent, bus, specialist) and are not a message feed. Sparklines: daily model activity and daily shipped-work log entries over the last 30 days. If the live request fails you see the snapshot from 2026-09-24.</p>
+ <p class="fine">How this works: the page reads <a href="/api/metrics">/api/metrics</a>, a server-side filter over the inventory the system republishes whenever it ships. It forwards numbers only. No agent, skill or job name, and no content, ever reaches your browser. The dots are placed from those counts; the moving pulses illustrate the routing path (orchestrator, domain agent, bus, specialist) and are not a message feed. Sparklines: daily model activity and daily shipped-work log entries over the last 30 days. If the live request fails you see the snapshot from 2026-11-04.</p>
  <div class="ctas"><a class="btn btn-accent" href="/showcase">See the full showcase</a><a class="btn" href="https://book.jddavenport.com">Book time</a></div>
 </main>
 <footer class="wrap">One static HTML file plus one serverless filter. <a href="https://github.com/jddavenportOpen/jddavenport-site/blob/main/brain.html">View source</a> · <a href="/">jddavenport.com</a></footer>
 <script>
 (function(){
- var SNAP={"as_of": "2026-09-24", "stats": {"agents": 48, "skills": 46, "automations": 237, "ships_last_30d": 1029}, "metrics": {"turns_yesterday": 13831, "tokens_30d_sparkline": [{"d": "2026-08-25", "total": 311417798}, {"d": "2026-08-26", "total": 1590935843}, {"d": "2026-08-27", "total": 587530615}, {"d": "2026-08-28", "total": 479925437}, {"d": "2026-08-29", "total": 456699562}, {"d": "2026-08-30", "total": 921735644}, {"d": "2026-08-31", "total": 683089888}, {"d": "2026-09-01", "total": 1272965489}, {"d": "2026-09-02", "total": 1184069663}, {"d": "2026-09-03", "total": 817651678}, {"d": "2026-09-04", "total": 2134676567}, {"d": "2026-09-05", "total": 3900831789}, {"d": "2026-09-06", "total": 2591771467}, {"d": "2026-09-07", "total": 2134243437}, {"d": "2026-09-08", "total": 1325313857}, {"d": "2026-09-09", "total": 1378292836}, {"d": "2026-09-10", "total": 615555772}, {"d": "2026-09-11", "total": 2935370921}, {"d": "2026-09-12", "total": 1839132061}, {"d": "2026-09-13", "total": 421648628}, {"d": "2026-09-14", "total": 393602434}, {"d": "2026-09-15", "total": 199141887}, {"d": "2026-09-16", "total": 508597678}, {"d": "2026-09-17", "total": 562204780}, {"d": "2026-09-18", "total": 355828899}, {"d": "2026-09-19", "total": 509587704}, {"d": "2026-09-20", "total": 2941378310}, {"d": "2026-09-21", "total": 5063258172}, {"d": "2026-09-22", "total": 4604921100}, {"d": "2026-09-23", "total": 3051794573}]}, "structure": {"agents_by_kind": {"orchestrator": 1, "domain": 16, "python-package": 28, "skill-backed": 3}, "skills_by_scope": {"system": 40, "global": 6}, "jobs_by_category": {"backup / storage": 10, "capture": 17, "delivery": 17, "memory": 7, "other": 99, "routing / infra": 27, "self-heal / watchdog": 60}, "ships_per_day": [72, 31, 25, 11, 43, 27, 43, 53, 37, 52, 41, 25, 27, 48, 48, 6, 65, 48, 19, 20, 10, 23, 5, 18, 20, 59, 42, 45, 54, 6]}};
+ var SNAP={"as_of": "2026-11-04", "stats": {"agents": 49, "skills": 58, "automations": 309, "ships_last_30d": 1169}, "metrics": {"turns_yesterday": 6709, "tokens_30d_sparkline": [{"d": "2026-10-05", "total": 3583890275}, {"d": "2026-10-06", "total": 4386959405}, {"d": "2026-10-07", "total": 2073834097}, {"d": "2026-10-08", "total": 620719710}, {"d": "2026-10-09", "total": 51299103}, {"d": "2026-10-10", "total": 101839047}, {"d": "2026-10-11", "total": 1368134668}, {"d": "2026-10-12", "total": 4413676954}, {"d": "2026-10-13", "total": 1505845996}, {"d": "2026-10-14", "total": 67843887}, {"d": "2026-10-15", "total": 609141381}, {"d": "2026-10-16", "total": 2166970194}, {"d": "2026-10-17", "total": 576504989}, {"d": "2026-10-18", "total": 86792751}, {"d": "2026-10-19", "total": 814289255}, {"d": "2026-10-20", "total": 975342947}, {"d": "2026-10-21", "total": 1270587254}, {"d": "2026-10-22", "total": 1739712216}, {"d": "2026-10-23", "total": 2600784673}, {"d": "2026-10-24", "total": 1796979618}, {"d": "2026-10-25", "total": 1831075163}, {"d": "2026-10-26", "total": 1932807482}, {"d": "2026-10-27", "total": 1629644105}, {"d": "2026-10-28", "total": 3180700250}, {"d": "2026-10-29", "total": 536771453}, {"d": "2026-10-30", "total": 1287004411}, {"d": "2026-10-31", "total": 1706786077}, {"d": "2026-11-01", "total": 936993327}, {"d": "2026-11-02", "total": 969009819}, {"d": "2026-11-03", "total": 1148616477}]}, "structure": {"agents_by_kind": {"orchestrator": 1, "domain": 15, "python-package": 31, "skill-backed": 2}, "skills_by_scope": {"system": 51, "global": 7}, "jobs_by_category": {"capture": 15, "memory": 7, "delivery": 18, "self-heal / watchdog": 65, "backup / storage": 10, "routing / infra": 29, "other": 165}, "ships_per_day": [83, 21, 6, 4, 5, 33, 56, 28, 1, 26, 56, 3, 8, 26, 47, 34, 36, 85, 36, 57, 56, 45, 97, 20, 66, 35, 22, 40, 41, 26]}};
  var CAT=[['self-heal / watchdog','var(--ready)','#69B27A','Self-healing watchdogs'],['routing / infra','var(--working)','#7CB4CF','Routing and infrastructure'],['delivery','var(--accent)','#F5A623','Delivery'],['capture','var(--accent-text)','#F8C384','Capture'],['memory','var(--memory)','#B8A4DC','Memory'],['backup / storage','var(--text-3)','#827F7C','Backup and storage'],['other','var(--text-3)','#5E5B58','Other']];
  var NS='http://www.w3.org/2000/svg', svg=document.getElementById('brain'), probe=document.getElementById('probe');
  var R={dom:90,bus:124,spec:152,skill:190,job:232};
  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
- var pts=[], doms=[], specs=[], jobs=[], ring=null, model=null;
+ var pts=[], doms=[], specs=[], jobs=[], ring=null, frng=null, model=null, groups=[], cur=0, selected=-1, HINT=probe.innerHTML;
  function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e}
  function nf(n){return Number(n).toLocaleString('en-US')}
  function polar(r,a){return [r*Math.cos(a),r*Math.sin(a)]}
@@ -148,7 +152,15 @@ footer a{color:var(--text-2)}
   var skills=0;for(var k in sk)skills+=num(sk[k],0);
   return {orch:num(a.orchestrator,1)||1,dom:num(a.domain,0),spec:spec,skills:skills||num(st.skills,0),jobs:jb,jobsTotal:num(st.automations,0),turns:num((j.metrics||{}).turns_yesterday,null),ships:num(st.ships_last_30d,null),tok:(j.metrics||{}).tokens_30d_sparkline,shipDays:s.ships_per_day};
  }
+ function add(n,o){
+  o.el=n;o.idx=pts.length;
+  n.setAttribute('role','button');n.setAttribute('data-i',o.idx);n.setAttribute('tabindex',o.idx===cur?'0':'-1');
+  n.classList.add('nd');
+  var d=describe(o);n.setAttribute('aria-label',d[0]+(o.t==='job'?': '+o.cat+', '+o.n+' jobs':'')+'. Show details');
+  pts.push(o);
+ }
  function draw(c){
+  var hadFocus=document.activeElement&&svg.contains(document.activeElement);
   model=c;svg.innerHTML='';pts=[];doms=[];specs=[];jobs=[];
   var off=-Math.PI/2,i,a,p;
   el('circle',{class:'busring',cx:0,cy:0,r:R.bus});
@@ -156,28 +168,65 @@ footer a{color:var(--text-2)}
    el('line',{class:'spoke',x1:0,y1:0,x2:p[0],y2:p[1]});el('line',{class:'tick',x1:q[0],y1:q[1],x2:b[0],y2:b[1]});doms.push(a)}
   for(i=0;i<c.spec;i++){a=off+Math.PI/c.spec+2*Math.PI*i/c.spec;var s1=polar(R.bus,a),s2=polar(R.spec-5.5,a);el('line',{class:'tick',x1:s1[0],y1:s1[1],x2:s2[0],y2:s2[1]});specs.push(a)}
   el('circle',{class:'halo',cx:0,cy:0,r:26,opacity:.5});
-  var orb=el('circle',{class:'orb',cx:0,cy:0,r:17});pts.push({x:0,y:0,t:'orch'});
+  add(el('circle',{class:'orb',cx:0,cy:0,r:17}),{x:0,y:0,t:'orch'});
   if(!reduce){var h=el('circle',{class:'halo',cx:0,cy:0,r:18});el('animate',{attributeName:'r',values:'18;40',dur:'2.4s',repeatCount:'indefinite'},h);el('animate',{attributeName:'opacity',values:'.8;0',dur:'2.4s',repeatCount:'indefinite'},h)}
-  doms.forEach(function(a,i){var p=polar(R.dom,a);el('circle',{class:'dom',cx:p[0],cy:p[1],r:7.5});pts.push({x:p[0],y:p[1],t:'dom',i:i+1})});
-  specs.forEach(function(a,i){var p=polar(R.spec,a);el('circle',{class:'spec',cx:p[0],cy:p[1],r:5.2});pts.push({x:p[0],y:p[1],t:'spec',i:i+1})});
-  for(i=0;i<c.skills;i++){a=off+2*Math.PI*i/c.skills;p=polar(R.skill,a);el('circle',{class:'skill',cx:p[0],cy:p[1],r:2.6});pts.push({x:p[0],y:p[1],t:'skill',i:i+1})}
+  doms.forEach(function(a,i){var p=polar(R.dom,a);add(el('circle',{class:'dom',cx:p[0],cy:p[1],r:7.5}),{x:p[0],y:p[1],t:'dom',i:i+1})});
+  specs.forEach(function(a,i){var p=polar(R.spec,a);add(el('circle',{class:'spec',cx:p[0],cy:p[1],r:5.2}),{x:p[0],y:p[1],t:'spec',i:i+1})});
+  for(i=0;i<c.skills;i++){a=off+2*Math.PI*i/c.skills;p=polar(R.skill,a);add(el('circle',{class:'skill',cx:p[0],cy:p[1],r:2.6}),{x:p[0],y:p[1],t:'skill',i:i+1})}
   var list=[],gap=3,total=0;CAT.forEach(function(k){var n=num(c.jobs[k[0]],0);if(n){list.push([k,n]);total+=n}});
   if(!total&&c.jobsTotal){list=[[CAT[6],c.jobsTotal]];total=c.jobsTotal}
   var slots=total+gap*list.length,s=0;
-  list.forEach(function(g){for(var j=0;j<g[1];j++){a=off+2*Math.PI*(s+j)/slots;p=polar(R.job,a);jobs.push(el('circle',{class:'job',cx:p[0],cy:p[1],r:2.4,fill:g[0][2]}));pts.push({x:p[0],y:p[1],t:'job',cat:g[0][3],n:g[1]})}s+=g[1]+gap});
+  list.forEach(function(g){for(var j=0;j<g[1];j++){a=off+2*Math.PI*(s+j)/slots;p=polar(R.job,a);var jc=el('circle',{class:'job',cx:p[0],cy:p[1],r:2.4,fill:g[0][2]});jobs.push(jc);add(jc,{x:p[0],y:p[1],t:'job',cat:g[0][3],n:g[1]})}s+=g[1]+gap});
   ring=el('circle',{class:'ring',cx:0,cy:0,r:0,opacity:0});
-  svg.setAttribute('aria-label','Radial graph: 1 orchestrator, '+c.dom+' domain agents on the inner ring, the agent bus, '+c.spec+' specialist agents, '+c.skills+' skills and '+total+' background jobs on the outer ring. Names hidden.');
+  frng=el('circle',{class:'frng',cx:0,cy:0,r:0,opacity:0});
+  groups=['orch','dom','spec','skill','job'].map(function(t){return pts.filter(function(p){return p.t===t})}).filter(function(g){return g.length});
+  if(cur>=pts.length)cur=0;
+  if(pts[cur]){pts[cur].el.setAttribute('tabindex','0');if(hadFocus)pts[cur].el.focus({preventScroll:true})}
+  if(selected>=pts.length)selected=-1;
+  if(selected>=0)pick(pts[selected]);
+  svg.setAttribute('aria-label','Radial graph: 1 orchestrator, '+c.dom+' domain agents on the inner ring, the agent bus, '+c.spec+' specialist agents, '+c.skills+' skills and '+total+' background jobs on the outer ring. Names hidden. Arrow keys move between dots; Enter or Space shows details; Escape closes them.');
  }
  var TXT={orch:['Orchestrator','The Claude Opus seat at the center. It triages every request, delegates it down, and verifies the result. Contents hidden.'],dom:['Domain agent','Owns one area of work, with its own state files and reports. Name hidden.'],spec:['Specialist agent','A shared service any agent can call through the bus. Name hidden.'],skill:['Skill','A packaged capability an agent loads on demand. Name hidden.'],job:['Background job','Runs on a schedule or a trigger. Name hidden.']};
+ function ringR(t){return t==='orch'?22:t==='dom'?11.5:t==='spec'?9:6}
+ function describe(p){var t=TXT[p.t];return [t[0]+(p.i?' '+p.i+' of '+(p.t==='dom'?model.dom:p.t==='spec'?model.spec:model.skills):''),p.t==='job'?'Category: '+p.cat+' ('+p.n+' jobs). '+t[1]:t[1]]}
+ function pick(p){
+  var d=describe(p);selected=p.idx;
+  probe.innerHTML='<b>'+esc(d[0])+'</b>'+esc(d[1]);
+  ring.setAttribute('cx',p.x);ring.setAttribute('cy',p.y);ring.setAttribute('r',ringR(p.t));ring.setAttribute('opacity',1);
+ }
+ function dismiss(){if(selected<0)return;selected=-1;probe.innerHTML=HINT;ring.setAttribute('opacity',0)}
+ function rove(i){if(pts[cur])pts[cur].el.setAttribute('tabindex','-1');cur=i;if(pts[cur])pts[cur].el.setAttribute('tabindex','0')}
  svg.addEventListener('click',function(e){
   var m=svg.getScreenCTM();if(!m)return;var pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;var q=pt.matrixTransform(m.inverse());
   var best=null,bd=18*18;pts.forEach(function(p){var d=(p.x-q.x)*(p.x-q.x)+(p.y-q.y)*(p.y-q.y);if(d<bd){bd=d;best=p}});
-  if(!best){probe.innerHTML='<b>Empty space</b>Tap a dot to see what it is.';ring.setAttribute('opacity',0);return}
-  var t=TXT[best.t],head=t[0]+(best.i?' '+best.i+' of '+(best.t==='dom'?model.dom:best.t==='spec'?model.spec:model.skills):'');
-  var body=best.t==='job'?'Category: '+best.cat+' ('+best.n+' jobs). '+t[1]:t[1];
-  probe.innerHTML='<b>'+esc(head)+'</b>'+esc(body);
-  ring.setAttribute('cx',best.x);ring.setAttribute('cy',best.y);ring.setAttribute('r',best.t==='orch'?22:best.t==='dom'?11.5:best.t==='spec'?9:6);ring.setAttribute('opacity',1);
+  if(!best){selected=-1;probe.innerHTML='<b>Empty space</b>Tap a dot to see what it is.';ring.setAttribute('opacity',0);return}
+  rove(best.idx);pick(best);
  });
+ // One Tab stop, arrow keys inside it: a Tab stop per dot would put hundreds of stops before the links below the graph.
+ svg.addEventListener('focusin',function(e){
+  var i=parseInt(e.target.getAttribute('data-i'),10),p=pts[i];if(!p)return;
+  rove(i);
+  var vis=true;try{vis=e.target.matches(':focus-visible')}catch(x){}
+  frng.setAttribute('cx',p.x);frng.setAttribute('cy',p.y);frng.setAttribute('r',ringR(p.t)+3.5);frng.setAttribute('opacity',vis?1:0);
+ });
+ svg.addEventListener('focusout',function(){frng.setAttribute('opacity',0)});
+ svg.addEventListener('keydown',function(e){
+  var p=pts[parseInt(e.target.getAttribute('data-i'),10)];if(!p)return;
+  var k=e.key,g=null,gi=-1,to=null;
+  if(k==='Enter'||k===' '||k==='Spacebar'){e.preventDefault();pick(p);return}
+  groups.forEach(function(x,i){if(x.indexOf(p)>=0){g=x;gi=i}});
+  if(k==='ArrowRight'||k==='ArrowLeft'){var n=g.indexOf(p)+(k==='ArrowRight'?1:-1);to=g[(n+g.length)%g.length]}
+  else if(k==='ArrowDown'||k==='ArrowUp'){
+   var o=groups[gi+(k==='ArrowDown'?1:-1)];
+   if(o){var bd=Infinity;o.forEach(function(c){var d=(c.x-p.x)*(c.x-p.x)+(c.y-p.y)*(c.y-p.y);if(d<bd-.01){bd=d;to=c}})}
+   else to=p;
+  }
+  else if(k==='Home')to=pts[0];
+  else if(k==='End')to=pts[pts.length-1];
+  else return;
+  e.preventDefault();to.el.focus();
+ });
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')dismiss()});
  function fillText(c){
   var set=function(k,v){if(v==null)return;[].forEach.call(document.querySelectorAll('[data-k="'+k+'"]'),function(x){x.textContent=nf(v)})};
   set('orch',c.orch);set('dom',c.dom);set('spec',c.spec);set('skills',c.skills);
