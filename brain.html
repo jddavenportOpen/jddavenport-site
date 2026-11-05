@@ -203,6 +203,7 @@ footer a{color:var(--text-2);display:inline-flex;align-items:center;min-height:4
   rove(best.idx);pick(best);
  });
  // One Tab stop, arrow keys inside it: a Tab stop per dot would put hundreds of stops before the links below the graph.
+ svg.setAttribute('tabindex','-1');
  svg.addEventListener('focusin',function(e){
   var i=parseInt(e.target.getAttribute('data-i'),10),p=pts[i];if(!p)return;
   rove(i);

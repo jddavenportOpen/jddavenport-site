@@ -44,7 +44,7 @@ That's deliberate. A number typed into a slide is wrong the week after you type 
 
 ### The jobs board
 
-The [jobs board](https://aifoundry.byu.edu/jobs) aggregates startup roles from venture portfolio companies. On October 5, 2026 it listed more than 47,000 roles across more than 900 companies, refreshed twice a day. When it launched in late July 2026 it had around 10,000.
+The [jobs board](https://github.com/jddavenportOpen/vc-job-board) aggregates startup roles from venture portfolio companies. On October 5, 2026 it listed more than 47,000 roles across more than 900 companies, refreshed twice a day. When it launched in late July 2026 it had around 10,000.
 
 Most of it is ordinary deterministic code an agent wrote: an ingest job that pulls postings from portfolio boards and company applicant-tracking systems, dedupes them on the apply URL, and retires postings that disappear. The AI part is resume matching. At launch that was a single LLM call that scored a resume against a posting, which I extracted and open-sourced as [resume-grader](/docs/builds/resume-grader/). The board's code is public too, at [jddavenportOpen/vc-job-board](https://github.com/jddavenportOpen/vc-job-board).
 
