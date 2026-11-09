@@ -1,8 +1,9 @@
 {
   "kinds": {
     "case-study": "Case studies",
+    "open-source": "Open source",
     "live-product": "Live products",
-    "open-source": "Open source"
+    "writing": "Writing"
   },
   "items": [
     {
@@ -10,13 +11,13 @@
       "title": "Siemens: an AI agent platform for the US workforce",
       "kind": "case-study",
       "role": "AI Product Strategist, XPS Program",
-      "year": "2026",
+      "year": "Summer 2026",
       "collaborator": "at Siemens",
-      "summary": "Built and launched Spark AI, a 120+ agent platform for 1,000+ Siemens US employees across every major function, and presented a 3/6/12-month AI roadmap to US leadership.",
+      "summary": "Built and launched Spark AI, a 120+ agent platform for 1,000+ Siemens US employees across every major function, took adoption from 3% to 65% in 10 weeks, and presented a 3/6/12-month AI roadmap to US leadership.",
       "tags": ["enterprise AI", "agents", "product strategy", "leadership"],
       "url": "",
       "confidentiality_note": "Details are under NDA; this describes my role and approach, not proprietary specifics.",
-      "body_md": "## Context\nIn summer 2026 I worked at Siemens as an AI Product Strategist in the XPS Program, focused on the Siemens US organization. The assignment was enterprise AI adoption: getting AI into the daily work of employees across every major function, not only engineering.\n\n## The problem\nAt the start of the summer, few people across the US organization used AI in their daily work. The work was to give employees in each function, at each level of seniority, AI tools built for their own jobs, get them to actually use those tools, and leave leadership with a plan for the next 12 months.\n\n## My role\nMy manager originated the idea for the platform. I built and launched it, drove adoption across the organization, and wrote and presented the roadmap for what should come next.\n\n## What I built / did\n- Built and launched Spark AI, a custom AI platform for Siemens US made up of 120+ custom agents and 50+ custom skills, built for specific job functions and seniority levels rather than as one general assistant.\n- Deployed it across 1,000+ employees spanning all major job functions.\n- Designed and presented a 3/6/12-month AI transformation roadmap to Siemens US leadership. It was sequenced by each function's readiness, mapped the dependencies between steps, and tied role-specific success metrics to measurable workflow efficiency outcomes.\n\n## How I worked\nI wrote a product spec first and built against checklists with acceptance criteria. At the end of the summer I demoed the platform live to the team and walked through what worked and what did not.\n\n## What I'd do differently\nMore QA before each release, and a steadier cadence of smaller releases instead of large drops."
+      "body_md": "## Context\nIn summer 2026 I worked at Siemens as an AI Product Strategist in the XPS Program, focused on the Siemens US organization. The assignment was enterprise AI adoption: getting AI into the daily work of employees across every major function, not only engineering.\n\n## The problem\nAt the start of the summer, few people across the US organization used AI in their daily work. The work was to give employees in each function, at each level of seniority, AI tools built for their own jobs, get them to actually use those tools, and leave leadership with a plan for the next 12 months.\n\n## My role\nMy manager originated the idea for the platform. I built and launched it, drove adoption across the organization, and wrote and presented the roadmap for what should come next.\n\n## What I built / did\n- Built and launched Spark AI, a custom AI platform for Siemens US made up of 120+ custom agents and 50+ custom skills, built for specific job functions and seniority levels rather than as one general assistant.\n- Deployed it across 1,000+ employees spanning all major job functions.\n- Designed and presented a 3/6/12-month AI transformation roadmap to Siemens US leadership. It was sequenced by each function's readiness, mapped the dependencies between steps, and tied role-specific success metrics to measurable workflow efficiency outcomes.\n\n## Results\n- Active adoption rose from a 3% baseline to 65% in 10 weeks, with 650+ employees actively using it by the end of the summer.\n\n## How I worked\nI wrote a product spec first and built against checklists with acceptance criteria. At the end of the summer I demoed the platform live to the team and walked through what worked and what did not.\n\n## What I'd do differently\nMore QA before each release, and a steadier cadence of smaller releases instead of large drops."
     },
     {
       "slug": "national-grid-cloud-ai-platform",
@@ -25,11 +26,11 @@
       "role": "Principal Product Manager",
       "year": "2022 to 2025",
       "collaborator": "at National Grid",
-      "summary": "Owned the cloud and AI/ML roadmap at a 20,000-person utility: launched a RAG-based generative AI platform to 3,000+ monthly users and grew digital services revenue from $2M to $20M+ annualized.",
+      "summary": "Owned the cloud and AI/ML roadmap at a 20,000-person utility: launched a RAG-based generative AI platform to 3,000+ monthly users and grew an internal cloud services platform from $2M to $20M+ in annual chargeback.",
       "tags": ["enterprise AI", "product strategy", "leadership"],
       "url": "",
       "confidentiality_note": "Details are under NDA; this describes my role and approach, not proprietary specifics.",
-      "body_md": "## Context\nNational Grid is a 20,000-person Fortune 500 utility. From 2022 to 2025 I was a product manager there, promoted from Technical to Senior to Principal Product Manager. I owned the strategic cloud and AI/ML roadmap.\n\n## The problem\nEngineering was organized in silos. Each business unit ran its own infrastructure, and adopting a tool meant a separate procurement and security review for every team. Deploying a cloud service took weeks. Engineers and support teams also needed faster answers from internal documentation. Product management was new to much of the organization; the data science team saw it as overhead.\n\n## My role\nPrincipal Product Manager. I set the cloud and AI/ML roadmap, prototyped AI systems alongside engineers, explained technical strategy and business value to the C-suite, and turned the strategy into engineering plans. I grew the team from 1 to 4 pods and hired and developed 4 product managers.\n\n## What I built / did\n- Designed and launched an internal generative AI platform that connected an LLM (GPT) to proprietary documentation through retrieval-augmented generation (RAG), so engineers and support teams resolved issues faster.\n- Built an Infrastructure as Code (IaC) service and standardized 100+ enterprise tools (AKS, Snowflake, Power BI) across all business units, with no separate procurement or security review per team.\n- Founded Cloud Leadership Sync, the company's first executive and Chief Architect-level cross-business-unit forum, and introduced portfolio-level roadmapping, PRDs and agile ceremonies across all business units.\n- Ran individual stakeholder campaigns to get every business unit President and Chief Architect to give up infrastructure autonomy. Presidents heard about removing an engineering tax; Chief Architects heard about production-grade tooling without a security review burden.\n\n## Results\n- Digital services revenue grew from $2M to $20M+ annualized.\n- The generative AI platform reached 3,000+ monthly active users.\n- Cloud service deployment went from weeks to minutes.\n- The engineering organization grew from 5 to 35 engineers.\n- 2 of the 4 product managers I hired were promoted to senior within 12 months.\n\n## How I worked\nMost of the job was persuasion without authority. I pitched each audience on its own problem rather than giving one deck to everyone. I won over the data science team through embedded discovery and their own data, until their view moved from \"product management is overhead\" to \"product management is why our models get used.\" The documents were the standard product set, applied at portfolio scale: PRDs, portfolio roadmaps, a recurring executive forum, and engineering plans translated from strategy."
+      "body_md": "## Context\nNational Grid is a 20,000-person Fortune 500 utility. From 2022 to 2025 I was a product manager there, promoted from Technical to Senior to Principal Product Manager. I owned the strategic cloud and AI/ML roadmap.\n\n## The problem\nEngineering was organized in silos. Each business unit ran its own infrastructure, and adopting a tool meant a separate procurement and security review for every team. Deploying a cloud service took weeks. Engineers and support teams also needed faster answers from internal documentation. Product management was new to much of the organization; the data science team saw it as overhead.\n\n## My role\nPrincipal Product Manager. I set the cloud and AI/ML roadmap, prototyped AI systems alongside engineers, explained technical strategy and business value to the C-suite, and turned the strategy into engineering plans. I grew the team from 1 to 4 pods and hired and developed 4 product managers.\n\n## What I built / did\n- Designed and launched an internal generative AI platform that connected an LLM (GPT) to proprietary documentation through retrieval-augmented generation (RAG), so engineers and support teams resolved issues faster.\n- Built an Infrastructure as Code (IaC) service and standardized 100+ enterprise tools (AKS, Snowflake, Power BI) across all business units, with no separate procurement or security review per team.\n- Founded Cloud Leadership Sync, the company's first executive and Chief Architect-level cross-business-unit forum, and introduced portfolio-level roadmapping, PRDs and agile ceremonies across all business units.\n- Ran individual stakeholder campaigns to get every business unit President and Chief Architect to give up infrastructure autonomy. Presidents heard about removing an engineering tax; Chief Architects heard about production-grade tooling without a security review burden.\n\n## Results\n- Grew an internal cloud services platform from $2M to $20M+ in annual chargeback.\n- The generative AI platform reached 3,000+ monthly active users.\n- Cloud service deployment went from weeks to minutes.\n- The engineering organization grew from 5 to 35 engineers.\n- 2 of the 4 product managers I hired were promoted to senior within 12 months.\n\n## How I worked\nMost of the job was persuasion without authority. I pitched each audience on its own problem rather than giving one deck to everyone. I won over the data science team through embedded discovery and their own data, until their view moved from \"product management is overhead\" to \"product management is why our models get used.\" The documents were the standard product set, applied at portfolio scale: PRDs, portfolio roadmaps, a recurring executive forum, and engineering plans translated from strategy."
     },
     {
       "slug": "deloitte-ml-consulting",
@@ -58,20 +59,9 @@
       "body_md": "## Context\nFrom 2018 to 2020 I was a Senior Full-Stack Developer and Product Owner at Brio Energy, a solar company. I wrote the code and also decided what to build.\n\n## The problem\nThe sales and accounting teams worked out of systems that did not fit how the business ran. Handing work from sales to accounting took about five days. The company needed a steadier flow of qualified leads, and accounting costs were higher than they needed to be.\n\n## My role\nI was both a builder and the product owner. I scoped the problems with the sales and accounting teams, decided what to build first, and built it.\n\n## What I built / did\n- Built a custom CRM for the solar sales division from scratch, designed around the hand-off between sales and accounting.\n- Launched a new marketing website built to generate qualified leads for the sales organization.\n- Designed and deployed backend microservices that reduced what the accounting department spent.\n\n## Results\n- The sales-to-accounting turnaround went from 5 days to 15 minutes.\n- The marketing website generated 175+ qualified leads per week, contributing to $3.9M in annual new revenue across the sales organization.\n- The microservices reduced accounting department spend by $745K annually, measured against the prior-year run rate."
     },
     {
-      "slug": "byu-ai-foundry",
-      "title": "BYU AI Foundry",
-      "kind": "live-product",
-      "role": "Founder and Managing Director",
-      "year": "2026",
-      "collaborator": "BYU Marriott School of Business",
-      "summary": "An AI product studio and experiential learning program of BYU Marriott where student builders ship production AI for real clients.",
-      "tags": ["leadership", "education", "product strategy"],
-      "url": "https://byu-aifoundry.com"
-    },
-    {
       "slug": "nerve-center-teardown",
       "title": "Nerve Center teardown",
-      "kind": "live-product",
+      "kind": "writing",
       "role": "I built and run the private system and published the teardown and the architecture map.",
       "year": "2026",
       "collaborator": "",
@@ -80,114 +70,26 @@
       "url": "https://jddavenport.com/teardown"
     },
     {
-      "slug": "speedprep",
-      "title": "SpeedPrep",
-      "kind": "live-product",
-      "role": "Built the Speed Mode V2 arena and led the two-mode restructure, the App Store and Play launch kit, a UX audit and the launch ad plan.",
-      "year": "2026",
-      "collaborator": "with Fable Software",
-      "summary": "A math speed game for kids that teaches 84 shortcuts, with timed tests under 5 minutes and races with friends on nearby phones.",
-      "tags": ["consumer", "mobile", "education", "GTM & SEO", "family venture"],
-      "url": "https://speedprep.ai"
-    },
-    {
-      "slug": "clawdacademy",
-      "title": "Clawdacademy",
-      "kind": "live-product",
-      "role": "I built the interactive AI fluency trainer.",
+      "slug": "mcp-judge",
+      "title": "mcp-judge",
+      "kind": "open-source",
+      "role": "I built it, open-sourced through the BYU AI Foundry.",
       "year": "2026",
       "collaborator": "",
-      "summary": "A site that shows how well you use AI and where to improve.",
-      "tags": ["education"],
-      "url": "https://clawdacademy.app"
+      "summary": "A calibrated multi-persona LLM judge exposed as an MCP server, shipped with an eval harness that proves the calibration.",
+      "tags": ["evals", "developer tools"],
+      "url": "https://github.com/jddavenportOpen/mcp-judge"
     },
     {
-      "slug": "field-notes-docs",
-      "title": "Field Notes docs",
-      "kind": "live-product",
-      "role": "I wrote the docs.",
+      "slug": "claude-deploy-kit",
+      "title": "claude-deploy-kit",
+      "kind": "open-source",
+      "role": "I generalized our production controls into an enterprise kit.",
       "year": "2026",
       "collaborator": "",
-      "summary": "Plain-language docs on how to build and run a production AI organization with Claude Code, plus AI Core Skills.",
-      "tags": ["education", "Claude Code"],
-      "url": "https://jddavenport.com/docs/"
-    },
-    {
-      "slug": "bookjd",
-      "title": "BookJD",
-      "kind": "live-product",
-      "role": "I built it as a self-hosted Calendly replacement.",
-      "year": "2026",
-      "collaborator": "",
-      "summary": "A booking app on Next.js, Supabase and Google Calendar availability, live and open source.",
-      "tags": ["full-stack"],
-      "url": "https://bookjd.vercel.app"
-    },
-    {
-      "slug": "vibe-coding-detector",
-      "title": "Vibe Coding Detector",
-      "kind": "live-product",
-      "role": "I built it.",
-      "year": "2026",
-      "collaborator": "",
-      "summary": "Scores any public Git repo for AI-pattern signals and maintainability with deterministic heuristics. It flags patterns; it does not prove AI authorship.",
-      "tags": ["developer tools"],
-      "url": "https://vibe-fe-nine.vercel.app"
-    },
-    {
-      "slug": "solarknock",
-      "title": "SolarKnock",
-      "kind": "live-product",
-      "role": "Go-to-market, SEO and positioning, plus a build audit.",
-      "year": "2026",
-      "collaborator": "with Fable Software",
-      "summary": "A door-to-door canvassing app for solar sales teams, with territories, leaderboards, instant solar estimates and homeowner data.",
-      "tags": ["B2B", "mobile", "GTM & SEO", "family venture"],
-      "url": "https://solarknock.com"
-    },
-    {
-      "slug": "readystack",
-      "title": "ReadyStack",
-      "kind": "live-product",
-      "role": "Product requirements and workplan, SEO and developer-adoption plan, plus a build audit.",
-      "year": "2026",
-      "collaborator": "with Fable Software",
-      "summary": "Free Docker images of open-source Community Edition software, with handbooks checked against the exact image, tested seed data and a build kit that rebuilds it offline.",
-      "tags": ["developer tools", "B2B", "GTM & SEO", "family venture"],
-      "url": "https://readystack.dev"
-    },
-    {
-      "slug": "beefshopper",
-      "title": "BeefShopper",
-      "kind": "live-product",
-      "role": "Go-to-market, SEO and affiliate-growth plan, plus a build audit and market research.",
-      "year": "2026",
-      "collaborator": "with Fable Software",
-      "summary": "A ranking site that compares 50+ home-delivery ribeyes from 28 sellers by price per pound, USDA grade, aging and sourcing, with every claim cited.",
-      "tags": ["consumer", "GTM & SEO", "family venture"],
-      "url": "https://beefshopper.com"
-    },
-    {
-      "slug": "trendzion",
-      "title": "TrendZion",
-      "kind": "live-product",
-      "role": "Positioning and rebrand plan, plus a build audit and market research.",
-      "year": "2026",
-      "collaborator": "with Fable Software",
-      "summary": "An illustrated atlas of Latter-day Saint words and ideas where people compare how teachings and language changed across nearly two centuries of sermons and scripture.",
-      "tags": ["consumer", "GTM & SEO", "family venture"],
-      "url": "https://trendzion.com"
-    },
-    {
-      "slug": "deckboard",
-      "title": "Deckboard",
-      "kind": "live-product",
-      "role": "SEO and go-to-market plan, plus a build audit and competitor research.",
-      "year": "2026",
-      "collaborator": "with Fable Software",
-      "summary": "A free web app that turns any screen with a browser into a photorealistic split-flap display, with engineered sound, live channels and a documented API.",
-      "tags": ["consumer", "developer tools", "GTM & SEO", "family venture"],
-      "url": "https://deckboard.party"
+      "summary": "Enterprise controls for deploying Claude agents: a policy chokepoint, destructive-command deny hook, eval gate and redacting audit log.",
+      "tags": ["enterprise AI", "AI safety", "Claude Code"],
+      "url": "https://github.com/jddavenportOpen/claude-deploy-kit"
     },
     {
       "slug": "ethos-gate",
@@ -223,37 +125,15 @@
       "url": "https://github.com/jddavenportOpen/orchestra-agents"
     },
     {
-      "slug": "claude-deploy-kit",
-      "title": "claude-deploy-kit",
-      "kind": "open-source",
-      "role": "I generalized our production controls into an enterprise kit.",
+      "slug": "byu-ai-foundry",
+      "title": "BYU AI Foundry",
+      "kind": "live-product",
+      "role": "Founder and Managing Director",
       "year": "2026",
-      "collaborator": "",
-      "summary": "Enterprise controls for deploying Claude agents: a policy chokepoint, destructive-command deny hook, eval gate and redacting audit log.",
-      "tags": ["enterprise AI", "AI safety", "Claude Code"],
-      "url": "https://github.com/jddavenportOpen/claude-deploy-kit"
-    },
-    {
-      "slug": "ccstitch",
-      "title": "ccstitch",
-      "kind": "open-source",
-      "role": "I built it to fix a gap I hit running headless Claude Code.",
-      "year": "2026",
-      "collaborator": "",
-      "summary": "A local trace store for Claude Code OpenTelemetry spans that repairs orphaned headless turns and nests child runs under the launching tool call.",
-      "tags": ["observability", "Claude Code", "developer tools"],
-      "url": "https://github.com/jddavenportOpen/ccstitch"
-    },
-    {
-      "slug": "clawdling",
-      "title": "Clawdling",
-      "kind": "open-source",
-      "role": "I built it as an open-source map of a person's Claude Code agents.",
-      "year": "2026",
-      "collaborator": "",
-      "summary": "Shows your Claude Code projects as an org on one map, who is working and who needs you, with a receipt when an agent says done.",
-      "tags": ["Claude Code", "agents", "observability"],
-      "url": "https://github.com/jddavenportOpen/clawdling"
+      "collaborator": "BYU Marriott School of Business",
+      "summary": "An AI product studio and experiential learning program of BYU Marriott where student builders ship production AI for real clients.",
+      "tags": ["leadership", "education", "product strategy"],
+      "url": "https://aifoundry.byu.edu/"
     },
     {
       "slug": "claude-bug-squash",
@@ -278,28 +158,6 @@
       "url": "https://github.com/jddavenportOpen/claude-code-behavior-specs"
     },
     {
-      "slug": "clawd-agent-os",
-      "title": "clawd-agent-os",
-      "kind": "open-source",
-      "role": "I extracted it from the 24/7 system I run.",
-      "year": "2026",
-      "collaborator": "",
-      "summary": "Orchestrates Claude agents in tiered hierarchies with worktree-isolated fleet spawning and a durable bus that never silently returns empty.",
-      "tags": ["agents", "Claude Code"],
-      "url": "https://github.com/jddavenportOpen/clawd-agent-os"
-    },
-    {
-      "slug": "mcp-judge",
-      "title": "mcp-judge",
-      "kind": "open-source",
-      "role": "I built it, open-sourced through the BYU AI Foundry.",
-      "year": "2026",
-      "collaborator": "",
-      "summary": "A calibrated multi-persona LLM judge exposed as an MCP server, shipped with an eval harness that proves the calibration.",
-      "tags": ["evals", "developer tools"],
-      "url": "https://github.com/jddavenportOpen/mcp-judge"
-    },
-    {
       "slug": "agent-evals-starter",
       "title": "agent-evals-starter",
       "kind": "open-source",
@@ -311,15 +169,26 @@
       "url": "https://github.com/jddavenportOpen/agent-evals-starter"
     },
     {
-      "slug": "ai-phone-desk",
-      "title": "ai-phone-desk",
+      "slug": "ccstitch",
+      "title": "ccstitch",
       "kind": "open-source",
-      "role": "I built it as a human-approval pattern for voice agents.",
+      "role": "I built it to fix a gap I hit running headless Claude Code.",
       "year": "2026",
       "collaborator": "",
-      "summary": "A Vapi voice agent where nothing dials until a human approves the exact request.",
-      "tags": ["agents", "AI safety"],
-      "url": "https://github.com/jddavenportOpen/ai-phone-desk"
+      "summary": "A local trace store for Claude Code OpenTelemetry spans that repairs orphaned headless turns and nests child runs under the launching tool call.",
+      "tags": ["observability", "Claude Code", "developer tools"],
+      "url": "https://github.com/jddavenportOpen/ccstitch"
+    },
+    {
+      "slug": "clawdling",
+      "title": "Clawdling",
+      "kind": "open-source",
+      "role": "I built it as an open-source map of a person's Claude Code agents.",
+      "year": "2026",
+      "collaborator": "",
+      "summary": "Shows your Claude Code projects as an org on one map, who is working and who needs you, with a receipt when an agent says done.",
+      "tags": ["Claude Code", "agents", "observability"],
+      "url": "https://github.com/jddavenportOpen/clawdling"
     },
     {
       "slug": "deep-research-agent",
@@ -333,6 +202,28 @@
       "url": "https://github.com/jddavenportOpen/deep-research-agent"
     },
     {
+      "slug": "ai-phone-desk",
+      "title": "ai-phone-desk",
+      "kind": "open-source",
+      "role": "I built it as a human-approval pattern for voice agents.",
+      "year": "2026",
+      "collaborator": "",
+      "summary": "A Vapi voice agent where nothing dials until a human approves the exact request.",
+      "tags": ["agents", "AI safety"],
+      "url": "https://github.com/jddavenportOpen/ai-phone-desk"
+    },
+    {
+      "slug": "clawd-agent-os",
+      "title": "clawd-agent-os",
+      "kind": "open-source",
+      "role": "An earlier extraction of the system I run. orchestra-agents is the production core.",
+      "year": "2026",
+      "collaborator": "",
+      "summary": "Orchestrates Claude agents in tiered hierarchies with worktree-isolated fleet spawning and a durable bus that never silently returns empty.",
+      "tags": ["agents", "Claude Code"],
+      "url": "https://github.com/jddavenportOpen/clawd-agent-os"
+    },
+    {
       "slug": "mastery-engine",
       "title": "mastery-engine",
       "kind": "open-source",
@@ -342,6 +233,122 @@
       "summary": "An evidence-grounded curriculum generator with mastery gates where claims are verified against source material on disk.",
       "tags": ["education", "evals"],
       "url": "https://github.com/jddavenportOpen/mastery-engine"
+    },
+    {
+      "slug": "field-notes-docs",
+      "title": "Field Notes docs",
+      "kind": "writing",
+      "role": "I wrote the docs.",
+      "year": "2026",
+      "collaborator": "",
+      "summary": "Plain-language docs on how to build and run a production AI organization with Claude Code, plus AI Core Skills.",
+      "tags": ["education", "Claude Code"],
+      "url": "https://jddavenport.com/docs/"
+    },
+    {
+      "slug": "clawdacademy",
+      "title": "Clawdacademy",
+      "kind": "live-product",
+      "role": "I built the interactive AI fluency trainer.",
+      "year": "2026",
+      "collaborator": "",
+      "summary": "A site that shows how well you use AI and where to improve.",
+      "tags": ["education"],
+      "url": "https://clawdacademy.app"
+    },
+    {
+      "slug": "vibe-coding-detector",
+      "title": "Vibe Coding Detector",
+      "kind": "live-product",
+      "role": "I built it.",
+      "year": "2026",
+      "collaborator": "",
+      "summary": "Scores any public Git repo for AI-pattern signals and maintainability with deterministic heuristics. It flags patterns; it does not prove AI authorship.",
+      "tags": ["developer tools"],
+      "url": "https://vibe-fe-nine.vercel.app"
+    },
+    {
+      "slug": "bookjd",
+      "title": "BookJD",
+      "kind": "live-product",
+      "role": "I built it as a self-hosted Calendly replacement.",
+      "year": "2026",
+      "collaborator": "",
+      "summary": "A booking app on Next.js, Supabase and Google Calendar availability, live and open source.",
+      "tags": ["full-stack"],
+      "url": "https://bookjd.vercel.app"
+    },
+    {
+      "slug": "speedprep",
+      "title": "SpeedPrep",
+      "kind": "live-product",
+      "role": "Built the Speed Mode V2 arena and led the two-mode restructure, the App Store and Play launch kit, a UX audit and the launch ad plan.",
+      "year": "2026",
+      "collaborator": "with Fable Software",
+      "summary": "A math speed game for kids that teaches 84 shortcuts, with timed tests under 5 minutes and races with friends on nearby phones.",
+      "tags": ["consumer", "mobile", "education", "GTM & SEO", "family venture"],
+      "url": "https://speedprep.ai",
+      "group": "family"
+    },
+    {
+      "slug": "solarknock",
+      "title": "SolarKnock",
+      "kind": "live-product",
+      "role": "Go-to-market, SEO and positioning, plus a build audit.",
+      "year": "2026",
+      "collaborator": "with Fable Software",
+      "summary": "A door-to-door canvassing app for solar sales teams, with territories, leaderboards, instant solar estimates and homeowner data.",
+      "tags": ["B2B", "mobile", "GTM & SEO", "family venture"],
+      "url": "https://solarknock.com",
+      "group": "family"
+    },
+    {
+      "slug": "readystack",
+      "title": "ReadyStack",
+      "kind": "live-product",
+      "role": "Product requirements and workplan, SEO and developer-adoption plan, plus a build audit.",
+      "year": "2026",
+      "collaborator": "with Fable Software",
+      "summary": "Free Docker images of open-source Community Edition software, with handbooks checked against the exact image, tested seed data and a build kit that rebuilds it offline.",
+      "tags": ["developer tools", "B2B", "GTM & SEO", "family venture"],
+      "url": "https://readystack.dev",
+      "group": "family"
+    },
+    {
+      "slug": "beefshopper",
+      "title": "BeefShopper",
+      "kind": "live-product",
+      "role": "Go-to-market, SEO and affiliate-growth plan, plus a build audit and market research.",
+      "year": "2026",
+      "collaborator": "with Fable Software",
+      "summary": "A ranking site that compares 50+ home-delivery ribeyes from 28 sellers by price per pound, USDA grade, aging and sourcing, with every claim cited.",
+      "tags": ["consumer", "GTM & SEO", "family venture"],
+      "url": "https://beefshopper.com",
+      "group": "family"
+    },
+    {
+      "slug": "trendzion",
+      "title": "TrendZion",
+      "kind": "live-product",
+      "role": "Positioning and rebrand plan, plus a build audit and market research.",
+      "year": "2026",
+      "collaborator": "with Fable Software",
+      "summary": "An illustrated atlas of Latter-day Saint words and ideas where people compare how teachings and language changed across nearly two centuries of sermons and scripture.",
+      "tags": ["consumer", "GTM & SEO", "family venture"],
+      "url": "https://trendzion.com",
+      "group": "family"
+    },
+    {
+      "slug": "deckboard",
+      "title": "Deckboard",
+      "kind": "live-product",
+      "role": "SEO and go-to-market plan, plus a build audit and competitor research.",
+      "year": "2026",
+      "collaborator": "with Fable Software",
+      "summary": "A free web app that turns any screen with a browser into a photorealistic split-flap display, with engineered sound, live channels and a documented API.",
+      "tags": ["consumer", "developer tools", "GTM & SEO", "family venture"],
+      "url": "https://deckboard.party",
+      "group": "family"
     }
   ]
 }

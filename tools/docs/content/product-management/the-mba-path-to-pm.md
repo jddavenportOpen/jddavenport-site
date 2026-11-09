@@ -71,7 +71,7 @@ Cut every phrase that every other resume has: "cross-functional," "strategic thi
 
 **Lower value for PM specifically:** classes you'd take anyway for other reasons. Take them, just don't count on them to get you hired.
 
-Honest read: the most valuable MBA experience for PM isn't a class. It's a project where you own the product decisions and ship something real to a real user. That conviction is why I co-founded the BYU AI Foundry at BYU Marriott: student builders shipping production AI for real clients. Whatever your school has like that, get into it. If it doesn't exist, start it.
+Honest read: the most valuable MBA experience for PM isn't a class. It's a project where you own the product decisions and ship something real to a real user. That conviction is why I founded the BYU AI Foundry at BYU Marriott: student builders shipping production AI for real clients. Whatever your school has like that, get into it. If it doesn't exist, start it.
 
 ## The interview loop
 

@@ -49,7 +49,7 @@ CATS = [
     ("capture", "#F8C384", "Capture"),
     ("memory", "#B8A4DC", "Memory"),
     ("backup / storage", "#827F7C", "Backup and storage"),
-    ("other", "#5E5B58", "Other"),
+    ("other", "#5E5B58", "General background jobs"),
 ]
 WATCHDOG = "self-heal / watchdog"
 
@@ -192,6 +192,10 @@ def render_showcase(page: str, snap: dict) -> str:
     }
     page = _shared(page, snap["as_of"])
     for key, value in live.items():
+        # The headline agent count follows the counting rule in static copy
+        # (30+ / 100+), so showcase has no data-k="agents" element any more.
+        if key == "agents" and f'data-k="{key}"' not in page:
+            continue
         page = _num(page, key, value)
     page = _spark(page, "spark", _bars_showcase(st["ships_per_day"]))
     return _sub(page, r"(, live=)\{[^}]*\}(;)", json.dumps(live), "live defaults")

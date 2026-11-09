@@ -17,7 +17,7 @@ The main ones, under the names the [live capabilities page](https://nerve-center
 | Domain | What it owns |
 |---|---|
 | school | Coursework, grades, deadlines, syllabus tracking |
-| ai-foundry | The BYU AI Foundry, the student builder program I co-founded |
+| ai-foundry | The BYU AI Foundry, the student builder program I founded |
 | consulting | Proposals, deliverables, pipeline |
 | growth | Content sourcing, drafting and the preview pipeline |
 | health | Wearable sync into a table and a nightly summary |

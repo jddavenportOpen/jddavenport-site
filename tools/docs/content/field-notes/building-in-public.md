@@ -30,7 +30,7 @@ The link-preview image was the nastiest one. Social platforms cache those cards,
 **The rule I use now**, split by where the number comes from:
 
 - **Typed copy never names a precise count.** It says "30+ agents in daily production, 100+ built over time." A floor stays true as the system changes. A typed number starts going stale the day you type it.
-- **Exact numbers appear only where a generator produced them.** My system publishes its own census every day on a [capabilities page](https://nerve-center-showcase.vercel.app) regenerated from live state, and the numbers on my homepage come from that feed. Nobody types them, so nobody can forget to update them.
+- **Exact numbers appear only where a generator produced them.** My system publishes its own census every day, regenerated from live state, and the live counts on [the live brain](https://jddavenport.com/brain) come from that feed. Nobody types them, so nobody can forget to update them.
 
 ## Trap 2: the autonomy claim that drops its asterisk
 

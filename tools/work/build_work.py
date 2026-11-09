@@ -23,11 +23,20 @@ ACTION = {
     "live-product": "Visit site",
     "open-source": "View repo",
     "case-study": "Read case study",
+    "writing": "Read it",
 }
 KIND_LABEL = {
     "live-product": "Live product",
     "open-source": "Open source",
     "case-study": "Case study",
+    "writing": "Writing",
+}
+# Cards with a "group" render in their own labelled section below the main
+# list. Family ventures are real go-to-market work, but they are not AI work,
+# so they sit last rather than between the case studies and the AI repos.
+GROUPS = {
+    "family": ("family-h", "Family venture: go-to-market and SEO",
+               "Products built with Fable Software, a family venture, where my work was mostly go-to-market, SEO, positioning and build audits."),
 }
 
 
@@ -174,6 +183,9 @@ LIST_CSS = r"""
 .reset{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:500 16px/1 var(--f-sans);cursor:pointer}
 .reset:hover{background:var(--ink);color:#FFFBF6}
 .listing{padding-bottom:64px}
+.group{margin-top:56px}
+.group[hidden]{display:none}
+.group h2{font-size:clamp(1.5rem,1.2rem + 1vw,2rem)}
 """
 
 CASE_CSS = r"""
@@ -283,7 +295,7 @@ FOOTER = """
           <li><a class="tap" href="/newsletter">Newsletter</a></li>
           <li><a class="tap" href="https://www.linkedin.com/in/jd-davenport/">LinkedIn</a></li>
           <li><a class="tap" href="https://github.com/jddavenportOpen">GitHub</a></li>
-          <li><a class="tap" href="https://byu-aifoundry.com">BYU AI Foundry</a></li>
+          <li><a class="tap" href="https://aifoundry.byu.edu/">BYU AI Foundry</a></li>
         </ul>
         <p>© 2026 JD Davenport</p>
       </nav>
@@ -340,6 +352,7 @@ SCRIPT = r"""
   var q=document.getElementById('q'), count=document.getElementById('count'), empty=document.getElementById('empty');
   var kindBtns=[].slice.call(document.querySelectorAll('[data-set-kind]'));
   var tagBtns=[].slice.call(document.querySelectorAll('[data-set-tag]'));
+  var groups=[].slice.call(document.querySelectorAll('.group'));
   var state={q:'',kind:'',tag:''};
   var validKinds={}, validTags={};
   kindBtns.forEach(function(b){validKinds[b.getAttribute('data-set-kind')]=1;});
@@ -371,6 +384,7 @@ SCRIPT = r"""
       if(ok){var hay=c.getAttribute('data-search');for(var i=0;i<terms.length;i++){if(hay.indexOf(terms[i])<0){ok=false;break;}}}
       c.hidden=!ok; if(ok)n++;
     });
+    groups.forEach(function(g){g.hidden=!g.querySelector('.card:not([hidden])');});
     count.textContent=n===cards.length?'Showing all '+n+' items':'Showing '+n+' of '+cards.length+' items';
     empty.hidden=n!==0;
     kindBtns.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-set-kind')===state.kind));});
@@ -393,7 +407,7 @@ SCRIPT = r"""
 def build_list(data):
     items = data["items"]
     kinds = data["kinds"]
-    order = ["live-product", "open-source", "case-study"]
+    order = ["case-study", "open-source", "live-product", "writing"]
     kind_counts = {k: sum(1 for i in items if i["kind"] == k) for k in order}
     tag_counts = {}
     tag_label = {}
@@ -415,13 +429,26 @@ def build_list(data):
         f'<span class="n">{tag_counts[k]}</span></button>'
         for k in chip_tags
     ]
-    desc = "Products I built or helped build, open source, and case studies for work under NDA."
+    group_sections = ""
+    for g, (gid, glabel, gnote) in GROUPS.items():
+        members = [i for i in items if i.get("group") == g]
+        if not members:
+            continue
+        group_sections += f"""    <section class="group" aria-labelledby="{gid}">
+      <h2 id="{gid}">{esc(glabel)}</h2>
+      <p class="lede">{esc(gnote)}</p>
+      <ul class="cards">
+{chr(10).join(card(i) for i in members)}
+      </ul>
+    </section>
+"""
+    desc = "Case studies for work under NDA, open-source AI tooling, products I built or helped build, and writing."
     page = head("Work · JD Davenport", desc, "/work", LIST_CSS)
     page += f"""
 <main id="main" data-stage="dawn">
   <section class="wrap hero" aria-labelledby="work-h">
     <h1 id="work-h">Work</h1>
-    <p class="lede">Products I built or helped build, open source, and case studies for work under NDA.</p>
+    <p class="lede">Case studies for work under NDA, open-source AI tooling, products I built or helped build, and writing.</p>
     <div class="controls" id="controls" hidden>
       <div class="search" role="search">
         <label for="q">Search work</label>
@@ -440,9 +467,9 @@ def build_list(data):
   <section class="wrap listing" aria-label="All work">
     <p class="count" id="count" role="status" aria-live="polite">Showing all {len(items)} items</p>
     <ul class="cards">
-{chr(10).join(card(i) for i in items)}
+{chr(10).join(card(i) for i in items if not i.get("group"))}
     </ul>
-    <div class="empty" id="empty" hidden>
+{group_sections}    <div class="empty" id="empty" hidden>
       <p>Nothing matches that search. Try a broader word, or clear the filters.</p>
       <button type="button" class="reset" id="reset">Clear search and filters</button>
     </div>
@@ -492,7 +519,7 @@ def build_case(item, prev_item, next_item):
 
 
 SERVED = ("slug", "title", "kind", "role", "summary", "tags", "url", "collaborator", "year",
-          "confidentiality_note", "body_md")
+          "confidentiality_note", "body_md", "group")
 NEVER_SERVED = ("jd_needs_to_confirm", "receipts", "status")
 
 
@@ -507,6 +534,7 @@ def main():
         assert i["slug"] not in seen, "duplicate slug " + i["slug"]
         seen.add(i["slug"])
         assert i["kind"] in ACTION, i["slug"]
+        assert i.get("group") in (None, *GROUPS), i["slug"]
         for k in NEVER_SERVED:
             assert k not in i, f"{i['slug']}: field {k} must not be in work.json"
         assert set(i) <= set(SERVED), f"{i['slug']}: unexpected fields {set(i) - set(SERVED)}"

@@ -52,7 +52,9 @@ class Refresh(unittest.TestCase):
         snap = json.loads(re.search(r"^ var SNAP=(.*);$", brain, re.M).group(1))
         self.assertEqual(snap["as_of"], "2099-01-02")
         self.assertIn('<b data-k="watchdogs">70</b>', showcase)
-        self.assertEqual(showcase.count('<b data-k="agents">51</b>'), 2)
+        # Counting rule: showcase states 30+ / 100+ in copy, never a live agent count.
+        self.assertNotIn('data-k="agents"', showcase)
+        self.assertIn("30+ agents in daily production", showcase)
         self.assertIn('live={"agents": 51, "automations": 300, "watchdogs": 70, "ships": 1234};', showcase)
         self.assertEqual(re.search(r'id="spark"[^>]*>(.*?)</svg>', showcase, re.S).group(1).count("<rect"), 3)
 

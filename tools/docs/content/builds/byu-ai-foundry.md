@@ -1,6 +1,6 @@
 ---
 title: "The BYU AI Foundry"
-description: "The program I co-founded at BYU Marriott where student builders ship production AI for real clients, and the systems behind it."
+description: "The program I founded at BYU Marriott where student builders ship production AI for real clients, and the systems behind it."
 section: builds
 group: "School and work"
 order: 130
@@ -8,7 +8,7 @@ updated: 2026-10-05
 sources: ["learn/tier-3/i2-byu-ai-foundry.mdx"]
 ---
 
-The BYU AI Foundry is the program I co-founded at BYU Marriott so students get real reps building and shipping with AI agents instead of only studying them. It's an experiential learning program of the business school: student builders take on real projects and ship production software. The public site is [aifoundry.byu.edu](https://aifoundry.byu.edu), and its tagline says it plainly: student-built, production-grade, AI-native.
+The BYU AI Foundry is the program I founded at BYU Marriott so students get real reps building and shipping with AI agents instead of only studying them. It's an experiential learning program of the business school: student builders take on real projects and ship production software. The public site is [aifoundry.byu.edu](https://aifoundry.byu.edu), and its tagline says it plainly: student-built, production-grade, AI-native.
 
 This page covers what the Foundry is, what's public, and the parts of my own system that support it. It stays inside what the Foundry's site already says. The people and the client work belong to the program, not to these docs.
 

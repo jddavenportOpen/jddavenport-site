@@ -60,6 +60,16 @@ header .hcontainer{max-width:1120px;margin:0 auto;padding:4px var(--gutter);disp
 .backlink{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:1px solid var(--ink);border-radius:999px;font:400 15px/1.2 var(--f-sans);color:var(--ink);text-decoration:none;white-space:nowrap}
 .backlink:hover{background:var(--ink);color:var(--bg)}
 @media (min-width:720px){header .hcontainer{padding-top:10px;padding-bottom:10px}.backlink{font-size:16px}}
+/* primary nav, same links and pill as the home page header */
+.tap{display:inline-flex;align-items:center;min-height:44px}
+.top nav ul{display:flex;gap:10px;list-style:none;margin:0;padding:0;font-size:16px}
+.top nav a{color:var(--ink);text-decoration:none}
+.top nav a:hover,.top nav a[aria-current]{text-decoration:underline}
+.top nav a.cv{min-height:36px;margin:4px 0;padding:0 10px;border:1px solid var(--ink);border-radius:999px}
+.top nav a.cv:hover{background:var(--ink);color:var(--bg);text-decoration:none}
+@media (min-width:720px){.top nav ul{gap:28px}}
+@media (max-width:479px){header .hcontainer{flex-wrap:wrap;row-gap:0}.top nav ul{gap:16px}}
+.hire{margin-top:22px;font-size:1rem;color:var(--ink)}
 
 /* article: warm-white reading ground; blue carries the structure, sunset only marks */
 .article{padding:112px 0 80px;background:linear-gradient(180deg,#FFFBF6 0,#FFFBF6 calc(100% - 320px),#FFF0E3 calc(100% - 180px),#FFE3CC 100%)}
@@ -110,9 +120,16 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
 <body>
 
 <header>
-  <div class="hcontainer">
-    <a href="/" class="logo"><span class="dot"></span>jd_davenport</a>
-    <a href="/" class="backlink">← jddavenport.com</a>
+  <div class="hcontainer top">
+    <a href="/" class="logo tap">JD Davenport</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a class="tap" href="/work">Work</a></li>
+        <li><a class="tap" href="/teardown" aria-current="page">Teardown</a></li>
+        <li><a class="tap" href="/newsletter">Newsletter</a></li>
+        <li><a class="tap cv" href="/resume.pdf">Resume</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
@@ -122,16 +139,16 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
     <h1>Running 30+ agents in production: what it actually takes</h1>
     <div class="byline">
       <span>JD DAVENPORT</span>
-      <span>UPDATED 2026-08-28</span>
+      <span>UPDATED 2026-11-09</span>
       <span>~9 MIN READ</span>
     </div>
 
     <p>Anyone can demo an agent. Keeping a fleet of them alive for months, with real permissions and real consequences, is a different job, and almost nothing published about agents describes it honestly. This is the teardown of the Nerve Center, the AI organization I designed, built, and operate in production: 30+ agents in daily production, 100+ built over time. The architecture, three failures with root causes and the systemic fixes, how changes get reviewed, what it costs in real dollars, and the one constraint that makes the whole thing safe to hand authority.</p>
-    <p>The build itself stays private because it runs my actual life and work. Everything below is the real operating record, sanitized only where it has to be. The system does publish its own census: <a href="/brain">the live capabilities page</a> is regenerated from live state every day, and the numbers on the homepage come from the same feed.</p>
+    <p>The build itself stays private because it runs my actual life and work. Everything below is the real operating record, sanitized only where it has to be. The system does publish its own census: <a href="/brain">the live brain</a> draws it from an inventory the system regenerates from live state every day.</p>
 
     <h2>The architecture</h2>
     <p>The system in one sentence: a supervising daemon owns long-lived agent sessions, a message bus routes work between them and me, a shared memory graph gives them recall, Postgres holds durable state, and a watchdog layer assumes everything above it will eventually fail.</p>
-    <div class="stackline"><b>The stack:</b> Python daemons for orchestration and services · TypeScript/Next.js cockpit (Vercel) · Postgres on Supabase for durable state · vector + graph stores for memory · local LLM routing for rote jobs · launchd supervision on always-on hardware<br><b>The agent layer:</b> Claude Code sessions · MCP servers for capability · PreToolUse hooks for policy · sub-agents for fan-out</div>
+    <div class="stackline"><b>The stack:</b> Python daemons for orchestration and services · TypeScript/Next.js cockpit, self-hosted, with a Vercel standby · Postgres on Supabase for durable state · vector + graph stores for memory · local LLM routing for rote jobs · launchd supervision on always-on hardware<br><b>The agent layer:</b> Claude Code sessions · MCP servers for capability · PreToolUse hooks for policy · sub-agents for fan-out</div>
     <p>Concretely, the agent layer is Claude Code. Every session is a Claude Code process under the supervising daemon; capability is extended through MCP servers rather than bespoke tool code; policy is enforced by PreToolUse hooks that run before any command executes, deterministically, regardless of what the model believes it is allowed to do; and fan-out work runs as sub-agents with their own tool grants and their own blast radius. Every guardrail described below lands in one of those four places.</p>
 
     <div class="diagram-wrap">
@@ -239,7 +256,7 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
     <p>The fix was a watchdog that detects the stuck state and auto-confirms the modal, plus liveness checks that measure output: messages processed, work completed, state advanced. The same principle got applied fleet-wide, because a relay once wedged the same way on a dead database socket and silently swallowed outbound messages for hours. Now anything that can wedge has a detector that asks "did you do work?" instead of "are you running?"</p>
 
     <h2>How changes get in</h2>
-    <p>Nothing merges on one agent's word. Every substantive change goes through adversarial review by three separate agents with different instructions, one of which is explicitly told to try to reject the change. Then CI gates: a QA gate, an architecture gate, and a unit-test suite. Any bug that reached production gets a fixture test reproducing the exact failure interleaving before the fix lands, which is how the failures above became regression suites instead of stories.</p>
+    <p>Review scales with blast radius. Changes that touch autonomy, sends, money or credentials get an adversarial multi-agent review with one reviewer told to reject; normal code gets one reviewer; docs and config get the builder's own tests. I made that call after measuring that uniform top-tier review was 93% of spend and caught nothing extra on low-risk changes. Then CI gates: a QA gate, an architecture gate, and a unit-test suite. Any bug that reached production gets a fixture test reproducing the exact failure interleaving before the fix lands, which is how the failures above became regression suites instead of stories.</p>
     <p>The same pipeline governs the autonomous work. An agent that fixes a bug does it in an isolated worktree, proves it with a failing test that passes after, and clears blast-radius caps and a deny-list before merge. I open-sourced that engine, <a href="https://github.com/jddavenportOpen/claude-bug-squash" target="_blank" rel="noopener">claude-bug-squash</a>, because the governance model is the interesting part: out of the box it can never merge. The orchestration and permission core is open too, as <a href="https://github.com/jddavenportOpen/orchestra-agents" target="_blank" rel="noopener">orchestra-agents</a>, and the same controls packaged for an enterprise are <a href="https://github.com/jddavenportOpen/claude-deploy-kit" target="_blank" rel="noopener">claude-deploy-kit</a>.</p>
 
     <h2>What it costs</h2>
@@ -262,16 +279,17 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
 
     <div class="addendum">
       <div class="addendum-date">Addendum · 2026-08-28</div>
-      <p>The metrics on the homepage are now generated daily by the system itself. Token volume, turns, agent counts and the 30-day chart all come from the same feed the <a href="/brain">live capabilities page</a> republishes from live state. A number a person types by hand starts decaying the same day; this one cannot, because nobody types it. The written copy across every public surface now says the same durable thing, 30+ agents in daily production and 100+ built over time, and the exact roster count appears only where a generator produces it.</p>
+      <p>The live numbers are now generated daily by the system itself and shown on <a href="/brain">the live brain</a>: model turns, shipped work, the 30-day activity charts and the registered agent, skill and job counts all come from the inventory it republishes from live state. A number a person types by hand starts decaying the same day; this one cannot, because nobody types it. The written copy across every public surface now says the same durable thing, 30+ agents in daily production and 100+ built over time, and the exact roster count appears only where a generator produces it.</p>
     </div>
 
     <div class="footer-cta">
       <h3>Who wrote this</h3>
-      <p>JD Davenport. Product leader: $2M to $20M+ at National Grid, Founder &amp; Managing Director of the BYU AI Foundry, builder of Spark AI at Siemens, MBA candidate at BYU Marriott. The Nerve Center is what happens when a P&amp;L operator encodes the operating model in software.</p>
+      <p>JD Davenport. Product leader: Founder &amp; Managing Director of the BYU AI Foundry; at Siemens, built Spark AI and took its active adoption from 3% to 65% in 10 weeks; at National Grid, grew an internal cloud services platform from $2M to $20M+ in annual chargeback; MBA candidate at BYU Marriott. The Nerve Center is what happens when an operator encodes the operating model in software.</p>
       <a href="/" class="btn btn-primary">Full site →</a>
       <a href="https://github.com/jddavenportOpen/agent-safety-case-study" target="_blank" rel="noopener" class="btn btn-outline">Capability-vs-risk case study ↗</a>
       <a href="mailto:me@jddavenport.com" class="btn btn-outline">me@jddavenport.com</a>
     </div>
+    <p class="hire">Hiring an AI PM? <a href="/resume.pdf">Resume (PDF)</a> · <a href="mailto:me@jddavenport.com?subject=AI%20PM%20role">me@jddavenport.com</a></p>
   </div>
 </article>
 

@@ -192,7 +192,6 @@ module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=86400');
   return res.status(200).json({
     as_of: asOf,
-    source: 'nerve-center-showcase.vercel.app/capabilities.json',
     // `stats` is the always-present half of the feed: it exists today, so the
     // agent/domain/skill counters go live immediately even before the metrics
     // block lands upstream.
