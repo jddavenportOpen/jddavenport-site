@@ -26,7 +26,7 @@ The safety, governance and orchestration pieces, extracted from the system that 
 | [hub-watchdog](https://github.com/jddavenportOpen/hub-watchdog) | A two-strike uptime watchdog that runs on GitHub Actions, so it keeps working when the machine it watches is down | [Watchdogs](/docs/safety-and-operations/watchdogs/) |
 | [agent-safety-case-study](https://github.com/jddavenportOpen/agent-safety-case-study) | A capability-versus-risk case study of running an AI organization in production: each capability, its risk, the control, an incident | [The architecture in one page](/docs/nerve-center/architecture/) |
 | [claude-code-behavior-specs](https://github.com/jddavenportOpen/claude-code-behavior-specs) | Target-behavior specs for the Claude Code CLI written from production incidents, each with a reproduction and the workaround that shipped | [Lessons from running agents every day](/docs/field-notes/lessons-from-running-agents/) |
-| [nerve-center-showcase](https://github.com/jddavenportOpen/nerve-center-showcase) | The capabilities page my system regenerates from live state every day ([live page](https://nerve-center-showcase.vercel.app)) | [The system documents itself](/docs/safety-and-operations/ground-truth/) |
+| [nerve-center-showcase](https://nerve-center-showcase.vercel.app) | The capabilities page my system regenerates from live state every day. The page is public; its generator stays private | [The system documents itself](/docs/safety-and-operations/ground-truth/) |
 
 ## Agent tooling
 
