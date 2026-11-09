@@ -379,6 +379,31 @@
    "highlight_score": 2
   },
   {
+   "slug": "carebridge-connect",
+   "title": "CareBridge Connect",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "client-project",
+   "status": "live",
+   "one_liner": "AI-native system that turns EHR staff notes into plain-language updates for approved family members at nursing facilities.",
+   "details": "Listed on the public Our work page as a shipped, running product for skilled nursing and acute care. It converts the notes staff already write into updates on changes of condition, appointments and events, with role-based access, encryption and audit logging on every PHI access. The page says it is onboarding its first five facilities, each over 100 residents.",
+   "tech": [
+    "Web",
+    "HIPAA-oriented architecture"
+   ],
+   "links": [
+    {
+     "label": "Live",
+     "url": "https://carebridgeconnect.ai"
+    },
+    {
+     "label": "Our work",
+     "url": "https://aifoundry.byu.edu/work"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
    "slug": "caseprep",
    "title": "CasePrep and caseprep CLI",
    "owner": "JD",
