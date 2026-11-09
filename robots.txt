@@ -7,4 +7,8 @@ Allow: /
 # The booking API returns live availability and is not useful to a crawler.
 Disallow: /api/
 
+# Newsletter drafts and the members-only contribution form are not for search.
+Disallow: /newsletter/drafts/
+Disallow: /newsletter/contribute
+
 Sitemap: https://jddavenport.com/sitemap.xml

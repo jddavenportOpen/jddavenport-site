@@ -1,0 +1,99 @@
+{
+  "_about": "Public copy fixes applied on top of catalog.json at build time. Each value replaces the catalog field. drop_links removes links by URL; replace_links maps an old URL to the one it now redirects to.",
+  "ai-foundry-program": {
+    "details": "AI Foundry is an official program of BYU Marriott, administered by BYU Strategy, with Scott Murff as faculty advisor and JD Davenport as Managing Director. The 2026-27 cohort is 30 students (15 MBAs, 15 undergrads) working in teams of one or two on five-week client engagements. Students first learn the Builder toolkit, then work as builder consultants in the Foundry Lab (MBA 693R / STRAT 490R). AI Foundry is a member of Anthropic's Claude Partner Network, and the public roadmap tracks the network, advisors and certifications as they grow."
+  },
+  "aifoundry-site": {
+    "details": "A Next.js and Tailwind site in the public repo ai-foundry-byu/website, deployed on Vercel under BYU's domain. Pages cover Our work, Our approach, For students, About, Join the network, Start a project, the Roadmap, Donors and a monthly Update. The roadmap page reads its counts live from the program's own database.",
+    "drop_links": [
+      "https://www.linkedin.com/posts/rachel-moulton_the-ai-foundry-byu-has-officially-been-share-7483219616328990721-I54S"
+    ]
+  },
+  "claude-partner-and-certification": {
+    "one_liner": "AI Foundry is a member of Anthropic's Claude Partner Network, and its cohort leaders are working through the Claude Certified Architect exam.",
+    "details": "Members complete four Anthropic courses (Agent Skills, Building with the Claude API, Model Context Protocol, and Claude Code in Action), then sit the Claude Certified Architect exam, with group study sessions along the way. The public roadmap shows how many cohort leaders have passed."
+  },
+  "foundry-lab-site": {
+    "details": "The course site for the Foundry Lab. It covers the AI Foundry Constitution and Operating Model, the Client Service Selection Policy, The Builder and the Consultant, the syllabus and sprints, the Claude certification track with a practice exam, and how client teams are staffed."
+  },
+  "agent-team-kit": {
+    "details": "Started as a fix for parallel agents colliding on ports, the database and the git tree. Two modes (stay on main, or per-agent git worktrees with a cockpit session that merges) share the same hooks: dev-port assignment, schema lock, git guard, file-size ratchet, import boundaries, pre-commit and pre-push gates. It also ships a /mockup skill for clickable prototypes, a memory pack, /fix-bug and /ux-critique skills, specs for in-app feedback loops, and notes on tending agents from a phone. The repo has no license file yet, so ask before you reuse it."
+  },
+  "analytics-suite": {
+    "details": "Built in a day in April 2026 for a take-home MBA analytics final where the course allowed AI. The setup that computed its answers scored 30 of 30 on the practice exam; models answering cold landed around 15 to 21 regardless of which model it was. Tool use beat model choice."
+  },
+  "raising-clawd-newsletter": {
+    "details": "A weekly drafter builds an evidence pack from the last seven days of changelogs and git history, writes the issue in a fixed structure, and runs six guards on it before a preview goes to JD. Nothing sends without his approval, and the approval is bound to the exact content, so a one-byte change voids it. Sends go only to confirmed subscribers, with one-click unsubscribe."
+  },
+  "contact-list-builder": {
+    "details": "Six to eight parallel research subagents split the search by segment and region. A script, not the model, then re-downloads every source page and checks that each email and phone is really there. First real run: 213 contacts across 6 segments in about 15 minutes, every one confirmed against its source page."
+  },
+  "pitchgrade": {
+    "details": "A pitch-deck grader built with Next.js 14 and GPT-4o-mini, with a Stripe plan."
+  },
+  "venture-val": {
+    "details": "Built for an MBA venture capital and private equity class."
+  },
+  "crypto-analytics-oss": {
+    "details": "An educational analytics engine that combines technical analysis, derivatives, on-chain, macro and sentiment signals for any coin. Educational only. Not financial advice."
+  },
+  "ai-phone-desk": {
+    "details": "A human-approval pattern for voice agents: nothing dials until a person approves the exact request. Built on a Vapi voice agent with content-bound approval, for your own agent stack or an outside agent."
+  },
+  "instinct-handoff": {
+    "details": "An MIT repo with a routing doc, a Claude Code skill and an AGENTS.md for handing work from your agent system to Instinct, an outside autonomous agent. Unofficial, and useful only if you use Instinct."
+  },
+  "lawgrader-writegrader": {
+    "details": "Two live sites for agentic grading of legal and academic writing. The human-in-the-loop design is the point: AI drafts scores and margin comments, and the instructor decides every final grade."
+  },
+  "sendsignatures": {
+    "details": "SendSignatures is a hosted, Fable Software branded deployment of DocuSeal, the open-source e-signature platform. Send, sign and process documents on infrastructure you control, with an API for developers. Credit for the software goes to DocuSeal."
+  },
+  "trendzion": {
+    "details": "TrendZion lets people search terms used among Latter-day Saints, compare usage trends across up to four themes at once, and comment and vote in a moderated community."
+  },
+  "ce-rodeo": {
+    "details": "ce.rodeo answers 'which Docker image should I pull?' by lining up every publisher's image for more than 150 open-source projects, scanning each for known vulnerabilities, and giving a letter grade from a published formula. It ranks publishers, lists images whose grade dropped this week, and has a free public data API. It began scanning in October 2026. John Davenport built it with Claude.",
+    "one_liner": "A free daily index that grades the Docker images of more than 150 open-source projects by security and health."
+  },
+  "sitepilot": {
+    "category": "website",
+    "details": "SitePilot sells websites and marketing as an ongoing, managed growth service for small and mid-sized businesses: web design, SEO, content, paid ads and AI-driven insight. JD's part is search and messaging.",
+    "drop_links": [
+      "https://sitepilot.com"
+    ],
+    "replace_links": {
+      "https://sitepilot.us": "https://www.sitepilot.us/"
+    }
+  },
+  "nerve-center": {
+    "drop_links": [
+      "https://github.com/jddavenportOpen/nerve-center-showcase"
+    ],
+    "details": "Nerve Center is the private multi-agent system JD designed, built and operates on a Mac mini. The public showcase page (snapshot 2026-11-09) reports 30+ agents in daily production, 100+ built over time, 310 background jobs (65 of them watchdogs) and 1,092 shipped-work log entries in 30 days. Work arrives by Telegram voice/text or a web and iOS cockpit, goes through an orchestrator and a model router, becomes a durable job-queue row, and anything outward-facing or irreversible stops at a gate until JD says yes. The build itself stays private because it runs his life and work; the public teardown covers architecture, three production failures with root causes, and cost."
+  },
+  "bookjd": {
+    "replace_links": {
+      "https://bookjd.vercel.app": "https://bookjd.vercel.app/book"
+    }
+  },
+  "clawdling": {
+    "one_liner": "Your Claude Code as a whole org: an agent for each project on one map, showing who is working and who needs you, with a receipt when one says done."
+  },
+  "claude-bug-squash": {
+    "one_liner": "A gated autonomous bug fixer: triage, a fix in an isolated worktree, red-to-green proof, and a three-seat review before anything merges.",
+    "details": "Point Claude Code at a repo and report a bug. It triages and assigns a risk tier, writes a fix in a throwaway git worktree, proves the bug goes red to green, then runs the real diff through blast-radius caps, a never-touch deny-list and a 3-seat adversarial review panel. Merging is off by default; the user reads proposed diffs first. Public MIT plugin and standalone CLI."
+  },
+  "foundry-marketplace": {
+    "details": "Install with one /plugin command into your own Claude Code. The catalog index lists 53 items (32 skills, 12 agents, 8 hooks) across 9 plugins: foundry-sdlc, guardrails, qa, design, devices, iphone-mirror, evals, builder-kit and recruit. Each item carries an honest label: 32 verified (passed a live end-to-end run), 18 beta and 3 new. The framework encodes norms such as root-cause-first, never say done without a passing gate, and review by blast radius. A browsable site and machine-readable catalog-index.json let an agent pick the smallest set of plugins for a project."
+  },
+  "agent-safety-case-study": {
+    "details": "Written 2026. For each capability (acting on a live machine, outbound communication as a real person, and others) it lists the risk, the controls and the tradeoffs. Explicitly scoped as a single-operator system, not a multi-tenant solution."
+  },
+  "warden": {
+    "details": "Warden is an open-source governor distilled from four production post-mortems on JD's own agent estate. The principle is that an agent earns autonomy for actions that can be rolled back, not for actions it feels confident about. It ships signal-bound rollback and offline tests."
+  },
+  "national-grid-cloud-ai-platform": {
+    "details": "2022-2025 at a 20,000-person utility, promoted Technical to Senior to Principal PM, owning the cloud and AI/ML roadmap. Launched a RAG-based internal GenAI platform (LLM over proprietary documentation) reaching 3,000+ monthly users. Built an IaC service standardizing 100+ enterprise tools across business units; deployment went from weeks to minutes. Founded Cloud Leadership Sync, the first executive and Chief Architect cross-BU forum. Grew team from 1 to 4 pods and hired 4 PMs; engineering org grew 5 to 35."
+  }
+}

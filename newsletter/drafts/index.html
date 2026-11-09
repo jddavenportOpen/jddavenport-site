@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drafts · AI Foundry monthly · JD Davenport</title>
+<meta name="description" content="Work-in-progress drafts of the AI Foundry monthly newsletter. Not sent.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+/* Dusk tokens, mirrored from index.html (site-research-2026-10-26/REPORT.md section 7).
+   Dawn ground with an afterglow wash; the signup panel and footer use the night tokens,
+   matching the home page's subscribe strip. */
+:root{
+  --f-serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --bg:#FFFBF6;--ink:#1A2236;--muted:#566079;--blue:#0358F7;--sun:#A3481F;
+  --line:rgba(26,34,54,.16);--card:#FFFFFF;
+  --coral:#FF8A5C;--night:#090D18;--dusk:#0D1B2E;
+  --n-ink:#F7F0E8;--n-muted:#A8B2CA;--n-blue:#8DB0FF;--n-sun:#FFA27A;--n-line:rgba(247,240,232,.18);
+  --gutter:16px;
+}
+@media (min-width:720px){:root{--gutter:32px}}
+html{font-size:16px;-webkit-text-size-adjust:100%;background:var(--bg)}
+body{font:400 17px/1.6 var(--f-sans);background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,h3{font-weight:400}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:3px}
+.signup :focus-visible,footer :focus-visible{outline-color:var(--n-blue)}
+.container{max-width:640px;margin:0 auto;padding:0 var(--gutter);width:100%;position:relative}
+
+/* header: the home page's top bar */
+header{background:var(--bg)}
+header .container{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1120px;padding-top:6px}
+@media (min-width:720px){header .container{padding-top:18px}}
+.logo{display:inline-flex;align-items:center;gap:9px;min-height:44px;font:500 19px/1 var(--f-serif);letter-spacing:-.01em;color:var(--ink);text-decoration:none;white-space:nowrap}
+.logo .dot{width:7px;height:7px;border-radius:50%;background:var(--sun)}
+.top-links{display:flex;flex-wrap:wrap;gap:0 16px;font-size:16px}
+.top-links a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;justify-content:center;color:var(--ink);text-decoration:none}
+.top-links a:hover{text-decoration:underline}
+@media (min-width:720px){.top-links{gap:28px}}
+
+main{flex:1;padding:72px 0 88px;background:linear-gradient(180deg,#FFFBF6 0,#FFFBF6 calc(100% - 300px),#FFF0E3 calc(100% - 165px),#FFE3CC 100%)}
+.kicker{font:500 .78rem/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.16em;color:var(--sun);margin-bottom:16px;display:flex;align-items:center;gap:9px}
+.kicker::before{content:'●';color:var(--sun);font-size:.6rem}
+h1{font:400 clamp(2.6rem,1.6rem + 4.4vw,4.4rem)/1.03 var(--f-serif);letter-spacing:-.024em;color:var(--ink);margin-bottom:18px}
+.lede{font:400 clamp(1.125rem,1rem + .55vw,1.35rem)/1.45 var(--f-serif);color:var(--ink);max-width:40ch;margin-bottom:34px;text-wrap:pretty}
+.lede strong{font-weight:500}
+
+/* signup: night panel, coral button with a dark label */
+.signup{background:var(--dusk);color:var(--n-ink);border:1px solid var(--n-line);border-radius:6px;padding:20px;margin-bottom:14px}
+@media (min-width:720px){.signup{padding:24px}}
+.signup form{display:flex;gap:10px;flex-wrap:wrap}
+.signup input[type=email]{flex:1 1 220px;min-width:0;min-height:48px;background:var(--night);border:1px solid rgba(247,240,232,.34);border-radius:999px;color:var(--n-ink);font:inherit;font-size:1rem;padding:12px 18px}
+.signup input[type=email]::placeholder{color:var(--n-muted);opacity:1}
+.signup button{flex:0 0 auto;min-height:48px;background:var(--coral);color:var(--night);border:1px solid var(--coral);border-radius:999px;font:600 16px/1.2 var(--f-sans);padding:0 24px;cursor:pointer}
+.signup button:hover{background:#FFA27A;border-color:#FFA27A}
+.signup button:disabled{opacity:.7;cursor:wait}
+.hp-wrap{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.fine{font-size:.9rem;color:var(--n-muted);margin-top:12px}
+.status{min-height:1.6em;font-size:1rem;margin:10px 0 0}
+.status:empty{display:none}
+.status.ok{color:var(--n-blue)}
+.status.err{color:var(--n-sun)}
+
+.inside{margin-top:56px}
+.inside h2{font:500 .78rem/1.3 var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px}
+.item{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;padding:16px 18px;margin-bottom:12px}
+.item h3{font:400 1.35rem/1.25 var(--f-serif);letter-spacing:-.005em;margin-bottom:4px}
+.item p{color:var(--muted);font-size:16px}
+.about{margin-top:48px;padding-top:26px;border-top:1px solid var(--line);display:flex;gap:16px;align-items:center}
+.about img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:0 0 auto}
+.about p{color:var(--ink);font-size:16px}
+.about p strong{font-weight:600}
+
+/* footer: the home page's night footer */
+footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n-line);padding:22px 0 36px;font-size:16px}
+footer .container{display:flex;gap:0 22px;flex-wrap:wrap;max-width:1120px}
+footer a{display:inline-flex;align-items:center;min-height:44px;color:var(--n-ink);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:480px){
+  main{padding:44px 0 64px}
+  .signup button{flex:1 1 100%}
+  .top-links{gap:14px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* drafts (newsletter/drafts/) */
+.banner{background:#1A2236;color:#F7F0E8;font:600 .85rem/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:12px var(--gutter)}
+.banner span{color:#FFA27A}
+.meta{font:500 .85rem/1.4 var(--f-mono);color:var(--muted);margin:0 0 26px}
+.issue h2{font:400 1.7rem/1.2 var(--f-serif);margin:36px 0 10px}
+.issue h3{font:600 1.05rem/1.3 var(--f-sans);margin:24px 0 6px}
+.issue p,.issue ul,.issue ol{margin:12px 0}
+.issue ul,.issue ol{padding-left:22px}
+.issue img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:4px}
+.drafts{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.drafts a{display:block;padding:16px 18px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;color:var(--ink);text-decoration:none}
+.drafts a:hover{border-color:var(--ink)}
+.drafts .t{display:block;font:400 1.3rem/1.25 var(--f-serif)}
+.drafts .s{display:block;font:500 .82rem/1.5 var(--f-mono);color:var(--muted);margin-top:4px}
+.none{padding:18px;border:1px dashed var(--line);border-radius:6px}
+</style>
+</head>
+<body>
+<div class="banner" role="note">Drafts <span>·</span> not sent</div>
+<header>
+  <div class="container">
+    <a href="/" class="logo">JD Davenport</a>
+    <nav class="top-links" aria-label="Primary">
+      <a href="/work">Work</a>
+      <a href="/projects">Projects</a>
+      <a href="/newsletter">Newsletter</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="kicker">AI Foundry monthly</div>
+    <h1>Drafts</h1>
+    <p class="lede">The next issues, as they come together. A draft here has not been sent, and it can still change. Only JD approves a send.</p>
+    <ul class="drafts" id="drafts" aria-live="polite">
+<!-- drafts:list (written by the monthly assembler from index.json; the script below only refreshes it) -->
+<li><a href="/newsletter/drafts/2026-11-mba"><span class="t">15 MBAs, 5 weeks, real clients</span><span class="s">2026-11 · MBA to MBA · draft</span></a></li>
+<li><a href="/newsletter/drafts/2026-11-general"><span class="t">77 things we built, all clickable</span><span class="s">2026-11 · For everyone · draft</span></a></li>
+<!-- /drafts:list -->
+    </ul>
+    <p style="margin-top:32px">In the Foundry? <a href="/newsletter/contribute">Write a section for the next issue</a>.</p>
+  </div>
+</main>
+<footer>
+  <div class="container">
+    <a href="/">Home</a>
+    <a href="/newsletter">Newsletter</a>
+    <a href="/projects">Projects</a>
+    <a href="/docs/">Docs</a>
+    <a href="https://aifoundry.byu.edu/" target="_blank" rel="noopener">BYU AI Foundry</a>
+  </div>
+</footer>
+<script>
+(function(){
+  var ul=document.getElementById('drafts');
+  function esc(s){var d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML;}
+  function safeHref(h){return typeof h==='string'&&/^\/newsletter\/drafts\/[a-z0-9-]+(\.html)?$/.test(h)?h:null;}
+  // The list is already in the page (it works with JS off). This only refreshes it from
+  // index.json, and keeps the static list if the fetch fails.
+  fetch('/newsletter/drafts/index.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(d){
+    var rows=(d&&d.drafts)||[];
+    var html=rows.map(function(x){var h=safeHref(x.path||x.url);if(!h)return '';
+      return '<li><a href="'+h+'"><span class="t">'+esc(x.title||x.subject)+'</span><span class="s">'+esc(x.month)+' · '+esc(x.edition_label||x.edition)+' · '+esc(x.status||'draft')+'</span></a></li>';}).join('');
+    if(html)ul.innerHTML=html;
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>

@@ -89,5 +89,13 @@
     "id": "reference",
     "title": "Reference",
     "description": "Glossary, FAQ, the open-source index, and how these docs are kept accurate."
+  },
+  {
+    "id": "marketplace",
+    "title": "Free agents, skills and workflows",
+    "description": "Everything here is free to install. Each item says how well it has been tested, and none of the labels are rounded up.",
+    "groups": [
+      "Workflows"
+    ]
   }
 ]

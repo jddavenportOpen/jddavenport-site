@@ -19,7 +19,7 @@
       "permanent": false
     },
     {
-      "source": "/:page(teardown|showcase|brain|newsletter|work)/",
+      "source": "/:page(teardown|showcase|brain|newsletter|work|projects)/",
       "destination": "/:page",
       "permanent": true
     },
@@ -37,6 +37,16 @@
       "source": "/api/book-create",
       "destination": "https://book.jddavenport.com",
       "permanent": false
+    },
+    {
+      "source": "/newsletter/contribute/",
+      "destination": "/newsletter/contribute",
+      "permanent": true
+    },
+    {
+      "source": "/newsletter/drafts",
+      "destination": "/newsletter/drafts/",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -69,6 +79,18 @@
       "destination": "/work/:slug.html"
     },
     {
+      "source": "/projects",
+      "destination": "/projects.html"
+    },
+    {
+      "source": "/newsletter/contribute",
+      "destination": "/newsletter/contribute.html"
+    },
+    {
+      "source": "/newsletter/drafts/:slug(\\d{4}-\\d{2}[a-z-]*)",
+      "destination": "/newsletter/drafts/:slug.html"
+    },
+    {
       "source": "/api/confirm",
       "destination": "https://docs.agenttree.army/api/confirm"
     },
@@ -79,6 +101,57 @@
     {
       "source": "/downloads/:path*",
       "destination": "https://docs.agenttree.army/downloads/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/newsletter/drafts/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/newsletter/drafts/:slug(\\d{4}-\\d{2}[a-z-]*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "script-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+        }
+      ]
+    },
+    {
+      "source": "/newsletter/drafts/:slug(\\d{4}-\\d{2}[a-z-]*).html",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "script-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"
+        }
+      ]
+    },
+    {
+      "source": "/newsletter/contribute",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/newsletter/contribute.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ]
 }

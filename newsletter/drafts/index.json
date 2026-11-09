@@ -1,0 +1,34 @@
+{
+ "about": "Drafts of the AI Foundry monthly newsletter. Written by the monthly assembler from newsletter/drafts/_template.html. Nothing listed here has been sent.",
+ "drafts": [
+  {
+   "month": "2026-11",
+   "edition": "mba",
+   "edition_label": "MBA to MBA",
+   "file": "2026-11-mba.html",
+   "path": "/newsletter/drafts/2026-11-mba",
+   "url": "/newsletter/drafts/2026-11-mba",
+   "title": "15 MBAs, 5 weeks, real clients",
+   "subject": "15 MBAs, 5 weeks, real clients",
+   "preview": "What a student AI studio at BYU Marriott shipped this fall, and what you can use tonight.",
+   "status": "draft",
+   "issue": 1,
+   "generated_at": "2026-11-09T17:14:34+00:00"
+  },
+  {
+   "month": "2026-11",
+   "edition": "general",
+   "edition_label": "For everyone",
+   "file": "2026-11-general.html",
+   "path": "/newsletter/drafts/2026-11-general",
+   "url": "/newsletter/drafts/2026-11-general",
+   "title": "77 things we built, all clickable",
+   "subject": "77 things we built, all clickable",
+   "preview": "A searchable library of every project, free tools included.",
+   "status": "draft",
+   "issue": 1,
+   "generated_at": "2026-11-09T17:14:34+00:00"
+  }
+ ],
+ "updated_at": "2026-11-09T17:14:34+00:00"
+}

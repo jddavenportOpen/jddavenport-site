@@ -107,7 +107,7 @@ h2{font:400 clamp(1.85rem,1.3rem + 2.2vw,2.9rem)/1.1 var(--f-serif);letter-spaci
 .top nav a.cv{min-height:36px;margin:4px 0;padding:0 10px;border:1px solid var(--ink);border-radius:999px}
 .top nav a.cv:hover{background:var(--ink);color:var(--bg);text-decoration:none}
 @media (min-width:720px){.top{padding-top:18px}.top nav ul{gap:28px}}
-@media (max-width:479px){.top{flex-wrap:wrap;row-gap:0}.top nav ul{gap:16px}}
+@media (max-width:479px){.top{flex-wrap:wrap;row-gap:0}.top nav ul{gap:0 16px;flex-wrap:wrap}}
 
 /* ---------- dawn: thesis; the afterglow wash is the hero's lower edge ---------- */
 section.dawn{position:relative;--wash:300px;
@@ -278,6 +278,8 @@ html:not(.js) .copy{display:none}
     <nav aria-label="Primary">
       <ul>
         <li><a class="tap" href="/work">Work</a></li>
+        <li><a class="tap" href="/projects">Projects</a></li>
+        <li><a class="tap" href="/docs/marketplace/">Marketplace</a></li>
         <li><a class="tap" href="/teardown">Teardown</a></li>
         <li><a class="tap" href="/newsletter">Newsletter</a></li>
         <li><a class="tap cv" href="/resume.pdf">Resume</a></li>
@@ -570,7 +572,9 @@ html:not(.js) .copy{display:none}
         <ul>
           <li><a class="tap" href="/resume.pdf">Resume</a></li>
           <li><a class="tap" href="/teardown">Teardown</a></li>
+          <li><a class="tap" href="/projects">Projects</a></li>
           <li><a class="tap" href="/docs/">Docs</a></li>
+          <li><a class="tap" href="/docs/marketplace/">Marketplace</a></li>
           <li><a class="tap" href="/newsletter">Newsletter</a></li>
           <li><a class="tap" href="https://www.linkedin.com/in/jd-davenport/">LinkedIn</a></li>
           <li><a class="tap" href="https://github.com/jddavenportOpen">GitHub</a></li>

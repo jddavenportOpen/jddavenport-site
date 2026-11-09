@@ -39,6 +39,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))  # marketplace.py sits beside this file
 ROOT = HERE.parent.parent
 DEFAULT_SECTIONS = HERE / "sections.json"
 DEFAULT_CONTENT = HERE / "content"
@@ -597,6 +598,7 @@ E = lambda s: html.escape(str(s), quote=True)  # noqa: E731
 # check.py fails the build if a "/#id" here has no matching id on the home page.
 SITE_NAV = [
     ("Work", "/work"),
+    ("Projects", "/projects"),
     ("Teardown", "/teardown"),
     ("Docs", "/docs/"),
     ("Newsletter", "/newsletter"),
@@ -814,6 +816,13 @@ def section_page(sec: Section, sections: list[Section]) -> str:
         blocks.append('<ol class="card-list">' + "".join(article_card(a) for a in arts) + "</ol>")
     first = sec.ordered()[0]
     n = len(sec.articles)
+    start = f'<p class="section-start"><a class="btn btn-primary" href="{first.url}">Start reading →</a></p>'
+    meta = f"<span>{n} article{'s' if n != 1 else ''}</span><span aria-hidden=\"true\">·</span><span>{sum(a.minutes for a in sec.articles)} min total</span>"
+    if sec.id == "marketplace":
+        import marketplace  # same directory; the catalog cards live there
+        blocks = [marketplace.catalog_html(sec.ordered())]
+        start = ""
+        meta = "<span>Free to install</span><span aria-hidden=\"true\">·</span><span>labels from recorded test runs</span>"
     return f"""{head(f"{sec.title} · JD Davenport Docs", sec.description, sec.url, "website")}
 <body class="docs docs-section">
 {site_header()}
@@ -826,8 +835,8 @@ def section_page(sec: Section, sections: list[Section]) -> str:
   <div class="kicker">{E(tier or "Section")}</div>
   <h1>{E(sec.title)}</h1>
   <p class="doc-lead">{E(desc)}</p>
-  <p class="doc-meta"><span>{n} article{'s' if n != 1 else ''}</span><span aria-hidden="true">·</span><span>{sum(a.minutes for a in sec.articles)} min total</span></p>
-  <p class="section-start"><a class="btn btn-primary" href="{first.url}">Start reading →</a></p>
+  <p class="doc-meta">{meta}</p>
+  {start}
   {cta_block(sec)}
   {"".join(blocks)}
 </div>
@@ -1001,6 +1010,9 @@ def build(sections_path: Path, content: Path, quiet: bool = False, sitemap: bool
     for s in live:
         index.append({"title": s.title, "description": s.tier[1], "section": "Section", "group": "",
                       "url": s.url, "headings": [g for g, _ in s.grouped() if g], "text": ""})
+    if any(s.id == "marketplace" for s in live):
+        import marketplace  # same directory
+        index.extend(marketplace.search_entries())
     changed += write_if_changed(OUT / "search-index.json",
                                 json.dumps(index, ensure_ascii=False, separators=(",", ":")) + "\n", written)
 

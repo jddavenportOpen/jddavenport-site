@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contribute · AI Foundry monthly · JD Davenport</title>
+<meta name="description" content="Foundry members: send a section for next month's AI Foundry newsletter. Leads review everything before it is drafted.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://jddavenport.com/newsletter/contribute">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+/* Dusk tokens, mirrored from index.html (site-research-2026-10-26/REPORT.md section 7).
+   Dawn ground with an afterglow wash; the signup panel and footer use the night tokens,
+   matching the home page's subscribe strip. */
+:root{
+  --f-serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --bg:#FFFBF6;--ink:#1A2236;--muted:#566079;--blue:#0358F7;--sun:#A3481F;
+  --line:rgba(26,34,54,.16);--card:#FFFFFF;
+  --coral:#FF8A5C;--night:#090D18;--dusk:#0D1B2E;
+  --n-ink:#F7F0E8;--n-muted:#A8B2CA;--n-blue:#8DB0FF;--n-sun:#FFA27A;--n-line:rgba(247,240,232,.18);
+  --gutter:16px;
+}
+@media (min-width:720px){:root{--gutter:32px}}
+html{font-size:16px;-webkit-text-size-adjust:100%;background:var(--bg)}
+body{font:400 17px/1.6 var(--f-sans);background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,h3{font-weight:400}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:3px}
+.signup :focus-visible,footer :focus-visible{outline-color:var(--n-blue)}
+.container{max-width:640px;margin:0 auto;padding:0 var(--gutter);width:100%;position:relative}
+
+/* header: the home page's top bar */
+header{background:var(--bg)}
+header .container{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1120px;padding-top:6px}
+@media (min-width:720px){header .container{padding-top:18px}}
+.logo{display:inline-flex;align-items:center;gap:9px;min-height:44px;font:500 19px/1 var(--f-serif);letter-spacing:-.01em;color:var(--ink);text-decoration:none;white-space:nowrap}
+.logo .dot{width:7px;height:7px;border-radius:50%;background:var(--sun)}
+.top-links{display:flex;flex-wrap:wrap;gap:0 16px;font-size:16px}
+.top-links a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;justify-content:center;color:var(--ink);text-decoration:none}
+.top-links a:hover{text-decoration:underline}
+@media (min-width:720px){.top-links{gap:28px}}
+
+main{flex:1;padding:72px 0 88px;background:linear-gradient(180deg,#FFFBF6 0,#FFFBF6 calc(100% - 300px),#FFF0E3 calc(100% - 165px),#FFE3CC 100%)}
+.kicker{font:500 .78rem/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.16em;color:var(--sun);margin-bottom:16px;display:flex;align-items:center;gap:9px}
+.kicker::before{content:'●';color:var(--sun);font-size:.6rem}
+h1{font:400 clamp(2.6rem,1.6rem + 4.4vw,4.4rem)/1.03 var(--f-serif);letter-spacing:-.024em;color:var(--ink);margin-bottom:18px}
+.lede{font:400 clamp(1.125rem,1rem + .55vw,1.35rem)/1.45 var(--f-serif);color:var(--ink);max-width:40ch;margin-bottom:34px;text-wrap:pretty}
+.lede strong{font-weight:500}
+
+/* signup: night panel, coral button with a dark label */
+.signup{background:var(--dusk);color:var(--n-ink);border:1px solid var(--n-line);border-radius:6px;padding:20px;margin-bottom:14px}
+@media (min-width:720px){.signup{padding:24px}}
+.signup form{display:flex;gap:10px;flex-wrap:wrap}
+.signup input[type=email]{flex:1 1 220px;min-width:0;min-height:48px;background:var(--night);border:1px solid rgba(247,240,232,.34);border-radius:999px;color:var(--n-ink);font:inherit;font-size:1rem;padding:12px 18px}
+.signup input[type=email]::placeholder{color:var(--n-muted);opacity:1}
+.signup button{flex:0 0 auto;min-height:48px;background:var(--coral);color:var(--night);border:1px solid var(--coral);border-radius:999px;font:600 16px/1.2 var(--f-sans);padding:0 24px;cursor:pointer}
+.signup button:hover{background:#FFA27A;border-color:#FFA27A}
+.signup button:disabled{opacity:.7;cursor:wait}
+.hp-wrap{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.fine{font-size:.9rem;color:var(--n-muted);margin-top:12px}
+.status{min-height:1.6em;font-size:1rem;margin:10px 0 0}
+.status:empty{display:none}
+.status.ok{color:var(--n-blue)}
+.status.err{color:var(--n-sun)}
+
+.inside{margin-top:56px}
+.inside h2{font:500 .78rem/1.3 var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px}
+.item{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;padding:16px 18px;margin-bottom:12px}
+.item h3{font:400 1.35rem/1.25 var(--f-serif);letter-spacing:-.005em;margin-bottom:4px}
+.item p{color:var(--muted);font-size:16px}
+.about{margin-top:48px;padding-top:26px;border-top:1px solid var(--line);display:flex;gap:16px;align-items:center}
+.about img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:0 0 auto}
+.about p{color:var(--ink);font-size:16px}
+.about p strong{font-weight:600}
+
+/* footer: the home page's night footer */
+footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n-line);padding:22px 0 36px;font-size:16px}
+footer .container{display:flex;gap:0 22px;flex-wrap:wrap;max-width:1120px}
+footer a{display:inline-flex;align-items:center;min-height:44px;color:var(--n-ink);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:480px){
+  main{padding:44px 0 64px}
+  .signup button{flex:1 1 100%}
+  .top-links{gap:14px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* contribute form (newsletter/contribute.html) */
+.steps{margin:0 0 28px;padding-left:20px;color:var(--ink)}
+.steps li{margin:6px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:20px}
+@media (min-width:720px){.card{padding:24px}}
+.field{margin:0 0 18px}
+.field label,.field legend{display:block;font-weight:500;font-size:16px;margin-bottom:6px}
+.field .hint{display:block;font-size:.9rem;color:var(--muted);margin-top:4px}
+.field input[type=text],.field input[type=email],.field select,.field textarea{width:100%;min-height:48px;padding:10px 14px;font:400 16px/1.4 var(--f-sans);color:var(--ink);background:#FFFFFF;border:1px solid #6B7389;border-radius:8px}
+.field textarea{min-height:200px;resize:vertical}
+.field textarea.links{min-height:110px}
+.field fieldset{border:0;padding:0;margin:0;min-width:0}
+.radios{display:flex;flex-wrap:wrap;gap:8px}
+.radios label{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:999px;font-weight:400;margin:0;cursor:pointer}
+.radios input{width:18px;height:18px;accent-color:var(--blue)}
+.check{display:flex;gap:10px;align-items:flex-start;min-height:44px;font-size:16px}
+.check input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:var(--blue)}
+.counter{font:500 .85rem/1 var(--f-mono);color:var(--muted);text-align:right;margin-top:4px}
+.submit{min-height:48px;background:var(--coral);color:var(--night);border:1px solid var(--coral);border-radius:999px;font:600 16px/1.2 var(--f-sans);padding:0 24px;cursor:pointer}
+.submit:hover{background:#FFA27A}
+.submit:disabled{opacity:.7;cursor:wait}
+.msg{margin:14px 0 0;font-size:1rem;min-height:1.6em}
+.msg:empty{display:none}
+.msg.ok{color:#2C6E3F}.msg.err{color:#A3481F}
+.noscript{padding:12px 14px;border:1px dashed var(--line);border-radius:6px;margin-bottom:18px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="/" class="logo">JD Davenport</a>
+    <nav class="top-links" aria-label="Primary">
+      <a href="/work">Work</a>
+      <a href="/projects">Projects</a>
+      <a href="/newsletter">Newsletter</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="kicker">AI Foundry monthly</div>
+    <h1>Write a section</h1>
+    <p class="lede">Each month the AI Foundry newsletter collects what members built, learned and ran into. If you are in the Foundry, send yours here.</p>
+    <ol class="steps">
+      <li><strong>What to send.</strong> A project you shipped, a lesson from something that broke, an event, a person worth spotlighting, or a tool you use. Specific beats polished.</li>
+      <li><strong>What happens next.</strong> Foundry leads read every submission. They may accept it, hold it for a later month, ask you to change it, or pass. Nothing is published or sent without a person approving it.</li>
+      <li><strong>When.</strong> Sections in by the 25th go in that month's issue. After that they roll to the next one.</li>
+    </ol>
+    <p style="margin-bottom:20px">Want to see what is in the works? <a href="/newsletter/drafts/">Read the drafts</a>.</p>
+
+    <noscript><p class="noscript">This form needs JavaScript to send. If you can't turn it on, ask a Foundry lead to add your section for you.</p></noscript>
+
+    <form class="card" id="contrib-form" novalidate>
+      <div class="hp-wrap" aria-hidden="true">
+        <label for="website">Website</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="invite_code">Invite code</label>
+        <input type="text" id="invite_code" name="invite_code" required autocomplete="off" autocapitalize="off" spellcheck="false">
+        <span class="hint">Foundry leads share it with members. It keeps this form for the Foundry.</span>
+      </div>
+      <div class="field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" required maxlength="100" autocomplete="name">
+        <span class="hint">Printed with your section.</span>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required maxlength="254" autocomplete="email" inputmode="email">
+        <span class="hint">So a lead can reach you about edits. Never printed.</span>
+      </div>
+      <div class="field">
+        <label for="role">Role <span class="hint" style="display:inline">(optional)</span></label>
+        <input type="text" id="role" name="role" maxlength="120" placeholder="MBA 2027, Foundry builder">
+      </div>
+      <div class="field">
+        <label for="section_type">What kind of section is it?</label>
+        <select id="section_type" name="section_type" required>
+          <option value="">Choose one</option>
+          <option value="project">A project we built</option>
+          <option value="lesson">A lesson from something that broke</option>
+          <option value="event">An event</option>
+          <option value="spotlight">A spotlight on a person or team</option>
+          <option value="tool">A tool worth using</option>
+          <option value="other">Something else</option>
+        </select>
+      </div>
+      <div class="field">
+        <fieldset>
+          <legend>Which edition is it for?</legend>
+          <div class="radios">
+            <label><input type="radio" name="edition" value="both" checked> Both</label>
+            <label><input type="radio" name="edition" value="mba"> MBA to MBA</label>
+            <label><input type="radio" name="edition" value="general"> Everyone</label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="field">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" required maxlength="120">
+      </div>
+      <div class="field">
+        <label for="body">Your section</label>
+        <textarea id="body" name="body" required maxlength="2500" aria-describedby="body-count body-hint"></textarea>
+        <p class="counter" id="body-count" aria-live="polite">0 / 2500</p>
+        <span class="hint" id="body-hint">Lead with the point. What happened, what it showed, what someone else can take from it. Leave out client names, grades and anything under NDA.</span>
+      </div>
+      <div class="field">
+        <label for="links">Links <span class="hint" style="display:inline">(optional, up to 5, one per line)</span></label>
+        <textarea class="links" id="links" name="links" placeholder="https://"></textarea>
+      </div>
+      <div class="field">
+        <label class="check"><input type="checkbox" id="consent" required> <span>Foundry leads may edit this and print it in the newsletter with my name.</span></label>
+      </div>
+      <button type="submit" class="submit" id="submit">Send it to the leads</button>
+      <p class="msg" id="msg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <a href="/">Home</a>
+    <a href="/newsletter">Newsletter</a>
+    <a href="/projects">Projects</a>
+    <a href="/docs/">Docs</a>
+    <a href="https://aifoundry.byu.edu/" target="_blank" rel="noopener">BYU AI Foundry</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var STARTED_AT=Date.now();
+  var form=document.getElementById('contrib-form'),btn=document.getElementById('submit'),msg=document.getElementById('msg');
+  var body=document.getElementById('body'),count=document.getElementById('body-count');
+  function v(id){return document.getElementById(id).value.trim();}
+  function show(t,c){msg.textContent=t;msg.className='msg '+c;}
+  body.addEventListener('input',function(){count.textContent=body.value.length+' / 2500';});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var links=v('links').split(/\s+/).filter(Boolean);
+    var edition=(form.querySelector('input[name=edition]:checked')||{}).value||'both';
+    if(!v('invite_code')){show('Add the invite code.','err');return;}
+    if(!v('name')||!v('email')||!v('title')||!v('body')||!v('section_type')){show('Fill in name, email, kind, title and your section.','err');return;}
+    if(links.length>5){show('Add at most 5 links.','err');return;}
+    if(!document.getElementById('consent').checked){show('Tick the box so leads can print it.','err');return;}
+    btn.disabled=true;btn.textContent='Sending...';show('','');
+    fetch('/api/newsletter-contribute',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({invite_code:v('invite_code'),name:v('name'),email:v('email'),role:v('role'),
+        section_type:v('section_type'),title:v('title'),body:v('body'),links:links,edition:edition,
+        website:document.getElementById('website').value,started_at:STARTED_AT,consent:true})})
+      .then(function(r){return r.json().catch(function(){return {ok:false};});})
+      .then(function(d){
+        if(d&&d.ok){show('Got it. A Foundry lead will read it before the 25th. Thank you.','ok');
+          ['title','body','links'].forEach(function(id){document.getElementById(id).value='';});count.textContent='0 / 2500';}
+        else{show((d&&d.error)||'Something went wrong. Try again in a minute.','err');}
+      })
+      .catch(function(){show('Network error. Check your connection and try again.','err');})
+      .then(function(){btn.disabled=false;btn.textContent='Send it to the leads';});
+  });
+})();
+</script>
+</body>
+</html>

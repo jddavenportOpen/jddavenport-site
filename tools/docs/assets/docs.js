@@ -79,6 +79,16 @@
     });
   });
 
+  /* Marketplace install lines (docs/marketplace/): the command lives in data-copy */
+  Array.prototype.forEach.call(d.querySelectorAll('.mk-copy'), function (btn) {
+    btn.addEventListener('click', function () {
+      copyText(btn.getAttribute('data-copy')).then(function () {
+        btn.textContent = 'Copied'; btn.classList.add('copied');
+      }, function () { btn.textContent = 'Select and copy'; })
+        .then(function () { setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1600); });
+    });
+  });
+
   /* On this page: highlight the section in view */
   var tocLinks = d.querySelectorAll('.docs-toc a');
   if (tocLinks.length && 'IntersectionObserver' in window) {

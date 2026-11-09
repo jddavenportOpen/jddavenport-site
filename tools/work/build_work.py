@@ -123,7 +123,7 @@ h2{font:400 clamp(1.85rem,1.3rem + 2.2vw,2.9rem)/1.1 var(--f-serif);letter-spaci
 .top nav a.cv{min-height:36px;margin:4px 0;padding:0 10px;border:1px solid var(--ink);border-radius:999px}
 .top nav a.cv:hover{background:var(--ink);color:var(--bg);text-decoration:none}
 @media (min-width:720px){.top{padding-top:18px}.top nav ul{gap:28px}}
-@media (max-width:479px){.top{flex-wrap:wrap;row-gap:0}.top nav ul{gap:16px}}
+@media (max-width:479px){.top{flex-wrap:wrap;row-gap:0}.top nav ul{gap:0 16px;flex-wrap:wrap}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 20px;border-radius:999px;font:500 16px/1.2 var(--f-sans);text-decoration:none;border:1px solid transparent;cursor:pointer}
 .btn.sun{background:var(--coral);color:#090D18;border-color:var(--coral);font-weight:600;justify-self:start}
 .btn.sun:hover{background:#FFA27A;border-color:#FFA27A}
@@ -226,6 +226,19 @@ ANALYTICS = (
 )
 
 
+# Primary nav, shared with tools/projects/build_projects.py. Keep in step with index.html.
+NAV = [("Work", "/work"), ("Projects", "/projects"), ("Teardown", "/teardown"), ("Newsletter", "/newsletter")]
+
+
+def nav_items(path):
+    out = []
+    for label, href in NAV:
+        cur = ' aria-current="page"' if path == href else ""
+        out.append(f'        <li><a class="tap" href="{href}"{cur}>{label}</a></li>')
+    out.append('        <li><a class="tap cv" href="/resume.pdf">Resume</a></li>')
+    return "\n".join(out)
+
+
 def head(title, description, path, extra_css):
     url = SITE + path
     return f"""<!DOCTYPE html>
@@ -259,10 +272,7 @@ def head(title, description, path, extra_css):
     <a class="mark tap" href="/">JD Davenport</a>
     <nav aria-label="Primary">
       <ul>
-        <li><a class="tap" href="/work"{' aria-current="page"' if path == '/work' else ''}>Work</a></li>
-        <li><a class="tap" href="/teardown">Teardown</a></li>
-        <li><a class="tap" href="/newsletter">Newsletter</a></li>
-        <li><a class="tap cv" href="/resume.pdf">Resume</a></li>
+{nav_items(path)}
       </ul>
     </nav>
   </div>
@@ -290,8 +300,10 @@ FOOTER = """
         <ul>
           <li><a class="tap" href="/resume.pdf">Resume</a></li>
           <li><a class="tap" href="/work">Work</a></li>
+          <li><a class="tap" href="/projects">Projects</a></li>
           <li><a class="tap" href="/teardown">Teardown</a></li>
           <li><a class="tap" href="/docs/">Docs</a></li>
+          <li><a class="tap" href="/docs/marketplace/">Marketplace</a></li>
           <li><a class="tap" href="/newsletter">Newsletter</a></li>
           <li><a class="tap" href="https://www.linkedin.com/in/jd-davenport/">LinkedIn</a></li>
           <li><a class="tap" href="https://github.com/jddavenportOpen">GitHub</a></li>
@@ -449,6 +461,7 @@ def build_list(data):
   <section class="wrap hero" aria-labelledby="work-h">
     <h1 id="work-h">Work</h1>
     <p class="lede">Case studies for work under NDA, open-source AI tooling, products I built or helped build, and writing.</p>
+    <p class="lede"><a href="/projects">Browse the full projects library</a>, including the BYU AI Foundry's work and what I build with my dad.</p>
     <div class="controls" id="controls" hidden>
       <div class="search" role="search">
         <label for="q">Search work</label>

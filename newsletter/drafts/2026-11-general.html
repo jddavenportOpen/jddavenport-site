@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>77 things we built, all clickable · draft · AI Foundry monthly</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+/* Dusk tokens, mirrored from index.html (site-research-2026-10-26/REPORT.md section 7).
+   Dawn ground with an afterglow wash; the signup panel and footer use the night tokens,
+   matching the home page's subscribe strip. */
+:root{
+  --f-serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --bg:#FFFBF6;--ink:#1A2236;--muted:#566079;--blue:#0358F7;--sun:#A3481F;
+  --line:rgba(26,34,54,.16);--card:#FFFFFF;
+  --coral:#FF8A5C;--night:#090D18;--dusk:#0D1B2E;
+  --n-ink:#F7F0E8;--n-muted:#A8B2CA;--n-blue:#8DB0FF;--n-sun:#FFA27A;--n-line:rgba(247,240,232,.18);
+  --gutter:16px;
+}
+@media (min-width:720px){:root{--gutter:32px}}
+html{font-size:16px;-webkit-text-size-adjust:100%;background:var(--bg)}
+body{font:400 17px/1.6 var(--f-sans);background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,h3{font-weight:400}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:3px}
+.signup :focus-visible,footer :focus-visible{outline-color:var(--n-blue)}
+.container{max-width:640px;margin:0 auto;padding:0 var(--gutter);width:100%;position:relative}
+
+/* header: the home page's top bar */
+header{background:var(--bg)}
+header .container{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1120px;padding-top:6px}
+@media (min-width:720px){header .container{padding-top:18px}}
+.logo{display:inline-flex;align-items:center;gap:9px;min-height:44px;font:500 19px/1 var(--f-serif);letter-spacing:-.01em;color:var(--ink);text-decoration:none;white-space:nowrap}
+.logo .dot{width:7px;height:7px;border-radius:50%;background:var(--sun)}
+.top-links{display:flex;flex-wrap:wrap;gap:0 16px;font-size:16px}
+.top-links a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;justify-content:center;color:var(--ink);text-decoration:none}
+.top-links a:hover{text-decoration:underline}
+@media (min-width:720px){.top-links{gap:28px}}
+
+main{flex:1;padding:72px 0 88px;background:linear-gradient(180deg,#FFFBF6 0,#FFFBF6 calc(100% - 300px),#FFF0E3 calc(100% - 165px),#FFE3CC 100%)}
+.kicker{font:500 .78rem/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.16em;color:var(--sun);margin-bottom:16px;display:flex;align-items:center;gap:9px}
+.kicker::before{content:'●';color:var(--sun);font-size:.6rem}
+h1{font:400 clamp(2.6rem,1.6rem + 4.4vw,4.4rem)/1.03 var(--f-serif);letter-spacing:-.024em;color:var(--ink);margin-bottom:18px}
+.lede{font:400 clamp(1.125rem,1rem + .55vw,1.35rem)/1.45 var(--f-serif);color:var(--ink);max-width:40ch;margin-bottom:34px;text-wrap:pretty}
+.lede strong{font-weight:500}
+
+/* signup: night panel, coral button with a dark label */
+.signup{background:var(--dusk);color:var(--n-ink);border:1px solid var(--n-line);border-radius:6px;padding:20px;margin-bottom:14px}
+@media (min-width:720px){.signup{padding:24px}}
+.signup form{display:flex;gap:10px;flex-wrap:wrap}
+.signup input[type=email]{flex:1 1 220px;min-width:0;min-height:48px;background:var(--night);border:1px solid rgba(247,240,232,.34);border-radius:999px;color:var(--n-ink);font:inherit;font-size:1rem;padding:12px 18px}
+.signup input[type=email]::placeholder{color:var(--n-muted);opacity:1}
+.signup button{flex:0 0 auto;min-height:48px;background:var(--coral);color:var(--night);border:1px solid var(--coral);border-radius:999px;font:600 16px/1.2 var(--f-sans);padding:0 24px;cursor:pointer}
+.signup button:hover{background:#FFA27A;border-color:#FFA27A}
+.signup button:disabled{opacity:.7;cursor:wait}
+.hp-wrap{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.fine{font-size:.9rem;color:var(--n-muted);margin-top:12px}
+.status{min-height:1.6em;font-size:1rem;margin:10px 0 0}
+.status:empty{display:none}
+.status.ok{color:var(--n-blue)}
+.status.err{color:var(--n-sun)}
+
+.inside{margin-top:56px}
+.inside h2{font:500 .78rem/1.3 var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px}
+.item{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;padding:16px 18px;margin-bottom:12px}
+.item h3{font:400 1.35rem/1.25 var(--f-serif);letter-spacing:-.005em;margin-bottom:4px}
+.item p{color:var(--muted);font-size:16px}
+.about{margin-top:48px;padding-top:26px;border-top:1px solid var(--line);display:flex;gap:16px;align-items:center}
+.about img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:0 0 auto}
+.about p{color:var(--ink);font-size:16px}
+.about p strong{font-weight:600}
+
+/* footer: the home page's night footer */
+footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n-line);padding:22px 0 36px;font-size:16px}
+footer .container{display:flex;gap:0 22px;flex-wrap:wrap;max-width:1120px}
+footer a{display:inline-flex;align-items:center;min-height:44px;color:var(--n-ink);text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media (max-width:480px){
+  main{padding:44px 0 64px}
+  .signup button{flex:1 1 100%}
+  .top-links{gap:14px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* drafts (newsletter/drafts/) */
+.banner{background:#1A2236;color:#F7F0E8;font:600 .85rem/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:12px var(--gutter)}
+.banner span{color:#FFA27A}
+.meta{font:500 .85rem/1.4 var(--f-mono);color:var(--muted);margin:0 0 26px}
+.issue h2{font:400 1.7rem/1.2 var(--f-serif);margin:36px 0 10px}
+.issue h3{font:600 1.05rem/1.3 var(--f-sans);margin:24px 0 6px}
+.issue p,.issue ul,.issue ol{margin:12px 0}
+.issue ul,.issue ol{padding-left:22px}
+.issue img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:4px}
+.drafts{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.drafts a{display:block;padding:16px 18px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;color:var(--ink);text-decoration:none}
+.drafts a:hover{border-color:var(--ink)}
+.drafts .t{display:block;font:400 1.3rem/1.25 var(--f-serif)}
+.drafts .s{display:block;font:500 .82rem/1.5 var(--f-mono);color:var(--muted);margin-top:4px}
+.none{padding:18px;border:1px dashed var(--line);border-radius:6px}
+
+.issue .lede{margin-bottom:8px}
+.issue .pick{margin:28px 0;padding-top:4px}
+.issue .pick img{display:block;width:100%;aspect-ratio:8/5;object-fit:cover;object-position:top;margin:8px 0 4px}
+.issue pre.cmd{background:#F3EEE7;border:1px solid var(--line);border-radius:4px;padding:12px 14px;overflow-x:auto;font:400 .85rem/1.5 var(--f-mono);white-space:pre-wrap;word-break:break-all}
+.issue code{font:400 .9em var(--f-mono)}
+.issue .sign{margin-top:32px;font:400 1.4rem/1.2 var(--f-serif)}
+.issue .sig{color:var(--muted);font-size:.95rem;margin-top:0}
+.issue .foot{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<!-- Shared draft template. agents/growth/foundry_newsletter_assembler.py (fill_template) fills the title, edition_label, month and body placeholders (double curly braces; it refuses a template without the body one), writes newsletter/drafts/<yyyy-mm>-<edition>.html and adds a row to index.json. Keep placeholder names out of this comment: every occurrence is replaced. -->
+<div class="banner" role="note">Draft <span>·</span> not sent</div>
+<header>
+  <div class="container">
+    <a href="/" class="logo">JD Davenport</a>
+    <nav class="top-links" aria-label="Primary">
+      <a href="/work">Work</a>
+      <a href="/projects">Projects</a>
+      <a href="/newsletter">Newsletter</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <article class="container issue">
+    <div class="kicker">AI Foundry monthly · For everyone</div>
+    <h1>77 things we built, all clickable</h1>
+    <p class="meta">2026-11 · <a href="/newsletter/drafts/">All drafts</a></p>
+<p class="lede">A searchable library of every project, free tools included.</p>
+<p>We kept building things and never put them in one place. Now there's one place: 77 projects, searchable, and every card links to the real thing.</p>
+<h2>Who we are</h2>
+<p>I'm JD Davenport, and I run the AI Foundry at BYU Marriott, a studio where 30 students build AI software for real organizations in five-week engagements. Our purpose is to develop disciple-leaders who use AI to enhance human flourishing. This newsletter is where we show the work: what shipped, what broke, and what you can take and use yourself.</p>
+<h2>The library is live</h2>
+<section class="pick"><h3>jddavenport.com/projects</h3><a href="https://jddavenport.com/projects"><img src="https://jddavenport.com/images/projects/nl-projects-library.jpg" alt="The projects library on jddavenport.com: Everything we&#x27;ve built, 77 projects" width="1200" height="750" loading="lazy" decoding="async"></a><p>It holds my own builds, the Foundry's work, Spark AI at Siemens and the products I build with my dad, John Davenport. Search it, filter by who built it, and open any card for the details and the links. Client work we haven't cleared stays out until the client says yes.</p><p><a href="https://jddavenport.com/projects">Browse the library</a></p></section>
+<h2>Our top 10</h2>
+<section class="pick"><h3>Spark AI at Siemens: adoption is a change-management problem</h3><a href="https://jddavenport.com/work/siemens-spark-ai"><img src="https://jddavenport.com/images/projects/nl-siemens-spark-ai.jpg" alt="The Spark AI at Siemens case study page on jddavenport.com" width="1200" height="750" loading="lazy" decoding="async"></a><p>This past summer I built and launched Spark AI for Siemens US: 120+ agents and 50+ skills, each built for a specific job function and seniority level, deployed to 1,000+ employees. My manager had the idea. I built it, launched it and drove adoption, and adoption was the real job. Active adoption rose from a 3% baseline to 65% in 10 weeks, and I left US leadership a 3/6/12-month roadmap sequenced by each function's readiness.</p><p><a href="https://jddavenport.com/work/siemens-spark-ai">Read the case study</a></p></section>
+<section class="pick"><h3>The BYU AI Foundry</h3><a href="https://aifoundry.byu.edu"><img src="https://jddavenport.com/images/projects/nl-ai-foundry-program.jpg" alt="The AI Foundry home page at aifoundry.byu.edu" width="1200" height="750" loading="lazy" decoding="async"></a><p>The program itself. Students first learn to build their own product with AI coding agents, then work as builder consultants on live client engagements in the Foundry Lab. The client runs the software, and it ships under the students' names.</p><p><a href="https://aifoundry.byu.edu">Visit aifoundry.byu.edu</a></p></section>
+<section class="pick"><h3>AI Foundry Marketplace</h3><a href="https://ai-foundry-byu.github.io/foundry-marketplace/"><img src="https://jddavenport.com/images/projects/nl-foundry-marketplace.jpg" alt="The AI Foundry Marketplace site listing free Claude Code plugins" width="1200" height="750" loading="lazy" decoding="async"></a><p>Free, MIT-licensed plugins for Claude Code that the Foundry builds with: a full build process plus skills, agents and hooks. One command adds it, and every item carries an honest label for how well it has been tested, from verified to new. You can use it tonight.</p><p><a href="https://ai-foundry-byu.github.io/foundry-marketplace/">Browse the marketplace</a></p></section>
+<section class="pick"><h3>App Feedback Loop: what every Foundry client app ships with</h3><a href="https://github.com/ai-foundry-byu/app-feedback-loop"><img src="https://jddavenport.com/images/projects/nl-app-feedback-loop.jpg" alt="The app-feedback-loop repository on GitHub under the ai-foundry-byu organization" width="1200" height="750" loading="lazy" decoding="async"></a><p>Every app the Foundry ships includes the same feedback button. One click captures a screenshot and the context around it, Claude Code fixes the issue with that context loaded, and the fix commit is reported back to the person who filed it. It's an open-source build spec, not a library, so an agent implements it natively in any stack. For a client, the people using the software watch their own requests get fixed.</p><p><a href="https://github.com/ai-foundry-byu/app-feedback-loop">Read the spec</a></p></section>
+<section class="pick"><h3>Nerve Center: 30+ agents taught me delegation</h3><a href="https://jddavenport.com/brain"><img src="https://jddavenport.com/images/projects/nl-nerve-center.jpg" alt="The live brain page: a radial map of every agent and background job, names hidden" width="1200" height="750" loading="lazy" decoding="async"></a><p>Nerve Center is the AI operating system I run my own work on: one orchestrator over 30+ agents in daily production, self-hosted on a Mac mini. Running it is mostly a management problem. Every job has an owner, anything irreversible waits at a gate until I say yes, and watchdogs keep checking after the work lands. The live brain page counts every agent and background job in real time, with names and data hidden.</p><p><a href="https://jddavenport.com/brain">See the live brain</a></p></section>
+<section class="pick"><h3>recruit-copilot</h3><a href="https://jddavenport.com/docs/builds/recruit-copilot/"><img src="https://jddavenport.com/images/projects/nl-recruit-copilot.jpg" alt="The recruit-copilot write-up on jddavenport.com" width="1200" height="750" loading="lazy" decoding="async"></a><p>A job search treated as a verification problem. It builds one experience bank from the resumes you already have, scores open roles against goals you set, tailors a resume per posting and checks that a machine can still read it. It never applies for you, by design.</p><p><a href="https://jddavenport.com/docs/builds/recruit-copilot/">Read the write-up</a></p></section>
+<section class="pick"><h3>Clawdling</h3><a href="https://jddavenport.com/docs/builds/clawdling/"><img src="https://jddavenport.com/images/projects/nl-clawdling.jpg" alt="The clawdling repository on GitHub under jddavenportOpen" width="1200" height="750" loading="lazy" decoding="async"></a><p>The open-source version of the idea behind Nerve Center. It runs locally on your own Claude plan, gives each project an agent and puts them on one map that shows who is working and who needs you. When an agent says it's done, you get a receipt. It's licensed AGPL-3.0.</p><p><a href="https://jddavenport.com/docs/builds/clawdling/">Read the write-up</a></p></section>
+<section class="pick"><h3>SpeedPrep: a product I build with my dad</h3><a href="https://speedprep.ai"><img src="https://jddavenport.com/images/projects/nl-speedprep.jpg" alt="The SpeedPrep home page: a math speed game with a timed multiply and divide board" width="1200" height="750" loading="lazy" decoding="async"></a><p>My dad, John Davenport, is a career engineer, and SpeedPrep is our strongest co-build. It's a math speed game: every board asks one question, you spot the shortcut and snap the tiles, and the game tells you how fast your step was. It teaches 84 shortcuts that teachers use around the world, each one backed by real video lessons. He sets the product direction and makes the design calls, and I build and test it with agents.</p><p><a href="https://speedprep.ai">Play SpeedPrep</a></p></section>
+<section class="pick"><h3>Deckboard</h3><a href="https://deckboard.party"><img src="https://jddavenport.com/images/projects/nl-deckboard.jpg" alt="Deckboard: a split-flap display running in a browser" width="1200" height="750" loading="lazy" decoding="async"></a><p>Turns any screen into a split-flap display, the kind on old airport departure boards. It runs in the browser your TV already has, with photoreal flaps, sound engineered from the real machine and a documented API for pushing your own data. It's free, with no credit card. Another build with my dad.</p><p><a href="https://deckboard.party">Try Deckboard</a></p></section>
+<section class="pick"><h3>AgentTree Merch: a store with two orders, both mine</h3><a href="https://jddavenport.com/docs/builds/agenttree-merch/"><img src="https://jddavenport.com/images/projects/nl-agenttree-merch.jpg" alt="The AgentTree Merch storefront at shop.agenttree.army" width="1200" height="750" loading="lazy" decoding="async"></a><p>shop.agenttree.army is a t-shirt store run by an agent loop: it designs, screens for trademark risk, lists products, takes payment and sends paid orders to the printer. As of mid-June it had two orders, both mine. The first one found three fulfillment bugs no mock had caught, then a fourth that charged the card and printed nothing. It works as a machine, but it is not a business yet.</p><p><a href="https://jddavenport.com/docs/builds/agenttree-merch/">Read the write-up</a></p></section>
+<h2>Free to use</h2>
+<p>Everything in the marketplace section of my docs is free to install, and each item says how well it has been tested. None of the labels are rounded up. <a href="https://jddavenport.com/docs/marketplace/">Browse 37 free items</a>.</p>
+<p>Six workflows chain those items into real jobs:</p>
+<ul><li><a href="https://jddavenport.com/docs/marketplace/zero-to-one-product-build/">0 to 1 product build</a></li><li><a href="https://jddavenport.com/docs/marketplace/parallel-lanes-with-worktrees/">Parallel lanes with worktrees</a></li><li><a href="https://jddavenport.com/docs/marketplace/ship-with-a-done-gate/">Ship with a done gate</a></li><li><a href="https://jddavenport.com/docs/marketplace/bug-report-to-merged-fix/">Bug report to merged fix</a></li><li><a href="https://jddavenport.com/docs/marketplace/scheduled-agents-and-watchers/">Scheduled agents and watchers</a></li><li><a href="https://jddavenport.com/docs/marketplace/eval-a-prompt-before-you-trust-it/">Eval a prompt before you trust it</a></li></ul>
+<p>New to agents? Start with the <a href="https://jddavenport.com/docs/ai-core-skills/">AI Core Skills series</a>: agent evals, agent tracing, and building with judgment.</p>
+<h2>What broke</h2>
+<p>Building in public means showing the misses too. Three I learned the most from:</p>
+<ul><li><a href="https://jddavenport.com/docs/builds/socrates-x/">Socrates, my X autopilot</a>, is paused. It had its architecture months before it had safety rails that worked, and that order was the mistake.</li><li><a href="https://jddavenport.com/docs/builds/merch-first-order/">The merch store's first order</a> charged the card and printed nothing.</li><li><a href="https://jddavenport.com/docs/builds/plaud-voice-notes/">Version one of my voice-note pipeline</a> was confidently wrong and polluted long-term memory. Most of the write-up is about precision.</li></ul>
+<h2>Built with my dad</h2>
+<p>My dad, John Davenport, is a career engineer. SpeedPrep and Deckboard are above. Two more:</p>
+<section class="pick"><h3>ce.rodeo</h3><a href="https://ce.rodeo"><img src="https://jddavenport.com/images/projects/nl-ce-rodeo.jpg" alt="The ce.rodeo home page: which Docker image should I pull?" width="1200" height="750" loading="lazy" decoding="async"></a><p>A free daily index that answers one question: which Docker image should I pull? It lines up every publisher's image for more than 150 open-source projects, scans each for known vulnerabilities and scores them with a published formula. It has a free public API, and my dad built it with Claude.</p><p><a href="https://ce.rodeo">Visit ce.rodeo</a></p></section>
+<section class="pick"><h3>ReadyStack</h3><a href="https://readystack.dev"><img src="https://jddavenport.com/images/projects/nl-readystack.jpg" alt="The ReadyStack home page: stable, open-source releases, automated" width="1200" height="750" loading="lazy" decoding="async"></a><p>Verified Docker releases of open-source Community Edition software. A release counts only when a clean-room rebuild, with the network turned off, reproduces the identical image digest. The build kit is free with an account.</p><p><a href="https://readystack.dev">Visit ReadyStack</a></p></section>
+<p>All 11 of our co-builds are at <a href="https://jddavenport.com/projects#john-davenport">jddavenport.com/projects</a>.</p>
+<h2>Coming up</h2>
+<ul><li>An AI product case competition for MBAs is being planned, led by Rachel Moulton's committee. We'll share details here once they're set.</li><li>5 of 10 cohort leaders are now Claude Certified Architects. Leadership goes first, then the wider roster. <a href="https://aifoundry.byu.edu/roadmap">See the roadmap</a>.</li><li>Starting next month, Foundry members write sections of this newsletter themselves.</li></ul>
+<h2>Get the next one</h2>
+<ul><li><a href="https://jddavenport.com/newsletter">Subscribe at jddavenport.com/newsletter</a>.</li><li>In the Foundry? <a href="https://jddavenport.com/newsletter/contribute">Write a section of the next issue</a>.</li><li>Want to work with us? <a href="https://aifoundry.byu.edu/network">Join the network</a> or <a href="https://aifoundry.byu.edu/quote">bring a project</a>.</li></ul>
+<p class="sign">JD</p><p class="sig">JD Davenport, founder and Managing Director, BYU AI Foundry.</p>
+<p class="foot">Drafted by the Foundry&#x27;s agents, human-approved.</p>
+  </article>
+</main>
+<footer>
+  <div class="container">
+    <a href="/">Home</a>
+    <a href="/newsletter">Newsletter</a>
+    <a href="/projects">Projects</a>
+    <a href="/docs/">Docs</a>
+    <a href="https://aifoundry.byu.edu/" target="_blank" rel="noopener">BYU AI Foundry</a>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1913 @@
+{
+ "source": "foundry-audit catalog, shipped entries only, public fields only",
+ "generated": "2026-11-09",
+ "entries": [
+  {
+   "slug": "agent-evals-starter",
+   "title": "agent-evals-starter",
+   "owner": "JD",
+   "track": "jd",
+   "category": "course",
+   "status": "live",
+   "one_liner": "Learn agent evals by running them: a support agent, 24 tasks, code graders, an LLM judge and do-nothing controls, all offline.",
+   "details": "MIT teaching repo that includes a .claude/skills/agent-evals skill and two agents (eval-task-auditor, judge-writer). Accompanies the AI Core Skills #1 agent-evals series on the docs site.",
+   "tech": [
+    "Python",
+    "evals",
+    "Claude Code skill"
+   ],
+   "links": [
+    {
+     "label": "GitHub: agent-evals-starter",
+     "url": "https://github.com/jddavenportOpen/agent-evals-starter"
+    },
+    {
+     "label": "Docs: agent evals series",
+     "url": "https://jddavenport.com/docs/"
+    },
+    {
+     "label": "Docs series",
+     "url": "https://jddavenport.com/docs/ai-core-skills/agent-evals/"
+    }
+   ],
+   "highlight_score": 9
+  },
+  {
+   "slug": "agent-safety-case-study",
+   "title": "Deploying a 30-agent AI organization safely",
+   "owner": "JD",
+   "track": "jd",
+   "category": "research",
+   "status": "live",
+   "one_liner": "A capability-versus-risk case study of running about 38 live agents with real consequences.",
+   "details": "Written 2026. For each capability (acting on a live machine, outbound communication as a real person, and others) it lists the risk, the controls and the tradeoffs. Explicitly scoped as a single-operator system, not a multi-tenant solution.",
+   "tech": [
+    "Markdown"
+   ],
+   "links": [
+    {
+     "label": "GitHub: agent-safety-case-study",
+     "url": "https://github.com/jddavenportOpen/agent-safety-case-study"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "agent-team-kit",
+   "title": "Agent Team Kit",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "A working setup for running many Claude Code agents on one app without collisions, from mockup to release to bug reports.",
+   "details": "Started as a fix for parallel agents colliding on ports, the database and the git tree. Two modes (stay on main, or per-agent git worktrees with a cockpit session that merges) share the same hooks: dev-port assignment, schema lock, git guard, file-size ratchet, import boundaries, pre-commit and pre-push gates. It also ships a /mockup skill for clickable prototypes, a memory pack, /fix-bug and /ux-critique skills, specs for in-app feedback loops, and notes on tending agents from a phone. The repo has no license file yet, so ask before you reuse it.",
+   "tech": [
+    "JavaScript",
+    "bash",
+    "Claude Code hooks",
+    "Node hooks",
+    "Bash",
+    "Claude Code"
+   ],
+   "links": [
+    {
+     "label": "Repo",
+     "url": "https://github.com/ai-foundry-byu/agent-team-kit"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "agenttree-merch",
+   "title": "AgentTree Merch: an AI-operated store",
+   "owner": "JD",
+   "track": "jd",
+   "category": "business",
+   "status": "live",
+   "one_liner": "A print-on-demand t-shirt store run by an agent loop, with money, identity and IP sign-off kept human.",
+   "details": "shop.agenttree.army designs, screens for trademark risk, generates art, lists products, takes Stripe payment and sends paid orders to Printful. The write-up is blunt: as of mid-June 2026 it had two orders, both JD's own, and it is an engineering case study, not a revenue story. First real order found three fulfillment bugs that a synthetic harness missed, plus a fourth that charged without printing. There is also a step-by-step guide to build your own and an IP-safety-gate article on why a classifier must fail closed.",
+   "tech": [
+    "Next.js",
+    "Stripe",
+    "Printful",
+    "Supabase",
+    "image model"
+   ],
+   "links": [
+    {
+     "label": "Store",
+     "url": "https://shop.agenttree.army"
+    },
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/agenttree-merch/"
+    },
+    {
+     "label": "First-order bugs",
+     "url": "https://jddavenport.com/docs/builds/merch-first-order/"
+    },
+    {
+     "label": "Build your own",
+     "url": "https://jddavenport.com/docs/builds/build-an-ai-merch-store/"
+    },
+    {
+     "label": "IP-safety gate",
+     "url": "https://jddavenport.com/docs/builds/ip-safety-gate/"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "agi-readiness-auditor",
+   "title": "AGI readiness auditor and AI spend tracker",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "built",
+   "one_liner": "A CLI that pressure-tests public AGI-safety claims, and a tracker for AI lab spend.",
+   "details": "Two small research tools from the same line of work.",
+   "tech": [
+    "Python"
+   ],
+   "links": [
+    {
+     "label": "GitHub: agi-readiness-auditor",
+     "url": "https://github.com/jddavenportOpen/agi-readiness-auditor"
+    },
+    {
+     "label": "GitHub: ai-spend-tracker",
+     "url": "https://github.com/jddavenportOpen/ai-spend-tracker"
+    }
+   ],
+   "highlight_score": 3
+  },
+  {
+   "slug": "ai-foundry-program",
+   "title": "BYU AI Foundry (the program)",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "program",
+   "status": "live",
+   "one_liner": "An AI-native product studio and consultancy at BYU Marriott where students build production AI software for real clients.",
+   "details": "AI Foundry is an official program of BYU Marriott, administered by BYU Strategy, with Scott Murff as faculty advisor and JD Davenport as Managing Director. The 2026-27 cohort is 30 students (15 MBAs, 15 undergrads) working in teams of one or two on five-week client engagements. Students first learn the Builder toolkit, then work as builder consultants in the Foundry Lab (MBA 693R / STRAT 490R). AI Foundry is a member of Anthropic's Claude Partner Network, and the public roadmap tracks the network, advisors and certifications as they grow.",
+   "tech": [
+    "Next.js",
+    "Supabase",
+    "Claude Code"
+   ],
+   "links": [
+    {
+     "label": "Official site",
+     "url": "https://aifoundry.byu.edu"
+    },
+    {
+     "label": "Our approach",
+     "url": "https://aifoundry.byu.edu/approach"
+    },
+    {
+     "label": "For students",
+     "url": "https://aifoundry.byu.edu/students"
+    },
+    {
+     "label": "Oct 2026 update",
+     "url": "https://aifoundry.byu.edu/update"
+    },
+    {
+     "label": "Org on GitHub",
+     "url": "https://github.com/ai-foundry-byu"
+    }
+   ],
+   "highlight_score": 10
+  },
+  {
+   "slug": "ai-phone-desk",
+   "title": "ai-phone-desk",
+   "owner": "JD",
+   "track": "jd",
+   "category": "agent",
+   "status": "live",
+   "one_liner": "A Vapi voice agent where nothing dials until a human approves the exact request.",
+   "details": "A human-approval pattern for voice agents: nothing dials until a person approves the exact request. Built on a Vapi voice agent with content-bound approval, for your own agent stack or an outside agent.",
+   "tech": [
+    "Vapi",
+    "Python"
+   ],
+   "links": [
+    {
+     "label": "GitHub: ai-phone-desk",
+     "url": "https://github.com/jddavenportOpen/ai-phone-desk"
+    }
+   ],
+   "highlight_score": 7
+  },
+  {
+   "slug": "aifoundry-site",
+   "title": "aifoundry.byu.edu official website",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "website",
+   "status": "live",
+   "one_liner": "The program's public site: work, approach, student path, network signup, project requests, roadmap and donors.",
+   "details": "A Next.js and Tailwind site in the public repo ai-foundry-byu/website, deployed on Vercel under BYU's domain. Pages cover Our work, Our approach, For students, About, Join the network, Start a project, the Roadmap, Donors and a monthly Update. The roadmap page reads its counts live from the program's own database.",
+   "tech": [
+    "Next.js 16",
+    "Tailwind v4",
+    "TypeScript",
+    "Vercel"
+   ],
+   "links": [
+    {
+     "label": "Live site",
+     "url": "https://aifoundry.byu.edu"
+    },
+    {
+     "label": "Repo",
+     "url": "https://github.com/ai-foundry-byu/website"
+    },
+    {
+     "label": "Roadmap",
+     "url": "https://aifoundry.byu.edu/roadmap"
+    },
+    {
+     "label": "Join the network",
+     "url": "https://aifoundry.byu.edu/network"
+    },
+    {
+     "label": "Start a project",
+     "url": "https://aifoundry.byu.edu/quote"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "analytics-suite",
+   "title": "Analytics suite (30/30 on practice final)",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "built",
+   "one_liner": "Seven statistical playbooks, a classifier, a solver and a verifier; tool use beat model choice.",
+   "details": "Built in a day in April 2026 for a take-home MBA analytics final where the course allowed AI. The setup that computed its answers scored 30 of 30 on the practice exam; models answering cold landed around 15 to 21 regardless of which model it was. Tool use beat model choice.",
+   "tech": [
+    "Python",
+    "statistics"
+   ],
+   "links": [
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/analytics-suite/"
+    }
+   ],
+   "highlight_score": 7
+  },
+  {
+   "slug": "app-feedback-loop",
+   "title": "App Feedback Loop",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "Open build spec for an in-app feedback button: one click captures a screenshot and context, an agent fixes it, the fix commit thanks the reporter.",
+   "details": "Not a library: a SPEC.md that a coding agent implements natively in your stack. Install is a single prompt telling Claude Code to read the spec and run the checks in VERIFY.md. The loop covers a widget (also Cmd/Ctrl+Shift+F), a context bundle (route, breadcrumbs, console, network, errors, environment, screenshot) with client-side secret scrubbing, an intake endpoint, an admin inbox, a /fix-bug skill, and a git hook that closes the loop to the reporter. Featured first on the Our work page and built into every app the Foundry ships.",
+   "tech": [
+    "Shell",
+    "Markdown spec",
+    "Claude Code",
+    "Claude Code skills",
+    "spec"
+   ],
+   "links": [
+    {
+     "label": "Repo",
+     "url": "https://github.com/ai-foundry-byu/app-feedback-loop"
+    },
+    {
+     "label": "Our work page",
+     "url": "https://aifoundry.byu.edu/work"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "beefshopper",
+   "title": "BeefShopper",
+   "owner": "John Davenport + JD",
+   "track": "dad",
+   "category": "website",
+   "status": "live",
+   "one_liner": "Evidence-first rankings of US home-delivery ribeye, scored by an open algorithm.",
+   "details": "BeefShopper compares 270+ ribeye listings across 27 mail-order beef vendors in one searchable table, scored by an algorithm with no editor opinion and sorted by real attributes and price per pound. Every claim carries its source and a verification tier (self-claimed, user-reported, third-party). The site states affiliate commissions never affect scores. Revenue is affiliate links only. It is a narrow, high-intent comparison-site model.",
+   "tech": [
+    "Next.js-style web app",
+    "Cloudflare"
+   ],
+   "links": [
+    {
+     "label": "BeefShopper",
+     "url": "https://beefshopper.com"
+    }
+   ],
+   "highlight_score": 5
+  },
+  {
+   "slug": "bookjd",
+   "title": "BookJD",
+   "owner": "JD",
+   "track": "jd",
+   "category": "app",
+   "status": "live",
+   "one_liner": "Self-hosted Calendly replacement on Next.js, Supabase, Google Calendar free/busy and Stripe.",
+   "details": "Live and open source, powers the booking flow on JD's site.",
+   "tech": [
+    "Next.js",
+    "Supabase",
+    "Google Calendar",
+    "Stripe"
+   ],
+   "links": [
+    {
+     "label": "GitHub: bookjd",
+     "url": "https://github.com/jddavenportOpen/bookjd"
+    },
+    {
+     "label": "Live",
+     "url": "https://bookjd.vercel.app/book"
+    }
+   ],
+   "highlight_score": 5
+  },
+  {
+   "slug": "brio-energy-sales-ops",
+   "title": "Brio Energy: sales and accounting systems",
+   "owner": "JD",
+   "track": "career",
+   "category": "client-project",
+   "status": "archived",
+   "one_liner": "Built a custom CRM that cut sales-to-accounting turnaround from 5 days to 15 minutes.",
+   "details": "2018-2020 Senior Full-Stack Developer and Product Owner at a solar company. Built a CRM around the sales-to-accounting handoff, a lead-generation site producing 175+ qualified leads a week (contributing to $3.9M annual new revenue), and microservices that cut accounting spend by $745K a year against prior-year run rate.",
+   "tech": [
+    "full-stack",
+    "CRM",
+    "microservices"
+   ],
+   "links": [
+    {
+     "label": "Case study (public)",
+     "url": "https://jddavenport.com/work/brio-energy-sales-ops-systems"
+    }
+   ],
+   "highlight_score": 5
+  },
+  {
+   "slug": "byu-outlook-integration",
+   "title": "BYU Outlook browser integration",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "built",
+   "one_liner": "Browser automation for BYU Outlook and Teams where no API exists.",
+   "details": "Public repo of the technique; the live version in JD's system signs in with stored credentials.",
+   "tech": [
+    "Playwright"
+   ],
+   "links": [
+    {
+     "label": "GitHub: byu-outlook-browser-integration",
+     "url": "https://github.com/jddavenportOpen/byu-outlook-browser-integration"
+    }
+   ],
+   "highlight_score": 2
+  },
+  {
+   "slug": "caseprep",
+   "title": "CasePrep and caseprep CLI",
+   "owner": "JD",
+   "track": "jd",
+   "category": "app",
+   "status": "built",
+   "one_liner": "Paste an MBA case, get frameworks, key questions and analysis in about 60 seconds.",
+   "details": "Next.js 14 with Better Auth, Turso, Stripe subscriptions and GPT-4o-mini. A separate local CLI extracts financials and entities from case PDFs and builds a prep template.",
+   "tech": [
+    "Next.js",
+    "Turso",
+    "Stripe",
+    "OpenAI"
+   ],
+   "links": [
+    {
+     "label": "GitHub: caseprep",
+     "url": "https://github.com/jddavenportOpen/caseprep"
+    }
+   ],
+   "highlight_score": 6
+  },
+  {
+   "slug": "ccstitch",
+   "title": "ccstitch",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "Local trace store for Claude Code OpenTelemetry spans that repairs orphaned headless turns.",
+   "details": "Public MIT repo on jddavenportOpen (descriptions from gh repo list). Library/CLI style code repo; no SKILL.md, plugin.json or agent .md found in the tree, so offer as 'clone and run', not plugin install. Read the README before writing detailed claims.",
+   "tech": [
+    "OpenTelemetry",
+    "Claude Code",
+    "Python/TypeScript (per README, unchecked)"
+   ],
+   "links": [
+    {
+     "label": "GitHub: ccstitch",
+     "url": "https://github.com/jddavenportOpen/ccstitch"
+    }
+   ],
+   "highlight_score": 6
+  },
+  {
+   "slug": "ce-rodeo",
+   "title": "ce.rodeo",
+   "owner": "John Davenport + JD",
+   "track": "dad",
+   "category": "website",
+   "status": "live",
+   "one_liner": "A free daily index that grades the Docker images of more than 150 open-source projects by security and health.",
+   "details": "ce.rodeo answers 'which Docker image should I pull?' by lining up every publisher's image for more than 150 open-source projects, scanning each for known vulnerabilities, and giving a letter grade from a published formula. It ranks publishers, lists images whose grade dropped this week, and has a free public data API. It began scanning in October 2026. John Davenport built it with Claude.",
+   "tech": [
+    "Public JSON API",
+    "Container vulnerability scanning"
+   ],
+   "links": [
+    {
+     "label": "ce.rodeo",
+     "url": "https://ce.rodeo"
+    },
+    {
+     "label": "API",
+     "url": "https://ce.rodeo/api"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "claude-bug-squash",
+   "title": "claude-bug-squash",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "A gated autonomous bug fixer: triage, a fix in an isolated worktree, red-to-green proof, and a three-seat review before anything merges.",
+   "details": "Point Claude Code at a repo and report a bug. It triages and assigns a risk tier, writes a fix in a throwaway git worktree, proves the bug goes red to green, then runs the real diff through blast-radius caps, a never-touch deny-list and a 3-seat adversarial review panel. Merging is off by default; the user reads proposed diffs first. Public MIT plugin and standalone CLI.",
+   "tech": [
+    "Claude Code",
+    "git worktrees",
+    "bash/Python",
+    "Claude Code plugin",
+    "Python"
+   ],
+   "links": [
+    {
+     "label": "GitHub: claude-bug-squash",
+     "url": "https://github.com/jddavenportOpen/claude-bug-squash"
+    }
+   ],
+   "highlight_score": 9
+  },
+  {
+   "slug": "claude-code-behavior-specs",
+   "title": "Claude Code behavior specs",
+   "owner": "JD",
+   "track": "jd",
+   "category": "research",
+   "status": "live",
+   "one_liner": "Target-behavior specs for the Claude Code CLI written from production incidents, with runnable reproductions and proposed evals.",
+   "details": "Observed-versus-expected behavior of Claude Code, written from incidents in a roughly 55-agent estate.",
+   "tech": [
+    "Markdown",
+    "evals"
+   ],
+   "links": [
+    {
+     "label": "GitHub: claude-code-behavior-specs",
+     "url": "https://github.com/jddavenportOpen/claude-code-behavior-specs"
+    }
+   ],
+   "highlight_score": 5
+  },
+  {
+   "slug": "claude-deploy-kit",
+   "title": "claude-deploy-kit",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "Enterprise controls for deploying Claude agents: policy chokepoint, destructive-command deny hook, eval gate, redacting audit log.",
+   "details": "Public MIT repo on jddavenportOpen (descriptions from gh repo list). Library/CLI style code repo; no SKILL.md, plugin.json or agent .md found in the tree, so offer as 'clone and run', not plugin install. Read the README before writing detailed claims.",
+   "tech": [
+    "Python",
+    "Claude Code hooks",
+    "Python/TypeScript (per README, unchecked)"
+   ],
+   "links": [
+    {
+     "label": "GitHub: claude-deploy-kit",
+     "url": "https://github.com/jddavenportOpen/claude-deploy-kit"
+    }
+   ],
+   "highlight_score": 7
+  },
+  {
+   "slug": "claude-partner-and-certification",
+   "title": "Claude Partner Network and Claude Architect certification",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "milestone",
+   "status": "live",
+   "one_liner": "AI Foundry is a member of Anthropic's Claude Partner Network, and its cohort leaders are working through the Claude Certified Architect exam.",
+   "details": "Members complete four Anthropic courses (Agent Skills, Building with the Claude API, Model Context Protocol, and Claude Code in Action), then sit the Claude Certified Architect exam, with group study sessions along the way. The public roadmap shows how many cohort leaders have passed.",
+   "tech": [
+    "Anthropic",
+    "Anthropic Skilljar"
+   ],
+   "links": [
+    {
+     "label": "Roadmap",
+     "url": "https://aifoundry.byu.edu/roadmap"
+    },
+    {
+     "label": "Anthropic partner courses",
+     "url": "https://anthropic-partners.skilljar.com/"
+    }
+   ],
+   "highlight_score": 6
+  },
+  {
+   "slug": "clawd-agent-os",
+   "title": "clawd-agent-os",
+   "owner": "JD",
+   "track": "jd",
+   "category": "harness",
+   "status": "live",
+   "one_liner": "Orchestrate 50+ Claude agents: worktree fleets, a durable agent bus, single-registry model tiering.",
+   "details": "Public MIT repo on jddavenportOpen (descriptions from gh repo list). Library/CLI style code repo; no SKILL.md, plugin.json or agent .md found in the tree, so offer as 'clone and run', not plugin install. Read the README before writing detailed claims.",
+   "tech": [
+    "Python/TypeScript (per README, unchecked)"
+   ],
+   "links": [
+    {
+     "label": "Repo",
+     "url": "https://github.com/jddavenportOpen/clawd-agent-os"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "clawdacademy",
+   "title": "Clawdacademy (AI fluency trainer)",
+   "owner": "JD",
+   "track": "jd",
+   "category": "app",
+   "status": "live",
+   "one_liner": "Scores seven judgment behaviors in your real Claude Code sessions, names your weakest habit and coaches in-flow.",
+   "details": "Local-first, free, MIT. Cites the METR study (developers felt 20% faster but measured 19% slower). Live at clawdacademy.app; repo is ai-fluency-trainer.",
+   "tech": [
+    "Claude Code plugin",
+    "Python",
+    "Bash"
+   ],
+   "links": [
+    {
+     "label": "Site",
+     "url": "https://clawdacademy.app"
+    },
+    {
+     "label": "GitHub: ai-fluency-trainer",
+     "url": "https://github.com/jddavenportOpen/ai-fluency-trainer"
+    }
+   ],
+   "highlight_score": 7
+  },
+  {
+   "slug": "clawdling",
+   "title": "Clawdling: Claude Code projects as one org map",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "Your Claude Code as a whole org: an agent for each project on one map, showing who is working and who needs you, with a receipt when one says done.",
+   "details": "Clawdling is the open-source, bring-your-own-key extraction of the idea behind JD's private system. It runs locally on your own Claude plan, gives each project an agent, and puts them on one map showing who is working and who needs you. A receipt is shown when an agent claims it is done. It is AGPL-3.0 and is the engine under Clawdascended, a hosted product JD says is still early. The build write-up covers the bugs that only appeared when it was tested as a stranger from a fresh clone.",
+   "tech": [
+    "Claude Code",
+    "Node",
+    "AGPL-3.0",
+    "Claude Code CLI"
+   ],
+   "links": [
+    {
+     "label": "GitHub: clawdling",
+     "url": "https://github.com/jddavenportOpen/clawdling"
+    },
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/clawdling/"
+    }
+   ],
+   "highlight_score": 9
+  },
+  {
+   "slug": "contact-list-builder",
+   "title": "contact-list-builder skill",
+   "owner": "JD",
+   "track": "jd",
+   "category": "skill",
+   "status": "live",
+   "one_liner": "A Claude Code skill that builds verified public contact lists; a script re-downloads every source page to prove each email and phone.",
+   "details": "Six to eight parallel research subagents split the search by segment and region. A script, not the model, then re-downloads every source page and checks that each email and phone is really there. First real run: 213 contacts across 6 segments in about 15 minutes, every one confirmed against its source page.",
+   "tech": [
+    "Claude Code skill",
+    "subagents"
+   ],
+   "links": [
+    {
+     "label": "GitHub: contact-list-builder",
+     "url": "https://github.com/jddavenportOpen/contact-list-builder"
+    }
+   ],
+   "highlight_score": 7
+  },
+  {
+   "slug": "content-pipeline",
+   "title": "LinkedIn and content pipeline",
+   "owner": "JD",
+   "track": "jd",
+   "category": "agent",
+   "status": "live",
+   "one_liner": "Idea sourcing, drafting in JD's voice, a second-model review and a per-post approval card; one door to publish.",
+   "details": "Approval is void if one word changes after yes. A comment drafter never posts on its own. The write-up covers a bug that hid its drafts for weeks.",
+   "tech": [
+    "LLM",
+    "approval gate"
+   ],
+   "links": [
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/linkedin-and-content/"
+    }
+   ],
+   "highlight_score": 5
+  },
+  {
+   "slug": "context-kit",
+   "title": "Context Kit",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "Four Markdown templates and five Claude Code skills that give an AI permanent personal context; installs in 60 seconds.",
+   "details": "MIT repo with templates for a personal wiki, mental models, voice and protocols files and skills to use them. Install is a curl-to-bash script.",
+   "tech": [
+    "Markdown",
+    "bash",
+    "Bash"
+   ],
+   "links": [
+    {
+     "label": "GitHub: context-kit",
+     "url": "https://github.com/jddavenportOpen/context-kit"
+    }
+   ],
+   "highlight_score": 7
+  },
+  {
+   "slug": "course-expert-agents",
+   "title": "Course-expert agents",
+   "owner": "JD",
+   "track": "jd",
+   "category": "agent",
+   "status": "live",
+   "one_liner": "One agent per enrolled course that answers from the real slides and syllabus, cites the exact slide, and knows what is due.",
+   "details": "Started April 2026 with one analytics course, then one expert per course from fall 2026, plus a seat for a course JD TAs. Retrieval is built offline; deadlines come from the LMS. The write-up lists five failures. Same-question disagreement between three general models on 2026-04-21 motivated it.",
+   "tech": [
+    "Canvas API",
+    "RAG",
+    "Claude"
+   ],
+   "links": [
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/course-expert-agents/"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "crypto-analytics-oss",
+   "title": "Crypto analytics engine (educational)",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "built",
+   "one_liner": "Coin-agnostic educational confluence-analytics engine: TA, derivatives, on-chain, macro, sentiment.",
+   "details": "An educational analytics engine that combines technical analysis, derivatives, on-chain, macro and sentiment signals for any coin. Educational only. Not financial advice.",
+   "tech": [
+    "Python"
+   ],
+   "links": [
+    {
+     "label": "GitHub: crypto-analytics-oss",
+     "url": "https://github.com/jddavenportOpen/crypto-analytics-oss"
+    }
+   ],
+   "highlight_score": 3
+  },
+  {
+   "slug": "deckboard",
+   "title": "Deckboard",
+   "owner": "John Davenport + JD",
+   "track": "dad",
+   "category": "app",
+   "status": "live",
+   "one_liner": "Turn any screen into a photoreal split-flap (airport departures board) display, free.",
+   "details": "Deckboard runs in the browser on any TV, tablet or monitor and shows a Solari-style split-flap board with hinge shadows, flap motion and sound modelled on the real machine. It has live channels and a documented push API so developers can send data from cron jobs or webhooks. Positioned as free with no tiers, against hardware boards and subscription services. Aimed at cafes, offices, venues and makers.",
+   "tech": [
+    "Browser app",
+    "Web Audio",
+    "REST push API"
+   ],
+   "links": [
+    {
+     "label": "Deckboard",
+     "url": "https://deckboard.party"
+    }
+   ],
+   "highlight_score": 7
+  },
+  {
+   "slug": "decks",
+   "title": "AI decks that don't look like AI",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "Eight failed python-pptx attempts, then a design system plus a render-read-critique-fix loop.",
+   "details": "From April to June 2026 JD learned that layout decisions must leave the model and the model must look at the rendered slide. This is how his decks are built today.",
+   "tech": [
+    "python-pptx",
+    "rendering"
+   ],
+   "links": [
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/decks/"
+    }
+   ],
+   "highlight_score": 6
+  },
+  {
+   "slug": "deep-research-agent",
+   "title": "deep-research-agent",
+   "owner": "JD",
+   "track": "jd",
+   "category": "agent",
+   "status": "live",
+   "one_liner": "Iterative multi-source research agent: knowledge-gap loop, devil's-advocate pass, per-claim refute-or-survive verification.",
+   "details": "Keeps searching until it cannot name a gap, argues against itself, then tries to refute every factual claim. The per-claim verify stage is ported with credit from Claude Code's /deep-research skill. The build page also covers two embarrassing failures of the agent.",
+   "tech": [
+    "Python",
+    "LLM",
+    "Python/TypeScript (per README, unchecked)"
+   ],
+   "links": [
+    {
+     "label": "GitHub: deep-research-agent",
+     "url": "https://github.com/jddavenportOpen/deep-research-agent"
+    },
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/deep-research-agent/"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "ethos-gate",
+   "title": "ethos-gate",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "A PreToolUse safety gate that blocks irreversible or outward-facing agent actions unless a human approved that exact content.",
+   "details": "A MIT-licensed PreToolUse gate for autonomous agents with 4 hooks, 62 tests and a lethal-trifecta auditor, extracted from JD's own estate. Installable as a Python package; no plugin.json found in the tree, so it is not one-command plugin-installable.",
+   "tech": [
+    "Claude Code hooks",
+    "Python"
+   ],
+   "links": [
+    {
+     "label": "GitHub: ethos-gate",
+     "url": "https://github.com/jddavenportOpen/ethos-gate"
+    },
+    {
+     "label": "Docs",
+     "url": "https://jddavenport.com/docs/safety-and-operations/the-send-gate/"
+    }
+   ],
+   "highlight_score": 9
+  },
+  {
+   "slug": "fable-software",
+   "title": "Fable Software",
+   "owner": "John Davenport + JD",
+   "track": "dad",
+   "category": "website",
+   "status": "live",
+   "one_liner": "Dad's umbrella brand: software for construction companies where customers own their data.",
+   "details": "Fable Software is the 'own your data, own your future' front page for a family of field and back-office tools (SitePilot, SolarKnock, SendSignatures and a tracker), aimed at contractors, solar installers and EPC crews. It is positioned against per-seat SaaS pricing and lock-in, and offers a free consultation rather than a signup funnel. It is also the legal entity (Fable Software LLC) behind several products.",
+   "tech": [
+    "Web"
+   ],
+   "links": [
+    {
+     "label": "Fable Software",
+     "url": "https://fable-software.com"
+    }
+   ],
+   "highlight_score": 4
+  },
+  {
+   "slug": "fleetwright",
+   "title": "Fleetwright",
+   "owner": "JD",
+   "track": "jd",
+   "category": "harness",
+   "status": "built",
+   "one_liner": "Self-hosted agent operations OS: a CEO orchestrator, domain agents, a Next.js cockpit and a fleet engine in git worktrees.",
+   "details": "Public sibling of the private Nerve Center; FastAPI bridge plus Next.js cockpit.",
+   "tech": [
+    "FastAPI",
+    "Next.js",
+    "Claude Code"
+   ],
+   "links": [
+    {
+     "label": "GitHub: fleetwright",
+     "url": "https://github.com/jddavenportOpen/fleetwright"
+    }
+   ],
+   "highlight_score": 5
+  },
+  {
+   "slug": "foundry-builder-kit",
+   "title": "Foundry Builder Kit plugin",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "plugin",
+   "status": "live",
+   "one_liner": "Day-one build skills: add auth, 10k-user launch audit, secrets hygiene, cheap LLM routing, scheduled agents, tmux agents.",
+   "details": "6 skills with runnable scripts and templates (launchd, cron, GitHub Actions, pre-commit secret scan) and tests. Evidence: 4 verified, 3 beta; generated code is unit-tested but not run end to end, per the README. Part of the foundry-marketplace; MIT.",
+   "tech": [
+    "Claude Code plugin"
+   ],
+   "links": [
+    {
+     "label": "Plugin dir",
+     "url": "https://github.com/ai-foundry-byu/foundry-marketplace/tree/main/plugins/foundry-builder-kit"
+    },
+    {
+     "label": "Marketplace site",
+     "url": "https://ai-foundry-byu.github.io/foundry-marketplace/"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "foundry-design",
+   "title": "Foundry Design plugin",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "plugin",
+   "status": "live",
+   "one_liner": "A subtract-only design critic, UI spec writer with full state matrix, and design-system template.",
+   "details": "Skills design-critique, ui-ux-spec, design-system and agent ui-reviewer. Evidence: 2 verified, 2 beta. Part of the foundry-marketplace; MIT.",
+   "tech": [
+    "Claude Code plugin"
+   ],
+   "links": [
+    {
+     "label": "Plugin dir",
+     "url": "https://github.com/ai-foundry-byu/foundry-marketplace/tree/main/plugins/foundry-design"
+    },
+    {
+     "label": "Marketplace site",
+     "url": "https://ai-foundry-byu.github.io/foundry-marketplace/"
+    }
+   ],
+   "highlight_score": 7
+  },
+  {
+   "slug": "foundry-devices",
+   "title": "Foundry Devices plugin",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "plugin",
+   "status": "beta",
+   "one_liner": "Native QA agents for iOS Simulator, Android, Windows and macOS plus a device-matrix skill.",
+   "details": "4 agents (android-qa, ios-qa, macos-qa, windows-qa) and 4 skills. Evidence: mostly beta, 1 new; passes on CI runners but not yet on a student's own app per README. Part of the foundry-marketplace; MIT.",
+   "tech": [
+    "Claude Code plugin"
+   ],
+   "links": [
+    {
+     "label": "Plugin dir",
+     "url": "https://github.com/ai-foundry-byu/foundry-marketplace/tree/main/plugins/foundry-devices"
+    },
+    {
+     "label": "Marketplace site",
+     "url": "https://ai-foundry-byu.github.io/foundry-marketplace/"
+    }
+   ],
+   "highlight_score": 5
+  },
+  {
+   "slug": "foundry-evals",
+   "title": "Foundry Evals plugin",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "plugin",
+   "status": "live",
+   "one_liner": "Scaffold an eval suite with oracles, code graders, a binary judge and negative controls; run, compare and hill-climb it.",
+   "details": "Skills new-eval, run-eval, hillclimb and agent eval-auditor. Evidence: 3 verified, 1 beta. Pairs with the AI Core Skills agent-evals docs. Part of the foundry-marketplace; MIT.",
+   "tech": [
+    "Claude Code plugin"
+   ],
+   "links": [
+    {
+     "label": "Plugin dir",
+     "url": "https://github.com/ai-foundry-byu/foundry-marketplace/tree/main/plugins/foundry-evals"
+    },
+    {
+     "label": "Marketplace site",
+     "url": "https://ai-foundry-byu.github.io/foundry-marketplace/"
+    }
+   ],
+   "highlight_score": 9
+  },
+  {
+   "slug": "foundry-guardrails",
+   "title": "Foundry Guardrails plugin (hooks)",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "plugin",
+   "status": "live",
+   "one_liner": "Hooks that block destructive commands and secret leaks and require tests before done, push or deploy.",
+   "details": "Hook-only plugin plus a guardrails-help skill. Described by its authors as a seatbelt, not a vault; limits are listed. Evidence: 6 verified, 1 beta. Part of the foundry-marketplace; MIT.",
+   "tech": [
+    "Claude Code plugin"
+   ],
+   "links": [
+    {
+     "label": "Plugin dir",
+     "url": "https://github.com/ai-foundry-byu/foundry-marketplace/tree/main/plugins/foundry-guardrails"
+    },
+    {
+     "label": "Marketplace site",
+     "url": "https://ai-foundry-byu.github.io/foundry-marketplace/"
+    }
+   ],
+   "highlight_score": 9
+  },
+  {
+   "slug": "foundry-iphone-mirror",
+   "title": "Foundry iPhone Mirror plugin",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "plugin",
+   "status": "beta",
+   "one_liner": "Drive a real iPhone from a Mac through iPhone Mirroring: screenshot, read, tap, type, swipe.",
+   "details": "Skill, iphone-driver agent and an MCP server. Labeled new (experimental); README says it has never driven a real phone in tests. Part of the foundry-marketplace; MIT.",
+   "tech": [
+    "Claude Code plugin"
+   ],
+   "links": [
+    {
+     "label": "Plugin dir",
+     "url": "https://github.com/ai-foundry-byu/foundry-marketplace/tree/main/plugins/foundry-iphone-mirror"
+    },
+    {
+     "label": "Marketplace site",
+     "url": "https://ai-foundry-byu.github.io/foundry-marketplace/"
+    }
+   ],
+   "highlight_score": 4
+  },
+  {
+   "slug": "foundry-lab-site",
+   "title": "Foundry Lab student program guide",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "course",
+   "status": "live",
+   "one_liner": "Quarto site with the course syllabus, certification track, staffing model, client update norms and build standards.",
+   "details": "The course site for the Foundry Lab. It covers the AI Foundry Constitution and Operating Model, the Client Service Selection Policy, The Builder and the Consultant, the syllabus and sprints, the Claude certification track with a practice exam, and how client teams are staffed.",
+   "tech": [
+    "Quarto",
+    "SCSS",
+    "GitHub Pages"
+   ],
+   "links": [
+    {
+     "label": "Student guide",
+     "url": "https://byu-strategy.github.io/ai-foundry/"
+    },
+    {
+     "label": "Repo",
+     "url": "https://github.com/byu-strategy/ai-foundry"
+    }
+   ],
+   "highlight_score": 6
+  },
+  {
+   "slug": "foundry-marketplace",
+   "title": "AI Foundry Marketplace",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "plugin",
+   "status": "live",
+   "one_liner": "Free MIT-licensed plugin marketplace for Claude Code: an 8-stage SDLC plus skills, agents and hooks, each labeled by how well tested.",
+   "details": "Install with one /plugin command into your own Claude Code. The catalog index lists 53 items (32 skills, 12 agents, 8 hooks) across 9 plugins: foundry-sdlc, guardrails, qa, design, devices, iphone-mirror, evals, builder-kit and recruit. Each item carries an honest label: 32 verified (passed a live end-to-end run), 18 beta and 3 new. The framework encodes norms such as root-cause-first, never say done without a passing gate, and review by blast radius. A browsable site and machine-readable catalog-index.json let an agent pick the smallest set of plugins for a project.",
+   "tech": [
+    "Claude Code plugins",
+    "Python (stdlib)",
+    "GitHub Pages",
+    "MIT",
+    "Python 3.9 stdlib hooks",
+    "Playwright",
+    "Claude Code",
+    "evals"
+   ],
+   "links": [
+    {
+     "label": "Repo",
+     "url": "https://github.com/ai-foundry-byu/foundry-marketplace"
+    },
+    {
+     "label": "Browse site",
+     "url": "https://ai-foundry-byu.github.io/foundry-marketplace/"
+    },
+    {
+     "label": "Machine catalog",
+     "url": "https://ai-foundry-byu.github.io/foundry-marketplace/catalog-index.json"
+    }
+   ],
+   "highlight_score": 10
+  },
+  {
+   "slug": "foundry-qa",
+   "title": "Foundry QA plugin",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "plugin",
+   "status": "live",
+   "one_liner": "Definition-of-done gate: deployed SHA plus a Playwright journey on desktop, phone and tablet, regression and a11y checks.",
+   "details": "6 skills (done-gate, regression-check, a11y-check, explore, persona-run, visual-baseline) and 3 agents (web-qa, explorer, persona-tester). Evidence: 6 verified, 3 beta. Part of the foundry-marketplace; MIT.",
+   "tech": [
+    "Claude Code plugin"
+   ],
+   "links": [
+    {
+     "label": "Plugin dir",
+     "url": "https://github.com/ai-foundry-byu/foundry-marketplace/tree/main/plugins/foundry-qa"
+    },
+    {
+     "label": "Marketplace site",
+     "url": "https://ai-foundry-byu.github.io/foundry-marketplace/"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "foundry-sdlc",
+   "title": "Foundry SDLC plugin",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "plugin",
+   "status": "live",
+   "one_liner": "The 8-stage 0-to-1 workflow: scaffold, requirements, PRD and stories, workplan, parallel lanes, QA, ship, feedback.",
+   "details": "8 skills (new-project, gather-requirements, write-prd, write-workplan, parallel-lanes, ship, bug-to-story, sdlc) plus 2 judge agents (prd-critic, story-verifier) and hooks. Evidence: 10 verified, 1 beta. Part of the foundry-marketplace; MIT.",
+   "tech": [
+    "Claude Code plugin"
+   ],
+   "links": [
+    {
+     "label": "Plugin dir",
+     "url": "https://github.com/ai-foundry-byu/foundry-marketplace/tree/main/plugins/foundry-sdlc"
+    },
+    {
+     "label": "Marketplace site",
+     "url": "https://ai-foundry-byu.github.io/foundry-marketplace/"
+    }
+   ],
+   "highlight_score": 9
+  },
+  {
+   "slug": "french-80-20",
+   "title": "French 80/20",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "app",
+   "status": "live",
+   "one_liner": "AI-native French learning app for web and iPhone focused on the words you actually use and progress toward 80% of everyday French.",
+   "details": "Shown on Our work as a reference build that is shipped and running on web and iPhone. The public description stresses personalized vocabulary and measured progress toward 80% comprehension of everyday French.",
+   "tech": [
+    "Web",
+    "iOS"
+   ],
+   "links": [
+    {
+     "label": "Live",
+     "url": "https://french8020.com"
+    },
+    {
+     "label": "Our work",
+     "url": "https://aifoundry.byu.edu/work"
+    }
+   ],
+   "highlight_score": 6
+  },
+  {
+   "slug": "harnessview",
+   "title": "harnessview",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "Scans a Claude Code project's agents, skills, hooks, MCP and settings and draws one live graph with broken wiring in red.",
+   "details": "Public MIT repo on jddavenportOpen (descriptions from gh repo list). Library/CLI style code repo; no SKILL.md, plugin.json or agent .md found in the tree, so offer as 'clone and run', not plugin install. Read the README before writing detailed claims.",
+   "tech": [
+    "Node",
+    "npm",
+    "Python/TypeScript (per README, unchecked)"
+   ],
+   "links": [
+    {
+     "label": "GitHub: harnessview",
+     "url": "https://github.com/jddavenportOpen/harnessview"
+    },
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/harnessview/"
+    }
+   ],
+   "highlight_score": 6
+  },
+  {
+   "slug": "instinct-handoff",
+   "title": "instinct-standing-doc (handoff skill + AGENTS.md)",
+   "owner": "JD",
+   "track": "jd",
+   "category": "skill",
+   "status": "live",
+   "one_liner": "Routing rules, a Claude Code skill and an AGENTS.md for handing work to the Instinct autonomous agent. Unofficial.",
+   "details": "An MIT repo with a routing doc, a Claude Code skill and an AGENTS.md for handing work from your agent system to Instinct, an outside autonomous agent. Unofficial, and useful only if you use Instinct.",
+   "tech": [
+    "Claude Code skill"
+   ],
+   "links": [
+    {
+     "label": "Repo",
+     "url": "https://github.com/jddavenportOpen/instinct-standing-doc"
+    }
+   ],
+   "highlight_score": 4
+  },
+  {
+   "slug": "jddavenport-docs",
+   "title": "JD Davenport docs: Builds, AI Core Skills, Field Notes",
+   "owner": "JD",
+   "track": "jd",
+   "category": "website",
+   "status": "live",
+   "one_liner": "Public docs site with build write-ups, AI Core Skills (agent evals first), field notes and a production teardown.",
+   "details": "Already live in jddavenport-site-public/docs with a docs/search-index.json (113 entries). Sections: AI Core Skills 9, Start here 10, Fundamentals 13, Patterns 16, Inside the Nerve Center 20, Safety and operations 6, Builds 19, Field notes 3, Product management 3, Reference 4, plus section pages. Includes an open-source index (reference/open-source) and build-your-own guides (resume grader, merch store, first agent).",
+   "tech": [
+    "static HTML",
+    "search-index.json",
+    "JS search index"
+   ],
+   "links": [
+    {
+     "label": "Docs",
+     "url": "https://jddavenport.com/docs/"
+    },
+    {
+     "label": "Builds index",
+     "url": "https://jddavenport.com/docs/builds/"
+    },
+    {
+     "label": "Work",
+     "url": "https://jddavenport.com/work"
+    },
+    {
+     "label": "Open-source index",
+     "url": "https://jddavenport.com/docs/reference/open-source/"
+    },
+    {
+     "label": "Site repo",
+     "url": "https://github.com/jddavenportOpen/jddavenport-site"
+    }
+   ],
+   "highlight_score": 9
+  },
+  {
+   "slug": "lawgrader-writegrader",
+   "title": "LawGrader / WriteGrader",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "app",
+   "status": "live",
+   "one_liner": "Agentic grading for legal and academic writing: it drafts scores and margin comments, the instructor decides every final grade.",
+   "details": "Two live sites for agentic grading of legal and academic writing. The human-in-the-loop design is the point: AI drafts scores and margin comments, and the instructor decides every final grade.",
+   "tech": [
+    "Web",
+    "LLM grading"
+   ],
+   "links": [
+    {
+     "label": "LawGrader",
+     "url": "https://lawgrader.ai"
+    },
+    {
+     "label": "WriteGrader",
+     "url": "https://new.writegrader.com"
+    }
+   ],
+   "highlight_score": 6
+  },
+  {
+   "slug": "mastery-engine",
+   "title": "mastery-engine",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "built",
+   "one_liner": "Evidence-grounded curriculum generator; every claim is verified against code on disk before you see it.",
+   "details": "Public MIT repo on jddavenportOpen (descriptions from gh repo list). Library/CLI style code repo; no SKILL.md, plugin.json or agent .md found in the tree, so offer as 'clone and run', not plugin install. Read the README before writing detailed claims.",
+   "tech": [
+    "Python",
+    "Python/TypeScript (per README, unchecked)"
+   ],
+   "links": [
+    {
+     "label": "GitHub: mastery-engine",
+     "url": "https://github.com/jddavenportOpen/mastery-engine"
+    }
+   ],
+   "highlight_score": 5
+  },
+  {
+   "slug": "mcp-judge",
+   "title": "mcp-judge",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "A calibrated multi-persona LLM judge exposed as an MCP server, shipped with an eval harness that proves the calibration.",
+   "details": "Public MIT repo on jddavenportOpen (descriptions from gh repo list). Library/CLI style code repo; no SKILL.md, plugin.json or agent .md found in the tree, so offer as 'clone and run', not plugin install. Read the README before writing detailed claims.",
+   "tech": [
+    "MCP",
+    "Python",
+    "Python/TypeScript (per README, unchecked)"
+   ],
+   "links": [
+    {
+     "label": "GitHub: mcp-judge",
+     "url": "https://github.com/jddavenportOpen/mcp-judge"
+    }
+   ],
+   "highlight_score": 7
+  },
+  {
+   "slug": "national-grid-cloud-ai-platform",
+   "title": "National Grid: cloud and AI platform",
+   "owner": "JD",
+   "track": "career",
+   "category": "client-project",
+   "status": "archived",
+   "one_liner": "Principal PM who grew an internal cloud platform from $2M to $20M+ chargeback and launched a RAG GenAI platform.",
+   "details": "2022-2025 at a 20,000-person utility, promoted Technical to Senior to Principal PM, owning the cloud and AI/ML roadmap. Launched a RAG-based internal GenAI platform (LLM over proprietary documentation) reaching 3,000+ monthly users. Built an IaC service standardizing 100+ enterprise tools across business units; deployment went from weeks to minutes. Founded Cloud Leadership Sync, the first executive and Chief Architect cross-BU forum. Grew team from 1 to 4 pods and hired 4 PMs; engineering org grew 5 to 35.",
+   "tech": [
+    "RAG",
+    "LLM (GPT)",
+    "Infrastructure as Code",
+    "AKS",
+    "Snowflake",
+    "Power BI"
+   ],
+   "links": [
+    {
+     "label": "Case study (public)",
+     "url": "https://jddavenport.com/work/national-grid-cloud-ai-platform"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "nerve-center",
+   "title": "Nerve Center: the AI organization JD runs his work on",
+   "owner": "JD",
+   "track": "jd",
+   "category": "harness",
+   "status": "live",
+   "one_liner": "A self-hosted AI operating system: one orchestrator over 30+ agents in daily production, with human gates on anything irreversible.",
+   "details": "Nerve Center is the private multi-agent system JD designed, built and operates on a Mac mini. The public showcase page (snapshot 2026-11-09) reports 30+ agents in daily production, 100+ built over time, 310 background jobs (65 of them watchdogs) and 1,092 shipped-work log entries in 30 days. Work arrives by Telegram voice/text or a web and iOS cockpit, goes through an orchestrator and a model router, becomes a durable job-queue row, and anything outward-facing or irreversible stops at a gate until JD says yes. The build itself stays private because it runs his life and work; the public teardown covers architecture, three production failures with root causes, and cost.",
+   "tech": [
+    "Python daemons",
+    "Next.js cockpit",
+    "Postgres/Supabase",
+    "Qdrant",
+    "Kuzu graph",
+    "DBOS",
+    "Claude"
+   ],
+   "links": [
+    {
+     "label": "Live showcase",
+     "url": "https://jddavenport.com/showcase"
+    },
+    {
+     "label": "Live brain (counts live)",
+     "url": "https://jddavenport.com/brain"
+    },
+    {
+     "label": "Production teardown",
+     "url": "https://jddavenport.com/teardown"
+    }
+   ],
+   "highlight_score": 10
+  },
+  {
+   "slug": "open-remarkable",
+   "title": "OpenRemarkable",
+   "owner": "JD",
+   "track": "jd",
+   "category": "app",
+   "status": "built",
+   "one_liner": "Free self-hosted reMarkable manager with local handwriting OCR, full-text search and export.",
+   "details": "Replaces a $3 to $8 monthly cloud subscription; REST API included.",
+   "tech": [
+    "OCR",
+    "Docker"
+   ],
+   "links": [
+    {
+     "label": "GitHub: open-remarkable",
+     "url": "https://github.com/jddavenportOpen/open-remarkable"
+    }
+   ],
+   "highlight_score": 3
+  },
+  {
+   "slug": "openbudget",
+   "title": "OpenBudget",
+   "owner": "JD",
+   "track": "jd",
+   "category": "app",
+   "status": "live",
+   "one_liner": "Self-hosted envelope-budgeting app with read-only bank sync, about $15 a year versus a roughly $109 subscription.",
+   "details": "Built for JD first, scrubbed and published June 2026 under MIT. Bank data via SimpleFIN Bridge into the user's own Supabase; Next.js app with magic-link sign-in.",
+   "tech": [
+    "Next.js",
+    "Supabase",
+    "SimpleFIN"
+   ],
+   "links": [
+    {
+     "label": "GitHub: openbudget",
+     "url": "https://github.com/jddavenportOpen/openbudget"
+    },
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/openbudget/"
+    }
+   ],
+   "highlight_score": 7
+  },
+  {
+   "slug": "orchestra-agents",
+   "title": "orchestra-agents",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "Production multi-agent orchestration on Claude: bounded fan-out, durable message bus, circuit breakers, best-of-N with an adversarial judge.",
+   "details": "Public MIT repo on jddavenportOpen (descriptions from gh repo list). Library/CLI style code repo; no SKILL.md, plugin.json or agent .md found in the tree, so offer as 'clone and run', not plugin install. Read the README before writing detailed claims.",
+   "tech": [
+    "Python",
+    "Claude",
+    "Python/TypeScript (per README, unchecked)"
+   ],
+   "links": [
+    {
+     "label": "GitHub: orchestra-agents",
+     "url": "https://github.com/jddavenportOpen/orchestra-agents"
+    },
+    {
+     "label": "GitHub: clawd-agent-os",
+     "url": "https://github.com/jddavenportOpen/clawd-agent-os"
+    }
+   ],
+   "highlight_score": 7
+  },
+  {
+   "slug": "pitchgrade",
+   "title": "PitchGrade",
+   "owner": "JD",
+   "track": "jd",
+   "category": "app",
+   "status": "built",
+   "one_liner": "Upload a pitch deck PDF and get scored on 12 VC criteria with feedback.",
+   "details": "A pitch-deck grader built with Next.js 14 and GPT-4o-mini, with a Stripe plan.",
+   "tech": [
+    "Next.js",
+    "Turso",
+    "Stripe",
+    "OpenAI"
+   ],
+   "links": [
+    {
+     "label": "GitHub: pitchgrade",
+     "url": "https://github.com/jddavenportOpen/pitchgrade"
+    }
+   ],
+   "highlight_score": 5
+  },
+  {
+   "slug": "plaud-voice-notes",
+   "title": "Plaud voice-note pipeline and openplaud",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "Recorder to local transcript to tasks, CRM notes and memory, plus an open-source self-hosted Plaud manager.",
+   "details": "JD carries a Plaud recorder. Recordings sync locally, are transcribed with Whisper, then action items go to task lists, people to a CRM and context to notes. Version one was confidently wrong and polluted memory, so most of the write-up is about precision. openplaud is a free self-hosted recording manager with Whisper, Groq or Deepgram, search and diarization, needing no Plaud subscription.",
+   "tech": [
+    "Whisper",
+    "Deepgram",
+    "Docker",
+    "Obsidian"
+   ],
+   "links": [
+    {
+     "label": "GitHub: openplaud",
+     "url": "https://github.com/jddavenportOpen/openplaud"
+    },
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/plaud-voice-notes/"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "project-intake-portal",
+   "title": "Project ingestion portal (Submit a Project)",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "app",
+   "status": "built",
+   "one_liner": "Intake for organizations to propose work, with a review queue; the front door that became the site's Start a project page.",
+   "details": "PRD and workplan from June 2026 describe a public proposal form, database of proposals and admin approve/decline queue at a flat fee. The shipped version lives on aifoundry.byu.edu/quote.",
+   "tech": [
+    "Next.js",
+    "Supabase"
+   ],
+   "links": [
+    {
+     "label": "Live form",
+     "url": "https://aifoundry.byu.edu/quote"
+    }
+   ],
+   "highlight_score": 4
+  },
+  {
+   "slug": "raising-clawd-newsletter",
+   "title": "Raising Clawd newsletter and pipeline",
+   "owner": "JD",
+   "track": "jd",
+   "category": "newsletter",
+   "status": "live",
+   "one_liner": "JD's newsletter on what holds up, breaks and costs when building an AI organization, with an approval-gated weekly drafter.",
+   "details": "A weekly drafter builds an evidence pack from the last seven days of changelogs and git history, writes the issue in a fixed structure, and runs six guards on it before a preview goes to JD. Nothing sends without his approval, and the approval is bound to the exact content, so a one-byte change voids it. Sends go only to confirmed subscribers, with one-click unsubscribe.",
+   "tech": [
+    "Beehiiv-style list",
+    "LLM drafter",
+    "approval gate",
+    "Python",
+    "Supabase",
+    "Resend",
+    "LaunchAgent",
+    "Astro",
+    "HTML"
+   ],
+   "links": [
+    {
+     "label": "Signup",
+     "url": "https://jddavenport.com/newsletter"
+    },
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/newsletter/"
+    },
+    {
+     "label": "Archive",
+     "url": "https://docs.agenttree.army/archive/"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "readystack",
+   "title": "ReadyStack",
+   "owner": "John Davenport + JD",
+   "track": "dad",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "Clean-room, offline-rebuildable Docker images of open-source Community Editions, with provenance.",
+   "details": "ReadyStack publishes verified Docker images of open-source Community Edition software, each built with the network disabled so it has no hidden dependencies, with SHA256 stamps, SBOM and signed attestations. Images are free on DockerHub; the paid product is a full archive (source, dependencies, docs, tests) for audit and air-gapped use. Built for AI agents and enterprise auditors who need to verify what they pull. Dad built it; JD's agents do SEO and developer-adoption research.",
+   "tech": [
+    "Docker",
+    "cosign",
+    "SBOM/SPDX"
+   ],
+   "links": [
+    {
+     "label": "ReadyStack",
+     "url": "https://readystack.dev"
+    },
+    {
+     "label": "DockerHub",
+     "url": "https://hub.docker.com/u/readystack"
+    },
+    {
+     "label": "GitHub org",
+     "url": "https://github.com/ReadyStackFree/readystack"
+    }
+   ],
+   "highlight_score": 6
+  },
+  {
+   "slug": "recruit-copilot",
+   "title": "recruit-copilot",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "A job search as a verification problem: experience bank, role scoring, resumes proven machine-readable, no auto-apply by design.",
+   "details": "Public MIT repo listed as the external 'recruit' plugin in the Foundry marketplace. Skills resume-intake, resume-builder, resume-grader plus three grader agents (recruiter, hiring manager, AI-systems rep). It deliberately does not auto-submit applications. Needs Python 3.9+ and nothing to pip install. Marketplace evidence label: beta.",
+   "tech": [
+    "Claude Code",
+    "Python",
+    "Claude Code plugin"
+   ],
+   "links": [
+    {
+     "label": "GitHub: recruit-copilot",
+     "url": "https://github.com/jddavenportOpen/recruit-copilot"
+    },
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/recruit-copilot/"
+    }
+   ],
+   "highlight_score": 9
+  },
+  {
+   "slug": "resume-grader",
+   "title": "Resume grader (powers the Foundry jobs board)",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "One Claude call scores any resume against any job on a six-dimension rubric and returns specific feedback.",
+   "details": "Built July 2026 for the BYU AI Foundry jobs board, which launched with about 10,000 openings. It is an LLM-as-judge, explicitly not RAG: the rubric is universal and the posting is pasted into the prompt. It was the only AI running inside the product; the scraper and site were ordinary code. Open-sourced under MIT. A build-your-own tutorial shows a 40-line Python version.",
+   "tech": [
+    "Claude",
+    "Python",
+    "Greenhouse/Lever/Ashby APIs"
+   ],
+   "links": [
+    {
+     "label": "GitHub: resume-grader",
+     "url": "https://github.com/jddavenportOpen/resume-grader"
+    },
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/resume-grader/"
+    }
+   ],
+   "highlight_score": 9
+  },
+  {
+   "slug": "sendsignatures",
+   "title": "SendSignatures",
+   "owner": "John Davenport + JD",
+   "track": "dad",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "A self-hosted, open-source e-signature service positioned as a DocuSign alternative.",
+   "details": "SendSignatures is a hosted, Fable Software branded deployment of DocuSeal, the open-source e-signature platform. Send, sign and process documents on infrastructure you control, with an API for developers. Credit for the software goes to DocuSeal.",
+   "tech": [
+    "DocuSeal",
+    "Docker"
+   ],
+   "links": [
+    {
+     "label": "SendSignatures",
+     "url": "https://sendsignatures.com"
+    },
+    {
+     "label": "DocuSeal (upstream)",
+     "url": "https://github.com/docusealco/docuseal"
+    }
+   ],
+   "highlight_score": 3
+  },
+  {
+   "slug": "siemens-spark-ai",
+   "title": "Spark AI at Siemens US",
+   "owner": "JD at Siemens",
+   "track": "siemens",
+   "category": "client-project",
+   "status": "shipped",
+   "one_liner": "A 120+ agent AI platform for 1,000+ Siemens US employees; adoption went from 3% to 65% in 10 weeks.",
+   "details": "In summer 2026 JD worked at Siemens as an AI Product Strategist in the XPS Program, focused on the Siemens US organization. He built and launched Spark AI, a custom platform of 120+ agents and 50+ skills built for specific job functions and seniority levels, deployed to 1,000+ employees. Active adoption rose from a 3% baseline to 65% in 10 weeks, with 650+ employees active by summer's end. He also wrote and presented a 3/6/12-month AI roadmap to US leadership, sequenced by function readiness with role-specific success metrics. His manager originated the idea; JD built, launched, drove adoption and wrote the roadmap. He wrote a product spec first and built to checklists with acceptance criteria. Lesson he names: more QA before each release and smaller, steadier releases.",
+   "tech": [
+    "custom AI agents",
+    "custom skills",
+    "product spec + acceptance checklists"
+   ],
+   "links": [
+    {
+     "label": "Case study (public)",
+     "url": "https://jddavenport.com/work/siemens-spark-ai"
+    }
+   ],
+   "highlight_score": 10
+  },
+  {
+   "slug": "sitepilot",
+   "title": "SitePilot",
+   "owner": "John Davenport + JD",
+   "track": "dad",
+   "category": "website",
+   "status": "live",
+   "one_liner": "Websites and marketing sold as an ongoing, managed growth service rather than a one-time build.",
+   "details": "SitePilot sells websites and marketing as an ongoing, managed growth service for small and mid-sized businesses: web design, SEO, content, paid ads and AI-driven insight. JD's part is search and messaging.",
+   "tech": [
+    "Node",
+    "Express",
+    "Postgres"
+   ],
+   "links": [
+    {
+     "label": "SitePilot (live address)",
+     "url": "https://www.sitepilot.us/"
+    }
+   ],
+   "highlight_score": 4
+  },
+  {
+   "slug": "socrates-x",
+   "title": "Socrates: the X autopilot",
+   "owner": "JD",
+   "track": "jd",
+   "category": "agent",
+   "status": "archived",
+   "one_liner": "A self-learning X content agent that was paused; the lesson is safety rails arriving after the architecture.",
+   "details": "Planned content, drafted posts in several voice genomes, tested variants and posted on a schedule on a separate persona. As of October 2026 its loops are off and nothing posts automatically. JD says he learned more from how it failed than from any other build.",
+   "tech": [
+    "X API",
+    "Python"
+   ],
+   "links": [
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/socrates-x/"
+    }
+   ],
+   "highlight_score": 5
+  },
+  {
+   "slug": "software-design-canon",
+   "title": "Software Design Canon",
+   "owner": "AI Foundry",
+   "track": "foundry",
+   "category": "research",
+   "status": "live",
+   "one_liner": "A link-checked index of the genuinely free primary sources on software design and architecture.",
+   "details": "Points to the original papers, articles, catalogs and talks behind famous design books (SOLID, hexagonal architecture, modularity and more) plus free books. It does not host pirated text and has a per-book page on what is free versus must be bought. A GitHub Action re-checks every link weekly and opens an issue on a dead one. Reading paths and a machine-readable sources.yml let an agent cite a primary source instead of a paraphrase.",
+   "tech": [
+    "Python",
+    "GitHub Actions",
+    "YAML",
+    "Markdown"
+   ],
+   "links": [
+    {
+     "label": "Repo",
+     "url": "https://github.com/ai-foundry-byu/software-design-canon"
+    }
+   ],
+   "highlight_score": 5
+  },
+  {
+   "slug": "solarknock",
+   "title": "SolarKnock",
+   "owner": "John Davenport + JD",
+   "track": "dad",
+   "category": "app",
+   "status": "live",
+   "one_liner": "A canvassing app for door-to-door solar sales: territories, leaderboards and instant solar estimates.",
+   "details": "SolarKnock replaces the mix of mapping tool, spreadsheet, CRM and group chat that solar door-knocking teams use. Reps get live territory pins, quick power-bill and solar savings estimates on the doorstep and competitive leaderboards; managers get a dashboard and dispatch. It runs as a marketing site plus an app at app.solarknock.com, shipped as an installable web app built with Expo / React Native. Currently a free beta; paid team tiers are shown on the site. Operated under Fable Software LLC. The App Store launch and text-message (A2P) registration are still open work.",
+   "tech": [
+    "Expo",
+    "React Native",
+    "PWA",
+    "nginx"
+   ],
+   "links": [
+    {
+     "label": "SolarKnock",
+     "url": "https://solarknock.com"
+    },
+    {
+     "label": "App",
+     "url": "https://app.solarknock.com"
+    }
+   ],
+   "highlight_score": 6
+  },
+  {
+   "slug": "speedprep",
+   "title": "SpeedPrep",
+   "owner": "John Davenport + JD",
+   "track": "dad",
+   "category": "app",
+   "status": "live",
+   "one_liner": "ACT and SAT math prep where an algorithm picks the next lesson, quiz or review for each student.",
+   "details": "SpeedPrep is a web app (with iOS and Android builds in progress) that teaches ACT and SAT math using mastery learning, spaced repetition and interleaved review, enforced by an algorithm rather than student discipline. Every question is timed, and a projected ACT score updates as the learner practices. A free Prep Assessment gives an instant estimate. One parent account covers up to 10 learners. Dad (a career engineer) wrote the product directive and gates design decisions; JD and agents built and tested it, including a pixel-level visual test suite and a synthetic-student test that plays every game mechanic. Beta is free; math comes first, English, Reading and Science are planned. Includes a 820-question bank checked with an outside classifier (about 91% top-1 topic agreement).",
+   "tech": [
+    "Vite",
+    "React",
+    "TypeScript",
+    "Capacitor (iOS/Android)",
+    "Cloudflare",
+    "Playwright"
+   ],
+   "links": [
+    {
+     "label": "SpeedPrep",
+     "url": "https://speedprep.ai"
+    },
+    {
+     "label": "Privacy policy",
+     "url": "https://speedprep.ai/privacy"
+    }
+   ],
+   "highlight_score": 8
+  },
+  {
+   "slug": "speedprep-arcade",
+   "title": "SpeedPrep Arcade (ten game prototypes)",
+   "owner": "John Davenport + JD",
+   "track": "dad",
+   "category": "research",
+   "status": "built",
+   "one_liner": "Ten playable prototypes testing whether a game layer could make math practice stick.",
+   "details": "A static site of ten feel-prototypes for a game layer on SpeedPrep, all sharing one 56-item ACT question pool so the games can be compared fairly. Concepts were picked by a games-expert agent. Four synthetic teen testers ranked them; the main finding was that games where the math and the game have nothing to do with each other lost, and that fun did not equal return visits. It is an experiment feeding the SpeedPrep roadmap, not a product.",
+   "tech": [
+    "Static HTML/JS",
+    "Vercel"
+   ],
+   "links": [
+    {
+     "label": "Arcade",
+     "url": "https://speedprep-arcade.vercel.app"
+    }
+   ],
+   "highlight_score": 6
+  },
+  {
+   "slug": "trendzion",
+   "title": "TrendZion",
+   "owner": "John Davenport + JD",
+   "track": "dad",
+   "category": "website",
+   "status": "live",
+   "one_liner": "A community web app for researching how words and phrases are used among Latter-day Saints.",
+   "details": "TrendZion lets people search terms used among Latter-day Saints, compare usage trends across up to four themes at once, and comment and vote in a moderated community.",
+   "tech": [
+    "Web app"
+   ],
+   "links": [
+    {
+     "label": "TrendZion",
+     "url": "https://trendzion.com"
+    }
+   ],
+   "highlight_score": 4
+  },
+  {
+   "slug": "venture-val",
+   "title": "VentureVal",
+   "owner": "JD",
+   "track": "jd",
+   "category": "app",
+   "status": "built",
+   "one_liner": "Startup valuation calculator using five VC/PE methods (Berkus and others) with a comparison dashboard.",
+   "details": "Built for an MBA venture capital and private equity class.",
+   "tech": [
+    "Next.js"
+   ],
+   "links": [
+    {
+     "label": "GitHub: venture-val",
+     "url": "https://github.com/jddavenportOpen/venture-val"
+    }
+   ],
+   "highlight_score": 5
+  },
+  {
+   "slug": "vibe-coding-detector",
+   "title": "Vibe Coding Detector",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "Scores a public Git repo for AI-pattern signals and maintainability with deterministic heuristics.",
+   "details": "Flags patterns; it does not prove AI authorship, and the README says so up front.",
+   "tech": [
+    "Python",
+    "Vercel"
+   ],
+   "links": [
+    {
+     "label": "GitHub: vibe-coding-detector",
+     "url": "https://github.com/jddavenportOpen/vibe-coding-detector"
+    },
+    {
+     "label": "Live",
+     "url": "https://vibe-fe-nine.vercel.app"
+    }
+   ],
+   "highlight_score": 5
+  },
+  {
+   "slug": "voiceclaw",
+   "title": "VoiceClaw",
+   "owner": "JD",
+   "track": "jd",
+   "category": "agent",
+   "status": "archived",
+   "one_liner": "A phone number you call to talk to an AI wired to calendar, email, messages and notes. Built March 2026, now archived.",
+   "details": "Vapi handled telephony, Deepgram transcription, Claude did tool calls via a small FastAPI tools server. The build page explains why it stopped, which is useful for any team bolting on a second channel.",
+   "tech": [
+    "Vapi",
+    "Deepgram",
+    "Claude",
+    "FastAPI"
+   ],
+   "links": [
+    {
+     "label": "GitHub: voiceclaw",
+     "url": "https://github.com/jddavenportOpen/voiceclaw"
+    },
+    {
+     "label": "Build write-up",
+     "url": "https://jddavenport.com/docs/builds/voiceclaw/"
+    }
+   ],
+   "highlight_score": 5
+  },
+  {
+   "slug": "warden",
+   "title": "Warden: autonomy admitted by reversibility",
+   "owner": "JD",
+   "track": "jd",
+   "category": "tool",
+   "status": "live",
+   "one_liner": "A governor for autonomous agents that admits autonomy by reversibility, not confidence, with signal-bound rollback and offline tests.",
+   "details": "Warden is an open-source governor distilled from four production post-mortems on JD's own agent estate. The principle is that an agent earns autonomy for actions that can be rolled back, not for actions it feels confident about. It ships signal-bound rollback and offline tests.",
+   "tech": [
+    "Python",
+    "Python/TypeScript (per README, unchecked)"
+   ],
+   "links": [
+    {
+     "label": "GitHub: warden",
+     "url": "https://github.com/jddavenportOpen/warden"
+    }
+   ],
+   "highlight_score": 7
+  }
+ ]
+}
