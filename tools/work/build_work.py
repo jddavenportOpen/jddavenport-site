@@ -461,7 +461,7 @@ def build_list(data):
   <section class="wrap hero" aria-labelledby="work-h">
     <h1 id="work-h">Work</h1>
     <p class="lede">Case studies for work under NDA, open-source AI tooling, products I built or helped build, and writing.</p>
-    <p class="lede"><a href="/projects">Browse the full projects library</a>, including the BYU AI Foundry's work and what I build with my dad.</p>
+    <p class="lede"><a href="/projects">Browse the full projects library</a>, including the BYU AI Foundry's work and paid client work.</p>
     <div class="controls" id="controls" hidden>
       <div class="search" role="search">
         <label for="q">Search work</label>

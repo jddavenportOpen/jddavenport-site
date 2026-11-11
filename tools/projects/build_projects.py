@@ -56,15 +56,20 @@ TOP10 = ["siemens-spark-ai", "ai-foundry-program", "foundry-marketplace", "app-f
 # Screenshots that show a GitHub repo page get a text card instead (PLAN.md section 6).
 SKIP_SHOTS = {"app-feedback-loop", "clawdling"}
 
-OWNERS = [  # (catalog owner, url key, chip label)
+OWNERS = [  # (public owner, url key, chip label)
     ("JD", "jd", "JD"),
     ("AI Foundry", "foundry", "AI Foundry"),
     ("JD at Siemens", "siemens", "JD at Siemens"),
-    ("John Davenport + JD", "john-davenport", "With John Davenport"),
+    ("Client work", "client", "Client work"),
 ]
 OWNER_KEY = {o: k for o, k, _ in OWNERS}
 OWNER_LABEL = {o: lbl for o, _, lbl in OWNERS}
-DAD = "John Davenport + JD"
+CLIENT = "Client work"
+PUBLIC_OWNER = {"John Davenport + JD": CLIENT}  # upstream audit owner -> public owner, mapped at --refresh
+PUBLIC_TRACK = {"dad": "client"}
+# JD 2026-11-10: these are paid consulting projects. Never name a family member, never say
+# who did what on them. test_build_projects.py fails the build if any of these appear.
+FAMILY_RE = re.compile(r"\b(dad|dad's|father|john davenport|john-davenport)\b", re.I)
 
 # client-project in the catalog covers JD's own past roles once client builds are removed,
 # and those link to /work case studies, so the public label is "Case study".
@@ -91,10 +96,10 @@ def slug_hash(s):
 
 
 def public_text(s):
-    """Copy rules for anything printed: JD asked for his dad to appear by name."""
-    s = re.sub(r"\bDad's\b", "John Davenport's", s or "")
-    s = re.sub(r"\bDad\b", "John Davenport", s)
-    return s.strip()
+    """Copy rules for anything printed: client work never names a family member."""
+    s = (s or "").strip()
+    assert not FAMILY_RE.search(s), f"family reference in public copy (fix overrides.json): {s[:80]!r}"
+    return s
 
 
 TEXT_OVERRIDES = ("title", "one_liner", "details", "category")
@@ -132,6 +137,8 @@ def refresh(catalog_path, decisions_path, shots_dir):
             continue
         assert e.get("sensitivity") != "private", e["slug"]
         row = {k: e.get(k) for k in PUBLIC_FIELDS}
+        row["owner"] = PUBLIC_OWNER.get(row["owner"], row["owner"])
+        row["track"] = PUBLIC_TRACK.get(row["track"], row["track"])
         # keep only links that answered 200 to an anonymous request during the audit
         row["links"] = [{"label": l["label"], "url": l["url"]} for l in e.get("links") or []
                         if l.get("http_status") == 200]
@@ -280,7 +287,7 @@ PAGE_CSS = r"""
 .hero .lede{font:400 clamp(1.125rem,1rem + .55vw,1.45rem)/1.42 var(--f-serif);color:var(--ink);max-width:52ch;margin-top:16px}
 .count-line{margin:14px 0 0;font:500 15px/1.4 var(--f-mono);color:var(--muted);letter-spacing:.02em}
 .tops{padding-top:28px}
-.tops h2,.lib h2,.dad h2{font-size:clamp(1.5rem,1.2rem + 1vw,2rem)}
+.tops h2,.lib h2,.client h2{font-size:clamp(1.5rem,1.2rem + 1vw,2rem)}
 .tops .lede{margin-top:8px}
 .toplist{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr))}
 .pick a{display:grid;grid-template-columns:auto 1fr;align-content:start;gap:4px 10px;height:100%;padding:12px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);text-decoration:none}
@@ -341,8 +348,8 @@ PAGE_CSS = r"""
 .empty p{margin:0 0 12px}
 .reset{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:500 16px/1 var(--f-sans);cursor:pointer}
 .reset:hover{background:var(--ink);color:#FFFBF6}
-.dad{margin-top:56px;scroll-margin-top:16px}
-.dad[hidden]{display:none}
+.client{margin-top:56px;scroll-margin-top:16px}
+.client[hidden]{display:none}
 .listing{padding-bottom:64px}
 """
 
@@ -352,7 +359,7 @@ SCRIPT = r"""
   var cards=[].slice.call(document.querySelectorAll('.card'));
   var lists=[].slice.call(document.querySelectorAll('.cards'));
   var q=document.getElementById('q'),count=document.getElementById('count'),empty=document.getElementById('empty');
-  var sortSel=document.getElementById('sort'),dad=document.getElementById('john-davenport');
+  var sortSel=document.getElementById('sort'),client=document.getElementById('client-work');
   var groups={owner:[],cat:[],status:[]},valid={owner:{},cat:{},status:{}};
   [].slice.call(document.querySelectorAll('[data-f]')).forEach(function(b){
     var g=b.getAttribute('data-f');groups[g].push(b);valid[g][b.getAttribute('data-v')]=1;});
@@ -393,7 +400,7 @@ SCRIPT = r"""
       if(ok){var hay=c.getAttribute('data-search');for(var i=0;i<terms.length;i++){if(hay.indexOf(terms[i])<0){ok=false;break;}}}
       c.hidden=!ok;if(ok)n++;
     });
-    dad.hidden=!dad.querySelector('.card:not([hidden])');
+    client.hidden=!client.querySelector('.card:not([hidden])');
     count.textContent=n===cards.length?'Showing all '+n+' projects':'Showing '+n+' of '+cards.length+' projects';
     empty.hidden=n!==0;
     ['owner','cat','status'].forEach(function(g){groups[g].forEach(function(b){
@@ -453,17 +460,16 @@ def build_page(items):
     owner_chips = chips("owner", [k for _, k, _ in OWNERS], owner_label.get, owner_counts, always=True)
     cat_chips = chips("cat", cats, CATEGORY_LABEL.get, cat_counts)
     status_chips = chips("status", STATUS_ORDER, STATUS_LABEL.get, status_counts)
-    main_cards = "\n".join(card(i) for i in items if i["owner"] != DAD)
-    dad_items = [i for i in items if i["owner"] == DAD]
-    dad_cards = "\n".join(card(i) for i in dad_items)
+    main_cards = "\n".join(card(i) for i in items if i["owner"] != CLIENT)
+    client_cards = "\n".join(card(i) for i in items if i["owner"] == CLIENT)
     desc = (f"A searchable library of {n} projects: my own builds, BYU AI Foundry, Spark AI at Siemens, "
-            "and the products I build with my dad, John Davenport.")
+            "and paid client work.")
     page = bw.head("Projects · JD Davenport", desc, "/projects", PAGE_CSS)
     page += f"""
 <main id="main" data-stage="dawn">
   <section class="wrap hero" aria-labelledby="proj-h">
     <h1 id="proj-h">Everything we've built.</h1>
-    <p class="lede">My own builds, the BYU AI Foundry's work, Spark AI at Siemens, and the products I build with my dad, John Davenport. Every card links to the real thing.</p>
+    <p class="lede">My own builds, the BYU AI Foundry's work, Spark AI at Siemens, and paid client work. Every card links to the real thing.</p>
     <p class="count-line" id="total">{n} projects</p>
   </section>
   <section class="wrap tops" aria-labelledby="top-h">
@@ -491,11 +497,11 @@ def build_page(items):
     <ul class="cards">
 {main_cards}
     </ul>
-    <section class="dad" id="john-davenport" aria-labelledby="dad-h">
-      <h2 id="dad-h">Built with my dad, John Davenport</h2>
-      <p class="lede">Co-built with my dad, John Davenport, a career engineer. He owns the product and the code; I work on go-to-market and build alongside him.</p>
+    <section class="client" id="client-work" aria-labelledby="client-h">
+      <h2 id="client-h">Client work</h2>
+      <p class="lede">Paid consulting engagements, built end to end with the client: product, engineering and go-to-market.</p>
       <ul class="cards">
-{dad_cards}
+{client_cards}
       </ul>
     </section>
     <div class="empty" id="empty" hidden>
@@ -518,9 +524,9 @@ def build():
     with open(os.path.join(ROOT, "projects.json"), "w", encoding="utf-8") as f:
         json.dump({"count": len(served), "projects": served}, f, indent=1, ensure_ascii=False)
         f.write("\n")
-    dad = sum(1 for i in items if i["owner"] == DAD)
+    client = sum(1 for i in items if i["owner"] == CLIENT)
     imgs = sum(1 for i in items if i["image"])
-    print(f"wrote projects.html and projects.json: {len(items)} projects ({dad} with John Davenport, "
+    print(f"wrote projects.html and projects.json: {len(items)} projects ({client} client work, "
           f"{imgs} with screenshots); top row {len(TOP10)} of 10")
     return items
 

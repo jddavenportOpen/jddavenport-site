@@ -577,12 +577,12 @@
   {
    "slug": "ce-rodeo",
    "title": "ce.rodeo",
-   "owner": "John Davenport + JD",
-   "track": "dad",
+   "owner": "Client work",
+   "track": "client",
    "category": "website",
    "status": "live",
    "one_liner": "A free daily index that grades the Docker images of more than 150 open-source projects by security and health.",
-   "details": "ce.rodeo answers 'which Docker image should I pull?' by lining up every publisher's image for more than 150 open-source projects, scanning each for known vulnerabilities, and giving a letter grade from a published formula. It ranks publishers, lists images whose grade dropped this week, and has a free public data API. It began scanning in October 2026. John Davenport built it with Claude.",
+   "details": "ce.rodeo answers 'which Docker image should I pull?' by lining up every publisher's image for more than 150 open-source projects, scanning each for known vulnerabilities, and giving a letter grade from a published formula. It ranks publishers, lists images whose grade dropped this week, and has a free public data API. It began scanning in October 2026.",
    "tech": [
     "Public JSON API",
     "Container vulnerability scanning"
@@ -836,12 +836,12 @@
   {
    "slug": "speedprep",
    "title": "SpeedPrep",
-   "owner": "John Davenport + JD",
-   "track": "dad",
+   "owner": "Client work",
+   "track": "client",
    "category": "app",
    "status": "live",
    "one_liner": "ACT and SAT math prep where an algorithm picks the next lesson, quiz or review for each student.",
-   "details": "SpeedPrep is a web app (with iOS and Android builds in progress) that teaches ACT and SAT math using mastery learning, spaced repetition and interleaved review, enforced by an algorithm rather than student discipline. Every question is timed, and a projected ACT score updates as the learner practices. A free Prep Assessment gives an instant estimate. One parent account covers up to 10 learners. John Davenport (a career engineer) wrote the product directive and gates design decisions; JD and agents built and tested it, including a pixel-level visual test suite and a synthetic-student test that plays every game mechanic. Beta is free; math comes first, English, Reading and Science are planned. Includes a 820-question bank checked with an outside classifier (about 91% top-1 topic agreement).",
+   "details": "SpeedPrep is a web app (with iOS and Android builds in progress) that teaches ACT and SAT math using mastery learning, spaced repetition and interleaved review, enforced by an algorithm rather than student discipline. Every question is timed, and a projected ACT score updates as the learner practices. A free Prep Assessment gives an instant estimate. One parent account covers up to 10 learners. It is tested with a pixel-level visual test suite and a synthetic-student test that plays every game mechanic. Beta is free; math comes first, English, Reading and Science are planned. Includes a 820-question bank checked with an outside classifier (about 91% top-1 topic agreement).",
    "tech": [
     "Vite",
     "React",
@@ -1005,8 +1005,8 @@
   {
    "slug": "deckboard",
    "title": "Deckboard",
-   "owner": "John Davenport + JD",
-   "track": "dad",
+   "owner": "Client work",
+   "track": "client",
    "category": "app",
    "status": "live",
    "one_liner": "Turn any screen into a photoreal split-flap (airport departures board) display, free.",
@@ -1353,12 +1353,12 @@
   {
    "slug": "readystack",
    "title": "ReadyStack",
-   "owner": "John Davenport + JD",
-   "track": "dad",
+   "owner": "Client work",
+   "track": "client",
    "category": "tool",
    "status": "live",
    "one_liner": "Clean-room, offline-rebuildable Docker images of open-source Community Editions, with provenance.",
-   "details": "ReadyStack publishes verified Docker images of open-source Community Edition software, each built with the network disabled so it has no hidden dependencies, with SHA256 stamps, SBOM and signed attestations. Images are free on DockerHub; the paid product is a full archive (source, dependencies, docs, tests) for audit and air-gapped use. Built for AI agents and enterprise auditors who need to verify what they pull. John Davenport built it; JD's agents do SEO and developer-adoption research.",
+   "details": "ReadyStack publishes verified Docker images of open-source Community Edition software, each built with the network disabled so it has no hidden dependencies, with SHA256 stamps, SBOM and signed attestations. Images are free on DockerHub; the paid product is a full archive (source, dependencies, docs, tests) for audit and air-gapped use. Built for AI agents and enterprise auditors who need to verify what they pull.",
    "tech": [
     "Docker",
     "cosign",
@@ -1384,8 +1384,8 @@
   {
    "slug": "solarknock",
    "title": "SolarKnock",
-   "owner": "John Davenport + JD",
-   "track": "dad",
+   "owner": "Client work",
+   "track": "client",
    "category": "app",
    "status": "live",
    "one_liner": "A canvassing app for door-to-door solar sales: territories, leaderboards and instant solar estimates.",
@@ -1412,8 +1412,8 @@
   {
    "slug": "speedprep-arcade",
    "title": "SpeedPrep Arcade (ten game prototypes)",
-   "owner": "John Davenport + JD",
-   "track": "dad",
+   "owner": "Client work",
+   "track": "client",
    "category": "research",
    "status": "built",
    "one_liner": "Ten playable prototypes testing whether a game layer could make math practice stick.",
@@ -1434,8 +1434,8 @@
   {
    "slug": "beefshopper",
    "title": "BeefShopper",
-   "owner": "John Davenport + JD",
-   "track": "dad",
+   "owner": "Client work",
+   "track": "client",
    "category": "website",
    "status": "live",
    "one_liner": "Evidence-first rankings of US home-delivery ribeye, scored by an open algorithm.",
@@ -1766,11 +1766,11 @@
   {
    "slug": "fable-software",
    "title": "Fable Software",
-   "owner": "John Davenport + JD",
-   "track": "dad",
+   "owner": "Client work",
+   "track": "client",
    "category": "website",
    "status": "live",
-   "one_liner": "John Davenport's umbrella brand: software for construction companies where customers own their data.",
+   "one_liner": "An umbrella brand: software for construction companies where customers own their data.",
    "details": "Fable Software is the 'own your data, own your future' front page for a family of field and back-office tools (SitePilot, SolarKnock, SendSignatures and a tracker), aimed at contractors, solar installers and EPC crews. It is positioned against per-seat SaaS pricing and lock-in, and offers a free consultation rather than a signup funnel. It is also the legal entity (Fable Software LLC) behind several products.",
    "tech": [
     "Web"
@@ -1855,12 +1855,12 @@
   {
    "slug": "sitepilot",
    "title": "SitePilot",
-   "owner": "John Davenport + JD",
-   "track": "dad",
+   "owner": "Client work",
+   "track": "client",
    "category": "website",
    "status": "live",
    "one_liner": "Websites and marketing sold as an ongoing, managed growth service rather than a one-time build.",
-   "details": "SitePilot sells websites and marketing as an ongoing, managed growth service for small and mid-sized businesses: web design, SEO, content, paid ads and AI-driven insight. JD's part is search and messaging.",
+   "details": "SitePilot sells websites and marketing as an ongoing, managed growth service for small and mid-sized businesses: web design, SEO, content, paid ads and AI-driven insight.",
    "tech": [
     "Node",
     "Express",
@@ -1878,8 +1878,8 @@
   {
    "slug": "trendzion",
    "title": "TrendZion",
-   "owner": "John Davenport + JD",
-   "track": "dad",
+   "owner": "Client work",
+   "track": "client",
    "category": "website",
    "status": "live",
    "one_liner": "A community web app for researching how words and phrases are used among Latter-day Saints.",
@@ -1967,8 +1967,8 @@
   {
    "slug": "sendsignatures",
    "title": "SendSignatures",
-   "owner": "John Davenport + JD",
-   "track": "dad",
+   "owner": "Client work",
+   "track": "client",
    "category": "tool",
    "status": "live",
    "one_liner": "A self-hosted, open-source e-signature service positioned as a DocuSign alternative.",

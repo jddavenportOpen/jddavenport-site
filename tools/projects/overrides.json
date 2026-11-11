@@ -53,12 +53,12 @@
     "details": "TrendZion lets people search terms used among Latter-day Saints, compare usage trends across up to four themes at once, and comment and vote in a moderated community."
   },
   "ce-rodeo": {
-    "details": "ce.rodeo answers 'which Docker image should I pull?' by lining up every publisher's image for more than 150 open-source projects, scanning each for known vulnerabilities, and giving a letter grade from a published formula. It ranks publishers, lists images whose grade dropped this week, and has a free public data API. It began scanning in October 2026. John Davenport built it with Claude.",
+    "details": "ce.rodeo answers 'which Docker image should I pull?' by lining up every publisher's image for more than 150 open-source projects, scanning each for known vulnerabilities, and giving a letter grade from a published formula. It ranks publishers, lists images whose grade dropped this week, and has a free public data API. It began scanning in October 2026.",
     "one_liner": "A free daily index that grades the Docker images of more than 150 open-source projects by security and health."
   },
   "sitepilot": {
     "category": "website",
-    "details": "SitePilot sells websites and marketing as an ongoing, managed growth service for small and mid-sized businesses: web design, SEO, content, paid ads and AI-driven insight. JD's part is search and messaging.",
+    "details": "SitePilot sells websites and marketing as an ongoing, managed growth service for small and mid-sized businesses: web design, SEO, content, paid ads and AI-driven insight.",
     "drop_links": [
       "https://sitepilot.com"
     ],
@@ -95,5 +95,14 @@
   },
   "national-grid-cloud-ai-platform": {
     "details": "2022-2025 at a 20,000-person utility, promoted Technical to Senior to Principal PM, owning the cloud and AI/ML roadmap. Launched a RAG-based internal GenAI platform (LLM over proprietary documentation) reaching 3,000+ monthly users. Built an IaC service standardizing 100+ enterprise tools across business units; deployment went from weeks to minutes. Founded Cloud Leadership Sync, the first executive and Chief Architect cross-BU forum. Grew team from 1 to 4 pods and hired 4 PMs; engineering org grew 5 to 35."
+  },
+  "readystack": {
+    "details": "ReadyStack publishes verified Docker images of open-source Community Edition software, each built with the network disabled so it has no hidden dependencies, with SHA256 stamps, SBOM and signed attestations. Images are free on DockerHub; the paid product is a full archive (source, dependencies, docs, tests) for audit and air-gapped use. Built for AI agents and enterprise auditors who need to verify what they pull."
+  },
+  "speedprep": {
+    "details": "SpeedPrep is a web app (with iOS and Android builds in progress) that teaches ACT and SAT math using mastery learning, spaced repetition and interleaved review, enforced by an algorithm rather than student discipline. Every question is timed, and a projected ACT score updates as the learner practices. A free Prep Assessment gives an instant estimate. One parent account covers up to 10 learners. It is tested with a pixel-level visual test suite and a synthetic-student test that plays every game mechanic. Beta is free; math comes first, English, Reading and Science are planned. Includes a 820-question bank checked with an outside classifier (about 91% top-1 topic agreement)."
+  },
+  "fable-software": {
+    "one_liner": "An umbrella brand: software for construction companies where customers own their data."
   }
 }

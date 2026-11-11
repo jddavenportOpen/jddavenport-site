@@ -182,12 +182,19 @@ class BuildOutput(unittest.TestCase):
                     self.assertTrue(os.path.exists(path), path)
                     self.assertLess(os.path.getsize(path), 150_000, path)
 
-    def test_dad_section_and_top_row(self):
-        self.assertIn('id="john-davenport"', self.html)
-        self.assertIn("John Davenport", self.html)
-        self.assertNotIn(">Dad<", self.html)
+    def test_client_section_and_top_row(self):
+        self.assertIn('id="client-work"', self.html)
+        self.assertIn(">Client work<", self.html)
         self.assertEqual(self.html.count('class="pick"'), 10)
         self.assertNotIn("client says yes", self.html)
+
+    def test_no_family_or_who_did_what(self):
+        # JD 2026-11-10: client projects are paid consulting work; never name a family member
+        # and never split credit ("he owns the code", "JD's part is").
+        who = re.compile(r"\b(dad|dad's|father|john davenport|john-davenport|co-buil\w*)\b"
+                         r"|he owns the|jd's part|jd's agents|built it with claude", re.I)
+        for where, text in (("projects.html", self.html), ("projects.json", self.raw)):
+            self.assertEqual(who.findall(text), [], f"family or credit-split copy in {where}")
 
     @unittest.skipIf(os.environ.get("PROJECTS_SKIP_NET") == "1", "PROJECTS_SKIP_NET=1")
     def test_every_link_answers_200(self):
