@@ -58,7 +58,8 @@ served file has to be added to that curated set or it will 404 in prod.
 `/showcase` is the QR target printed on JD's business cards (2026-09-24) and
 `/brain` is linked from it. Removing either breaks printed cards: both are
 watched for uptime. `resume.pdf` is the 2-page main resume, general Anthropic PM
-(`JD-Davenport-Anthropic-PM-2page-v18`, recruiting pipeline; rebuild there, never hand-edit the PDF).
+(since 2026-11-17: `JD-Davenport-AIPM-2page-f6-public`, the public copy of the pinned `ai-pm-f6` family master in
+`~/clawd/domains/recruiting/state/resumes/public/`; rebuild there with `master_resume_build.py`, never hand-edit the PDF).
 
 The curation is load-bearing, not cosmetic: `api/send-email-via-gog.js` in this
 private repo contains a hardcoded `GOG_KEYRING_PASSWORD`, and it is not in the
