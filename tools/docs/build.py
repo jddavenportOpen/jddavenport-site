@@ -895,7 +895,6 @@ def landing_page(sections: list[Section]) -> str:
       <h2 id="feat-title">{E(featured.title)}</h2>
       <p>{E(featured.description)}</p>
       <div class="feat-ctas"><a class="btn btn-primary" href="{first.url}">Start reading →</a><a class="btn btn-outline" href="{featured.url}">Section overview</a></div>
-      {cta_block(featured, compact=True)}
     </div>
     <div class="feat-index">{"".join(groups)}</div>
   </section>"""
@@ -951,7 +950,6 @@ def landing_page(sections: list[Section]) -> str:
     <dl class="names-list">{names}</dl>
     <p class="names-more">Everything else is in the <a href="/docs/reference/glossary/">glossary</a>.</p>
   </aside>
-  {feat_html}
   <section class="sections" aria-labelledby="sections-title">
     <div class="kicker">Sections</div>
     <h2 id="sections-title" class="sections-title">Read in order, or jump to what you need</h2>
@@ -959,6 +957,7 @@ def landing_page(sections: list[Section]) -> str:
     {"".join(cards)}
     </ul>
   </section>
+  {feat_html}
 </main>
 {site_footer()}
 </body>
