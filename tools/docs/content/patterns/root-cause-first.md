@@ -4,7 +4,7 @@ description: "Diagnose, fix the process, backfill, add a regression guard, then 
 section: patterns
 group: "Shipping"
 order: 110
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-2/11-root-cause-first.mdx"]
 ---
 

@@ -4,7 +4,7 @@ description: "QA driven by user stories: browser journeys, accessibility, visual
 section: safety-and-operations
 group: "Guardrails"
 order: 20
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/h1-qa-agent-self-test.mdx", "learn/tier-3/h3-synthetic-users.mdx"]
 ---
 
@@ -78,7 +78,7 @@ A route test asks "does this page work?" A synthetic user asks "can a person get
 
 Here's the case for them, from my own store. The first live order was my own test purchase on June 9, 2026. It exposed three bugs in the checkout-to-fulfillment path: a request that asked to expand fields that can't be expanded, the billing address used where the shipping address belonged, and a confirmation flag sent in the wrong part of the request. Then the order failed at the print vendor because no payment method was on file there, while the card had already been charged. Every unit test had passed. The bugs only appeared when someone actually tried to buy something.
 
-That someone was me. Best guess: a synthetic buyer walking the full flow on a test configuration would have found the first three before a real card was involved. That's the job: be the first customer so the first customer doesn't have to be.
+That someone was me. I think a synthetic buyer walking the full flow on a test configuration would have found the first three before a real card was involved. That's the job: be the first customer so the first customer doesn't have to be.
 
 Rules I'd give anyone building them:
 

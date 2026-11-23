@@ -4,7 +4,7 @@ description: "A March 2026 build: a voice agent you call on the phone, wired to 
 section: builds
 group: "Open source"
 order: 190
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["articles/voice-ai-self-hosted.mdx"]
 ---
 

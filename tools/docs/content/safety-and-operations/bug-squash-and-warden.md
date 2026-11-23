@@ -4,7 +4,7 @@ description: "Gated self-repair: fixes in isolated worktrees with red-to-green p
 section: safety-and-operations
 group: "Guardrails"
 order: 30
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/h2-self-healer-evolution.mdx"]
 ---
 
@@ -57,7 +57,7 @@ By early September the ledger showed 123 tickets marked production-verified, and
 
 A job that comes back on its own isn't a bug fix. The weekly report now counts what was built separately from what merely cleared. When the split went in, the previous seven days showed nine closes and zero real fixes. That's a worse number and a truer one.
 
-If I hadn't split that metric, I'd have published it. Measure what you built, not what went away.
+If I hadn't split that metric, I'd have published it. Now I count what I built and what went away separately.
 
 ## The Warden
 

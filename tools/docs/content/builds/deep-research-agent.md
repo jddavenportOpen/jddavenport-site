@@ -4,7 +4,7 @@ description: "A knowledge-gap loop over parallel sources with a devil's-advocate
 section: builds
 group: "Research and content"
 order: 50
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/f1-deep-research-agent.mdx"]
 ---
 

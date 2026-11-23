@@ -4,11 +4,11 @@ description: "Inbox triage, calendar merge, draft-first replies through the send
 section: nerve-center
 group: "Orchestration"
 order: 90
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/g4-executive-assistant.mdx", "building-ai-os/story-automation.mdx"]
 ---
 
-The executive assistant layer runs the daily operations of my life: it triages the inbox, merges calendars, drafts replies, tracks what I owe people, closes the day, and runs a weekly planning session with me. It drafts as me all the time. It sends as me never, not without my yes on the exact text.
+The executive assistant layer runs the daily operations of my life: it triages the inbox, merges calendars, drafts replies, tracks what I owe people, closes the day, and runs a weekly planning session with me. It drafts as me all the time. It sends as me only after my yes on the exact text.
 
 The most useful thing it taught me wasn't a feature. It was that a morning briefing I didn't read was worse than no briefing at all.
 
@@ -89,7 +89,7 @@ Voice recordings feed the same layer: they're transcribed and turned into tasks 
 
 1. Make it pull-first. Push one thing a day at most, and measure whether you read it.
 2. Fix the filter before the schedule.
-3. Draft everything, send nothing without a content-bound approval.
+3. Draft everything. By default nothing goes out without a content-bound approval, apart from three narrow standing approvals I signed, each with a cap and a kill switch.
 4. Record every off switch as a decision so your own tooling respects it.
 5. Choose your sources deliberately. More inputs is not more truth.
 

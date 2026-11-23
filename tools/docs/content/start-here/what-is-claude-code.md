@@ -3,7 +3,7 @@ title: "What Claude Code is, and what a harness is"
 description: "A model talks. A harness gives it a loop, tools, files and a way to ask you first. Claude Code is the harness these docs teach with."
 section: start-here
 order: 10
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-0/01-what-is-claude-code.mdx"]
 ---
 

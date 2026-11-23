@@ -283,7 +283,7 @@
   <div class="kicker">Keeping it running</div>
   <h1>Durable state: Postgres as the system of record</h1>
   <p class="doc-lead">If it matters, it lives in a table, not a context window. Backups, the incident that tested them, and the move to local hardware.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
   <div class="prose">
 <p>Sessions rotate. State doesn't. Every agent session in my system will end, crash or hit its context limit, so anything that has to survive that lives in Postgres, not in a context window. The database is Supabase-hosted Postgres with 250+ tables, and it's the system of record for everything many processes write at once.</p>
 <p>This article covers what goes in it, the outage that taught me to read warning emails, the backups, and the honest status of moving it onto my own hardware.</p>

@@ -283,7 +283,7 @@
   <div class="kicker">Guardrails</div>
   <h1>QA: user stories, Playwright and synthetic users</h1>
   <p class="doc-lead">QA driven by user stories: browser journeys, accessibility, visual baselines, synthetic users, and a persona tester that never sends.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>7 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>7 min read</span></p>
   <div class="prose">
 <p>QA in my system tests what the spec promised, never what the builder claimed. "I fixed it" is a sentence. A green browser run against the acceptance tests, on the deployed product, is evidence. Everything on this page exists to produce the second thing and to keep test traffic from touching anything real.</p>
 <h2 id="what-you-ll-learn"><a class="anchor" href="#what-you-ll-learn" aria-hidden="true" tabindex="-1">#</a>What you'll learn</h2>
@@ -312,7 +312,7 @@
 <h2 id="synthetic-users"><a class="anchor" href="#synthetic-users" aria-hidden="true" tabindex="-1">#</a>Synthetic users</h2>
 <p>A route test asks "does this page work?" A synthetic user asks "can a person get done what they came for?" It's an agent with a persona (a goal, a device, how comfortable they are with tech) that walks a flow the way that person would and reports where it got stuck, not just what errored.</p>
 <p>Here's the case for them, from my own store. The first live order was my own test purchase on June 9, 2026. It exposed three bugs in the checkout-to-fulfillment path: a request that asked to expand fields that can't be expanded, the billing address used where the shipping address belonged, and a confirmation flag sent in the wrong part of the request. Then the order failed at the print vendor because no payment method was on file there, while the card had already been charged. Every unit test had passed. The bugs only appeared when someone actually tried to buy something.</p>
-<p>That someone was me. Best guess: a synthetic buyer walking the full flow on a test configuration would have found the first three before a real card was involved. That's the job: be the first customer so the first customer doesn't have to be.</p>
+<p>That someone was me. I think a synthetic buyer walking the full flow on a test configuration would have found the first three before a real card was involved. That's the job: be the first customer so the first customer doesn't have to be.</p>
 <p>Rules I'd give anyone building them:</p>
 <ul><li><strong>Name the persona specifically.</strong> "First-time buyer on a phone who skims" finds different bugs than "user."</li><li><strong>Report friction, not just failures.</strong> A page that loads but confuses is a finding.</li><li><strong>Never let a synthetic user do anything real in production.</strong> No real orders, messages or reviews.</li><li><strong>Every real-user failure becomes a new persona variant.</strong> The billing-address bug is exactly the kind of scenario a buyer persona should walk every time.</li></ul>
 <h2 id="the-persona-tester-october-2026"><a class="anchor" href="#the-persona-tester-october-2026" aria-hidden="true" tabindex="-1">#</a>The persona tester (October 2026)</h2>

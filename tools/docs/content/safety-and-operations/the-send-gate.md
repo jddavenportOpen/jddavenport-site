@@ -1,14 +1,14 @@
 ---
 title: "One door out: the send gate"
-description: "The system can draft anything and send nothing without a yes. One chokepoint, content-bound approval tokens, a freeze switch, and a scan for bypasses."
+description: "Every message my agents send to another person passes one gate, and by default it waits for my yes. Approval tokens, a freeze switch and a bypass scan."
 section: safety-and-operations
 group: "Guardrails"
 order: 10
-updated: 2026-10-05
+updated: 2026-11-22
 sources: []
 ---
 
-My system can draft anything: email, texts, posts, replies. It can't send any of it to another person without my explicit yes. Every outbound message to a third party goes through one chokepoint, and that chokepoint is the most important safety constraint I've built. It's also what made it safe to let everything else run fast.
+My system can draft anything: email, texts, posts, replies. Every email or message my agents send to another person passes one gate. By default it waits for my yes on the exact text. I've signed three narrow standing approvals: rescheduling AI Foundry check-ins with the teams, outreach for a case competition the Foundry runs, and cold email for AgentTree, a side project. AgentTree sends from its own domains, with my name on it. Each approval has a cap and a kill switch. Every outbound message to a third party goes through one chokepoint, and that chokepoint is the most important safety constraint I've built. It's also what made it safe to let everything else run fast.
 
 ## What you'll learn
 
@@ -107,7 +107,7 @@ One more design difference worth copying. A lot of safety hooks fail open on the
 
 Here's the part I didn't expect. Merges into my agent repo went from 6 in May 2026 to 78 in June and 166 in July. The send gate landed June 30, in the middle of that climb.
 
-Best guess: that's not a coincidence. At that rate you can't review every action an agent takes. You can review every message that leaves. One door out turned "let it run fast" from a gamble into a decision. The gate didn't slow the system down. It's what made running it fast survivable.
+I think the timing is related. At that rate you can't review every action an agent takes. You can review every message that leaves. One door out turned "let it run fast" from a gamble into a decision. The gate didn't slow the system down. It's what made running it fast survivable.
 
 ## What it does not do
 

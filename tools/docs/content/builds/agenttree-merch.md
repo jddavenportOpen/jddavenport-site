@@ -4,7 +4,7 @@ description: "A print-on-demand store run by an agent loop, with money, identity
 section: builds
 group: "Commerce"
 order: 10
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/e1-agenttree-merch-ai-operator.mdx", "learn/tier-3/e4-autonomous-ceo-operator.mdx", "learn/tier-3/e5-merch-expert-consultant.mdx"]
 ---
 

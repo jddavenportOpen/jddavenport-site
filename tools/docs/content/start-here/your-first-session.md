@@ -3,7 +3,7 @@ title: "Your first session"
 description: "Open Claude Code in a folder, ask for something small, watch it read and act, and exit cleanly."
 section: start-here
 order: 40
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-0/04-your-first-session.mdx"]
 ---
 

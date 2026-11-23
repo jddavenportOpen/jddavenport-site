@@ -283,7 +283,7 @@
   <div class="kicker">Commerce</div>
   <h1>The IP-safety gate</h1>
   <p class="doc-lead">A blocklist plus a fail-closed classifier that refuses trademarked designs, and why fail closed is the only safe default.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>4 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>4 min read</span></p>
   <div class="prose">
 <p>A print-on-demand vendor will print anything you upload. That includes a famous wizard on a broomstick. So before my merch agents pay a cent for art, every design concept goes through one function that answers a single question: could this get the store banned? If that function can't answer, the answer is no.</p>
 <p>That last sentence is the whole design. Everything else is detail.</p>
@@ -340,7 +340,7 @@ def screen_concept(concept: str, slogan: str = &quot;&quot;, *, require_llm: boo
 <div class="code-block"><div class="code-bar"><span class="code-lang">text</span><button class="copy-btn" type="button" hidden aria-label="Copy code">Copy</button></div><pre><code class="language-text">concept -&gt; blocklist (free) -&gt; classifier (fractions of a cent) -&gt; image model (real money)</code></pre></div>
 <p>A concept that fails never reaches the image model, so you never pay to render art you can't sell. The operator's hard walls include IP sign-off too: no automated decision can skip the gate, and an approved design still needs my explicit "approve" before it lists.</p>
 <h2 id="what-it-caught"><a class="anchor" href="#what-it-caught" aria-hidden="true" tabindex="-1">#</a>What it caught</h2>
-<p>My project log for June 8, 2026 records one line: the gate caught a Harry Potter reference in testing, "unnamed." Best guess: that means the concept evoked the franchise without naming it, which only the classifier can catch, since "harry potter" and "hogwarts" are both on the blocklist. The log doesn't say which layer fired, so treat that as a guess. It's still the case for two layers: a list catches the words, and only something that reads for meaning catches the idea.</p>
+<p>My project log for June 8, 2026 records one line: the gate caught a Harry Potter reference in testing, "unnamed." I think that means the concept evoked the franchise without naming it, which only the classifier can catch, since "harry potter" and "hogwarts" are both on the blocklist. The log doesn't say which layer fired, so treat that as a guess. It's still the case for two layers: a list catches the words, and only something that reads for meaning catches the idea.</p>
 <p>Every design that went live passed the gate. The terminal-style redesign on June 9 went 20 for 20, and nothing in it is branded.</p>
 <h2 id="copy-the-pattern-not-just-the-gate"><a class="anchor" href="#copy-the-pattern-not-just-the-gate" aria-hidden="true" tabindex="-1">#</a>Copy the pattern, not just the gate</h2>
 <p>This isn't really about t-shirts. Any agent that touches something legal, financial or irreversible should start the same way:</p>

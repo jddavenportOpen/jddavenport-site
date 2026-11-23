@@ -4,7 +4,7 @@ description: "Four files that tell every agent who you are, how you decide, how 
 section: nerve-center
 group: "Memory and context"
 order: 130
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/c4-pca-personal-context-artifacts.mdx", "articles/personal-ai-os.mdx"]
 ---
 
@@ -38,7 +38,7 @@ Here's what entries look like. These are invented for illustration, not copied f
 ## Protocols
 - No purchase over a set amount without a 24-hour cooldown.
 - Never commit someone else's time without asking them first.
-- Nothing goes out under my name without my yes on the exact text.
+- By default nothing goes out under my name without my yes on the exact text. Three narrow standing approvals I signed are the exception, each with a cap and a kill switch.
 ```
 
 The voice file is the one I've iterated on most, and two of its rules are already public on this site: no em-dashes, and the first sentence carries the point. The format that works is examples, not adjectives. "Write concisely" does nothing. Ten real messages you sent, ten drafts you hated with a one-line reason each, and rules per channel (a text, a cold email, a post) do a lot.

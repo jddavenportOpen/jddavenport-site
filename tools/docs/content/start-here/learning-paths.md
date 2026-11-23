@@ -3,7 +3,7 @@ title: "Where to go next: learning paths"
 description: "Pick a path by goal: first week, one agent to many, how a production AI org runs, or a PM's path. Ordered reading lists."
 section: start-here
 order: 80
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-0/08-learning-path-map.mdx", "getting-started.mdx", "best-of.mdx"]
 ---
 
@@ -81,7 +81,7 @@ For: you want to see the whole thing working. This is my own system, the Nerve C
 11. [Watchdogs: liveness is work completed](/docs/safety-and-operations/watchdogs/)
 12. [Durable state](/docs/safety-and-operations/durable-state/)
 
-For the short version first, read the [production teardown](https://jddavenport.com/teardown) on my site. The system also publishes its own census daily on the [live capabilities page](https://nerve-center-showcase.vercel.app).
+For the short version first, read the [production teardown](https://jddavenport.com/teardown) on my site.
 
 ## Path 4: for PMs and leaders
 

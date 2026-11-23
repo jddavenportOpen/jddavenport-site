@@ -3,7 +3,7 @@ title: "Building in public without fooling anyone"
 description: "Why I build in the open, and the over-claim traps I caught in my own posts: inflated counts, dropped asterisks, compressed timelines."
 section: field-notes
 order: 20
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/i3-honest-marketing.mdx", "articles/building-openclaw-in-public.mdx"]
 ---
 
@@ -34,7 +34,7 @@ The link-preview image was the nastiest one. Social platforms cache those cards,
 
 ## Trap 2: the autonomy claim that drops its asterisk
 
-Some of my early posts said the system "manages things end to end." The autonomy was real. It also had gates the posts left out: no money moves, nothing is sent as me, and no identity or IP decision is made without my explicit yes. Those gates are the design.
+Some of my early posts said the system "manages things end to end." The autonomy was real. It also had gates the posts left out: by default no money moves, nothing is sent as me, and no identity or IP decision is made without my explicit yes. The three narrow standing approvals I've signed since are written down, capped, and have kill switches. Those gates are the design.
 
 The merch store is the clearest case. An agent loop runs a print-on-demand store: designs, listings, fulfillment, with money, identity and trademark sign-off held by a human. The "first sale" in June 2026 ran real money through Stripe and a real print vendor, and it caught three real bugs before failing at the vendor on a fourth. It was also my own test purchase. As of mid-June there had been two orders, both mine, and zero outside customers. Calling that "first sale" without the asterisk is technically true and practically misleading. The honest version is better anyway: a test order that found three bugs no mock had caught is a good story.
 

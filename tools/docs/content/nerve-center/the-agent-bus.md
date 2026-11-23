@@ -4,7 +4,7 @@ description: "From a synchronous ask that could silently return nothing to a dur
 section: nerve-center
 group: "Orchestration"
 order: 50
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/b4-ask-agent.mdx"]
 ---
 

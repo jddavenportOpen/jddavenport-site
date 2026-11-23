@@ -4,7 +4,7 @@ description: "A short spec for a new agent, PRDs whose user stories become the t
 section: patterns
 group: "Agents"
 order: 20
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["frameworks/agent-requirement-document.mdx", "learn/tier-3/b7-architect-agent.mdx"]
 ---
 

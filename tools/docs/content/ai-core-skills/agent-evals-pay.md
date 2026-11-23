@@ -4,7 +4,7 @@ description: "The real job postings, checked, and what I think the numbers mean.
 section: ai-core-skills
 group: "#1 Agent evals"
 order: 20
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["ai-roles-skills-series/day-01-agent-evals"]
 ---
 

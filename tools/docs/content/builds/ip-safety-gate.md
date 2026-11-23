@@ -4,7 +4,7 @@ description: "A blocklist plus a fail-closed classifier that refuses trademarked
 section: builds
 group: "Commerce"
 order: 20
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/e2-ip-safety-gate.mdx"]
 ---
 
@@ -100,7 +100,7 @@ A concept that fails never reaches the image model, so you never pay to render a
 
 ## What it caught
 
-My project log for June 8, 2026 records one line: the gate caught a Harry Potter reference in testing, "unnamed." Best guess: that means the concept evoked the franchise without naming it, which only the classifier can catch, since "harry potter" and "hogwarts" are both on the blocklist. The log doesn't say which layer fired, so treat that as a guess. It's still the case for two layers: a list catches the words, and only something that reads for meaning catches the idea.
+My project log for June 8, 2026 records one line: the gate caught a Harry Potter reference in testing, "unnamed." I think that means the concept evoked the franchise without naming it, which only the classifier can catch, since "harry potter" and "hogwarts" are both on the blocklist. The log doesn't say which layer fired, so treat that as a guess. It's still the case for two layers: a list catches the words, and only something that reads for meaning catches the idea.
 
 Every design that went live passed the gate. The terminal-style redesign on June 9 went 20 for 20, and nothing in it is branded.
 

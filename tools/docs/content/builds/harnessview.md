@@ -4,7 +4,7 @@ description: "Scan a project's Claude Code setup (agents, skills, hooks, MCP, se
 section: builds
 group: "Open source"
 order: 160
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/a4-harnessview.mdx"]
 ---
 

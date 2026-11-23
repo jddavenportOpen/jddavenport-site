@@ -4,7 +4,7 @@ description: "Seven statistical playbooks, a classifier, a solver that computes 
 section: builds
 group: "School and work"
 order: 120
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/g2-analytics-suite.mdx"]
 ---
 

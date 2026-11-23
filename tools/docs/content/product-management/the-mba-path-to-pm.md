@@ -3,7 +3,7 @@ title: "The MBA path to product management"
 description: "How the MBA PM recruiting cycle runs, how to read comp ranges, the classes and resume that help, and how to prep the loop."
 section: product-management
 order: 20
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["articles/mba-guide-product-management.mdx", "product-management/mba-full-time-pm-jobs.mdx", "product-management/mba-pm-internships.mdx"]
 ---
 

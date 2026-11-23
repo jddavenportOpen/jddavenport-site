@@ -4,7 +4,7 @@ description: "What a specialist agent is on disk: a definition, a package with a
 section: patterns
 group: "Agents"
 order: 10
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-2/01-anatomy-of-an-agent.mdx"]
 ---
 

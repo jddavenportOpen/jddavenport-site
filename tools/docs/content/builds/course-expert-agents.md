@@ -4,7 +4,7 @@ description: "Agents grounded in a course's real materials that answer with cita
 section: builds
 group: "School and work"
 order: 110
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/g1-expert-professor-canvas.mdx", "building-ai-os/arch-canvas-lms.mdx"]
 ---
 

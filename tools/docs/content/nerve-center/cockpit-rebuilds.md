@@ -4,7 +4,7 @@ description: "Replaying a terminal in a browser broke everything. What replaced 
 section: nerve-center
 group: "The cockpit"
 order: 160
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/d2-pty-scraping-reckoning.mdx", "learn/tier-3/d3-structured-stream-pivot.mdx", "learn/tier-3/d5-clean-chat-rendering.mdx"]
 ---
 

@@ -4,7 +4,7 @@ description: "From a chat bot in early 2026 to a production AI organization: bre
 section: nerve-center
 group: "Overview"
 order: 20
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/a1-openclaw-the-first-harness.mdx", "learn/tier-3/a2-pivot-to-claude-code-harness.mdx", "building-ai-os/story-overview.mdx", "building-ai-os/arch-openclaw.mdx"]
 ---
 

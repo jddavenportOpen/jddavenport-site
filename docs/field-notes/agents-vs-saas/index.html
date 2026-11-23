@@ -283,7 +283,7 @@
   <div class="kicker">Field notes</div>
   <h1>Why agents will eat a lot of SaaS</h1>
   <p class="doc-lead">SaaS gives you a better interface for doing work. Agents do the work. An opinion, with where it holds and where it doesn&#x27;t.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
   <div class="prose">
 <p>This is an opinion, and I'll label it as one: a lot of SaaS sells a better interface for doing work, and agents do the work. When the work itself gets done, the interface matters less. I've run an AI organization every day since April 2026, and that experience both supports the thesis and puts real limits on it. Both halves are below.</p>
 <h2 id="the-thesis"><a class="anchor" href="#the-thesis" aria-hidden="true" tabindex="-1">#</a>The thesis</h2>
@@ -301,7 +301,7 @@
 <h2 id="where-it-doesn-t-hold"><a class="anchor" href="#where-it-doesn-t-hold" aria-hidden="true" tabindex="-1">#</a>Where it doesn't hold</h2>
 <p>Six months of running agents taught me the limits, and they're real.</p>
 <h3 id="1-money-identity-and-irreversible-actions-stay-human"><a class="anchor" href="#1-money-identity-and-irreversible-actions-stay-human" aria-hidden="true" tabindex="-1">#</a>1. Money, identity and irreversible actions stay human</h3>
-<p>My system can draft anything and send nothing on its own. Every outbound message goes through one gate, and approvals are bound to the exact recipients, subject and body, so changing a word invalidates the approval. When I turned that gate on in June, its first check found five email senders that skipped it. None were malicious. They were code paths written before the gate existed.</p>
+<p>My system can draft anything. Every email or message my agents send to another person passes one gate. By default it waits for my yes on the exact text. I've signed three narrow standing approvals: rescheduling AI Foundry check-ins with the teams, outreach for a case competition the Foundry runs, and cold email for AgentTree, a side project. AgentTree sends from its own domains, with my name on it. Each approval has a cap and a kill switch. Every outbound message goes through that gate, and approvals are bound to the exact recipients, subject and body, so changing a word invalidates the approval. When I turned that gate on in June, its first check found five email senders that skipped it. None were malicious. They were code paths written before the gate existed.</p>
 <p>So "agents do the work" needs an asterisk: agents do the work up to the point where a mistake costs money, reputation or something you can't undo. Past that point a person says yes. The interface for that yes still matters.</p>
 <h3 id="2-reliability-is-real-engineering-and-someone-pays-for-it"><a class="anchor" href="#2-reliability-is-real-engineering-and-someone-pays-for-it" aria-hidden="true" tabindex="-1">#</a>2. Reliability is real engineering, and someone pays for it</h3>
 <p>A SaaS vendor does the boring reliability work for you. Run your own agents and it's yours. I've had a restart kill every live session at once, a hidden confirmation dialog freeze the system for four and a half hours, and an agent-to-agent call that failed by returning an empty answer that looked like a real one. Each fix was a piece of infrastructure: guards, watchdogs, a durable message bus.</p>

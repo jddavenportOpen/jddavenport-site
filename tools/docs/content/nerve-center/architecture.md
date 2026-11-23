@@ -4,7 +4,7 @@ description: "Operator, cockpit, bridge, Claude Code sessions, memory, Postgres,
 section: nerve-center
 group: "Overview"
 order: 10
-updated: 2026-10-05
+updated: 2026-11-22
 sources: []
 ---
 
@@ -110,6 +110,6 @@ From the [production teardown](https://jddavenport.com/teardown), which has the 
 4. Enforce with machines. Every rule gets a hook, a gate or a detector.
 5. Gate the sends. One door out, with a freeze switch you can hit from your phone.
 
-The system also publishes its own census. The [live capabilities page](https://nerve-center-showcase.vercel.app) regenerates from live state every day, so its numbers come from a generator, not from me typing them.
+The system also writes its own inventory every day from live state, so those lists come from a generator and I don't type them.
 
 **Next:** [How the system got built](/docs/nerve-center/the-story/)

@@ -4,7 +4,7 @@ description: "Read, Edit, Write, Bash and the rest: how the agent picks a tool, 
 section: fundamentals
 group: "How it works"
 order: 40
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-1/04-tools-101.mdx"]
 ---
 

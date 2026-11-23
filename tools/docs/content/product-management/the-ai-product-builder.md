@@ -3,7 +3,7 @@ title: "The AI product builder"
 description: "When one person can orchestrate agents across research, design and engineering, the PM role changes. The skills that matter now."
 section: product-management
 order: 30
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["product-management/ai-pm-builder.mdx"]
 ---
 

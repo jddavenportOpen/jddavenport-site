@@ -4,7 +4,7 @@ description: "A scout reads the system's own failures and ranks fixes, a human a
 section: patterns
 group: "Shipping"
 order: 140
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-2/13-self-healing-loop.mdx"]
 ---
 

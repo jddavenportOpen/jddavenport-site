@@ -4,7 +4,7 @@ description: "The open-source, bring-your-own-key personal AI OS engine extracte
 section: builds
 group: "Open source"
 order: 170
-updated: 2026-10-05
+updated: 2026-11-22
 sources: []
 ---
 

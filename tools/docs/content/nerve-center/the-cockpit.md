@@ -4,7 +4,7 @@ description: "A web app with a live pane for every agent session, an iPhone app 
 section: nerve-center
 group: "The cockpit"
 order: 150
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/d1-nerve-center.mdx", "building-ai-os/arch-nerve-center.mdx", "building-ai-os/story-nerve-center.mdx"]
 ---
 

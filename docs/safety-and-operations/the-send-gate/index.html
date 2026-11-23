@@ -5,17 +5,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>One door out: the send gate · JD Davenport Docs</title>
-<meta name="description" content="The system can draft anything and send nothing without a yes. One chokepoint, content-bound approval tokens, a freeze switch, and a scan for bypasses.">
+<meta name="description" content="Every message my agents send to another person passes one gate, and by default it waits for my yes. Approval tokens, a freeze switch and a bypass scan.">
 <link rel="canonical" href="https://jddavenport.com/docs/safety-and-operations/the-send-gate/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="JD Davenport">
 <meta property="og:url" content="https://jddavenport.com/docs/safety-and-operations/the-send-gate/">
 <meta property="og:title" content="One door out: the send gate · JD Davenport Docs">
-<meta property="og:description" content="The system can draft anything and send nothing without a yes. One chokepoint, content-bound approval tokens, a freeze switch, and a scan for bypasses.">
+<meta property="og:description" content="Every message my agents send to another person passes one gate, and by default it waits for my yes. Approval tokens, a freeze switch and a bypass scan.">
 <meta property="og:image" content="https://jddavenport.com/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="One door out: the send gate · JD Davenport Docs">
-<meta name="twitter:description" content="The system can draft anything and send nothing without a yes. One chokepoint, content-bound approval tokens, a freeze switch, and a scan for bypasses.">
+<meta name="twitter:description" content="Every message my agents send to another person passes one gate, and by default it waits for my yes. Approval tokens, a freeze switch and a bypass scan.">
 <meta name="twitter:image" content="https://jddavenport.com/images/og-image.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <script defer src="/_vercel/insights/script.js"></script>
@@ -282,10 +282,10 @@
   <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/docs/">Docs</a></li><li><a href="/docs/safety-and-operations/">Safety and operations</a></li></ol></nav>
   <div class="kicker">Guardrails</div>
   <h1>One door out: the send gate</h1>
-  <p class="doc-lead">The system can draft anything and send nothing without a yes. One chokepoint, content-bound approval tokens, a freeze switch, and a scan for bypasses.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
+  <p class="doc-lead">Every message my agents send to another person passes one gate, and by default it waits for my yes. Approval tokens, a freeze switch and a bypass scan.</p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
   <div class="prose">
-<p>My system can draft anything: email, texts, posts, replies. It can't send any of it to another person without my explicit yes. Every outbound message to a third party goes through one chokepoint, and that chokepoint is the most important safety constraint I've built. It's also what made it safe to let everything else run fast.</p>
+<p>My system can draft anything: email, texts, posts, replies. Every email or message my agents send to another person passes one gate. By default it waits for my yes on the exact text. I've signed three narrow standing approvals: rescheduling AI Foundry check-ins with the teams, outreach for a case competition the Foundry runs, and cold email for AgentTree, a side project. AgentTree sends from its own domains, with my name on it. Each approval has a cap and a kill switch. Every outbound message to a third party goes through one chokepoint, and that chokepoint is the most important safety constraint I've built. It's also what made it safe to let everything else run fast.</p>
 <h2 id="what-you-ll-learn"><a class="anchor" href="#what-you-ll-learn" aria-hidden="true" tabindex="-1">#</a>What you'll learn</h2>
 <ul><li>Why one door beats a rule on every door</li><li>How a content-bound, single-use approval token works</li><li>The freeze switch, and the scan that catches new bypasses</li><li>Where my gate failed anyway, and what fixed it</li></ul>
 <h2 id="the-problem-send-paths-grow-on-their-own"><a class="anchor" href="#the-problem-send-paths-grow-on-their-own" aria-hidden="true" tabindex="-1">#</a>The problem: send paths grow on their own</h2>
@@ -347,7 +347,7 @@ def guarded_send(action_class, recipients, subject, body, token, transport):
 <p>One more design difference worth copying. A lot of safety hooks fail open on their own errors, on purpose, because a broken hook that blocks everything gets ripped out. A send gate must fail closed. If the gate can't verify a token, the message doesn't go.</p>
 <h2 id="the-gate-made-speed-safe"><a class="anchor" href="#the-gate-made-speed-safe" aria-hidden="true" tabindex="-1">#</a>The gate made speed safe</h2>
 <p>Here's the part I didn't expect. Merges into my agent repo went from 6 in May 2026 to 78 in June and 166 in July. The send gate landed June 30, in the middle of that climb.</p>
-<p>Best guess: that's not a coincidence. At that rate you can't review every action an agent takes. You can review every message that leaves. One door out turned "let it run fast" from a gamble into a decision. The gate didn't slow the system down. It's what made running it fast survivable.</p>
+<p>I think the timing is related. At that rate you can't review every action an agent takes. You can review every message that leaves. One door out turned "let it run fast" from a gamble into a decision. The gate didn't slow the system down. It's what made running it fast survivable.</p>
 <h2 id="what-it-does-not-do"><a class="anchor" href="#what-it-does-not-do" aria-hidden="true" tabindex="-1">#</a>What it does not do</h2>
 <ul><li><strong>It doesn't judge quality.</strong> Drafts are written against my voice file before they reach me, and whether a draft is any good is my call. The gate answers one question: did a human approve exactly this?</li><li><strong>It doesn't govern GitHub.</strong> Pushes and PRs go through a separate governor, which lets pushes to my own repos through and judges anything touching someone else's.</li><li><strong>It doesn't make me read carefully.</strong> The token proves I approved the hash. Reading the draft is still my job.</li></ul>
 <h2 id="build-your-own"><a class="anchor" href="#build-your-own" aria-hidden="true" tabindex="-1">#</a>Build your own</h2>

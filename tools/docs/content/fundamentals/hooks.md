@@ -4,7 +4,7 @@ description: "PreToolUse, Stop and the other hook events, why infrastructure bea
 section: fundamentals
 group: "Extending Claude Code"
 order: 80
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-1/08-hooks.mdx"]
 ---
 

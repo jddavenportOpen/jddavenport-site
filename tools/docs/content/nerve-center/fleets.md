@@ -4,7 +4,7 @@ description: "Many build agents at once: a worktree supervisor, a queue drainer,
 section: nerve-center
 group: "Orchestration"
 order: 60
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/b5-fleet-of-claudes.mdx", "learn/tier-3/b6-infinity-fleet.mdx"]
 ---
 

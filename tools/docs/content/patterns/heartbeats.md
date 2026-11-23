@@ -4,7 +4,7 @@ description: "Scheduled jobs are the system's pulse. Built-in options first, the
 section: patterns
 group: "Loops and schedules"
 order: 80
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-2/05-crons-as-a-heartbeat.mdx"]
 ---
 
@@ -141,7 +141,7 @@ On July 21, 2026 I retired them and replaced them with event-driven pulses. A do
 
 What survived is the useful kind of schedule: cheap, deterministic jobs that sync data, check health and catch missed work. Almost none of them call a model.
 
-"the agents check in every hour" is a great line in a demo. Ask what each scheduled run produces that you would miss if it stopped. If the answer is nothing, it's a cost, not a heartbeat.
+"the agents check in every hour" is a great line in a demo. Ask what each scheduled run produces that you would miss if it stopped. If a scheduled run produces nothing you'd miss, turn it off.
 
 ## A starting set
 

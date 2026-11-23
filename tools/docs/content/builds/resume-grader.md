@@ -4,7 +4,7 @@ description: "One Claude call scores any resume against any job on a six-dimensi
 section: builds
 group: "School and work"
 order: 140
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["tutorials/build-your-own-resume-grader.mdx"]
 ---
 

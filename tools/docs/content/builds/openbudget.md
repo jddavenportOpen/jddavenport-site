@@ -4,7 +4,7 @@ description: "Envelope budgeting on free-tier hosting with read-only bank sync, 
 section: builds
 group: "Open source"
 order: 150
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/i1-openbudget.mdx"]
 ---
 

@@ -4,7 +4,7 @@ description: "One experience bank, roles scored against your goals, tailored res
 section: builds
 group: "Open source"
 order: 180
-updated: 2026-10-05
+updated: 2026-11-22
 sources: []
 ---
 

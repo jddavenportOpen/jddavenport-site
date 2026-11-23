@@ -4,7 +4,7 @@ description: "A budget router in April, one registry per tier, automatic model a
 section: nerve-center
 group: "Orchestration"
 order: 70
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["building-ai-os/story-model-routing.mdx", "building-ai-os/arch-model-router.mdx", "learn/tier-3/h4-ollama-smart-router.mdx"]
 ---
 

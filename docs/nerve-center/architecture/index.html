@@ -283,7 +283,7 @@
   <div class="kicker">Overview</div>
   <h1>The architecture in one page</h1>
   <p class="doc-lead">Operator, cockpit, bridge, Claude Code sessions, memory, Postgres, watchdogs and one send gate: the Nerve Center on one page.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
   <div class="prose">
 <p>The Nerve Center is my production AI organization, and the whole thing fits in one sentence: a supervising service owns long-lived Claude Code sessions, a bus routes work between them and me, a shared memory gives them recall, Postgres holds durable state, and a watchdog layer assumes everything above it will eventually fail. I started building it in February 2026. It has run on a schedule since April 2026, and I've built 100+ agents for it.</p>
 <p>This page is the map. Every other article in this section zooms in on one box.</p>
@@ -336,7 +336,7 @@
 <h2 id="five-rules-if-you-build-one"><a class="anchor" href="#five-rules-if-you-build-one" aria-hidden="true" tabindex="-1">#</a>Five rules if you build one</h2>
 <p>From the <a href="https://jddavenport.com/teardown" target="_blank" rel="noopener">production teardown</a>, which has the three failures behind them:</p>
 <ol><li>State outlives sessions. Anything that matters goes to a table or a file.</li><li>Sync intent, not state. The moment two writers exist, blob sync is a time machine.</li><li>Liveness is work completed. Uptime checks are blind to the wedged state.</li><li>Enforce with machines. Every rule gets a hook, a gate or a detector.</li><li>Gate the sends. One door out, with a freeze switch you can hit from your phone.</li></ol>
-<p>The system also publishes its own census. The <a href="https://nerve-center-showcase.vercel.app" target="_blank" rel="noopener">live capabilities page</a> regenerates from live state every day, so its numbers come from a generator, not from me typing them.</p>
+<p>The system also writes its own inventory every day from live state, so those lists come from a generator and I don't type them.</p>
 <p><strong>Next:</strong> <a href="/docs/nerve-center/the-story/">How the system got built</a></p>
   </div>
   

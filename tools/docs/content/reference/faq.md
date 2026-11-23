@@ -3,7 +3,7 @@ title: "FAQ"
 description: "Short answers to what people ask most: do I need to code, what it costs, is it safe, what agents can't do, and where to start."
 section: reference
 order: 20
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["faq.mdx"]
 ---
 
@@ -33,9 +33,9 @@ Most of my daily work runs on Claude subscription plans rather than per-token AP
 
 Only with gates, and the gates have to be machines, not instructions.
 
-My rule: the system can draft anything and send nothing without my yes. Every outbound message goes through one chokepoint, and approval is bound to the exact recipients and text, so a changed message needs a new approval. When I switched that gate on, a build check immediately found five email senders that had been going around it. Prose rules don't survive contact with autonomous agents. Machine enforcement does.
+My rule: the system can draft anything. Every email or message my agents send to another person passes one gate. By default it waits for my yes on the exact text. I've signed three narrow standing approvals: rescheduling AI Foundry check-ins with the teams, outreach for a case competition the Foundry runs, and cold email for AgentTree, a side project. AgentTree sends from its own domains, with my name on it. Each approval has a cap and a kill switch. Every outbound message goes through one chokepoint, and approval is bound to the exact recipients and text, so a changed message needs a new approval. When I switched that gate on, a build check immediately found five email senders that had been going around it. Prose rules don't survive contact with autonomous agents. Machine enforcement does.
 
-Money, sending as me, identity and anything irreversible always need a human. See [One door out: the send gate](/docs/safety-and-operations/the-send-gate/) and [Permissions and safety basics](/docs/start-here/permissions-and-safety/).
+By default, money, sending as me, identity and anything irreversible need a human. See [One door out: the send gate](/docs/safety-and-operations/the-send-gate/) and [Permissions and safety basics](/docs/start-here/permissions-and-safety/).
 
 ## What can't agents do?
 
@@ -51,7 +51,7 @@ Plenty, and the list is more useful than the hype:
 
 Parts of it. The full system runs my actual life and work, so it stays private. The pieces that generalize are public on GitHub under [jddavenportOpen](https://github.com/jddavenportOpen): the governance engine for autonomous fixes, the orchestration core, an open personal AI engine, eval starters, and more. The full list, each with the article that explains it, is the [open-source index](/docs/reference/open-source/).
 
-For the shape of the private system, there's a public teardown at [jddavenport.com/teardown](https://jddavenport.com/teardown) and a capabilities page the system regenerates from live state every day at [nerve-center-showcase.vercel.app](https://nerve-center-showcase.vercel.app).
+For the shape of the private system, there's a public teardown at [jddavenport.com/teardown](https://jddavenport.com/teardown).
 
 ## Why Claude Code?
 

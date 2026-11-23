@@ -4,7 +4,7 @@ description: "PR, gates, merge, deploy, smoke test prod, then tell the human wha
 section: patterns
 group: "Shipping"
 order: 120
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-2/12-ship-to-prod.mdx"]
 ---
 

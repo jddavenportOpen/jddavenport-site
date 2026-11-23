@@ -4,7 +4,7 @@ description: "Sourcing, drafting in my voice, a preview and approval gate, one L
 section: builds
 group: "Research and content"
 order: 80
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/f4-linkedin-growth-engine.mdx", "case-studies/content-pipeline.mdx"]
 ---
 

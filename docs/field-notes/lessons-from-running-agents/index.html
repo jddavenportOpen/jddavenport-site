@@ -283,7 +283,7 @@
   <div class="kicker">Field notes</div>
   <h1>Lessons from running agents every day</h1>
   <p class="doc-lead">What survived six months of production: prompt discipline, memory when you need it, schedules as infrastructure, machines over memos.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
   <div class="prose">
 <p>I started building my own agent system in February 2026, and it has run on a schedule since April 2026: 100+ agents built, on always-on hardware with Claude Code as the runtime. These are the lessons that survived contact with real work. Most of them came from something breaking.</p>
 <h2 id="1-agents-fail-on-instructions-before-they-fail-on-code"><a class="anchor" href="#1-agents-fail-on-instructions-before-they-fail-on-code" aria-hidden="true" tabindex="-1">#</a>1. Agents fail on instructions before they fail on code</h2>
@@ -294,7 +294,7 @@
 <h2 id="2-memory-is-a-feature-you-add-when-you-need-it"><a class="anchor" href="#2-memory-is-a-feature-you-add-when-you-need-it" aria-hidden="true" tabindex="-1">#</a>2. Memory is a feature you add when you need it</h2>
 <p>Every tutorial shows you one call to a model. Almost none show you how the second call remembers the first.</p>
 <p>Mine went in stages. First, nothing: fine for one-shot tasks, useless for anything about people. Then files: a changelog per project, a work plan, a one-line ship log per change, rolled up daily. That carried the system for its first two months, and it's still the backbone. In late June memory became a graph plus a vector store, so an agent could ask "what do I know about this person" and get connected facts instead of keyword matches.</p>
-<p>Start with files. A database is a graduation, not a starting point.</p>
+<p>Start with files. Add a database when files stop working.</p>
 <p>The lesson that cost the most: memory needs provenance. In September I found that a hook meant to look up names in my CRM had been reading text the system itself injects into prompts (recalled memories, context carried over from earlier sessions) as if I had typed it. It minted fake "people" from that text, and the fakes flowed into memory. The fix was to strip injected text before extraction, refuse to trust anything the hook had written, quarantine the bad entries, and add a weekly check. If you can't say where a memory came from, you can't trust it.</p>
 <h2 id="3-orchestration-is-harder-than-agents"><a class="anchor" href="#3-orchestration-is-harder-than-agents" aria-hidden="true" tabindex="-1">#</a>3. Orchestration is harder than agents</h2>
 <p>A sub-agent doesn't know what its parent knew. Without an explicit hand-off you get agents that re-ask settled questions, reverse decisions, and build things that conflict with the architecture. Every delegation now carries the task, the context, the success criteria, which files to read first, and which model tier to run on.</p>
@@ -314,7 +314,7 @@
 <p>Related: one setting should have one writer. Two of my scripts wrote different effort values into the same settings file and fought each other 30 to 70 times a day for almost a month before I noticed. Both now read one registry key.</p>
 <h2 id="what-i-d-do-differently"><a class="anchor" href="#what-i-d-do-differently" aria-hidden="true" tabindex="-1">#</a>What I'd do differently</h2>
 <p><strong>Fewer repos, more depth, sooner.</strong> From February to July I created roughly 28 repositories a month. In August that fell to 16 and in September to 10, while merges into the main system climbed from 6 in May to 332 in August. The system got better when I stopped starting things.</p>
-<p><strong>Build the stop conditions first.</strong> The send gate landed in the same fortnight my merge rate jumped from single digits to dozens. That's not a coincidence. You can't run autonomous work at that pace unless there's exactly one door out.</p>
+<p><strong>Build the stop conditions first.</strong> The send gate landed in the same fortnight my merge rate jumped from single digits to dozens. I think the two are linked. You can't run autonomous work at that pace unless there's exactly one door out.</p>
 <p><strong>Build monitoring before the agents that depend on it.</strong> I did it backwards, and paid for it in silent failures.</p>
 <p>The system is live. It breaks. I fix the process that let it break, and it gets better. That's the whole method.</p>
 <p><strong>Next:</strong> <a href="/docs/field-notes/building-in-public/">Building in public without fooling anyone</a></p>

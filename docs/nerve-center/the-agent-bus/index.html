@@ -283,7 +283,7 @@
   <div class="kicker">Orchestration</div>
   <h1>The agent bus: how agents talk</h1>
   <p class="doc-lead">From a synchronous ask that could silently return nothing to a durable bus that persists, retries and dead-letters loudly.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
   <div class="prose">
 <p>Agents need to ask each other things. My first way of doing that could lie by saying nothing: a timeout came back as an empty string, and an empty string looks exactly like an agent that had nothing to say. The durable bus fixed that by writing every message to Postgres before delivering it, so a message can succeed, fail loudly, or sit visibly pending. It can't vanish.</p>
 <h2 id="version-one-askagent"><a class="anchor" href="#version-one-askagent" aria-hidden="true" tabindex="-1">#</a>Version one: ask_agent</h2>

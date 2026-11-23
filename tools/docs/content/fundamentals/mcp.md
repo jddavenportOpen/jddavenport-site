@@ -4,7 +4,7 @@ description: "What the Model Context Protocol is, how to add a server, and how t
 section: fundamentals
 group: "Extending Claude Code"
 order: 60
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-1/06-mcp-basics.mdx", "building-ai-os/arch-mcp-servers.mdx"]
 ---
 

@@ -4,7 +4,7 @@ description: "A self-learning X content agent: variant testing, caps and killswi
 section: builds
 group: "Research and content"
 order: 70
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/f3-socrates-x-autopilot.mdx"]
 ---
 

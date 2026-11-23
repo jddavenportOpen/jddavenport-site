@@ -4,7 +4,7 @@ description: "Eight failed python-pptx attempts, then a design system and a rend
 section: builds
 group: "Research and content"
 order: 60
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/f2-deck-architect-v4.mdx", "building-ai-os/arch-deck-architect.mdx", "articles/why-your-ai-slides-suck.mdx"]
 ---
 

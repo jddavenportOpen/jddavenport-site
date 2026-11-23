@@ -3,7 +3,7 @@ title: "Get your Vercel token for Claude Code"
 description: "Step by step, with screenshots: create a free Vercel account, make an access token, and hand it to Claude Code so it can put your website live."
 section: start-here
 order: 35
-updated: 2026-10-15
+updated: 2026-11-22
 noindex: true
 ---
 

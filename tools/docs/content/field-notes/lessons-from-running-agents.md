@@ -3,7 +3,7 @@ title: "Lessons from running agents every day"
 description: "What survived six months of production: prompt discipline, memory when you need it, schedules as infrastructure, machines over memos."
 section: field-notes
 order: 10
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["articles/the-54-agent-stack.mdx"]
 ---
 
@@ -27,7 +27,7 @@ Every tutorial shows you one call to a model. Almost none show you how the secon
 
 Mine went in stages. First, nothing: fine for one-shot tasks, useless for anything about people. Then files: a changelog per project, a work plan, a one-line ship log per change, rolled up daily. That carried the system for its first two months, and it's still the backbone. In late June memory became a graph plus a vector store, so an agent could ask "what do I know about this person" and get connected facts instead of keyword matches.
 
-Start with files. A database is a graduation, not a starting point.
+Start with files. Add a database when files stop working.
 
 The lesson that cost the most: memory needs provenance. In September I found that a hook meant to look up names in my CRM had been reading text the system itself injects into prompts (recalled memories, context carried over from earlier sessions) as if I had typed it. It minted fake "people" from that text, and the fakes flowed into memory. The fix was to strip injected text before extraction, refuse to trust anything the hook had written, quarantine the bad entries, and add a weekly check. If you can't say where a memory came from, you can't trust it.
 
@@ -71,7 +71,7 @@ Related: one setting should have one writer. Two of my scripts wrote different e
 
 **Fewer repos, more depth, sooner.** From February to July I created roughly 28 repositories a month. In August that fell to 16 and in September to 10, while merges into the main system climbed from 6 in May to 332 in August. The system got better when I stopped starting things.
 
-**Build the stop conditions first.** The send gate landed in the same fortnight my merge rate jumped from single digits to dozens. That's not a coincidence. You can't run autonomous work at that pace unless there's exactly one door out.
+**Build the stop conditions first.** The send gate landed in the same fortnight my merge rate jumped from single digits to dozens. I think the two are linked. You can't run autonomous work at that pace unless there's exactly one door out.
 
 **Build monitoring before the agents that depend on it.** I did it backwards, and paid for it in silent failures.
 

@@ -3,7 +3,7 @@ title: "Buy your own domain on Vercel (optional)"
 description: "Step by step, with screenshots: search for a name, avoid the cheap-first-year renewal trap, buy it, and have Claude Code point it at your website."
 section: start-here
 order: 36
-updated: 2026-10-15
+updated: 2026-11-22
 noindex: true
 ---
 

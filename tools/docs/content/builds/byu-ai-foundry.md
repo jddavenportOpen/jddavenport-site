@@ -4,7 +4,7 @@ description: "The program I founded at BYU Marriott where student builders ship 
 section: builds
 group: "School and work"
 order: 130
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/i2-byu-ai-foundry.mdx"]
 ---
 
@@ -52,7 +52,7 @@ Most of it is ordinary deterministic code an agent wrote: an ingest job that pul
 
 The Foundry is one of the domains in my own agent system. A persistent domain agent owns it: applicant intake from the site's forms, cohort milestones, and site operations. It keeps a status report current so my daily summary can say where things stand without me opening five tabs. See [Domain agents](/docs/nerve-center/domain-agents/) for how those work.
 
-One rule matters more than the rest: nothing goes out to a cohort member, applicant, partner or advisor without my yes. The agents draft emails, update trackers and prepare materials. A human sends. That's the [send gate](/docs/safety-and-operations/the-send-gate/), and it applies here like everywhere else.
+One rule matters more than the rest: by default nothing goes out to a cohort member, applicant, partner or advisor without my yes. The agents draft emails, update trackers and prepare materials. Two narrow standing approvals I signed are the exception: rescheduling check-ins with the teams, and outreach for the case competition the Foundry runs. Each has a cap and a kill switch. That's the [send gate](/docs/safety-and-operations/the-send-gate/), and it applies here like everywhere else.
 
 ## A lesson from the first site: make it safe for non-developers
 

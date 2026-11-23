@@ -4,7 +4,7 @@ description: "The system's memory of its own work: per-project logs, a daily rol
 section: nerve-center
 group: "Memory and context"
 order: 100
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/a3-file-based-second-brain.mdx", "building-ai-os/arch-eod-compiler.mdx"]
 ---
 

@@ -4,7 +4,7 @@ description: "Three layers of memory in plain files, the read, write, synthesize
 section: patterns
 group: "Agents"
 order: 70
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["articles/memory-systems.mdx", "tutorials/agent-memory-system.mdx"]
 ---
 

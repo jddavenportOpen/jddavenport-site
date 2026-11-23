@@ -3,7 +3,7 @@ title: "Sign in: subscription or API key"
 description: "Pro, Max, Team or a Console API key: which to pick, how billing differs, and the stray-key mistake that quietly costs money."
 section: start-here
 order: 30
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-0/03-authenticate.mdx"]
 ---
 

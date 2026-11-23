@@ -283,7 +283,7 @@
   <div class="kicker">Keeping it running</div>
   <h1>Watchdogs: liveness is work completed</h1>
   <p class="doc-lead">Catch-up after reboots, stale-job alerts, death-cluster detection, auto-unwedging, and the memory breaker that ended a kernel-panic loop.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>8 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>8 min read</span></p>
   <div class="prose">
 <p>The most dangerous state in an agent system isn't down. It's alive and wedged: the process is up, the port answers, the health check is green, and no work is happening. Uptime checks are blind to that state by construction. So every watchdog in my system asks one question: did you do work? Not: are you running?</p>
 <p>The watchdog layer is designed on the assumption that every layer above it will eventually lie about its own health. This page is the set of detectors I run, the incident behind each one, and the pattern you can copy.</p>
@@ -329,7 +329,7 @@ both die      -&gt; the machine is down; that&#x27;s a different, louder problem
 <p>I fixed it narrowly: outage-class alerts (panics, a stuck shipping pipeline, delivery failures) now always reach the main channel. Not every alert, because a flood of alarms is how you got blind in the first place. And for pagers whose trigger is a disaster, a probe now fires the real sending path end to end and checks the message arrived, because a pager you've never fired is a pager you're guessing about.</p>
 <h2 id="a-watchdog-checklist"><a class="anchor" href="#a-watchdog-checklist" aria-hidden="true" tabindex="-1">#</a>A watchdog checklist</h2>
 <div class="table-wrap" role="region" aria-label="Table" tabindex="0"><table class="cols-3"><thead><tr><th>Detector</th><th>Asks</th><th>Catches</th></tr></thead><tbody><tr><td>Catch-up</td><td>Did the scheduled run happen?</td><td>Runs lost to sleep and reboots</td></tr><tr><td>Stale-job alert</td><td>When did this last succeed?</td><td>Silent failures</td></tr><tr><td>Cross-scheduler deadman</td><td>Is the alerter itself alive?</td><td>The watcher dying with what it watches</td></tr><tr><td>Death-cluster detector</td><td>Did several sessions die together?</td><td>Mass kills, with the culprit named</td></tr><tr><td>Unwedger plus output liveness</td><td>Did work move while work was waiting?</td><td>Alive-but-stuck processes</td></tr><tr><td>Memory-truth gauge and breaker</td><td>What's actually available?</td><td>A gauge that lies, then a panic</td></tr><tr><td>Alert-path live fire</td><td>Does the page actually arrive?</td><td>Alerts dropped in transit</td></tr></tbody></table></div>
-<p>None of these is clever. Each one exists because I believed a green light that wasn't true. Build the detector for the lie, not for the outage.</p>
+<p>None of these is clever. Each one exists because I believed a green light that wasn't true. Each detector here catches a green light that was lying.</p>
 <p><strong>Next:</strong> <a href="/docs/safety-and-operations/durable-state/">Durable state: Postgres as the system of record</a></p>
   </div>
   

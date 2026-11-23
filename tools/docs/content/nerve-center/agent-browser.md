@@ -4,7 +4,7 @@ description: "When an agent needs a real browser: Playwright, a signed-in profil
 section: nerve-center
 group: "Interfaces and tools"
 order: 200
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/h5-agent-browser.mdx", "tutorials/browser-automation.mdx"]
 ---
 

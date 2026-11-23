@@ -3,13 +3,13 @@ title: "Open-source index"
 description: "Every public repo behind these docs, one line each, with the article that explains it."
 section: reference
 order: 30
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["resources.mdx"]
 ---
 
-Every public repo that relates to these docs, one line each, with the article that explains it. All of them live under [github.com/jddavenportOpen](https://github.com/jddavenportOpen), and each one was checked with a logged-out request on November 22, 2026. My private system stays private because it runs my actual life and work. These are the parts that generalize.
+Every public repo that relates to these docs, one line each, with the article that explains it. All of them live under [github.com/jddavenportOpen](https://github.com/jddavenportOpen). Each link was checked with a logged-out request on November 22, 2026. My private system stays private because it runs my actual life and work. These are the parts that generalize.
 
-Most are MIT licensed; check each repo's license file before you reuse code. Where a repo's own README quotes an agent count, it was true when that README was written; the durable phrasing is 100+ agents built.
+Most are MIT licensed; check each repo's license file before you reuse code. Some READMEs still quote older agent counts. The one I stand by is 100+ agents built.
 
 ## Production core
 
@@ -17,9 +17,9 @@ The safety, governance and orchestration pieces, extracted from the system that 
 
 | Repo | What it is | Read |
 |---|---|---|
-| [warden](https://github.com/jddavenportOpen/warden) | A governor for autonomous agents: autonomy admitted by reversibility, not confidence. Zero dependencies, offline tests | [Auto bug-squash and the Warden](/docs/safety-and-operations/bug-squash-and-warden/) |
+| [warden](https://github.com/jddavenportOpen/warden) | Decides which fixes an agent may make on its own, based on how easy each one is to undo. Zero dependencies, offline tests | [Auto bug-squash and the Warden](/docs/safety-and-operations/bug-squash-and-warden/) |
 | [claude-bug-squash](https://github.com/jddavenportOpen/claude-bug-squash) | Point Claude Code at a repo and a bug: it fixes in an isolated worktree, proves red to green, gates the fix, and never merges out of the box | [Auto bug-squash and the Warden](/docs/safety-and-operations/bug-squash-and-warden/) |
-| [ethos-gate](https://github.com/jddavenportOpen/ethos-gate) | PreToolUse and Stop hooks that block irreversible or outward-facing actions unless a human approved them | [Hooks](/docs/fundamentals/hooks/) |
+| [ethos-gate](https://github.com/jddavenportOpen/ethos-gate) | PreToolUse and Stop hooks that hold irreversible or outward-facing actions for a human yes | [Hooks](/docs/fundamentals/hooks/) |
 | [agent-safety-case-study](https://github.com/jddavenportOpen/agent-safety-case-study) | A capability-versus-risk case study of running an AI organization in production: each capability, its risk, the control, an incident | [The architecture in one page](/docs/nerve-center/architecture/) |
 | [claude-code-behavior-specs](https://github.com/jddavenportOpen/claude-code-behavior-specs) | Target-behavior specs for the Claude Code CLI written from production incidents, each with a reproduction and the workaround that shipped | [Lessons from running agents every day](/docs/field-notes/lessons-from-running-agents/) |
 

@@ -283,7 +283,7 @@
   <div class="kicker">Guardrails</div>
   <h1>Auto bug-squash and the Warden</h1>
   <p class="doc-lead">Gated self-repair: fixes in isolated worktrees with red-to-green proof, and a governor that admits autonomy by reversibility, not confidence.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
   <div class="prose">
 <p>The <a href="/docs/patterns/self-healing-loop/">self-healing loop</a> from June 2026 grew into two things: a gated bug-squash pipeline that fixes code, and a governor called the Warden that decides what any autonomous agent may do unattended. Both are built on one idea: a model's confidence is not permission. Proof is, and reversibility is.</p>
 <p>This page is mostly about what went wrong on the way, because that's where the design came from.</p>
@@ -303,7 +303,7 @@
 <p>By early September the ledger showed 123 tickets marked production-verified, and I was ready to quote "more than a hundred fixes." Before I did, a review split them by how they were actually resolved:</p>
 <div class="table-wrap" role="region" aria-label="Table" tabindex="0"><table class="cols-2"><thead><tr><th>Resolution</th><th>Count</th></tr></thead><tbody><tr><td>Real fixes</td><td>88 (70 shipped as a PR)</td></tr><tr><td>Condition cleared on its own (a job that recovered by itself)</td><td>28</td></tr><tr><td>No resolution recorded</td><td>6</td></tr><tr><td>False alarm</td><td>1</td></tr></tbody></table></div>
 <p>A job that comes back on its own isn't a bug fix. The weekly report now counts what was built separately from what merely cleared. When the split went in, the previous seven days showed nine closes and zero real fixes. That's a worse number and a truer one.</p>
-<p>If I hadn't split that metric, I'd have published it. Measure what you built, not what went away.</p>
+<p>If I hadn't split that metric, I'd have published it. Now I count what I built and what went away separately.</p>
 <h2 id="the-warden"><a class="anchor" href="#the-warden" aria-hidden="true" tabindex="-1">#</a>The Warden</h2>
 <p>The Warden is a governor for autonomous agents. Its rule: <strong>autonomy is admitted by reversibility, not by confidence.</strong> An agent may act unattended only if the action can be undone and its success can be observed. Otherwise a human decides.</p>
 <p>The public library is <a href="https://github.com/jddavenportOpen/warden" target="_blank" rel="noopener">warden</a>. Its gates run in a fixed order, deterministic ones first:</p>

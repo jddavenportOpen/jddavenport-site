@@ -4,7 +4,7 @@ description: "Hybrid retrieval over a graph store, a vector store and a keyword 
 section: nerve-center
 group: "Memory and context"
 order: 110
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/c1-mnemosyne-hybrid-memory.mdx", "learn/tier-3/c2-why-hybrid-beats-vector-only.mdx"]
 ---
 

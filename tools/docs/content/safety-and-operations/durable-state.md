@@ -4,7 +4,7 @@ description: "If it matters, it lives in a table, not a context window. Backups,
 section: safety-and-operations
 group: "Keeping it running"
 order: 60
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/h6-supabase-shared-backend.mdx"]
 ---
 
