@@ -233,7 +233,7 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
       <li><b>Supervising daemon and sessions.</b> Every agent session runs as a child process of one supervising daemon. That gives me one place to start, stop and police sessions. It also means one bad restart takes all of them down, which is Failure 1. I kept the design and put a guard on the restart.</li>
       <li><b>Message bus.</b> A Python bridge routes chat, schedules and webhooks to the right session and streams results back to the cockpit, the web app I chat with. Agents message each other through it by name, so a specialist can ask the lead agent for a decision before it guesses.</li>
       <li><b>Memory graph.</b> A vector store and a graph store, queried together. Search finds candidate facts. One hop through the graph pulls in the people and decisions tied to them. Agents look things up before they act.</li>
-      <li><b>Durable state.</b> Postgres on Supabase holds workflow runs, task ledgers, approval queues and cost records. If it matters, it goes in a table. Sessions get rotated out. The table stays.</li>
+      <li><b>Durable state.</b> Postgres on Supabase holds workflow runs, task ledgers, approval queues and cost records. A new session reads them when an old one is rotated out.</li>
       <li><b>Sync layer.</b> The cockpit syncs open sessions across devices, with a tombstone on every entry. Failure 2 is why.</li>
       <li><b>Watchdog layer.</b> One detector looks for several sessions dying at once. Another clears stuck prompts. Stale-job alerts catch up after a reboot. Each one asks whether work got done, because a process can report healthy while doing nothing.</li>
     </ul>
@@ -244,13 +244,13 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
     <p>Now a hook blocks that command before it runs. The reload scripts refuse to run while sessions are live, and if you force one it prints the sessions that would die. A detector also watches for several sessions dying at once and names the session and command behind it within five minutes. The postmortem is a file in the repo.</p>
 
     <h2>Failure 2: a stale phone tab brought dead sessions back</h2>
-    <p>The cockpit syncs open sessions across devices. A phone tab I left open overnight held an old copy of that list. It kept reviving sessions I had already closed. They burned tokens, confused the other agents, and came back every time I killed them.</p>
-    <p>Ordinary sync bug. Last write won, and my phone had the oldest copy. The fix was a tombstone on every entry. Closing a session now writes a record that no later write can undo. A device can add what it knows, and it can't erase what it missed.</p>
-    <p>A regression test now pins that exact race: a stale reader against a newer writer. UI changes also run end to end at phone and desktop sizes. I learned that one the hard way.</p>
+    <p>The cockpit syncs open sessions across devices. A phone tab I left open overnight held an old copy of that list. It kept reviving sessions I had already closed. They used tokens and kept coming back after I closed them.</p>
+    <p>Ordinary sync bug. Last write won, and my phone had the oldest copy. The fix was a tombstone on every entry. Closing a session now writes a record that no later write can undo.</p>
+    <p>A regression test now pins that exact race: a stale reader against a newer writer. UI changes also run end to end at phone and desktop sizes.</p>
 
-    <h2>Failure 3: a confirmation prompt froze everything for 4.5 hours</h2>
-    <p>The CLI under one daemon hit a usage limit and opened a confirmation prompt. The daemon sat waiting on a prompt nobody would ever see, and incoming messages piled up behind it. Nothing crashed, so nothing alerted.</p>
-    <p>For 4.5 hours the process was up and the port answered, but nothing got done. The health check now asks whether work actually finished.</p>
+    <h2>Failure 3: a confirmation prompt froze everything for hours</h2>
+    <p>The CLI under one daemon hit a usage limit and opened a confirmation prompt. The daemon sat waiting on a prompt nobody would ever see, and incoming messages piled up behind it. No alert fired, because no process had crashed.</p>
+    <p>For hours the process was up and the port answered, but nothing got done. The health check now asks whether work actually finished.</p>
     <p>A watchdog now spots the stuck prompt and confirms it. The liveness checks count messages processed and state that moved. I put the same check on everything else that can get stuck, after a relay hung the same way on a dead database connection and quietly held outbound messages for hours.</p>
 
     <h2>How changes get in</h2>
@@ -265,20 +265,20 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
 
     <h2>What goes out under my name</h2>
     <p>Every email or message my agents send to another person passes one gate. By default it waits for my yes on the exact text. I've signed three narrow standing approvals: rescheduling AI Foundry check-ins with the teams, outreach for a case competition the Foundry runs, and cold email for AgentTree, a side project. AgentTree sends from its own domains, with my name on it. Each approval has a cap and a kill switch.</p>
-    <p>For email, the gate is one chokepoint that refuses to send without a single-use approval token. There's also a freeze switch I can hit from my phone. I built it this way after an audit found five separate paths that could have sent email without my approval. Agents had added them for convenience. None were malicious. All five are closed, and the same kind of hook that guards restarts now guards sends.</p>
+    <p>For email, the gate is one chokepoint that refuses to send without a single-use approval token. There's also a freeze switch I can hit from my phone. I built it this way after an audit found several paths that could have sent email without my approval. Agents had added them for convenience. None were malicious. All of them are closed, and the same kind of hook that guards restarts now guards sends.</p>
 
     <h2>If you are building one of these</h2>
     <ul>
-      <li><b>Put state in a table or a file.</b> Context windows get thrown away.</li>
-      <li><b>Give every synced entry a tombstone.</b> With two devices and last-write-wins, the stale one brings back what you deleted.</li>
-      <li><b>Check that work finished.</b> An uptime check can't see a process that's alive and stuck.</li>
-      <li><b>Put the rules that matter in hooks.</b> An agent in a hurry won't reread the doc.</li>
-      <li><b>Send everything outbound through one gate.</b> Give it a freeze switch you can reach from your phone.</li>
+      <li>Keep state in a table or a file, so a new session can pick it up.</li>
+      <li>Give every synced entry a tombstone if more than one device can write to it.</li>
+      <li>Have the health check ask whether work finished, in addition to whether the process is up.</li>
+      <li>Put the rules that matter in hooks that run before a command.</li>
+      <li>Send outbound email and messages through one gate with a freeze switch you can reach from your phone.</li>
     </ul>
 
     <div class="addendum">
       <div class="addendum-date">A note on numbers · 2026-11-22</div>
-      <p>The counts on <a href="/brain">the live brain</a> come from an inventory the system writes about itself. Nobody types them. Everywhere else on this site I only use numbers I can point to a record for, and "100+ agents built" is the only agent count you'll see in the copy.</p>
+      <p>The counts on <a href="/brain">the live brain</a> come from an inventory the system writes about itself. Nobody types them.</p>
     </div>
 
     <div class="footer-cta">

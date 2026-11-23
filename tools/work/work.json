@@ -31,14 +31,14 @@
       "collaborator": "at Siemens",
       "summary": "Built Spark AI, an internal tool that installs a library of Claude Code agents, each set up for one job. Presented the 3, 6 and 12 month AI plan to US leadership. My manager had the idea. I built it and demoed it live to the team at the end of the summer.",
       "tags": [
-        "enterprise AI",
+        "AI adoption",
         "agents",
         "product strategy",
         "leadership"
       ],
       "url": "",
       "confidentiality_note": "Numbers are from my own work. Client internals are left out.",
-      "body_md": "## Context\nIn summer 2026 I was a summer intern in Siemens' XPS Leadership Program, focused on the Siemens US organization. The assignment was enterprise AI adoption: getting AI into the daily work of employees across every major function, not only engineering.\n\n## The problem\nAt the start of the summer, few people across the US organization used AI in their daily work. The work was to give employees in each function, at each level of seniority, AI tools built for their own jobs, get them to actually use those tools, and leave leadership with a plan for the next 12 months.\n\n## My role\nMy manager originated the idea for the platform. I built it, demoed it, and wrote and presented the plan for what should come next.\n\n## What I did\n- Built Spark AI, an internal tool that installs a library of Claude Code agents, each set up for one job. The agents are built for specific job functions and seniority levels.\n- Presented the 3, 6 and 12 month AI plan to Siemens US leadership. In the plan, teams that are ready go first, and each one tracks its own time saved.\n\n## Results\nI'm leaving usage numbers off this page until my manager confirms them in writing. What I can show is the tool itself, demoed live to the team at the end of the summer, and the plan I presented to US leadership.\n\n## How I worked\nI wrote a product spec first and built against checklists with acceptance criteria. At the end of the summer I demoed the platform live to the team and walked through what worked and what did not.\n\n## What I'd do differently\nMore QA before each release, and a steadier cadence of smaller releases instead of large drops."
+      "body_md": "## Context\nIn summer 2026 I was an intern in Siemens' XPS Leadership Program, on the Siemens US organization. The job was getting AI into daily work across every function, engineering included.\n\n## The problem\nAt the start of the summer, few people across the US organization used AI in their daily work. The work was to give employees in each function, at each level of seniority, AI tools built for their own jobs, get them to actually use those tools, and leave leadership with a plan for the next 12 months.\n\n## My role\nMy manager originated the idea for the platform. I built it, and I wrote and presented the plan for what should come next.\n\n## What I did\n- Built Spark AI, an internal tool that installs a library of Claude Code agents, each set up for one job. The agents are built for specific job functions and seniority levels.\n- Presented the 3, 6 and 12 month AI plan to Siemens US leadership. In the plan, teams that are ready go first, and each one tracks its own time saved.\n\n## Results\nI'm leaving usage numbers off this page until my manager confirms them in writing. The plan I presented to US leadership is above.\n\n## How I worked\nI wrote a product spec first and built against checklists with acceptance criteria. At the end of the summer I demoed the platform live to the team and walked through what worked and what did not.\n\n## What I'd do differently\nMore QA before each release, and a steadier cadence of smaller releases instead of large drops."
     },
     {
       "slug": "national-grid-cloud-ai-platform",
@@ -49,7 +49,7 @@
       "collaborator": "at National Grid",
       "summary": "Owned the cloud and AI/ML roadmap at a 20,000-person utility: launched a RAG-based generative AI platform to 3,000+ monthly users and grew an internal cloud services platform from $2M to $20M+ a year in chargeback.",
       "tags": [
-        "enterprise AI",
+        "AI adoption",
         "product strategy",
         "leadership"
       ],
@@ -67,7 +67,7 @@
       "summary": "ML and data work on Fortune 100 engagements: an ML contact-center product for Pfizer that cut average queue time from 75 to 15 minutes, and a clustering model for GM that saved $17.5M.",
       "tags": [
         "machine learning",
-        "enterprise AI"
+        "AI adoption"
       ],
       "url": "",
       "confidentiality_note": "Numbers are from my own work. Client internals are left out.",
