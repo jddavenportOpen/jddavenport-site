@@ -283,7 +283,7 @@
   <div class="kicker">How it works</div>
   <h1>Sessions and context windows</h1>
   <p class="doc-lead">What a session holds, why the context window fills, what compaction does, and when to start fresh instead.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
   <div class="prose">
 <p>A session is one conversation with Claude Code: everything you typed, every file it read, every command it ran and every result it got back. All of that sits in the context window, and the window is finite. When it fills, Claude Code compacts the conversation into a summary and keeps going. That's fine for chat. It's a problem for anything you need to keep, so the rule in my system is simple: if it matters, it goes in a file, and any session can die without losing work.</p>
 <h2 id="what-you-ll-learn"><a class="anchor" href="#what-you-ll-learn" aria-hidden="true" tabindex="-1">#</a>What you'll learn</h2>
@@ -313,7 +313,7 @@
 <h2 id="big-context-makes-chat-slow"><a class="anchor" href="#big-context-makes-chat-slow" aria-hidden="true" tabindex="-1">#</a>Big context makes chat slow</h2>
 <p>This one I learned the measured way. On October 1, 2026 I ran a read-only audit of why chat felt slow in my cockpit (the web app where I talk to every agent session). The answer was not the network, the database or the web app. Model time was about 85 to 90% of the wait.</p>
 <p>Two settings caused most of it. Every chat pane was running at the top effort level, and the median pane context was around 434K tokens. First visible text took 38 seconds at the median and 140 seconds at the 90th percentile. Every turn, the model reprocesses everything in the window. Caching helps, but a giant context is still a giant context.</p>
-<p>The fix was boring. Interactive panes now default to high effort instead of the top level, and top effort is a per-pane choice. The other half is a habit, not a setting: clear or compact a long session instead of letting it grow. Honest read: a 1M window is a ceiling, not a target. Use it when the task needs it. Don't carry 400K tokens of yesterday into a quick question.</p>
+<p>The fix was boring. Interactive panes now default to high effort instead of the top level, and top effort is a per-pane choice. The other half is a habit: clear or compact a long session instead of letting it grow. I use the 1M window only when the task needs it. Don't carry 400K tokens of yesterday into a quick question.</p>
 <h2 id="the-short-version"><a class="anchor" href="#the-short-version" aria-hidden="true" tabindex="-1">#</a>The short version</h2>
 <ul><li>The context window holds everything, and it's finite.</li><li>Compaction keeps you going but can drop early detail.</li><li><code>/context</code> before guessing, <code>/clear</code> between tasks, <code>/compact</code> with a focus before long work.</li><li>Anything that must survive goes in a file, so a dead session costs nothing.</li></ul>
 <p><strong>Next:</strong> <a href="/docs/fundamentals/files-as-state/">Files as state, not chat memory</a></p>

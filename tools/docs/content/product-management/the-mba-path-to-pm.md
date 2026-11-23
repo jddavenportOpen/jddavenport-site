@@ -3,7 +3,7 @@ title: "The MBA path to product management"
 description: "How the MBA PM recruiting cycle runs, how to read comp ranges, the classes and resume that help, and how to prep the loop."
 section: product-management
 order: 20
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["articles/mba-guide-product-management.mdx", "product-management/mba-full-time-pm-jobs.mdx", "product-management/mba-pm-internships.mdx"]
 ---
 
@@ -71,7 +71,7 @@ Cut every phrase that every other resume has: "cross-functional," "strategic thi
 
 **Lower value for PM specifically:** classes you'd take anyway for other reasons. Take them, just don't count on them to get you hired.
 
-Honest read: the most valuable MBA experience for PM isn't a class. It's a project where you own the product decisions and ship something real to a real user. That conviction is why I founded the BYU AI Foundry at BYU Marriott: student builders shipping production AI for real clients. Whatever your school has like that, get into it. If it doesn't exist, start it.
+The most valuable MBA experience for PM isn't a class. It's a project where you own the product decisions and ship something real to a real user. That conviction is why I founded the BYU AI Foundry at BYU Marriott: student builders shipping production AI for real clients. Whatever your school has like that, get into it. If it doesn't exist, start it.
 
 ## The interview loop
 

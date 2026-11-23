@@ -3,7 +3,7 @@ title: "Sign in: subscription or API key"
 description: "Pro, Max, Team or a Console API key: which to pick, how billing differs, and the stray-key mistake that quietly costs money."
 section: start-here
 order: 30
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-0/03-authenticate.mdx"]
 ---
 
@@ -20,7 +20,7 @@ Claude Code needs to know whose account pays for the work. You have two real cho
 
 Prices on [claude.com/pricing](https://claude.com/pricing) as of October 5, 2026: Pro is $20 a month ($17 a month billed annually), Max starts at $100 a month with a 5x or 20x usage tier, and a Team standard seat is $25 a month ($20 billed annually). All three include Claude Code. The free plan doesn't. Prices change, so check the page before you buy.
 
-Honest read: if you're learning, start on Pro. It's the cheapest way in and the usage limits rarely bite on the kind of work in these docs. Move to Max when you notice you're waiting on resets. I run on Max plans because I have many sessions going all day.
+If you're learning, start on Pro. It's the cheapest way in and the usage limits rarely bite on the kind of work in these docs. Move to Max when you notice you're waiting on resets. I run on Max plans because I have many sessions going all day.
 
 ## First sign-in
 

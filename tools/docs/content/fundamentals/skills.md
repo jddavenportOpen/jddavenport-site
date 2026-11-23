@@ -4,7 +4,7 @@ description: "What a skill is, how SKILL.md works, when a skill beats a prompt o
 section: fundamentals
 group: "Extending Claude Code"
 order: 70
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-1/07-skills.mdx", "tutorials/building-skills.mdx", "articles/unified-skill-registry.mdx"]
 ---
 
@@ -139,11 +139,10 @@ If step 2 grows into filtering and sorting, move it into `scripts/` inside the s
 
 In April 2026 I built a unified skill registry: one YAML file meant to index every capability across OpenClaw (an open-source agent framework I was experimenting with at the time), Claude Code and my MCP servers, so any orchestrator could discover any skill. It was a reasonable idea while I was bridging several harnesses. Then I retired the OpenClaw bridge in June 2026 (my system had always run on Claude Code), and the hand-maintained index went stale the way every hand-maintained list does.
 
-What replaced it is better: the public [capabilities showcase](https://nerve-center-showcase.vercel.app) regenerates every day from the live system, skills included. Nobody edits it. If a skill exists, it shows up. If it's deleted, it disappears. Generate your inventories from what exists.
+What replaced it is better: an inventory generated every day from the live system, skills included. Nobody edits it. If a skill exists, it shows up. If it's deleted, it disappears. Generate your inventories from what exists.
 
 ## Skills you can copy
 
-- [context-kit](https://github.com/jddavenportOpen/context-kit) ships skill files for a personal setup: keeping a file per person, tracking open loops, watchers, a morning briefing and a session digest, plus four personal context templates.
 - [agent-evals-starter](https://github.com/jddavenportOpen/agent-evals-starter) includes an agent eval skill in `.claude/skills/agent-evals/` that walks the [agent evals](/docs/ai-core-skills/agent-evals/) method step by step and stops at the human gates on its own.
 
 **Next:** [Hooks: rules the model cannot forget](/docs/fundamentals/hooks/)

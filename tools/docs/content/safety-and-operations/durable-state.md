@@ -4,7 +4,7 @@ description: "If it matters, it lives in a table, not a context window. Backups,
 section: safety-and-operations
 group: "Keeping it running"
 order: 60
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/h6-supabase-shared-backend.mdx"]
 ---
 
@@ -85,6 +85,6 @@ As of October 5, 2026 I'm moving the database and the cockpit's hosting onto my 
 - **Rehearsed:** a full copy of the cloud data, restored and reconciled. Local reads took 1 to 6 milliseconds against 72 to 162 milliseconds from the cloud.
 - **Not done:** the cutover. A preflight gate refuses to flip until an off-box backup exists *and* I've stored an offline copy of the backup decryption key. Public-facing writers stay pointed at the cloud by design, and a lint check refuses any code that falls back to the local database after the flip.
 
-Honest read: the speed win is real, and so is the new risk. On a hosted database, the provider owns the hardware failure. On mine, I do. That's why the cutover is gated on backups and a key I can reach when the machine can't, not on a date.
+The speed win is real, and so is the new risk. On a hosted database, the provider owns the hardware failure. On mine, I do. That's why the cutover is gated on backups and a key I can reach when the machine can't, not on a date.
 
 **Next:** [AgentTree Merch: an AI-operated store](/docs/builds/agenttree-merch/)

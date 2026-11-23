@@ -4,7 +4,7 @@ description: "Route by work type and blast radius, not habit. Model tiers, effor
 section: patterns
 group: "Agents"
 order: 60
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["frameworks/llm-routing-strategy.mdx", "articles/smart-model-routing.mdx", "articles/kimi-k2-cost-optimization.mdx"]
 ---
 
@@ -54,7 +54,7 @@ The rule that decides both dials: what's the worst thing this work can break?
 | Mechanical edits, config, cadence changes, test-only work | Build or bulk | Medium | Rarely |
 | Doc fixes, comment fixes, receipt text | Bulk or build | Low or medium | None; the builder checks its own work |
 
-I don't run a budget cap, so this is about waste, not a ceiling. A top-tier, top-effort review of a typo fix buys nothing, and when everything gets the top tier you can no longer tell which work actually needed it. Honest read: uniform maximum effort isn't thoroughness. It's unmetered work volume.
+I don't run a budget cap, so this is about waste, not a ceiling. A top-tier, top-effort review of a typo fix buys nothing, and when everything gets the top tier you can no longer tell which work actually needed it. Top effort on every change mostly bought review of typo fixes.
 
 Rote heartbeats cost pennies on a small model. A heavy build session runs about $30 to $35 in API-equivalent terms. Those numbers are the whole argument for routing: roughly three orders of magnitude between a heartbeat and a heavy build session. [Cost and model choice](/docs/fundamentals/cost-and-model-choice/) covers how to read those numbers honestly.
 

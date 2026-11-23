@@ -4,7 +4,7 @@ description: "PreToolUse, Stop and the other hook events, why infrastructure bea
 section: fundamentals
 group: "Extending Claude Code"
 order: 80
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-1/08-hooks.mdx"]
 ---
 
@@ -126,7 +126,7 @@ I found this out with my own policy hook, a `PreToolUse` gate meant to block irr
 
 What actually enforces is a gate in the code itself: one send chokepoint that every outbound message must pass through, with single-use approvals bound to the exact message, and a CI check that fails the build if any code path sends around it. That chokepoint has recorded hundreds of denials. It's covered in [the send gate](/docs/safety-and-operations/the-send-gate/).
 
-Honest read: hooks are the right tool for anything the agent does directly through its tools. For anything your own code does, put the gate in the code. Use both, and know which one is doing the work.
+Hooks are the right tool for anything the agent does directly through its tools. For anything your own code does, put the gate in the code. Use both, and know which one is doing the work.
 
 > **Note:** A related limit applies to permission rules. A rule like `Bash(rm *)` matches the command text, so `/bin/rm` or `bash -c 'rm ...'` can slip past it. A hook that parses the command more carefully, or a sandbox, closes more of that gap. Neither replaces a gate in code.
 

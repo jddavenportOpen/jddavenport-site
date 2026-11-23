@@ -4,7 +4,7 @@ description: "Three layers of memory in plain files, the read, write, synthesize
 section: patterns
 group: "Agents"
 order: 70
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["articles/memory-systems.mdx", "tutorials/agent-memory-system.mdx"]
 ---
 
@@ -172,9 +172,5 @@ Files carry you a long way. Graduate when you hit one of these:
 Mine runs three layers together as of October 2026: a graph database for relationships, a vector store for semantic search with embeddings from a small model running locally, and a keyword index of decisions. A query combines semantic hits with a one-hop walk of the graph. Two lessons from running it: a single-writer graph needs a read replica so readers don't block the nightly ingest, and an older embedded vector store had to be frozen when the server version took over, so nothing read stale data by accident. [Memory: graph plus vectors plus keywords](/docs/nerve-center/memory-graph/) has the details.
 
 The files didn't go away when I added the database. The daily logs, project logs and person files are still the record. The database is an index over them.
-
-## A starter kit
-
-If you'd rather not start from a blank folder, [context-kit](https://github.com/jddavenportOpen/context-kit) is my public starter: four personal context templates (who you are, how you decide, how you write, your hard rules) and five Claude Code skills, including open loops and an end-of-session digest. It installs with one command and it's MIT licensed.
 
 **Next:** [Schedules as a heartbeat](/docs/patterns/heartbeats/)

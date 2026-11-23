@@ -1,14 +1,14 @@
 ---
 title: "One door out: the send gate"
-description: "The system can draft anything and send nothing without a yes. One chokepoint, content-bound approval tokens, a freeze switch, and a scan for bypasses."
+description: "Every message my agents send to another person passes one gate, and by default it waits for my yes. Approval tokens, a freeze switch and a bypass scan."
 section: safety-and-operations
 group: "Guardrails"
 order: 10
-updated: 2026-10-05
+updated: 2026-11-22
 sources: []
 ---
 
-My system can draft anything: email, texts, posts, replies. It can't send any of it to another person without my explicit yes. Every outbound message to a third party goes through one chokepoint, and that chokepoint is the most important safety constraint I've built. It's also what made it safe to let everything else run fast.
+My system can draft anything: email, texts, posts, replies. Every email or message my agents send to another person passes one gate. By default it waits for my yes on the exact text. I've signed three narrow standing approvals: rescheduling AI Foundry check-ins with the teams, outreach for a case competition the Foundry runs, and cold email for AgentTree, a side project. AgentTree sends from its own domains, with my name on it. Each approval has a cap and a kill switch. Every outbound message to a third party goes through one chokepoint, and that chokepoint is the most important safety constraint I've built. It's also what made it safe to let everything else run fast.
 
 ## What you'll learn
 
@@ -91,7 +91,7 @@ In September 2026 I found a one-off script that had been sending a recurring ema
 
 All three are fixed. The guard now scans every directory that holds runnable code, catches sends written as shell strings and in shell scripts, and runs daily on a schedule that pages me if it fails.
 
-Honest read: this is the failure I'd most want a reader to learn from. My gate was real, and for twelve weeks I described it as complete when it wasn't. A guard is only as wide as what it scans, and a check nobody reads isn't running.
+This is the failure I'd most want a reader to learn from. My gate was real, and for twelve weeks I described it as complete when it wasn't. A guard is only as wide as what it scans, and a check nobody reads isn't running.
 
 ## Hooks are not the gate
 
@@ -107,7 +107,7 @@ One more design difference worth copying. A lot of safety hooks fail open on the
 
 Here's the part I didn't expect. Merges into my agent repo went from 6 in May 2026 to 78 in June and 166 in July. The send gate landed June 30, in the middle of that climb.
 
-Best guess: that's not a coincidence. At that rate you can't review every action an agent takes. You can review every message that leaves. One door out turned "let it run fast" from a gamble into a decision. The gate didn't slow the system down. It's what made running it fast survivable.
+I think the timing is related. At that rate you can't review every action an agent takes. You can review every message that leaves. One door out turned "let it run fast" from a gamble into a decision. The gate didn't slow the system down. It's what made running it fast survivable.
 
 ## What it does not do
 
@@ -125,6 +125,6 @@ You can start smaller than mine:
 4. Add a freeze file that the function checks first.
 5. Add a check that fails if any send primitive appears outside the wrapper, and run it on a schedule that alerts you.
 
-For packaged versions of these ideas: [claude-deploy-kit](https://github.com/jddavenportOpen/claude-deploy-kit) has a single policy chokepoint that defaults to deny and always escalates irreversible actions to approval, and [ethos-gate](https://github.com/jddavenportOpen/ethos-gate) has PreToolUse hooks for irreversible commands and outbound GitHub actions. Use the hooks as a layer. Make the chokepoint the door.
+For a packaged version of the hook layer: [ethos-gate](https://github.com/jddavenportOpen/ethos-gate) has PreToolUse hooks for irreversible commands and outbound GitHub actions. Use the hooks as a layer. Make the chokepoint the door.
 
 **Next:** [QA: user stories, Playwright and synthetic users](/docs/safety-and-operations/qa-and-synthetic-users/)

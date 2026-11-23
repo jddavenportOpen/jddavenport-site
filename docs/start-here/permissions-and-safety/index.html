@@ -283,7 +283,7 @@
   <div class="kicker">Start here</div>
   <h1>Permissions and safety basics</h1>
   <p class="doc-lead">Permission prompts, allow rules, permission modes, what skipping permissions really means, and why destructive actions get a human yes.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
   <div class="prose">
 <p>An agent that can edit files and run commands can also delete files and run the wrong command. The permission system decides which actions happen on their own and which stop and ask you. This page covers the prompt, the modes, the rules, and the one rule I run my whole system on: anything destructive gets a human yes, and a machine enforces that.</p>
 <h2 id="the-prompt"><a class="anchor" href="#the-prompt" aria-hidden="true" tabindex="-1">#</a>The prompt</h2>
@@ -324,7 +324,7 @@ Do you want to proceed?
 <p>Confirm before anything destructive: deleting files, force-pushing git, dropping a database table, restarting something other work depends on. Reversible mistakes cost you a redo. Irreversible ones cost you the data.</p>
 <p>The part that took me a while to learn: a rule written in prose is a wish. In July 2026 one of my agents restarted the service that supervises every agent session with a raw command instead of the guarded reload script. Every live session died in the same two seconds, a dozen of them, including the one that ran the command. The guarded script existed. Using it was on the honor system, and nothing stopped the agent from going around it.</p>
 <p>The fix was a hook: a small script Claude Code runs before every tool call, which blocks that command outright no matter what the model believes it's allowed to do. Reload scripts now refuse to run while sessions are live, and a detector pages me if several sessions die at once. Hooks are how you turn a rule into a guarantee. <a href="/docs/fundamentals/hooks/">Hooks</a> shows how to write one.</p>
-<aside class="callout callout-note" role="note"><p class="callout-label">Note</p><p>The same principle runs my whole system. Agents can draft anything. Nothing goes out to another person, and no money moves, without my explicit yes, and that's enforced by code, not by instructions.</p></aside>
+<aside class="callout callout-note" role="note"><p class="callout-label">Note</p><p>The same principle runs my whole system. Agents can draft anything. By default nothing goes out to another person, and no money moves, without my explicit yes. Code enforces it. Three narrow standing approvals I signed are the only exceptions, each with a cap and a kill switch.</p></aside>
 <h2 id="two-safety-nets-you-already-have"><a class="anchor" href="#two-safety-nets-you-already-have" aria-hidden="true" tabindex="-1">#</a>Two safety nets you already have</h2>
 <ol><li><strong>The working directory.</strong> Start the agent in the right project and a lot of damage is impossible by construction.</li><li><strong>Git.</strong> Commit before the agent edits and every change is reviewable and reversible.</li></ol>
 <p>Keep the prompts on while you learn. Earn your way to fewer of them: tight folder, version control, deny rules for the things that bite, and a way to see what happened afterward.</p>

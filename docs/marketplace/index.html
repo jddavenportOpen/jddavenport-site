@@ -287,14 +287,14 @@
   
   
   <div class="mk">
-  <p class="mk-total mono">37 free items · 6 workflows · 52 individual skills, agents and hooks inside the Foundry plugins</p>
+  <p class="mk-total mono">31 free items · 6 workflows · 52 individual skills, agents and hooks inside the Foundry plugins</p>
   <div class="mk-start">
     <p class="mk-start-t">Add the AI Foundry marketplace once</p>
     <div class="mk-cmd"><code>claude plugin marketplace add ai-foundry-byu/foundry-marketplace</code><button type="button" class="mk-copy" data-copy="claude plugin marketplace add ai-foundry-byu/foundry-marketplace" aria-label="Copy the marketplace add command">Copy</button></div>
     <p class="mk-start-s">Then install any Foundry plugin by name, or type <code>/plugin</code> inside Claude Code to browse. The Foundry's own item pages are at <a href="https://ai-foundry-byu.github.io/foundry-marketplace/" target="_blank" rel="noopener">its marketplace site</a>.</p>
   </div>
   <details class="mk-labels"><summary>What the labels mean</summary><ul><li><span class="mk-m mk-m-verified">verified</span> Passed a live end-to-end run of its main path in a real Claude Code session.</li><li><span class="mk-m mk-m-beta">beta</span> Partly live-tested or unit-tested, with known gaps.</li><li><span class="mk-m mk-m-new">new</span> Little or no live testing yet. Try it on something low stakes first.</li><li><span class="mk-m mk-m-unrated">unrated</span> Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.</li></ul></details>
-  <nav class="mk-nav" aria-label="Marketplace categories"><ul><li><a href="#cat-plugin">Plugins <span class="mono">11</span></a></li><li><a href="#cat-skill">Skills <span class="mono">2</span></a></li><li><a href="#cat-agent">Agents <span class="mono">4</span></a></li><li><a href="#cat-hook">Hooks <span class="mono">1</span></a></li><li><a href="#cat-harness">Harnesses and tools <span class="mono">6</span></a></li><li><a href="#cat-template">Templates and specs <span class="mono">4</span></a></li><li><a href="#cat-guide">Guides <span class="mono">3</span></a></li><li><a href="#cat-workflow">Workflows <span class="mono">6</span></a></li></ul></nav>
+  <nav class="mk-nav" aria-label="Marketplace categories"><ul><li><a href="#cat-plugin">Plugins <span class="mono">11</span></a></li><li><a href="#cat-skill">Skills <span class="mono">2</span></a></li><li><a href="#cat-agent">Agents <span class="mono">3</span></a></li><li><a href="#cat-hook">Hooks <span class="mono">1</span></a></li><li><a href="#cat-harness">Harnesses and tools <span class="mono">4</span></a></li><li><a href="#cat-template">Templates and specs <span class="mono">2</span></a></li><li><a href="#cat-guide">Guides <span class="mono">2</span></a></li><li><a href="#cat-workflow">Workflows <span class="mono">6</span></a></li></ul></nav>
   <section class="mk-cat" aria-labelledby="cat-plugin"><h2 id="cat-plugin" class="group-title">Plugins</h2><p class="mk-cat-line">Install a whole set in one command. Updates come with it.</p><ol class="mk-grid"><li class="mk-card" id="item-foundry-sdlc">
   <p class="mk-meta"><span class="mk-m mk-m-beta" title="Partly live-tested or unit-tested, with known gaps.">beta</span><span>Starter set · AI Foundry</span><span class="mk-lic">MIT</span></p>
   <h3 class="mk-name">foundry-sdlc</h3>
@@ -430,15 +430,6 @@
   <details class="mk-limits"><summary>Known limits</summary><ul><li>Rehearsal is text, not voice.</li><li>Calls cost money (Vapi bills per minute).</li><li>US and Canada numbers only.</li></ul></details>
   
   <p class="mk-links"><a href="https://github.com/jddavenportOpen/ai-phone-desk" target="_blank" rel="noopener">Source</a></p>
-</li><li class="mk-card" id="item-orchestra-agents">
-  <p class="mk-meta"><span class="mk-m mk-m-unrated" title="Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.">unrated</span><span>JD</span><span class="mk-lic">MIT</span></p>
-  <h3 class="mk-name">orchestra-agents</h3>
-  <p class="mk-sum">Multi-agent orchestration and an eval harness on Claude: fleet fan-out, a durable message bus, a circuit breaker, best-of-N with an adversarial judge, and a definition-of-done gate.</p>
-  <p class="mk-note">Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.</p>
-  <div class="mk-install"><p class="mk-install-k">Terminal</p><div class="mk-cmd"><code>git clone https://github.com/jddavenportOpen/orchestra-agents &amp;&amp; cd orchestra-agents &amp;&amp; pip install -e &quot;.[dev]&quot;</code><button type="button" class="mk-copy" data-copy="git clone https://github.com/jddavenportOpen/orchestra-agents &amp;&amp; cd orchestra-agents &amp;&amp; pip install -e &quot;.[dev]&quot;" aria-label="Copy install line for orchestra-agents">Copy</button></div></div>
-  <details class="mk-limits"><summary>Known limits</summary><ul><li>The tests run offline; live runs need your own Anthropic API key.</li></ul></details>
-  
-  <p class="mk-links"><a href="https://github.com/jddavenportOpen/orchestra-agents" target="_blank" rel="noopener">Source</a></p>
 </li><li class="mk-card" id="item-mcp-judge">
   <p class="mk-meta"><span class="mk-m mk-m-unrated" title="Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.">unrated</span><span>JD</span><span class="mk-lic">MIT</span></p>
   <h3 class="mk-name">mcp-judge</h3>
@@ -466,15 +457,6 @@
   <details class="mk-limits"><summary>Known limits</summary><ul><li>Needs a paid Claude plan (Pro, Max, Team or Enterprise). On Pro, run one or two agents at a time.</li><li>AGPL-3.0: if you run a modified version as a service, you must share your changes.</li></ul></details>
   
   <p class="mk-links"><a href="https://github.com/jddavenportOpen/clawdling" target="_blank" rel="noopener">Source</a> · <a href="/docs/builds/clawdling/">Write-up</a></p>
-</li><li class="mk-card" id="item-clawd-agent-os">
-  <p class="mk-meta"><span class="mk-m mk-m-unrated" title="Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.">unrated</span><span>JD</span><span class="mk-lic">MIT</span></p>
-  <h3 class="mk-name">clawd-agent-os</h3>
-  <p class="mk-sum">Tiered Claude agent hierarchies: worktree-isolated fleet spawning, a durable agent bus that never silently returns empty, and one registry for model tiers.</p>
-  <p class="mk-note">Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.</p>
-  <div class="mk-install"><p class="mk-install-k">Terminal</p><div class="mk-cmd"><code>git clone https://github.com/jddavenportOpen/clawd-agent-os &amp;&amp; cd clawd-agent-os &amp;&amp; pip install -e &quot;.[dev]&quot;</code><button type="button" class="mk-copy" data-copy="git clone https://github.com/jddavenportOpen/clawd-agent-os &amp;&amp; cd clawd-agent-os &amp;&amp; pip install -e &quot;.[dev]&quot;" aria-label="Copy install line for clawd-agent-os">Copy</button></div></div>
-  <details class="mk-limits"><summary>Known limits</summary><ul><li>Needs the Claude Code CLI on your PATH.</li><li>The durable bus needs a Postgres or Supabase table you provide.</li></ul></details>
-  
-  <p class="mk-links"><a href="https://github.com/jddavenportOpen/clawd-agent-os" target="_blank" rel="noopener">Source</a></p>
 </li><li class="mk-card" id="item-warden">
   <p class="mk-meta"><span class="mk-m mk-m-unrated" title="Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.">unrated</span><span>JD</span><span class="mk-lic">MIT</span></p>
   <h3 class="mk-name">warden</h3>
@@ -484,15 +466,6 @@
   <details class="mk-limits"><summary>Known limits</summary><ul><li>It checks that an undo exists, not that the undo works.</li><li>It governs actions, not prompts. It is not a jailbreak defense.</li></ul></details>
   
   <p class="mk-links"><a href="https://github.com/jddavenportOpen/warden" target="_blank" rel="noopener">Source</a></p>
-</li><li class="mk-card" id="item-fleetwright">
-  <p class="mk-meta"><span class="mk-m mk-m-unrated" title="Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.">unrated</span><span>JD</span><span class="mk-lic">MIT</span></p>
-  <h3 class="mk-name">fleetwright</h3>
-  <p class="mk-sum">A self-hosted agent operations OS: a persistent chief of staff that commands a fleet of agents, with a bridge and a web cockpit.</p>
-  <p class="mk-note">Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.</p>
-  <div class="mk-install"><p class="mk-install-k">Terminal</p><div class="mk-cmd"><code>git clone https://github.com/jddavenportOpen/fleetwright.git &amp;&amp; cd fleetwright &amp;&amp; bash scripts/bootstrap.sh</code><button type="button" class="mk-copy" data-copy="git clone https://github.com/jddavenportOpen/fleetwright.git &amp;&amp; cd fleetwright &amp;&amp; bash scripts/bootstrap.sh" aria-label="Copy install line for fleetwright">Copy</button></div></div>
-  <details class="mk-limits"><summary>Known limits</summary><ul><li>The bridge needs access to your own claude CLI.</li><li>The cockpit is a Node app you run locally.</li></ul></details>
-  
-  <p class="mk-links"><a href="https://github.com/jddavenportOpen/fleetwright" target="_blank" rel="noopener">Source</a></p>
 </li><li class="mk-card" id="item-ccstitch">
   <p class="mk-meta"><span class="mk-m mk-m-unrated" title="Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.">unrated</span><span>JD</span><span class="mk-lic">MIT</span></p>
   <h3 class="mk-name">ccstitch</h3>
@@ -511,25 +484,7 @@
   <details class="mk-limits"><summary>Known limits</summary><ul><li>Run it from a clone. The README&#x27;s npx harnessview line does not work yet: the package is not on npm.</li></ul></details>
   
   <p class="mk-links"><a href="https://github.com/jddavenportOpen/harnessview" target="_blank" rel="noopener">Source</a> · <a href="/docs/builds/harnessview/">Write-up</a></p>
-</li></ol></section><section class="mk-cat" aria-labelledby="cat-template"><h2 id="cat-template" class="group-title">Templates and specs</h2><p class="mk-cat-line">Starting points your agent builds out in your own stack.</p><ol class="mk-grid"><li class="mk-card" id="item-context-kit">
-  <p class="mk-meta"><span class="mk-m mk-m-unrated" title="Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.">unrated</span><span>JD</span><span class="mk-lic">MIT</span></p>
-  <h3 class="mk-name">context-kit</h3>
-  <p class="mk-sum">Four Markdown templates and five Claude Code skills that give an agent permanent personal context: a wiki, mental models, voice and protocols.</p>
-  <p class="mk-note">Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.</p>
-  <div class="mk-install"><p class="mk-install-k">Terminal</p><div class="mk-cmd"><code>git clone https://github.com/jddavenportOpen/context-kit.git &amp;&amp; cd context-kit &amp;&amp; bash scripts/install.sh</code><button type="button" class="mk-copy" data-copy="git clone https://github.com/jddavenportOpen/context-kit.git &amp;&amp; cd context-kit &amp;&amp; bash scripts/install.sh" aria-label="Copy install line for context-kit">Copy</button></div></div>
-  <details class="mk-limits"><summary>Known limits</summary><ul><li>The templates are yours to fill. What you put in them is what your agent will know.</li></ul></details>
-  
-  <p class="mk-links"><a href="https://github.com/jddavenportOpen/context-kit" target="_blank" rel="noopener">Source</a></p>
-</li><li class="mk-card" id="item-claude-deploy-kit">
-  <p class="mk-meta"><span class="mk-m mk-m-unrated" title="Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.">unrated</span><span>JD</span><span class="mk-lic">MIT</span></p>
-  <h3 class="mk-name">claude-deploy-kit</h3>
-  <p class="mk-sum">Enterprise controls for deploying Claude agents: a policy chokepoint, a destructive-command deny hook, an eval gate, a redacting audit log and pluggable secrets.</p>
-  <p class="mk-note">Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.</p>
-  <div class="mk-install"><p class="mk-install-k">Terminal</p><div class="mk-cmd"><code>git clone https://github.com/jddavenportOpen/claude-deploy-kit &amp;&amp; cd claude-deploy-kit &amp;&amp; pip install -e &quot;.[dev]&quot;</code><button type="button" class="mk-copy" data-copy="git clone https://github.com/jddavenportOpen/claude-deploy-kit &amp;&amp; cd claude-deploy-kit &amp;&amp; pip install -e &quot;.[dev]&quot;" aria-label="Copy install line for claude-deploy-kit">Copy</button></div></div>
-  <details class="mk-limits"><summary>Known limits</summary><ul><li>Identity, secrets backends and data residency are decisions the code leaves to you; the architecture doc covers them.</li></ul></details>
-  
-  <p class="mk-links"><a href="https://github.com/jddavenportOpen/claude-deploy-kit" target="_blank" rel="noopener">Source</a></p>
-</li><li class="mk-card" id="item-app-feedback-loop">
+</li></ol></section><section class="mk-cat" aria-labelledby="cat-template"><h2 id="cat-template" class="group-title">Templates and specs</h2><p class="mk-cat-line">Starting points your agent builds out in your own stack.</p><ol class="mk-grid"><li class="mk-card" id="item-app-feedback-loop">
   <p class="mk-meta"><span class="mk-m mk-m-unrated" title="Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.">unrated</span><span>AI Foundry</span><span class="mk-lic">MIT</span></p>
   <h3 class="mk-name">app-feedback-loop</h3>
   <p class="mk-sum">A build spec for an in-app feedback loop: one click captures a screenshot and context, an agent fixes the bug with that context loaded, and the fix commit thanks the reporter.</p>
@@ -556,15 +511,6 @@
   <details class="mk-limits"><summary>Known limits</summary><ul><li>The judge labels were drafted with AI for teaching. Real judge labels must come from a person.</li><li>24 tasks catch big differences, not small ones.</li></ul></details>
   
   <p class="mk-links"><a href="https://github.com/jddavenportOpen/agent-evals-starter" target="_blank" rel="noopener">Source</a> · <a href="/docs/ai-core-skills/agent-evals/">Write-up</a></p>
-</li><li class="mk-card" id="item-mastery-engine">
-  <p class="mk-meta"><span class="mk-m mk-m-unrated" title="Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.">unrated</span><span>JD</span><span class="mk-lic">MIT</span></p>
-  <h3 class="mk-name">mastery-engine</h3>
-  <p class="mk-sum">Generates a curriculum from source material on disk, with mastery gates and claims checked against the source.</p>
-  <p class="mk-note">Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.</p>
-  <div class="mk-install"><p class="mk-install-k">Terminal</p><div class="mk-cmd"><code>git clone https://github.com/jddavenportOpen/mastery-engine &amp;&amp; cd mastery-engine &amp;&amp; pip install -e .</code><button type="button" class="mk-copy" data-copy="git clone https://github.com/jddavenportOpen/mastery-engine &amp;&amp; cd mastery-engine &amp;&amp; pip install -e ." aria-label="Copy install line for mastery-engine">Copy</button></div></div>
-  <details class="mk-limits"><summary>Known limits</summary><ul><li>Version 0.1.0. No learner has yet gone from a generated curriculum to a cleared readiness gate over real calendar time.</li></ul></details>
-  
-  <p class="mk-links"><a href="https://github.com/jddavenportOpen/mastery-engine" target="_blank" rel="noopener">Source</a></p>
 </li><li class="mk-card" id="item-software-design-canon">
   <p class="mk-meta"><span class="mk-m mk-m-unrated" title="Not part of the Foundry&#x27;s recorded test runs. Its README states its own limits.">unrated</span><span>AI Foundry</span><span class="mk-lic">see repo</span></p>
   <h3 class="mk-name">The Software Design Canon</h3>

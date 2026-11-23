@@ -4,7 +4,7 @@ description: "One experience bank, roles scored against your goals, tailored res
 section: builds
 group: "Open source"
 order: 180
-updated: 2026-10-05
+updated: 2026-11-22
 sources: []
 ---
 
@@ -67,7 +67,7 @@ So the tool applies the bar that matches what this employer costs to get wrong: 
 
 Those three numbers are judgments, and the repo says so. It has no funnel data yet and won't borrow anyone else's. The outcome stage exists to fix that: record what happened to an application and, if you want, contribute an anonymized record (tier, role family, panel score, result, month). Enough of those and a real question becomes answerable: does a panel score predict anything? If an 88 converts at the same rate as a 68, the bar is theater, and the repo commits to saying so.
 
-Honest read: that last paragraph is the most important design choice in the repo. Every resume tool claims its score means something. Very few build the instrument that could prove it wrong.
+That last paragraph is the most important design choice in the repo. Every resume tool claims its score means something. Very few build the instrument that could prove it wrong.
 
 ## Install it
 

@@ -283,7 +283,7 @@
   <div class="kicker">Agents</div>
   <h1>Write the spec before the code</h1>
   <p class="doc-lead">A short spec for a new agent, PRDs whose user stories become the test contract, and an intent gate that checks the build matches the ask.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
   <div class="prose">
 <p>Write down what "done" means before an agent writes a line of code, in a form a machine can check. An agent will happily build something plausible that nobody asked for. The spec is how you catch that before it ships instead of after.</p>
 <p>I use three layers, from cheapest to heaviest: a one-page spec when I create a new agent, a PRD with user stories for anything with users, and an intent gate that compares the finished diff against what was asked.</p>
@@ -291,7 +291,7 @@
 <ul><li>A trimmed one-page spec for a new agent, and which parts earn their keep</li><li>How user stories turn into the QA contract</li><li>How an intent gate works, and why it's scoped to one product family</li><li>The smallest version you can start with today</li></ul>
 <h2 id="layer-1-a-one-page-spec-for-a-new-agent"><a class="anchor" href="#layer-1-a-one-page-spec-for-a-new-agent" aria-hidden="true" tabindex="-1">#</a>Layer 1: a one-page spec for a new agent</h2>
 <p>In March 2026 I called this an Agent Requirement Document: identity, objective, capabilities, inputs and outputs, constraints, error handling, review cadence. Seven sections.</p>
-<p>Honest read: I don't keep ARDs as separate files anymore. The content moved into the agent's definition file and its capability card (see <a href="/docs/patterns/anatomy-of-an-agent/">Anatomy of an agent</a>). But writing one before the first commit is still the fastest way to find out you don't know what you're building. Here's the trimmed version, for a hypothetical agent that writes a weekly digest of what shipped:</p>
+<p>I don't keep ARDs as separate files anymore. The content moved into the agent's definition file and its capability card (see <a href="/docs/patterns/anatomy-of-an-agent/">Anatomy of an agent</a>). But writing one before the first commit is still the fastest way to find out you don't know what you're building. Here's the trimmed version, for a hypothetical agent that writes a weekly digest of what shipped:</p>
 <div class="code-block"><div class="code-bar"><span class="code-lang">markdown</span><button class="copy-btn" type="button" hidden aria-label="Copy code">Copy</button></div><pre><code class="language-markdown">## Agent: weekly-digest
 
 Objective: every Friday, a one-page summary of what shipped across all
@@ -343,7 +343,7 @@ Acceptance: &lt;what a test can observe&gt;</code></pre></div>
 <p>Three design choices matter.</p>
 <p><strong>The verifier is independent.</strong> It gets the intent sources (the PRD, commit messages, the WORKPLAN milestone) and the diff. It never gets the builder's summary or the chat. It derives the intent first, then re-reads the code and checks the build. That catches the failures a builder can't see in its own work: work claimed in a commit message that isn't in the code, and requirements that quietly fell off. Extra scope nobody asked for gets a note, and only blocks when it replaces what was asked.</p>
 <p><strong>The PRD has to be fresh.</strong> The 14-day window exists because a months-old PRD would wave through every future change forever. The gate caught exactly that on the cockpit: an April PRD that would have satisfied it indefinitely.</p>
-<p><strong>It fails open.</strong> A timeout, a crash, a missing secret or an unparseable verdict degrades to a loud warning. Only a clearly parsed BLOCK or MISMATCH fails the change. Honest read: a gate that blocks on its own bugs teaches everyone to route around it.</p>
+<p><strong>It fails open.</strong> A timeout, a crash, a missing secret or an unparseable verdict degrades to a loud warning. Only a clearly parsed BLOCK or MISMATCH fails the change. A gate that blocks on its own bugs teaches everyone to route around it.</p>
 <h3 id="why-it-only-fires-on-one-product-family"><a class="anchor" href="#why-it-only-fires-on-one-product-family" aria-hidden="true" tabindex="-1">#</a>Why it only fires on one product family</h3>
 <p>Since June 6, 2026, this "architect" gate runs only for the cockpit and the products built around it. Its review loads a map of that system (the routes, the session model, how the chat renders) and checks the diff for coherence with it. Point that at an unrelated web app and it flags missing patterns that app never had. The reviewer would be right about the cockpit. It's reviewing the wrong system.</p>
 <p>Everything else gets industry-standard QA instead: Playwright journeys against the PRD's user stories, plus visual checks. My standing rule is that every build or QA prompt for a non-cockpit product says this in plain words, so no agent wires the wrong gate in.</p>

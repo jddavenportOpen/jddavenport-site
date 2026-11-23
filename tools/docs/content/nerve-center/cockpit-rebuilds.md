@@ -4,7 +4,7 @@ description: "Replaying a terminal in a browser broke everything. What replaced 
 section: nerve-center
 group: "The cockpit"
 order: 160
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/d2-pty-scraping-reckoning.mdx", "learn/tier-3/d3-structured-stream-pivot.mdx", "learn/tier-3/d5-clean-chat-rendering.mdx"]
 ---
 
@@ -50,7 +50,7 @@ That's still the shape in October 2026. What changed is how the clean view stays
 2. **September 22.** Question cards in the clean view could only answer the first tab of a multi-part question, because the transcript only knows what was asked, not which tab the terminal is showing. The fix overlays the live tab parsed from the terminal onto the open question from the transcript. Each source does the one thing it's good at.
 3. **October 2.** For speed, raw terminal output now acts as a doorbell: when bytes arrive, the view fetches the new tail of the transcript right away, with a 15-second safety poll behind it. The raw stream says *when*. The transcript says *what*.
 
-Honest read: I expected the headless stream to win everything. It didn't, because an interactive session can do things a one-shot headless run can't, and the transcript gave me structure without giving those up.
+I expected the headless stream to win everything. It didn't, because an interactive session can do things a one-shot headless run can't, and the transcript gave me structure without giving those up.
 
 ## Lesson 3: filter on flags, not on text
 

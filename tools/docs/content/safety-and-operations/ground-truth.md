@@ -4,7 +4,7 @@ description: "Render from what exists, not from a hand-kept list. The org chart 
 section: safety-and-operations
 group: "Guardrails"
 order: 40
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/d6-org-chart-ground-truth.mdx"]
 ---
 
@@ -41,7 +41,7 @@ That last part exists because of a real miss. After a new model shipped in late 
 
 ## The capabilities page builds itself
 
-The public [capabilities page](https://nerve-center-showcase.vercel.app) is the same idea pointed outward. A generator introspects live state and writes two files: a machine-readable JSON feed and a self-contained HTML page. Its contract:
+My capabilities inventory is the same idea, generated for readers outside the system. A generator introspects live state and writes two files: a machine-readable JSON feed and a self-contained HTML page. Its contract:
 
 - **Every count and every name is computed from live state on every run.** The only hand-written inputs are a short list of dated milestones and the template prose.
 - **Allowlist first.** Only named fields are ever emitted. A new internal field never leaks by accident.
@@ -64,7 +64,7 @@ The rule now splits by provenance:
 
 | Where the number appears | What it says |
 |---|---|
-| Static copy (prose, meta descriptions, the link-preview image, this docs site) | A durable floor: **30+ agents in daily production, 100+ built over time** |
+| Static copy (prose, meta descriptions, the link-preview image, this docs site) | A durable floor: **100+ agents built** |
 | Generated surfaces (the home page stat strip and telemetry, the capabilities page) | Exact numbers, produced by a generator from live state, with their date |
 
 The link-preview image is the strictest case. Every platform that ever rendered a link caches its card, so a number baked there outlives any correction. Mine kept showing a stale count after every page had been fixed.

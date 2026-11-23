@@ -4,7 +4,7 @@ description: "From a chat bot in early 2026 to a production AI organization: bre
 section: nerve-center
 group: "Overview"
 order: 20
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/a1-openclaw-the-first-harness.mdx", "learn/tier-3/a2-pivot-to-claude-code-harness.mdx", "building-ai-os/story-overview.mdx", "building-ai-os/arch-openclaw.mdx"]
 ---
 
@@ -34,7 +34,7 @@ I didn't want to maintain an agent runtime. Claude Code already had the loop, th
 - **The OS as the scheduler.** cron and macOS launchd fire jobs. No custom event loop.
 - **Integrations where Claude Code had none.** Telegram, voice, memory, a CRM, the cockpit.
 
-The trade is real. When the CLI changes behavior, my system changes with it, so today the CLI has one owner: a tested upgrade pipeline with an automatic rollback. What I got back: I don't maintain the loop, the tool dispatch or the context handling. My job narrowed to the rules, the state and the wiring. Honest read: for a personal system where the value is in the domain knowledge and the guardrails, not the loop, that was the right call, and I'd make it again.
+The trade is real. When the CLI changes behavior, my system changes with it, so today the CLI has one owner: a tested upgrade pipeline with an automatic rollback. What I got back: I don't maintain the loop, the tool dispatch or the context handling. My job narrowed to the rules, the state and the wiring. For a personal system where the value is in the domain knowledge and the guardrails, not the loop, that was the right call, and I'd make it again.
 
 ## Phase one, April to May: breadth
 
@@ -79,7 +79,7 @@ The depth phase was mostly about measuring, then removing:
 - **September 27.** The Claude CLI gets its one owner.
 - **October 1.** A chat-speed audit found model time was 85 to 90% of the wait in the cockpit. Interactive panes dropped from top effort to high.
 
-Honest read: the best weeks in this phase deleted more than they added.
+The best weeks in this phase deleted more than they added.
 
 ## What I'd tell you if you're starting
 

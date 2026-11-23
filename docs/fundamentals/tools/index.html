@@ -283,7 +283,7 @@
   <div class="kicker">How it works</div>
   <h1>Tools 101</h1>
   <p class="doc-lead">Read, Edit, Write, Bash and the rest: how the agent picks a tool, what a result looks like, and why tool use is the signal.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
   <div class="prose">
 <p>Tools are how a model stops talking and starts doing. Claude Code gives the model a set of built-in tools (read a file, edit it, run a command, fetch a page), and the agent loop is just: pick a tool, look at the result, decide the next step. Knowing the tools helps you read a session, write better prompts, and set permissions that make sense.</p>
 <h2 id="the-tools-you-ll-see-most"><a class="anchor" href="#the-tools-you-ll-see-most" aria-hidden="true" tabindex="-1">#</a>The tools you'll see most</h2>
@@ -320,7 +320,7 @@ Bash(uv run pytest tests/test_webhook.py -q)
 <p>In April 2026 I had an MBA analytics final. It was a take-home, and the course allowed LLMs. I built a pipeline for it: a classifier that recognized the question type, playbooks for each method (regression, logistic, clustering, conjoint, text analytics, SQL), a solver that actually computed answers with pandas, statsmodels and scikit-learn against the real data, and a verifier. On the practice exam it scored 30 of 30, and on the final its answers matched the answer key.</p>
 <p>As a comparison I gave the same practice exam to frontier models of the time, answering straight from the page with no tools. They scored between about 15 and 21 out of 30. Swapping one frontier model for another moved the score a few points. Giving the work tools to compute with moved it from the high teens to 30.</p>
 <p>The models weren't dumb. They pattern-matched instead of computing, because nothing let them compute. A model that explains how to run a regression is a chatbot. A model that loads the data, runs the regression, reads the output and catches its own mistake is an agent.</p>
-<p>Honest read: when an agent gives you a confident wrong answer, the first question isn't "do I need a bigger model." It's "did it have a tool that would have told it the truth, and did it use it?"</p>
+<p>When an agent gives you a confident wrong answer, the first question isn't "do I need a bigger model." It's "did it have a tool that would have told it the truth, and did it use it?"</p>
 <p><strong>Next:</strong> <a href="/docs/fundamentals/prompting-the-cli/">Prompting Claude Code well</a></p>
   </div>
   

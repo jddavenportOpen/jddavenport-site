@@ -4,7 +4,7 @@ description: "Hybrid retrieval over a graph store, a vector store and a keyword 
 section: nerve-center
 group: "Memory and context"
 order: 110
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/c1-mnemosyne-hybrid-memory.mdx", "learn/tier-3/c2-why-hybrid-beats-vector-only.mdx"]
 ---
 
@@ -92,7 +92,7 @@ In July I found that a weekly consolidation job's output (the distilled "what th
 
 On September 20 I found a prompt hook had been minting fake people. It scanned each prompt for names and created person entries, but it couldn't tell my typing from text the system had injected into the prompt: carried-over context, recalled memory, command output. "Merge Gate" and "Los Angeles" both became people, and a name classifier rated every one of them a person. The fix stripped injected regions before scanning, added a provenance check that refuses to trust entries the hook authored itself, quarantined more than a hundred fake entries (nothing deleted), pruned their vectors and graph nodes, and added a weekly guard so the class can't come back silently.
 
-Honest read: this is the failure I'd warn anyone about first. Once agents read memory and also write it, every bit of text in the prompt becomes a potential write. Track where each fact came from.
+This is the failure I'd warn anyone about first. Once agents read memory and also write it, every bit of text in the prompt becomes a potential write. Track where each fact came from.
 
 ## Copy this
 

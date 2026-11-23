@@ -3,7 +3,7 @@ title: "Why agents will eat a lot of SaaS"
 description: "SaaS gives you a better interface for doing work. Agents do the work. An opinion, with where it holds and where it doesn't."
 section: field-notes
 order: 30
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["articles/why-ai-agents-will-replace-saas.mdx"]
 ---
 
@@ -29,7 +29,7 @@ The common thread: none of these needed a better interface. They needed the work
 
 ## Where the thesis holds
 
-Honest read: the software most exposed is per-seat software whose main value is a screen where a person moves data between systems. Logging, updating, copying, summarizing, reformatting, chasing. That work is exactly what an agent with tool access does well, and it's a large share of what a lot of seats are paying for.
+The software most exposed is per-seat software whose main value is a screen where a person moves data between systems. Logging, updating, copying, summarizing, reformatting, chasing. That work is exactly what an agent with tool access does well, and it's a large share of what a lot of seats are paying for.
 
 It also holds for glue work between tools. Before agents, the integration between two products was a person with two browser tabs open. An agent with access to both does it without the tabs.
 
@@ -39,7 +39,7 @@ Six months of running agents taught me the limits, and they're real.
 
 ### 1. Money, identity and irreversible actions stay human
 
-My system can draft anything and send nothing on its own. Every outbound message goes through one gate, and approvals are bound to the exact recipients, subject and body, so changing a word invalidates the approval. When I turned that gate on in June, its first check found five email senders that skipped it. None were malicious. They were code paths written before the gate existed.
+My system can draft anything. Every email or message my agents send to another person passes one gate. By default it waits for my yes on the exact text. I've signed three narrow standing approvals: rescheduling AI Foundry check-ins with the teams, outreach for a case competition the Foundry runs, and cold email for AgentTree, a side project. AgentTree sends from its own domains, with my name on it. Each approval has a cap and a kill switch. Every outbound message goes through that gate, and approvals are bound to the exact recipients, subject and body, so changing a word invalidates the approval. When I turned that gate on in June, its first check found five email senders that skipped it. None were malicious. They were code paths written before the gate existed.
 
 So "agents do the work" needs an asterisk: agents do the work up to the point where a mistake costs money, reputation or something you can't undo. Past that point a person says yes. The interface for that yes still matters.
 

@@ -4,7 +4,7 @@ description: "A knowledge-gap loop over parallel sources with a devil's-advocate
 section: builds
 group: "Research and content"
 order: 50
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/f1-deep-research-agent.mdx"]
 ---
 
@@ -88,7 +88,7 @@ Both came from the same place: a scheduled research sweep inside my self-improve
 
 **The same report 27 times.** The sweep rotates through five evergreen themes, one per run, so every query comes back around every few days. Nothing checked whether the new report said anything the last one hadn't. From June 7 to September 1, 2026 one query alone (multi-agent orchestration patterns) saved 27 near-identical reports, about half a megabyte of the same output. The proposals it generated were deduplicated, so the downstream backlog looked clean. The reports weren't, and nobody read them closely enough to notice. A September audit found it; the last logged run had produced a 748-character report from zero sources. The fix lives at the save step: it compares the new report's body with the newest prior report on the same topic and replaces it in place when they say the same thing. It compares the body only, because the front matter carries a date and a cost that change every run, so hashing the whole file would never match and the check would silently do nothing.
 
-Honest read: both are the same bug class. A scheduled job that exits 0 is not a job that works. Check the output, not the exit code, and make "nothing new" a loud result instead of a quiet one.
+Both are the same bug class. A scheduled job that exits 0 is not a job that works. Check the output, not the exit code, and make "nothing new" a loud result instead of a quiet one.
 
 ## Correcting the record
 

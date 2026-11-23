@@ -283,7 +283,7 @@
   <div class="kicker">Research and content</div>
   <h1>Socrates: the X autopilot</h1>
   <p class="doc-lead">A self-learning X content agent: variant testing, caps and killswitches, a pause, and a relaunch with explicit approval.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
   <div class="prose">
 <p>Socrates was my attempt at an X account that runs itself: an agent that plans content, drafts posts, tests variants against each other, learns from what performs and posts on a schedule. It had all of that architecture months before it had safety rails that actually worked. As of October 2026 its scheduled loops are off, and nothing posts to X on its own. When I post to X now, it's on my own account, through the official API, one approved post at a time.</p>
 <p>I learned more from this build than from any other, mostly because of how it failed.</p>
@@ -313,7 +313,7 @@
 <h2 id="you-can-t-tune-your-way-out-of-a-reach-problem"><a class="anchor" href="#you-can-t-tune-your-way-out-of-a-reach-problem" aria-hidden="true" tabindex="-1">#</a>You can't tune your way out of a reach problem</h2>
 <p>In early June the account had about 167 followers, and posts were getting single- and double-digit impressions. A bandit needs variance in its signal to learn anything. Two impressions versus eleven is noise.</p>
 <p>On June 8 I pushed Socrates toward volume: more posts, more replies under bigger accounts, less caution. The research I'd asked for that same morning said auto-posting at scale is exactly what X suppresses in 2026, and that the one pattern that holds up is drafting for a human to send. I paused the auto-firing within hours.</p>
-<p>Honest read: that morning is the whole lesson. I built a learning system for an audience that didn't exist yet, then tried to buy the audience with volume. The research was right and I should have read it first.</p>
+<p>That morning is the whole lesson. I built a learning system for an audience that didn't exist yet, then tried to buy the audience with volume. The research was right and I should have read it first.</p>
 <p>A daily probe added in early July checked whether the account was even searchable. It wasn't: the account was still suppressed. Go/no-go: hold.</p>
 <h2 id="the-pause-and-what-it-revealed"><a class="anchor" href="#the-pause-and-what-it-revealed" aria-hidden="true" tabindex="-1">#</a>The pause, and what it revealed</h2>
 <p>On July 16, 2026 a token audit led me to park autonomous firing across several domains, Socrates included. Its scheduled jobs were disabled, and a pause gate was added so any Socrates entry point exits before doing work while the pause is set.</p>

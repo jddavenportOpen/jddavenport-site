@@ -4,7 +4,7 @@ description: "The program I founded at BYU Marriott where student builders ship 
 section: builds
 group: "School and work"
 order: 130
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/i2-byu-ai-foundry.mdx"]
 ---
 
@@ -52,7 +52,7 @@ Most of it is ordinary deterministic code an agent wrote: an ingest job that pul
 
 The Foundry is one of the domains in my own agent system. A persistent domain agent owns it: applicant intake from the site's forms, cohort milestones, and site operations. It keeps a status report current so my daily summary can say where things stand without me opening five tabs. See [Domain agents](/docs/nerve-center/domain-agents/) for how those work.
 
-One rule matters more than the rest: nothing goes out to a cohort member, applicant, partner or advisor without my yes. The agents draft emails, update trackers and prepare materials. A human sends. That's the [send gate](/docs/safety-and-operations/the-send-gate/), and it applies here like everywhere else.
+One rule matters more than the rest: by default nothing goes out to a cohort member, applicant, partner or advisor without my yes. The agents draft emails, update trackers and prepare materials. Two narrow standing approvals I signed are the exception: rescheduling check-ins with the teams, and outreach for the case competition the Foundry runs. Each has a cap and a kill switch. That's the [send gate](/docs/safety-and-operations/the-send-gate/), and it applies here like everywhere else.
 
 ## A lesson from the first site: make it safe for non-developers
 
@@ -64,6 +64,6 @@ In June 2026 a teammate who isn't a developer needed to update the original prog
 
 Every pull request also got a preview URL, and every merge to main deployed to production. Setup took about an hour. The principle: if someone who has never heard of CI can be trusted with your production site, it's because the gates make the mistake impossible, not because you trusted them harder.
 
-Honest read: the Foundry's tech is the easy part. The hard part is the same as any program: finding builders who ship, finding clients with real problems, and keeping the promises you make to both. The agents help with the paperwork around that. They don't do the trust part.
+The Foundry's tech is the easy part. The hard part is the same as any program: finding builders who ship, finding clients with real problems, and keeping the promises you make to both. The agents help with the paperwork around that. They don't do the trust part.
 
 **Next:** [Build your own resume grader](/docs/builds/resume-grader/)

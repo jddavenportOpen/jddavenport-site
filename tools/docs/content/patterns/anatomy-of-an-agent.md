@@ -4,13 +4,13 @@ description: "What a specialist agent is on disk: a definition, a package with a
 section: patterns
 group: "Agents"
 order: 10
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-2/01-anatomy-of-an-agent.mdx"]
 ---
 
 A specialist agent in my system is four things on disk: a definition file that tells Claude Code when to use it, a package with a command-line entry point, a registry row that says who it is and who may call it, and state that lives somewhere else. If you can't say what it does in one sentence, it isn't one agent yet.
 
-"Agent" gets used for everything from a shell one-liner to a fleet. This page pins down the version that holds up when you run 30+ agents in daily production and have built 100+ over time: small, scoped, replaceable without touching its neighbors.
+"Agent" gets used for everything from a shell one-liner to a fleet. This page pins down the version that held up after I built 100+ agents: small, scoped, replaceable without touching its neighbors.
 
 ## What you'll learn
 

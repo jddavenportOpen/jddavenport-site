@@ -4,7 +4,7 @@ description: "One Claude call scores any resume against any job on a six-dimensi
 section: builds
 group: "School and work"
 order: 140
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["tutorials/build-your-own-resume-grader.mdx"]
 ---
 
@@ -207,7 +207,7 @@ Add more machinery only when one prompt stops being enough. The repo's architect
 
 Tier 2 is where it becomes real RAG, and "dynamic" because the retrieval queries are generated per job from that job's requirements.
 
-Honest read: most AI features don't need a pipeline. They need one good prompt pointed at the right problem, plus code for the parts that must be exact. Ship tier 3 first. Retrieval you don't need is just latency and a database to babysit.
+Most AI features don't need a pipeline. They need one good prompt pointed at the right problem, plus code for the parts that must be exact. Ship tier 3 first. Retrieval you don't need is just latency and a database to babysit.
 
 For a judge you can actually trust, the next step is calibration: label examples by hand and measure how often the judge agrees. That's the whole subject of [validating an agent eval](/docs/ai-core-skills/agent-evals-validate/).
 

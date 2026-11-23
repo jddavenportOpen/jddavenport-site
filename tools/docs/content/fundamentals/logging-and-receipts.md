@@ -4,7 +4,7 @@ description: "No artifact, no accountability. One-line ship logs, daily rollups,
 section: fundamentals
 group: "Working habits"
 order: 110
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-1/11-logging.mdx", "frameworks/accountability-artifacts.mdx"]
 ---
 
@@ -60,7 +60,7 @@ Two rules make a ledger useful instead of decorative:
 
 ## Layer 4: receipts
 
-Agents in my system can draft anything and send nothing on their own. Outbound messages go into an outbox. A separate relay process holds the send credentials, drains the outbox, and writes the provider's receipt back onto the row. The contract is one line: no receipt, not sent.
+Agents in my system can draft anything. By default nothing goes to another person until I say yes; three narrow standing approvals I signed are the exception, each with a cap and a kill switch. Outbound messages go into an outbox. A separate relay process holds the send credentials, drains the outbox, and writes the provider's receipt back onto the row. The contract is one line: no receipt, not sent.
 
 The row moves through states: queued, sending, sent with a receipt attached, or failed and retried with backoff. Each row carries an idempotency key, so a retry after a crash can't send twice. After repeated failures a row is dead-lettered (held, never retried automatically) and an alarm fires. That alarm lives outside the relay on purpose. You never put the alarm for a system inside the system it's watching.
 
@@ -87,7 +87,7 @@ So when you design a receipt, give it room for every true answer:
 - **Predictable paths.** Dated names (`2026-10-05.md`) give you a free archive and make globbing trivial.
 - **Numbers in fields, not prose.** A count buried in a sentence can't be charted or alarmed on.
 - **Name the producer.** Which job, which run, which commit wrote this?
-- **Derive, don't hand-maintain.** Anything you can generate from source, generate. My public [capabilities showcase](https://nerve-center-showcase.vercel.app) regenerates daily from the live system. Hand-kept numbers drift. At one point four different public counts of my agents were live at the same time, which is why the site now says "30+ agents in daily production, 100+ built over time" and leaves exact figures to the generator.
+- **Derive, don't hand-maintain.** Anything you can generate from source, generate. Hand-kept numbers drift. At one point four different public counts of my agents were live at the same time, which is why I now use one floor everywhere: 100+ agents built.
 
 ## What it buys you
 

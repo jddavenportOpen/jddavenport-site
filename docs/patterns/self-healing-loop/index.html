@@ -283,7 +283,7 @@
   <div class="kicker">Shipping</div>
   <h1>The self-healing loop</h1>
   <p class="doc-lead">A scout reads the system&#x27;s own failures and ranks fixes, a human approves, and isolated agents ship them with a failing test first.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
   <div class="prose">
 <p>A system that runs all day produces a steady stream of evidence about what's broken: error logs, failed jobs, red tests, retries. A self-healing loop reads that evidence, proposes fixes, gets a human yes, and ships the fixes through the same gates as any other change. It's four narrow jobs wired together with a human approval in the middle, and that approval is what keeps it honest.</p>
 <h2 id="the-weekend-it-worked"><a class="anchor" href="#the-weekend-it-worked" aria-hidden="true" tabindex="-1">#</a>The weekend it worked</h2>
@@ -310,7 +310,7 @@
 <h2 id="what-went-wrong-later"><a class="anchor" href="#what-went-wrong-later" aria-hidden="true" tabindex="-1">#</a>What went wrong later</h2>
 <p>Two lessons from the months after that weekend, because the loop did not just keep humming:</p>
 <ul><li><strong>Proposal quality decays.</strong> On July 31, 2026 I had five reviewer agents read every open proposal against the live system. There were 403. They recommended 23, a signal rate under 6%. Two finds were alarming: one proposal to adopt a new model was built entirely from strings in a test fixture that had leaked into the live queue, and another's whole body was an approval in my name ("JD approved: build it") that referred to nothing. A scout reading noisy logs proposes noise, and a queue nobody prunes starts holding things that look like authority. The standalone scout has been paused since September 13, 2026, and I killed its backlog sweep. Failures now become tickets in the gated bug-squash pipeline instead.</li><li><strong>Gates on paper aren't gates.</strong> On August 1, 2026 a safety review found the automated fixer's review quorum passed with one approval out of three, and one merge path ignored shadow mode entirely. It went back to shadow mode that day. The details are in <a href="/docs/safety-and-operations/bug-squash-and-warden/">Auto bug-squash and the Warden</a>.</li></ul>
-<p>Honest read: the human approval step was never the weak link. The weak links were every place I assumed a machine check was running when it wasn't.</p>
+<p>The human approval step was never the weak link. The weak links were every place I assumed a machine check was running when it wasn't.</p>
 <h2 id="a-version-you-can-build-this-weekend"><a class="anchor" href="#a-version-you-can-build-this-weekend" aria-hidden="true" tabindex="-1">#</a>A version you can build this weekend</h2>
 <p>You don't need any of my infrastructure. Three pieces:</p>
 <p><strong>1. A log reader that writes proposals.</strong> Group the last day of errors by a normalized signature and write anything that recurred to a file:</p>

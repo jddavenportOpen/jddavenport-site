@@ -4,7 +4,7 @@ description: "Sourcing, drafting in my voice, a preview and approval gate, one L
 section: builds
 group: "Research and content"
 order: 80
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/f4-linkedin-growth-engine.mdx", "case-studies/content-pipeline.mdx"]
 ---
 
@@ -50,7 +50,6 @@ The default voice of a language model is warm, hedged and slightly over-explaine
 - The first sentence carries the point.
 - No dashes of any kind. I banned them in June 2026; they read as machine-written.
 - A banned-word list: the usual AI tells and consulting filler.
-- "Honest read:" for real opinions, instead of hedging.
 - No emoji openers, no "excited to share."
 
 A brand check runs after drafting. Then an independent reviewer, a different model from the one that drafted, reads every post and comment before it reaches me. Its verdict rides on the approval card, so I see the second opinion at the moment I decide.

@@ -283,10 +283,10 @@
   <div class="kicker">Agents</div>
   <h1>Anatomy of an agent</h1>
   <p class="doc-lead">What a specialist agent is on disk: a definition, a package with a CLI, a registry row, state it doesn&#x27;t own, and one clear scope.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
   <div class="prose">
 <p>A specialist agent in my system is four things on disk: a definition file that tells Claude Code when to use it, a package with a command-line entry point, a registry row that says who it is and who may call it, and state that lives somewhere else. If you can't say what it does in one sentence, it isn't one agent yet.</p>
-<p>"Agent" gets used for everything from a shell one-liner to a fleet. This page pins down the version that holds up when you run 30+ agents in daily production and have built 100+ over time: small, scoped, replaceable without touching its neighbors.</p>
+<p>"Agent" gets used for everything from a shell one-liner to a fleet. This page pins down the version that held up after I built 100+ agents: small, scoped, replaceable without touching its neighbors.</p>
 <h2 id="what-you-ll-learn"><a class="anchor" href="#what-you-ll-learn" aria-hidden="true" tabindex="-1">#</a>What you'll learn</h2>
 <ul><li>The on-disk shape every specialist follows</li><li>Why the model line in an agent definition is generated, never typed</li><li>Why the command line is the agent's real API</li><li>The inventory rule: look before you build</li></ul>
 <h2 id="the-shape"><a class="anchor" href="#the-shape" aria-hidden="true" tabindex="-1">#</a>The shape</h2>

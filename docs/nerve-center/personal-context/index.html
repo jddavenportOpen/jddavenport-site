@@ -283,7 +283,7 @@
   <div class="kicker">Memory and context</div>
   <h1>Personal context files</h1>
   <p class="doc-lead">Four files that tell every agent who you are, how you decide, how you write and what you never do. Plus five skills.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
   <div class="prose">
 <p>An agent can have every tool and every file it needs and still produce the wrong thing for you: a draft in the wrong voice, a recommendation that contradicts how you think about risk, an action you'd never have approved. It has the tools. It doesn't know you. Four Markdown files fix most of that, and I've published starter templates for them.</p>
 <p>I call them personal context artifacts. Every agent in my system that decides or drafts on my behalf loads them.</p>
@@ -299,7 +299,7 @@
 ## Protocols
 - No purchase over a set amount without a 24-hour cooldown.
 - Never commit someone else&#x27;s time without asking them first.
-- Nothing goes out under my name without my yes on the exact text.</code></pre></div>
+- By default nothing goes out under my name without my yes on the exact text. Three narrow standing approvals I signed are the exception, each with a cap and a kill switch.</code></pre></div>
 <p>The voice file is the one I've iterated on most, and two of its rules are already public on this site: no em-dashes, and the first sentence carries the point. The format that works is examples, not adjectives. "Write concisely" does nothing. Ten real messages you sent, ten drafts you hated with a one-line reason each, and rules per channel (a text, a cold email, a post) do a lot.</p>
 <h2 id="why-four-files-not-one"><a class="anchor" href="#why-four-files-not-one" aria-hidden="true" tabindex="-1">#</a>Why four files, not one</h2>
 <p>Different agents need different slices, and each file changes at a different rate.</p>
@@ -311,14 +311,10 @@
 <h2 id="what-went-wrong"><a class="anchor" href="#what-went-wrong" aria-hidden="true" tabindex="-1">#</a>What went wrong</h2>
 <p><strong>The voice file was being cut off.</strong> The voice judge loaded the file with a 7,000-character cap. The file had grown past that, so the judge was reading the examples and missing about three quarters of the spec, including every anti-example. It approved drafts the anti-examples exist to catch. Now it loads the whole file. If you cap context, check what falls off the end.</p>
 <p><strong>Placement is part of the rule.</strong> A rule written only in one project's instruction file never reaches an agent started in a different directory. Some of my hard rules had to move into the user-level file that every session loads, with a note saying why they live there. Context that isn't loaded isn't context.</p>
-<p><strong>The files drift.</strong> They're static, and I update them by hand. When a draft sounds wrong, the fix is to diagnose why and add an anti-example, not to correct the draft and move on. In July I harvested a batch of my real sent emails into the voice file as grounded examples. Honest read: the voice file is the only one I maintain well. The wiki goes stale between big life changes.</p>
-<p><strong>Timeline, for the record:</strong> the four skeletons went in on May 25, 2026, as part of the executive assistant build, with gaps marked for me to fill instead of letting an agent invent details only I know. I published the templates as a public kit on July 4.</p>
-<h2 id="start-with-the-public-kit"><a class="anchor" href="#start-with-the-public-kit" aria-hidden="true" tabindex="-1">#</a>Start with the public kit</h2>
-<p>The templates and five Claude Code skills are open source (MIT) at <a href="https://github.com/jddavenportOpen/context-kit" target="_blank" rel="noopener">jddavenportOpen/context-kit</a>. The skills are the working layer on top of the files: CRM everything (a file per person), open loops (capture promises before they become dropped balls), watchers (notify me when a condition is true), morning briefing, and session digest (a summary the next session reads first).</p>
-<div class="code-block"><div class="code-bar"><span class="code-lang">bash</span><button class="copy-btn" type="button" hidden aria-label="Copy code">Copy</button></div><pre><code class="language-bash">git clone https://github.com/jddavenportOpen/context-kit.git
-cd context-kit
-bash scripts/install.sh</code></pre></div>
-<p>The installer copies the four templates into <code>~/.claude/context/</code> and the skills into <code>~/.claude/skills/</code>, then prints next steps. The kit also ships a starter <code>CLAUDE.md</code> template. Then reference the files from your <code>CLAUDE.md</code> so every session loads them:</p>
+<p><strong>The files drift.</strong> They're static, and I update them by hand. When a draft sounds wrong, the fix is to diagnose why and add an anti-example, not to correct the draft and move on. In July I harvested a batch of my real sent emails into the voice file as grounded examples. The voice file is the only one I maintain well. The wiki goes stale between big life changes.</p>
+<p><strong>Timeline, for the record:</strong> the four skeletons went in on May 25, 2026, as part of the executive assistant build, with gaps marked for me to fill instead of letting an agent invent details only I know. I published the templates as a public kit on July 4, and made it private again in November 2026.</p>
+<h2 id="set-it-up"><a class="anchor" href="#set-it-up" aria-hidden="true" tabindex="-1">#</a>Set it up</h2>
+<p>Make four files in <code>~/.claude/context/</code>, one per question above. Then reference them from your <code>CLAUDE.md</code> so every session loads them:</p>
 <div class="code-block"><div class="code-bar"><span class="code-lang">markdown</span><button class="copy-btn" type="button" hidden aria-label="Copy code">Copy</button></div><pre><code class="language-markdown">## Personal context
 Read these at session start:
 - ~/.claude/context/pca-wiki.md: who I am
@@ -332,7 +328,7 @@ Read these at session start:
   <nav class="prev-next" aria-label="Previous and next"><a class="pn pn-prev" href="/docs/nerve-center/the-crm/" rel="prev"><span class="pn-dir">← Previous</span><span class="pn-title">The CRM: every person becomes a file</span></a><a class="pn pn-next" href="/docs/nerve-center/open-loops/" rel="next"><span class="pn-dir">Next →</span><span class="pn-title">Open loops: tracking every promise</span></a></nav>
 </article>
 </main>
-<aside class="docs-toc" aria-label="On this page"><div class="toc-inner"><p class="toc-title">On this page</p><ul><li class="toc-l2"><a href="#what-you-ll-learn">What you&#x27;ll learn</a></li><li class="toc-l2"><a href="#the-four-files">The four files</a></li><li class="toc-l2"><a href="#why-four-files-not-one">Why four files, not one</a></li><li class="toc-l2"><a href="#how-agents-load-them">How agents load them</a></li><li class="toc-l2"><a href="#what-went-wrong">What went wrong</a></li><li class="toc-l2"><a href="#start-with-the-public-kit">Start with the public kit</a></li></ul></div></aside>
+<aside class="docs-toc" aria-label="On this page"><div class="toc-inner"><p class="toc-title">On this page</p><ul><li class="toc-l2"><a href="#what-you-ll-learn">What you&#x27;ll learn</a></li><li class="toc-l2"><a href="#the-four-files">The four files</a></li><li class="toc-l2"><a href="#why-four-files-not-one">Why four files, not one</a></li><li class="toc-l2"><a href="#how-agents-load-them">How agents load them</a></li><li class="toc-l2"><a href="#what-went-wrong">What went wrong</a></li><li class="toc-l2"><a href="#set-it-up">Set it up</a></li></ul></div></aside>
 </div>
 <footer class="site-footer">
   <div class="footer-inner">

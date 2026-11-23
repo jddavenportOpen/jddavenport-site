@@ -1,10 +1,10 @@
 ---
 title: "What top PM roles pay for agent evals"
-description: "The real job postings, checked, and an honest read on what the numbers mean."
+description: "The real job postings, checked, and what I think the numbers mean."
 section: ai-core-skills
 group: "#1 Agent evals"
 order: 20
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["ai-roles-skills-series/day-01-agent-evals"]
 ---
 
@@ -20,7 +20,7 @@ Here is what the postings say. The two Anthropic rows marked "verified" I re-che
 | Product Manager, API Agents | OpenAI | $293K to $325K plus equity | None, even though the role is about agents |
 | Staff Product Manager, AI Platform | Databricks | $171,000 to $235,200 | None |
 
-**Honest read:**
+**What I read in the numbers:**
 
 1. At frontier labs, $250k understates it. Posted base bands start around $293k to $347k before equity.
 2. Inside the same lab, the eval-heavy PM roles sit in the same band as PM roles with no eval wording. So the band reflects "PM at a frontier lab at this level." Evals are a requirement for some of those seats, not a premium on top.

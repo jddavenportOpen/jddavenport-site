@@ -4,7 +4,7 @@ description: "A short spec for a new agent, PRDs whose user stories become the t
 section: patterns
 group: "Agents"
 order: 20
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["frameworks/agent-requirement-document.mdx", "learn/tier-3/b7-architect-agent.mdx"]
 ---
 
@@ -23,7 +23,7 @@ I use three layers, from cheapest to heaviest: a one-page spec when I create a n
 
 In March 2026 I called this an Agent Requirement Document: identity, objective, capabilities, inputs and outputs, constraints, error handling, review cadence. Seven sections.
 
-Honest read: I don't keep ARDs as separate files anymore. The content moved into the agent's definition file and its capability card (see [Anatomy of an agent](/docs/patterns/anatomy-of-an-agent/)). But writing one before the first commit is still the fastest way to find out you don't know what you're building. Here's the trimmed version, for a hypothetical agent that writes a weekly digest of what shipped:
+I don't keep ARDs as separate files anymore. The content moved into the agent's definition file and its capability card (see [Anatomy of an agent](/docs/patterns/anatomy-of-an-agent/)). But writing one before the first commit is still the fastest way to find out you don't know what you're building. Here's the trimmed version, for a hypothetical agent that writes a weekly digest of what shipped:
 
 ```markdown
 ## Agent: weekly-digest
@@ -107,7 +107,7 @@ Three design choices matter.
 
 **The PRD has to be fresh.** The 14-day window exists because a months-old PRD would wave through every future change forever. The gate caught exactly that on the cockpit: an April PRD that would have satisfied it indefinitely.
 
-**It fails open.** A timeout, a crash, a missing secret or an unparseable verdict degrades to a loud warning. Only a clearly parsed BLOCK or MISMATCH fails the change. Honest read: a gate that blocks on its own bugs teaches everyone to route around it.
+**It fails open.** A timeout, a crash, a missing secret or an unparseable verdict degrades to a loud warning. Only a clearly parsed BLOCK or MISMATCH fails the change. A gate that blocks on its own bugs teaches everyone to route around it.
 
 ### Why it only fires on one product family
 

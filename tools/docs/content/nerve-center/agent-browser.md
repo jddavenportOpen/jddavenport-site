@@ -4,7 +4,7 @@ description: "When an agent needs a real browser: Playwright, a signed-in profil
 section: nerve-center
 group: "Interfaces and tools"
 order: 200
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/h5-agent-browser.mdx", "tutorials/browser-automation.mdx"]
 ---
 
@@ -61,7 +61,7 @@ def parse(html: str) -> dict:
 results = fetch_with_adapter(example_listings, {"state": "CO"})
 ```
 
-The first adapter I wrote walks a public listings site, pages through results, and returns structured listings, with a fixture mode that parses a saved HTML file so its tests never touch the network. An adapter is faster and cheaper than fetching pages and asking a model to extract fields, and it fails loudly when the site changes, which is what you want. Honest read: build an adapter on the third time you need the same site, not the first.
+The first adapter I wrote walks a public listings site, pages through results, and returns structured listings, with a fixture mode that parses a saved HTML file so its tests never touch the network. An adapter is faster and cheaper than fetching pages and asking a model to extract fields, and it fails loudly when the site changes, which is what you want. Build an adapter on the third time you need the same site, not the first.
 
 ## Signed-in profiles
 

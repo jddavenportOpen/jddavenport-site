@@ -4,7 +4,7 @@ description: "Envelope budgeting on free-tier hosting with read-only bank sync, 
 section: builds
 group: "Open source"
 order: 150
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/i1-openbudget.mdx"]
 ---
 
@@ -74,7 +74,7 @@ Before the launch post went out, my system flagged a real problem: the sync scri
 
 I shipped anyway and said so. I have no record of a live end-to-end test of the public sync script since, so as of October 2026 treat it as unverified. If bank sync is the reason you're installing it, test it against your own account before you rely on it, and open an issue if it breaks.
 
-Honest read: that's the right trade for a free side project, and the wrong one for anything that moves money. The rule I use: ship with a plain statement of what was verified and what wasn't. Holding a release until every path is tested means it never ships. Claiming it's tested when it isn't is lying.
+That's the right trade for a free side project, and the wrong one for anything that moves money. The rule I use: ship with a plain statement of what was verified and what wasn't. Holding a release until every path is tested means it never ships. Claiming it's tested when it isn't is lying.
 
 ## What to copy
 

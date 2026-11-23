@@ -4,7 +4,7 @@ description: "One persistent agent per area of life and work, each with its own 
 section: nerve-center
 group: "Orchestration"
 order: 40
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/b2-eight-domain-agents.mdx", "building-ai-os/arch-domains.mdx"]
 ---
 
@@ -12,7 +12,7 @@ A domain agent owns one area of my life or work, and it's the agent that knows t
 
 ## The domains
 
-The main ones, under the names the [live capabilities page](https://nerve-center-showcase.vercel.app) uses:
+The main ones:
 
 | Domain | What it owns |
 |---|---|

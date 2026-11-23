@@ -283,7 +283,7 @@
   <div class="kicker">School and work</div>
   <h1>Course-expert agents</h1>
   <p class="doc-lead">Agents grounded in a course&#x27;s real materials that answer with citations, plus deadlines and announcements from the school LMS.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>7 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>7 min read</span></p>
   <div class="prose">
 <p>Every class I take gets its own expert agent: one that has read the actual slides, readings and syllabus, answers with citations back to the exact deck and slide, and knows what's due. A general model answering a course question gives you the textbook version. A course expert gives you the version your instructor teaches, which is the one you get graded on.</p>
 <p>This started in April 2026 with one analytics course. Since the fall 2026 semester it's one expert per enrolled course, plus a seat for a course where I'm the TA.</p>
@@ -340,7 +340,7 @@ Sources:
 <p>One course had a live LMS shell from mid-August, and every rail in the system called it a blind spot until late September. The cause was a hardcoded list of two courses, copied into three different places. The fix was one function that reads the active course list, used everywhere. A hand-kept list is a bug with a delay on it.</p>
 <h2 id="what-to-copy"><a class="anchor" href="#what-to-copy" aria-hidden="true" tabindex="-1">#</a>What to copy</h2>
 <div class="table-wrap" role="region" aria-label="Table" tabindex="0"><table class="cols-2"><thead><tr><th>Do this</th><th>Because</th></tr></thead><tbody><tr><td>Build the index offline, query it live</td><td>Answer time stays one retrieval plus one reasoning pass</td></tr><tr><td>One collection per course, with title and slide on every chunk</td><td>Citations are only as good as the metadata you kept</td></tr><tr><td>Let a hand-written knowledge file outrank the crawler</td><td>You know things the LMS doesn't say</td></tr><tr><td>Make the expert retrieve, then reason</td><td>The asking agent is already a model</td></tr><tr><td>Delete superseded facts, and clear their chunks</td><td>Retrieval can't read your intent</td></tr><tr><td>Give every expiring credential a renewal job and a health check</td><td>Silent expiry looks like "nothing due"</td></tr></tbody></table></div>
-<p>Honest read: the retrieval stack is the easy part. The hard part is keeping the corpus and the deadline list true as the semester moves. Most of the fixes above are about that, not about embeddings.</p>
+<p>The retrieval stack is the easy part. The hard part is keeping the corpus and the deadline list true as the semester moves. Most of the fixes above are about that, not about embeddings.</p>
 <p>The analytics expert led straight into the next build, which answers the questions retrieval can't: the ones you have to compute.</p>
 <p><strong>Next:</strong> <a href="/docs/builds/analytics-suite/">The analytics suite</a></p>
   </div>

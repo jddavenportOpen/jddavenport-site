@@ -3,7 +3,7 @@ title: "About these docs"
 description: "Who writes these, what changed when they moved here in October 2026, and the accuracy rules every article follows."
 section: reference
 order: 40
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["about.mdx"]
 ---
 
@@ -27,10 +27,10 @@ The docs used to live at docs.agenttree.army. In October 2026 they moved here, a
 Every article follows the same rules:
 
 1. **Present tense means true today.** Anything that was true once is written as history, with a date: "in June 2026 I..."
-2. **Durable counts only.** The only agent count I use is 30+ agents in daily production, 100+ built over time. Exact live numbers come from a generator, like the [capabilities page](https://nerve-center-showcase.vercel.app) the system rebuilds every day, never from someone typing a number into a page.
+2. **Durable counts only.** The only agent count I use is 100+ agents built. An agent here means a named Claude Code session or scheduled job with its own instructions. I don't type exact live numbers into a page.
 3. **Receipts over adjectives.** A date, a file, a command or a measured number beats an adjective every time. Benchmarks need a source; numbers without one get cut.
-4. **Autonomy claims keep their asterisk.** Sending as me, spending money, identity and anything irreversible need a human yes. Any page that implies otherwise is wrong.
-5. **Opinions are labeled.** "Honest read:" marks a real opinion. "Best guess:" marks a guess.
+4. **Autonomy claims keep their asterisk.** By default, sending as me, spending money, identity and anything irreversible need a human yes. I've signed three narrow standing approvals that let some messages go out without a per-message yes. Each has a cap and a kill switch. Any page that implies otherwise is wrong.
+5. **Opinions are marked.** I say IMO or I think when it's my opinion and not something I measured.
 6. **Public code only.** Every repo link points to something you can open without an account.
 
 For the deeper story of the system these docs describe, read [the teardown](https://jddavenport.com/teardown): the architecture, three documented incidents with root causes, and the constraints I chose on purpose.

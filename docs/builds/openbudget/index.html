@@ -283,7 +283,7 @@
   <div class="kicker">Open source</div>
   <h1>OpenBudget: a self-hosted budget app</h1>
   <p class="doc-lead">Envelope budgeting on free-tier hosting with read-only bank sync, productized and scrubbed into a public repo.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>4 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>4 min read</span></p>
   <div class="prose">
 <p>OpenBudget is a self-hosted envelope budgeting app: every dollar gets a job, your real bank transactions sync in automatically, and the data lives in a database you own. I built it for myself first, then stripped out everything personal and published it in early June 2026 at <a href="https://github.com/jddavenportOpen/openbudget" target="_blank" rel="noopener">jddavenportOpen/openbudget</a>, MIT licensed.</p>
 <p>The pitch is simple. A popular budgeting subscription runs about $109 a year, per the repo's comparison. OpenBudget runs on free tiers plus a read-only bank data feed that costs about $15 a year.</p>
@@ -315,7 +315,7 @@ npm run sync                          # after saving that URL as SIMPLEFIN_ACCES
 <h2 id="the-honest-gap"><a class="anchor" href="#the-honest-gap" aria-hidden="true" tabindex="-1">#</a>The honest gap</h2>
 <p>Before the launch post went out, my system flagged a real problem: the sync script had been ported by an agent from the original version for the public release. The build passed and the scan was clean, but the ported script had not been run against a live SimpleFIN account. The recommendation was a 30-minute real-sync test before promoting it hard.</p>
 <p>I shipped anyway and said so. I have no record of a live end-to-end test of the public sync script since, so as of October 2026 treat it as unverified. If bank sync is the reason you're installing it, test it against your own account before you rely on it, and open an issue if it breaks.</p>
-<p>Honest read: that's the right trade for a free side project, and the wrong one for anything that moves money. The rule I use: ship with a plain statement of what was verified and what wasn't. Holding a release until every path is tested means it never ships. Claiming it's tested when it isn't is lying.</p>
+<p>That's the right trade for a free side project, and the wrong one for anything that moves money. The rule I use: ship with a plain statement of what was verified and what wasn't. Holding a release until every path is tested means it never ships. Claiming it's tested when it isn't is lying.</p>
 <h2 id="what-to-copy"><a class="anchor" href="#what-to-copy" aria-hidden="true" tabindex="-1">#</a>What to copy</h2>
 <ul><li><strong>Read-only data feeds beat stored credentials.</strong> If a third party offers a read-only token, take it, and never hold a password you don't need.</li><li><strong>Fail closed on auth.</strong> An empty allowlist should lock everyone out, not let everyone in.</li><li><strong>A <code>/setup</code> page that names what's missing</strong> saves every new user the same hour of debugging.</li><li><strong>Fork clean, scan, then publish.</strong> Never publish the repo that once held the real data, even after you delete it. Git remembers.</li></ul>
 <p><strong>Next:</strong> <a href="/docs/builds/harnessview/">harnessview: see your harness</a></p>

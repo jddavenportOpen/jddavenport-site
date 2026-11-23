@@ -283,7 +283,7 @@
   <div class="kicker">Open source</div>
   <h1>Clawdling: the open engine</h1>
   <p class="doc-lead">The open-source, bring-your-own-key personal AI OS engine extracted from my private system, and what it leaves out.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>7 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>7 min read</span></p>
   <div class="prose">
 <p>Clawdling is the open-source version of the idea behind my private system: a personal AI cockpit you run on your own machine, with your own key, where the agents act on your tasks and memory instead of just chatting. It's at <a href="https://github.com/jddavenportOpen/clawdling" target="_blank" rel="noopener">jddavenportOpen/clawdling</a>, licensed AGPL-3.0, and it's the engine under Clawdascended, a hosted product I'm building that is still early.</p>
 <p>My private system can't be open-sourced. It runs my actual life and work, and it's wired into my accounts and machines throughout. Clawdling is what you get when you rebuild the useful core so a stranger can run it from a fresh clone. This page covers what's in it, what's deliberately not, and the bugs that only showed up when I tested it as a stranger.</p>
@@ -316,7 +316,7 @@ make domain ID=health LABEL=Health BLURB=&quot;Training, food, and sleep&quot;</
 <h2 id="extracting-the-core-meant-rebuilding-it"><a class="anchor" href="#extracting-the-core-meant-rebuilding-it" aria-hidden="true" tabindex="-1">#</a>Extracting the core meant rebuilding it</h2>
 <p>The first public version went out on July 7, 2026, with a known-issues file and a fresh, leak-scanned history. It worked for chat. Cockpit mode didn't. The interface for panes had shipped with no backend at all, so every pane was dead on arrival.</p>
 <p>The obvious fix was to carve the bridge out of my private system. I looked, and the private session route alone pulled in more than 25 internal modules, plus account routing and domain-seat logic a stranger has no use for. Carving it would have dragged most of a very large codebase along. So in mid-September I wrote a new, small bridge instead: one thread per session, bounded fan-out to viewers, a byte ring replayed when you reattach, signed tokens, working-directory containment, no shell, loopback bind, and it refuses a weak secret. Pane history survives a bridge restart, even a hard kill, and resuming a pane restores the model's own context. Nothing is resurrected behind your back: a restored pane comes back as a readable record you choose to resume.</p>
-<p>Honest read: "extract the open-source core" is almost always "rebuild a smaller core from scratch, using the private one as a spec." Plan for that from day one and you'll save yourself a summer.</p>
+<p>"extract the open-source core" is almost always "rebuild a smaller core from scratch, using the private one as a spec." Plan for that from day one and you'll save yourself a summer.</p>
 <h2 id="what-testing-as-a-stranger-found"><a class="anchor" href="#what-testing-as-a-stranger-found" aria-hidden="true" tabindex="-1">#</a>What testing as a stranger found</h2>
 <p>Agents that built the code tested it in the environment they built it in. That's how two of these survived.</p>
 <h3 id="a-false-caveat-public-for-70-days"><a class="anchor" href="#a-false-caveat-public-for-70-days" aria-hidden="true" tabindex="-1">#</a>A false caveat, public for 70 days</h3>

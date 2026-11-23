@@ -4,7 +4,7 @@ description: "Scan a project's Claude Code setup (agents, skills, hooks, MCP, se
 section: builds
 group: "Open source"
 order: 160
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/a4-harnessview.mdx"]
 ---
 
@@ -78,6 +78,6 @@ Before it went public, the tracked files got a secret and personal-data scan. Th
 
 Two later fixes are worth knowing about if you fork it. The first layout drew every leaf in one enormously wide row, because a root with dozens of direct children is a star, and a layered layout has nothing to layer. Adding a hub node per category gave it a real three-level tree. Then in July it got Playwright smoke tests for four user stories: the graph renders, clicking a node opens the inspector, groups collapse and expand, and the live badge shows.
 
-Honest read: this is a small tool, and that's the point. A harness grows one config file at a time and nobody draws the diagram. If you're running more than a handful of hooks and MCP servers, look at the picture once a month. You'll find something dead.
+This is a small tool, and that's the point. A harness grows one config file at a time and nobody draws the diagram. If you're running more than a handful of hooks and MCP servers, look at the picture once a month. You'll find something dead.
 
 **Next:** [Clawdling: the open engine](/docs/builds/clawdling/)

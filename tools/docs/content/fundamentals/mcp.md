@@ -4,7 +4,7 @@ description: "What the Model Context Protocol is, how to add a server, and how t
 section: fundamentals
 group: "Extending Claude Code"
 order: 60
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-1/06-mcp-basics.mdx", "building-ai-os/arch-mcp-servers.mdx"]
 ---
 
@@ -104,7 +104,7 @@ That last one gets its own section.
 
 A code graph sounds like an obvious upgrade over text search: ask "who calls this function" and get a precise answer instead of grep noise. On my repos, measured, it cost more than plain search and reading, and it was never more complete. Grep found everything the graph found.
 
-So the rule now is narrow: use it for what grep can't do, like tracing a call path across modules, getting an architecture overview, or cross-repo edges. Verify any caller list it gives you with a plain search. Don't reach for it by default. Honest read: a fancier tool is only better if you measured it on your own work.
+So the rule now is narrow: use it for what grep can't do, like tracing a call path across modules, getting an architecture overview, or cross-repo edges. Verify any caller list it gives you with a plain search. Don't reach for it by default. A fancier tool is only better if you measured it on your own work.
 
 ## Credentials expire quietly
 

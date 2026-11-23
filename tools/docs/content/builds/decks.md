@@ -4,7 +4,7 @@ description: "Eight failed python-pptx attempts, then a design system and a rend
 section: builds
 group: "Research and content"
 order: 60
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/f2-deck-architect-v4.mdx", "building-ai-os/arch-deck-architect.mdx", "articles/why-your-ai-slides-suck.mdx"]
 ---
 
@@ -101,6 +101,6 @@ A 22-slide webinar deck at the end of June went through exactly this loop. The w
 
 The engine is typographic, not photographic. There's no image generation step, by choice: a model generating images for slides opens the same IP questions my [merch store](/docs/builds/ip-safety-gate/) has a whole gate for. When a slide needs a picture, it uses a real screenshot of the product, which is better evidence anyway.
 
-Honest read: in April I said the library capped quality. The library was maybe a third of it. The rest was letting the model make layout decisions it had no taste for, and never making it look at what it built. Give it components and eyes, and the boring library works fine.
+In April I said the library capped quality. The library was maybe a third of it. The rest was letting the model make layout decisions it had no taste for, and never making it look at what it built. Give it components and eyes, and the boring library works fine.
 
 **Next:** [Socrates: the X autopilot](/docs/builds/socrates-x/)

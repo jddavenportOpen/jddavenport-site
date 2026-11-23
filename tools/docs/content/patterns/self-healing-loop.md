@@ -4,7 +4,7 @@ description: "A scout reads the system's own failures and ranks fixes, a human a
 section: patterns
 group: "Shipping"
 order: 140
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-2/13-self-healing-loop.mdx"]
 ---
 
@@ -65,7 +65,7 @@ Two lessons from the months after that weekend, because the loop did not just ke
 - **Proposal quality decays.** On July 31, 2026 I had five reviewer agents read every open proposal against the live system. There were 403. They recommended 23, a signal rate under 6%. Two finds were alarming: one proposal to adopt a new model was built entirely from strings in a test fixture that had leaked into the live queue, and another's whole body was an approval in my name ("JD approved: build it") that referred to nothing. A scout reading noisy logs proposes noise, and a queue nobody prunes starts holding things that look like authority. The standalone scout has been paused since September 13, 2026, and I killed its backlog sweep. Failures now become tickets in the gated bug-squash pipeline instead.
 - **Gates on paper aren't gates.** On August 1, 2026 a safety review found the automated fixer's review quorum passed with one approval out of three, and one merge path ignored shadow mode entirely. It went back to shadow mode that day. The details are in [Auto bug-squash and the Warden](/docs/safety-and-operations/bug-squash-and-warden/).
 
-Honest read: the human approval step was never the weak link. The weak links were every place I assumed a machine check was running when it wasn't.
+The human approval step was never the weak link. The weak links were every place I assumed a machine check was running when it wasn't.
 
 ## A version you can build this weekend
 

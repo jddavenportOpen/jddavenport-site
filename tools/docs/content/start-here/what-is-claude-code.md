@@ -3,7 +3,7 @@ title: "What Claude Code is, and what a harness is"
 description: "A model talks. A harness gives it a loop, tools, files and a way to ask you first. Claude Code is the harness these docs teach with."
 section: start-here
 order: 10
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-0/01-what-is-claude-code.mdx"]
 ---
 
@@ -61,7 +61,7 @@ Everything advanced you'll read here is this idea scaled up:
 
 - **One session.** You and one agent in one folder. That's the rest of this Start here section.
 - **Many agents.** Sub-agents, schedules, isolated workspaces, and a top-level agent routing work to specialists. That's Fundamentals and Patterns.
-- **An organization.** 30+ agents in daily production since April 2026, with shared memory, a durable message bus, watchdogs, and a send gate that stops anything from leaving without my yes. That's Inside the Nerve Center.
+- **An organization.** 100+ agents built since February 2026, with shared memory, a durable message bus, watchdogs, and a send gate that holds every email or message to another person for my yes by default. That's Inside the Nerve Center.
 
 Each layer is still a model in a loop, using tools, keeping its memory in files. If you remember one sentence from this page: a harness turns a model that can only talk into an agent that can do.
 

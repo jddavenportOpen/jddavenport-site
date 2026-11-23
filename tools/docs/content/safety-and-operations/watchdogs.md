@@ -4,7 +4,7 @@ description: "Catch-up after reboots, stale-job alerts, death-cluster detection,
 section: safety-and-operations
 group: "Keeping it running"
 order: 50
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-2/08-cron-catchup-and-resilience.mdx", "building-ai-os/arch-cron.mdx"]
 ---
 
@@ -114,6 +114,6 @@ I fixed it narrowly: outage-class alerts (panics, a stuck shipping pipeline, del
 | Memory-truth gauge and breaker | What's actually available? | A gauge that lies, then a panic |
 | Alert-path live fire | Does the page actually arrive? | Alerts dropped in transit |
 
-Honest read: none of these is clever. Each one exists because I believed a green light that wasn't true. Build the detector for the lie, not for the outage.
+None of these is clever. Each one exists because I believed a green light that wasn't true. Each detector here catches a green light that was lying.
 
 **Next:** [Durable state: Postgres as the system of record](/docs/safety-and-operations/durable-state/)

@@ -283,7 +283,7 @@
   <div class="kicker">Research and content</div>
   <h1>AI decks that don&#x27;t look like AI</h1>
   <p class="doc-lead">Eight failed python-pptx attempts, then a design system and a render, read, critique, fix loop. Where deck generation stands now.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
   <div class="prose">
 <p>AI slides look AI-generated for two reasons, and a better prompt fixes neither. The model is placing boxes by coordinate, and it never sees the result. The fix is a design system it can't wander outside of, plus a loop where it has to look at the rendered slide before it's allowed to call the deck done. It took me from April to June 2026 to learn that, and I blamed the wrong thing for most of it.</p>
 <h2 id="what-you-ll-learn"><a class="anchor" href="#what-you-ll-learn" aria-hidden="true" tabindex="-1">#</a>What you'll learn</h2>
@@ -322,7 +322,7 @@ pdftoppm -png -r 96 /tmp/render/deck.pdf deck_render/slide</code></pre></div>
 <p>A 22-slide webinar deck at the end of June went through exactly this loop. The work decks follow the same process.</p>
 <h2 id="what-it-still-can-t-do"><a class="anchor" href="#what-it-still-can-t-do" aria-hidden="true" tabindex="-1">#</a>What it still can't do</h2>
 <p>The engine is typographic, not photographic. There's no image generation step, by choice: a model generating images for slides opens the same IP questions my <a href="/docs/builds/ip-safety-gate/">merch store</a> has a whole gate for. When a slide needs a picture, it uses a real screenshot of the product, which is better evidence anyway.</p>
-<p>Honest read: in April I said the library capped quality. The library was maybe a third of it. The rest was letting the model make layout decisions it had no taste for, and never making it look at what it built. Give it components and eyes, and the boring library works fine.</p>
+<p>In April I said the library capped quality. The library was maybe a third of it. The rest was letting the model make layout decisions it had no taste for, and never making it look at what it built. Give it components and eyes, and the boring library works fine.</p>
 <p><strong>Next:</strong> <a href="/docs/builds/socrates-x/">Socrates: the X autopilot</a></p>
   </div>
   

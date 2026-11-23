@@ -3,7 +3,7 @@ title: "Permissions and safety basics"
 description: "Permission prompts, allow rules, permission modes, what skipping permissions really means, and why destructive actions get a human yes."
 section: start-here
 order: 60
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-0/06-permissions-and-safety.mdx"]
 ---
 
@@ -88,7 +88,7 @@ The part that took me a while to learn: a rule written in prose is a wish. In Ju
 
 The fix was a hook: a small script Claude Code runs before every tool call, which blocks that command outright no matter what the model believes it's allowed to do. Reload scripts now refuse to run while sessions are live, and a detector pages me if several sessions die at once. Hooks are how you turn a rule into a guarantee. [Hooks](/docs/fundamentals/hooks/) shows how to write one.
 
-> **Note:** The same principle runs my whole system. Agents can draft anything. Nothing goes out to another person, and no money moves, without my explicit yes, and that's enforced by code, not by instructions.
+> **Note:** The same principle runs my whole system. Agents can draft anything. By default nothing goes out to another person, and no money moves, without my explicit yes. Code enforces it. Three narrow standing approvals I signed are the only exceptions, each with a cap and a kill switch.
 
 ## Two safety nets you already have
 

@@ -283,7 +283,7 @@
   <div class="kicker">Orchestration</div>
   <h1>The agent bus: how agents talk</h1>
   <p class="doc-lead">From a synchronous ask that could silently return nothing to a durable bus that persists, retries and dead-letters loudly.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
   <div class="prose">
 <p>Agents need to ask each other things. My first way of doing that could lie by saying nothing: a timeout came back as an empty string, and an empty string looks exactly like an agent that had nothing to say. The durable bus fixed that by writing every message to Postgres before delivering it, so a message can succeed, fail loudly, or sit visibly pending. It can't vanish.</p>
 <h2 id="version-one-askagent"><a class="anchor" href="#version-one-askagent" aria-hidden="true" tabindex="-1">#</a>Version one: ask_agent</h2>
@@ -319,7 +319,6 @@ answer = ask(&quot;ceo&quot;, &quot;Review this plan and tell me what&#x27;s mis
 <h2 id="build-your-own"><a class="anchor" href="#build-your-own" aria-hidden="true" tabindex="-1">#</a>Build your own</h2>
 <p>You don't need my stack to get this right. The minimum:</p>
 <ol><li>Write the message to durable storage before you try to deliver it.</li><li>Give every message a status, and make "dead" a real status with an alert attached.</li><li>Never let a timeout return a value that looks like a real answer. Raise instead.</li><li>Check the receipt. An error message is not an answer.</li><li>Kill what you spawn when you stop waiting for it.</li></ol>
-<p><a href="https://github.com/jddavenportOpen/clawd-agent-os" target="_blank" rel="noopener">clawd-agent-os</a> has a public version of this bus (<code>ask_durable</code>, <code>post_message</code>) alongside the fleet and drainer patterns. <a href="https://github.com/jddavenportOpen/orchestra-agents" target="_blank" rel="noopener">orchestra-agents</a> has a self-contained, bring-your-own-key bus with the same status machine on SQLite.</p>
 <p><strong>Next:</strong> <a href="/docs/nerve-center/fleets/">Fleets: parallel build agents</a></p>
   </div>
   

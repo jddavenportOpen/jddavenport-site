@@ -4,7 +4,7 @@ description: "A budget router in April, one registry per tier, automatic model a
 section: nerve-center
 group: "Orchestration"
 order: 70
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["building-ai-os/story-model-routing.mdx", "building-ai-os/arch-model-router.mdx", "learn/tier-3/h4-ollama-smart-router.mdx"]
 ---
 
@@ -83,7 +83,7 @@ From August 28 to September 2, I deliberately made Fable, the most capable and m
 
 The panes born during that window kept running Fable until they ended on their own, because of the birth-model rule above. On September 5 I made the tier explicit-only: nothing routes there automatically, including planning work that used to. It stays one deliberate click away in the cockpit.
 
-Honest read on the cause: the usage I was worried about didn't come from automatic routing. The automatic planning route hadn't fired once in the 33 hours before the fix. It came from long-lived panes born in the deliberate window. So the change closed an exposure, not an active leak. An earlier claim that usage "spiked 7x on the directive day" came from comparing two adjacent days instead of the whole series, and was wrong.
+What actually caused it: the usage I was worried about didn't come from automatic routing. The automatic planning route hadn't fired once in the 33 hours before the fix. It came from long-lived panes born in the deliberate window. So the change closed an exposure, not an active leak. An earlier claim that usage "spiked 7x on the directive day" came from comparing two adjacent days instead of the whole series, and was wrong.
 
 ## September 9: the local model that crashed the box
 

@@ -4,7 +4,7 @@ description: "A print-on-demand store run by an agent loop, with money, identity
 section: builds
 group: "Commerce"
 order: 10
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/e1-agenttree-merch-ai-operator.mdx", "learn/tier-3/e4-autonomous-ceo-operator.mdx", "learn/tier-3/e5-merch-expert-consultant.mdx"]
 ---
 
@@ -79,7 +79,7 @@ That last step was missing in the first build. The design agent ignored what sol
 
 With zero sales, the data-driven parts of the operator (kill the losers, scale the winners, reprice) have nothing to work with. They don't invent a signal. They report `dormant: awaiting first sales` and the operator falls back to the evergreen theme list.
 
-Honest read: that is the most important behavior in the operator. An agent that fabricates a trend from zero data looks productive and is worse than useless, because you'll act on it.
+That is the most important behavior in the operator. An agent that fabricates a trend from zero data looks productive and is worse than useless, because you'll act on it.
 
 ### The hard walls
 

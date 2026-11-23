@@ -283,7 +283,7 @@
   <div class="kicker">Commerce</div>
   <h1>AgentTree Merch: an AI-operated store</h1>
   <p class="doc-lead">A print-on-demand store run by an agent loop, with money, identity and IP sign-off kept human. What works and what doesn&#x27;t yet.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
   <div class="prose">
 <p><a href="https://shop.agenttree.army" target="_blank" rel="noopener">shop.agenttree.army</a> is a print-on-demand t-shirt store that an agent loop runs: it comes up with designs, screens them for trademark risk, generates the art, lists the products, takes payment and sends paid orders to the printer. It works as a machine. It is not a business yet. As of mid-June 2026 the store had two orders, both mine, and I have no outside sale on record since. Read this as an engineering case study, not a revenue story.</p>
 <p>Any agent can make a t-shirt. The useful part is where this one has to stop.</p>
@@ -314,7 +314,7 @@
 <p>That last step was missing in the first build. The design agent ignored what sold and re-seeded the same evergreen list every day. Closing the learn-to-decide edge was the first upgrade, the morning after launch.</p>
 <h3 id="no-data-means-say-so"><a class="anchor" href="#no-data-means-say-so" aria-hidden="true" tabindex="-1">#</a>No data means say so</h3>
 <p>With zero sales, the data-driven parts of the operator (kill the losers, scale the winners, reprice) have nothing to work with. They don't invent a signal. They report <code>dormant: awaiting first sales</code> and the operator falls back to the evergreen theme list.</p>
-<p>Honest read: that is the most important behavior in the operator. An agent that fabricates a trend from zero data looks productive and is worse than useless, because you'll act on it.</p>
+<p>That is the most important behavior in the operator. An agent that fabricates a trend from zero data looks productive and is worse than useless, because you'll act on it.</p>
 <h3 id="the-hard-walls"><a class="anchor" href="#the-hard-walls" aria-hidden="true" tabindex="-1">#</a>The hard walls</h3>
 <p>Three classes of capability can never be executed by the operator on its own: money, identity and IP sign-off. They're a frozen set in the code, not a paragraph in a README:</p>
 <div class="code-block"><div class="code-bar"><span class="code-lang">python</span><button class="copy-btn" type="button" hidden aria-label="Copy code">Copy</button></div><pre><code class="language-python">HARD_WALL_CAPABILITIES = frozenset({

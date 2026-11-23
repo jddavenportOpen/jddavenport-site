@@ -283,7 +283,7 @@
   <div class="kicker">The cockpit</div>
   <h1>What the cockpit rebuilds taught me</h1>
   <p class="doc-lead">Replaying a terminal in a browser broke everything. What replaced it, and why syncing intent beats syncing state.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>6 min read</span></p>
   <div class="prose">
 <p>I rebuilt the cockpit's chat surface more than once, and every rebuild came from the same mistake in a new costume: treating something built for human eyes as if it were data. This article is the lessons in the order I learned them, ending with the one I'd put on a poster: sync intent, not state.</p>
 <h2 id="what-you-ll-learn"><a class="anchor" href="#what-you-ll-learn" aria-hidden="true" tabindex="-1">#</a>What you'll learn</h2>
@@ -300,7 +300,7 @@
 <ul><li><strong>Display:</strong> chat bubbles parsed from the session's own transcript file.</li><li><strong>Interaction:</strong> the real terminal, kept mounted one tap away, so interactive menus and prompts always have somewhere to go.</li></ul>
 <p>That's still the shape in October 2026. What changed is how the clean view stays live:</p>
 <ol><li><strong>July 14.</strong> I'd added a live "typing" bubble by tapping the raw terminal stream. It leaked escaped JSON soup into the chat. The replacement streams the transcript itself and deleted the raw tap, with a test that fails if anyone adds it back.</li><li><strong>September 22.</strong> Question cards in the clean view could only answer the first tab of a multi-part question, because the transcript only knows what was asked, not which tab the terminal is showing. The fix overlays the live tab parsed from the terminal onto the open question from the transcript. Each source does the one thing it's good at.</li><li><strong>October 2.</strong> For speed, raw terminal output now acts as a doorbell: when bytes arrive, the view fetches the new tail of the transcript right away, with a 15-second safety poll behind it. The raw stream says <em>when</em>. The transcript says <em>what</em>.</li></ol>
-<p>Honest read: I expected the headless stream to win everything. It didn't, because an interactive session can do things a one-shot headless run can't, and the transcript gave me structure without giving those up.</p>
+<p>I expected the headless stream to win everything. It didn't, because an interactive session can do things a one-shot headless run can't, and the transcript gave me structure without giving those up.</p>
 <h2 id="lesson-3-filter-on-flags-not-on-text"><a class="anchor" href="#lesson-3-filter-on-flags-not-on-text" aria-hidden="true" tabindex="-1">#</a>Lesson 3: filter on flags, not on text</h2>
 <p>A transcript file isn't a conversation. It has Claude Code's own plumbing mixed in: compaction summaries, meta turns, echoes of slash commands. Render all of it and you get a wall of summary text in the middle of the chat.</p>
 <p>My first filter was a list of string patterns run against the rendered text. On June 8 a compaction summary leaked straight through it, because by the time the text was extracted, nothing about it looked like plumbing. The fix moved filtering into the parser, where the raw JSON objects still carry their flags:</p>

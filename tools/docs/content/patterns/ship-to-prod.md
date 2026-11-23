@@ -4,7 +4,7 @@ description: "PR, gates, merge, deploy, smoke test prod, then tell the human wha
 section: patterns
 group: "Shipping"
 order: 120
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-2/12-ship-to-prod.mdx"]
 ---
 
@@ -38,7 +38,7 @@ But not every change deserves that. On July 31, 2026 I measured where the work v
 | Mechanical edits, config, test-only work | Medium |
 | Docs, plans, comments | No reviewer. The builder self-checks. |
 
-Honest read: maximum review on everything felt thorough and mostly bought rubber stamps on typo fixes. Match the review to the risk.
+Maximum review on everything felt thorough and mostly bought rubber stamps on typo fixes. Match the review to the risk.
 
 ## The merge gate
 

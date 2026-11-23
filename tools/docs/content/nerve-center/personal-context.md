@@ -4,7 +4,7 @@ description: "Four files that tell every agent who you are, how you decide, how 
 section: nerve-center
 group: "Memory and context"
 order: 130
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/c4-pca-personal-context-artifacts.mdx", "articles/personal-ai-os.mdx"]
 ---
 
@@ -38,7 +38,7 @@ Here's what entries look like. These are invented for illustration, not copied f
 ## Protocols
 - No purchase over a set amount without a 24-hour cooldown.
 - Never commit someone else's time without asking them first.
-- Nothing goes out under my name without my yes on the exact text.
+- By default nothing goes out under my name without my yes on the exact text. Three narrow standing approvals I signed are the exception, each with a cap and a kill switch.
 ```
 
 The voice file is the one I've iterated on most, and two of its rules are already public on this site: no em-dashes, and the first sentence carries the point. The format that works is examples, not adjectives. "Write concisely" does nothing. Ten real messages you sent, ten drafts you hated with a one-line reason each, and rules per channel (a text, a cold email, a post) do a lot.
@@ -66,21 +66,13 @@ Outbound drafts get a second check. A voice gate runs a deterministic lint first
 
 **Placement is part of the rule.** A rule written only in one project's instruction file never reaches an agent started in a different directory. Some of my hard rules had to move into the user-level file that every session loads, with a note saying why they live there. Context that isn't loaded isn't context.
 
-**The files drift.** They're static, and I update them by hand. When a draft sounds wrong, the fix is to diagnose why and add an anti-example, not to correct the draft and move on. In July I harvested a batch of my real sent emails into the voice file as grounded examples. Honest read: the voice file is the only one I maintain well. The wiki goes stale between big life changes.
+**The files drift.** They're static, and I update them by hand. When a draft sounds wrong, the fix is to diagnose why and add an anti-example, not to correct the draft and move on. In July I harvested a batch of my real sent emails into the voice file as grounded examples. The voice file is the only one I maintain well. The wiki goes stale between big life changes.
 
-**Timeline, for the record:** the four skeletons went in on May 25, 2026, as part of the executive assistant build, with gaps marked for me to fill instead of letting an agent invent details only I know. I published the templates as a public kit on July 4.
+**Timeline, for the record:** the four skeletons went in on May 25, 2026, as part of the executive assistant build, with gaps marked for me to fill instead of letting an agent invent details only I know. I published the templates as a public kit on July 4, and made it private again in November 2026.
 
-## Start with the public kit
+## Set it up
 
-The templates and five Claude Code skills are open source (MIT) at [jddavenportOpen/context-kit](https://github.com/jddavenportOpen/context-kit). The skills are the working layer on top of the files: CRM everything (a file per person), open loops (capture promises before they become dropped balls), watchers (notify me when a condition is true), morning briefing, and session digest (a summary the next session reads first).
-
-```bash
-git clone https://github.com/jddavenportOpen/context-kit.git
-cd context-kit
-bash scripts/install.sh
-```
-
-The installer copies the four templates into `~/.claude/context/` and the skills into `~/.claude/skills/`, then prints next steps. The kit also ships a starter `CLAUDE.md` template. Then reference the files from your `CLAUDE.md` so every session loads them:
+Make four files in `~/.claude/context/`, one per question above. Then reference them from your `CLAUDE.md` so every session loads them:
 
 ```markdown
 ## Personal context

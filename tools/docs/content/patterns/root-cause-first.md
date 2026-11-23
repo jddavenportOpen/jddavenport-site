@@ -4,7 +4,7 @@ description: "Diagnose, fix the process, backfill, add a regression guard, then 
 section: patterns
 group: "Shipping"
 order: 110
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-2/11-root-cause-first.mdx"]
 ---
 
@@ -92,6 +92,6 @@ If you can only do step 5 now, open a tracked loop for steps 1 to 4 and say so i
 
 My instruction files also say "make surgical changes." That's about scope, not depth. A root-cause fix is surgical when it's the smallest change that stops the bug class from coming back. A hook that blocks one dangerous command is small. Rewriting the supervisor because you're annoyed is not.
 
-Honest read: root-cause-first costs more on every individual bug and less on the system over time. I'd make the same trade again. The fires I fought in April are not the fires I fight now, and that's the only scoreboard that matters.
+Root-cause-first costs more on every individual bug and less on the system over time. I'd make the same trade again. The fires I fought in April are not the fires I fight now, and that's the only scoreboard that matters.
 
 **Next:** [Ship to prod: review the product, not the diff](/docs/patterns/ship-to-prod/)

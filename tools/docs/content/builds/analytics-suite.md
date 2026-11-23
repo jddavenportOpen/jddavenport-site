@@ -4,7 +4,7 @@ description: "Seven statistical playbooks, a classifier, a solver that computes 
 section: builds
 group: "School and work"
 order: 120
-updated: 2026-10-05
+updated: 2026-11-22
 sources: ["learn/tier-3/g2-analytics-suite.mdx"]
 ---
 
@@ -74,7 +74,7 @@ Every answer the pipeline selected matched the answer key. Three separate models
 
 ## What the numbers say
 
-The spread between frontier models was about six points. The gap between computing and not computing was nine to fifteen points. Honest read: if you're choosing between a better model and giving your current model a way to run code against the real data, give it the tools first.
+The spread between frontier models was about six points. The gap between computing and not computing was nine to fifteen points. If you're choosing between a better model and giving your current model a way to run code against the real data, give it the tools first.
 
 A model reading a question about employee satisfaction will produce a plausible paragraph. A solver that loads the file, drops the noise predictors, checks the VIFs and prints the coefficient table produces the right number. Plausible and right look identical until someone checks.
 

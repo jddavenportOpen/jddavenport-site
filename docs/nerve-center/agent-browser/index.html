@@ -283,7 +283,7 @@
   <div class="kicker">Interfaces and tools</div>
   <h1>The agent browser</h1>
   <p class="doc-lead">When an agent needs a real browser: Playwright, a signed-in profile, per-site adapters, and the rule that a human finishes the risky part.</p>
-  <p class="doc-meta"><span>Updated <time datetime="2026-10-05">2026-10-05</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
+  <p class="doc-meta"><span>Updated <time datetime="2026-11-22">2026-11-22</time></span><span aria-hidden="true">·</span><span>5 min read</span></p>
   <div class="prose">
 <p>Most of what my agents need from the web comes through an API, a feed or a plain HTTP fetch. A real browser is the last resort, for pages that only exist after JavaScript runs, flows that need a signed-in session, and consoles with no API at all. When an agent does need one, it goes through one shared module with a fixed ladder of rules, and anything where one botched submission matters ends with a human, not a click.</p>
 <h2 id="what-you-ll-learn"><a class="anchor" href="#what-you-ll-learn" aria-hidden="true" tabindex="-1">#</a>What you'll learn</h2>
@@ -315,7 +315,7 @@ def parse(html: str) -&gt; dict:
 
 # caller
 results = fetch_with_adapter(example_listings, {&quot;state&quot;: &quot;CO&quot;})</code></pre></div>
-<p>The first adapter I wrote walks a public listings site, pages through results, and returns structured listings, with a fixture mode that parses a saved HTML file so its tests never touch the network. An adapter is faster and cheaper than fetching pages and asking a model to extract fields, and it fails loudly when the site changes, which is what you want. Honest read: build an adapter on the third time you need the same site, not the first.</p>
+<p>The first adapter I wrote walks a public listings site, pages through results, and returns structured listings, with a fixture mode that parses a saved HTML file so its tests never touch the network. An adapter is faster and cheaper than fetching pages and asking a model to extract fields, and it fails loudly when the site changes, which is what you want. Build an adapter on the third time you need the same site, not the first.</p>
 <h2 id="signed-in-profiles"><a class="anchor" href="#signed-in-profiles" aria-hidden="true" tabindex="-1">#</a>Signed-in profiles</h2>
 <p>Some pages only exist when you're logged in. Logging in fresh on every run is slow and brittle, and it means handing the agent your password. The better pattern is a <strong>persistent browser profile</strong>: a profile directory where I'm already signed in, reused by the agent until the session expires, at which point I sign in again myself.</p>
 <p>The bug class that comes with it is the wrong profile. In June a reply job kept failing at the composer with a logged-out "join the conversation" wall. It was launching an old, signed-out profile instead of the warm one. Nothing was broken except a path.</p>
