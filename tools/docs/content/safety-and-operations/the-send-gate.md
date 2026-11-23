@@ -91,7 +91,7 @@ In September 2026 I found a one-off script that had been sending a recurring ema
 
 All three are fixed. The guard now scans every directory that holds runnable code, catches sends written as shell strings and in shell scripts, and runs daily on a schedule that pages me if it fails.
 
-Honest read: this is the failure I'd most want a reader to learn from. My gate was real, and for twelve weeks I described it as complete when it wasn't. A guard is only as wide as what it scans, and a check nobody reads isn't running.
+This is the failure I'd most want a reader to learn from. My gate was real, and for twelve weeks I described it as complete when it wasn't. A guard is only as wide as what it scans, and a check nobody reads isn't running.
 
 ## Hooks are not the gate
 
@@ -125,6 +125,6 @@ You can start smaller than mine:
 4. Add a freeze file that the function checks first.
 5. Add a check that fails if any send primitive appears outside the wrapper, and run it on a schedule that alerts you.
 
-For packaged versions of these ideas: [claude-deploy-kit](https://github.com/jddavenportOpen/claude-deploy-kit) has a single policy chokepoint that defaults to deny and always escalates irreversible actions to approval, and [ethos-gate](https://github.com/jddavenportOpen/ethos-gate) has PreToolUse hooks for irreversible commands and outbound GitHub actions. Use the hooks as a layer. Make the chokepoint the door.
+For a packaged version of the hook layer: [ethos-gate](https://github.com/jddavenportOpen/ethos-gate) has PreToolUse hooks for irreversible commands and outbound GitHub actions. Use the hooks as a layer. Make the chokepoint the door.
 
 **Next:** [QA: user stories, Playwright and synthetic users](/docs/safety-and-operations/qa-and-synthetic-users/)

@@ -8,7 +8,7 @@ updated: 2026-10-05
 sources: ["learn/tier-3/a3-file-based-second-brain.mdx", "building-ai-os/arch-eod-compiler.mdx"]
 ---
 
-A system with 30+ agents in daily production, many sessions in parallel and sessions that rotate when their context fills can only answer "what did we ship this week?" if every ship writes a line to a file. Chat history isn't a record. It rotates, it's split across parallel sessions, and the session that did the work is usually gone by the time you ask. So my system keeps a file-based record of its own work, and every agent is required to write to it.
+A system with 100+ agents built for it, many sessions in parallel and sessions that rotate when their context fills can only answer "what did we ship this week?" if every ship writes a line to a file. Chat history isn't a record. It rotates, it's split across parallel sessions, and the session that did the work is usually gone by the time you ask. So my system keeps a file-based record of its own work, and every agent is required to write to it.
 
 This article is the structure of that record: what's hand-written, what's generated, and the one rule that keeps the generated parts honest.
 
@@ -104,7 +104,7 @@ Why so strict? Because the next regeneration overwrites a hand edit, silently. Y
 
 **The log is honor-system at the point of entry.** Nothing forces an agent to call the logging script. Agents built in a hurry skip it, and their work is invisible until someone notices. The only mitigation is the rule itself, repeated in every agent's instructions and in the prompt of every agent I spawn. It's not airtight, and I don't yet have a check that catches a skipped log. If you build this, that check is the first thing I'd add.
 
-**Duplicates.** A ship logged under two project slugs shows up twice in the master changelog, by design. The journal is worse: on October 4 the same pull request appears five times in the activity log, at five different times of day. Honest read: the journal is noisy, and the master changelog is the layer I trust. If you build this, make the changelog the source of truth and treat the journal as a convenience.
+**Duplicates.** A ship logged under two project slugs shows up twice in the master changelog, by design. The journal is worse: on October 4 the same pull request appears five times in the activity log, at five different times of day. The journal is noisy, and the master changelog is the layer I trust. If you build this, make the changelog the source of truth and treat the journal as a convenience.
 
 **The registry drifts.** It's a hand-kept list of facts that live elsewhere, so it's always a little stale. In April a cleanup pass found dozens of ghost projects still listed as live and reclassified them as archived, ideas or superseded. The general fix for that class of bug is to render from what exists instead of from a list, which is its own article: [The system documents itself](/docs/safety-and-operations/ground-truth/).
 

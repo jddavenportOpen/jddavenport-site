@@ -4,6 +4,7 @@ description: "Step by step, with screenshots: create a free Vercel account, make
 section: start-here
 order: 35
 updated: 2026-10-15
+noindex: true
 ---
 
 Claude Code can build you a website in minutes. To put it live on the internet, it needs permission to deploy to your Vercel account. That permission is a **token**: a long, password-like key you create once and hand to Claude Code.

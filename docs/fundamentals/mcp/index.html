@@ -328,7 +328,7 @@ claude mcp get example   # one server&#x27;s details</code></pre></div>
 <p>That last one gets its own section.</p>
 <h2 id="the-code-graph-cost-more-than-grep"><a class="anchor" href="#the-code-graph-cost-more-than-grep" aria-hidden="true" tabindex="-1">#</a>The code graph cost more than grep</h2>
 <p>A code graph sounds like an obvious upgrade over text search: ask "who calls this function" and get a precise answer instead of grep noise. On my repos, measured, it cost more than plain search and reading, and it was never more complete. Grep found everything the graph found.</p>
-<p>So the rule now is narrow: use it for what grep can't do, like tracing a call path across modules, getting an architecture overview, or cross-repo edges. Verify any caller list it gives you with a plain search. Don't reach for it by default. Honest read: a fancier tool is only better if you measured it on your own work.</p>
+<p>So the rule now is narrow: use it for what grep can't do, like tracing a call path across modules, getting an architecture overview, or cross-repo edges. Verify any caller list it gives you with a plain search. Don't reach for it by default. A fancier tool is only better if you measured it on your own work.</p>
 <h2 id="credentials-expire-quietly"><a class="anchor" href="#credentials-expire-quietly" aria-hidden="true" tabindex="-1">#</a>Credentials expire quietly</h2>
 <p>MCP servers rarely crash. They go quiet when a credential expires.</p>
 <p>My school's LMS caps API tokens at 90 days. In June 2026 one expired and nothing told me. For 12 weeks the agents that depended on it were working blind on coursework, and nothing in the system treated that as an outage. Now a weekly job renews the token and a health check pages me if renewal stops.</p>

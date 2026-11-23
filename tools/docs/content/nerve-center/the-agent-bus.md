@@ -87,6 +87,4 @@ You don't need my stack to get this right. The minimum:
 4. Check the receipt. An error message is not an answer.
 5. Kill what you spawn when you stop waiting for it.
 
-[clawd-agent-os](https://github.com/jddavenportOpen/clawd-agent-os) has a public version of this bus (`ask_durable`, `post_message`) alongside the fleet and drainer patterns. [orchestra-agents](https://github.com/jddavenportOpen/orchestra-agents) has a self-contained, bring-your-own-key bus with the same status machine on SQLite.
-
 **Next:** [Fleets: parallel build agents](/docs/nerve-center/fleets/)

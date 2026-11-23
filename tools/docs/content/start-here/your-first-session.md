@@ -92,7 +92,7 @@ That continues your most recent conversation in this directory. `claude -r` lets
 
 ## What the session forgets
 
-Honest read: resuming is handy, but don't build on it. A conversation is a fragile place to keep anything that matters. Context windows fill up and get summarized, sessions end, and the next agent you start won't have read your old chat at all.
+Resuming is handy, but don't build on it. A conversation is a fragile place to keep anything that matters. Context windows fill up and get summarized, sessions end, and the next agent you start won't have read your old chat at all.
 
 The fix is simple and it's the most important habit in these docs: anything that has to outlast a session goes in a file. Decisions, rules, progress, what's left to do. The agent reads files on demand, so a good file beats a long conversation every time. My own system runs on that rule. Agent sessions get replaced constantly; the files, tables and logs they write are what make the organization remember. [Files as state](/docs/fundamentals/files-as-state/) covers it properly.
 

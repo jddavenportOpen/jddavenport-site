@@ -31,7 +31,7 @@ The stack today: Next.js and React on Vercel, Postgres on Supabase behind it, an
 
 ### The design
 
-The cockpit and this site share one design system, Warm Graphite: a warm near-black canvas, an amber accent, Geist for UI text and Geist Mono for telemetry, almost no motion. If this page looks familiar, that's why. The first cockpit, in April, was neon glassmorphism with a particle field that shifted color by time of day. It looked great in screenshots. The rebuild killed the spins, pulses and sweeps and kept state legible through color and text instead. Honest read: a cockpit you use for hours a day should be calm.
+The cockpit and this site share one design system, Warm Graphite: a warm near-black canvas, an amber accent, Geist for UI text and Geist Mono for telemetry, almost no motion. If this page looks familiar, that's why. The first cockpit, in April, was neon glassmorphism with a particle field that shifted color by time of day. It looked great in screenshots. The rebuild killed the spins, pulses and sweeps and kept state legible through color and text instead. A cockpit you use for hours a day should be calm.
 
 ### The iPhone app
 

@@ -173,8 +173,4 @@ Mine runs three layers together as of October 2026: a graph database for relatio
 
 The files didn't go away when I added the database. The daily logs, project logs and person files are still the record. The database is an index over them.
 
-## A starter kit
-
-If you'd rather not start from a blank folder, [context-kit](https://github.com/jddavenportOpen/context-kit) is my public starter: four personal context templates (who you are, how you decide, how you write, your hard rules) and five Claude Code skills, including open loops and an end-of-session digest. It installs with one command and it's MIT licensed.
-
 **Next:** [Schedules as a heartbeat](/docs/patterns/heartbeats/)

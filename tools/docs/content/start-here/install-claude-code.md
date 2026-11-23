@@ -86,7 +86,7 @@ There are two release channels. **Latest** (the default for the native installer
 
 To update right now instead of waiting, run `claude update`.
 
-Honest read: if you're learning, take the native installer and let it update itself. Thinking about update channels before you've run a single session is a good way to never run one.
+If you're learning, take the native installer and let it update itself. Thinking about update channels before you've run a single session is a good way to never run one.
 
 > **Note:** My own machine works differently, and a failure taught me why. In September two separate setups on it kept reinstalling the CLI on their own schedules, and each reinstall briefly deleted `claude`, which made a live agent turn fail. Now no session updates itself. One pipeline owns the CLI: it follows the stable channel, installs each release next to the old one, runs a contract test suite against it, swaps it in atomically, and rolls back on its own if anything breaks. Major versions wait for my approval. You won't need any of that for a while.
 

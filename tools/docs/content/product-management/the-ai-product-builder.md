@@ -25,7 +25,7 @@ That's why the heading says "partly." Agents produce a strong first draft. Speci
 
 ## A worked example: how I build with agents
 
-My own system is the clearest example I can give. I talk to one top-level agent. It routes work to specialist agents, and 30+ of them run in daily production. Here's how a feature actually moves:
+My own system is the clearest example I can give. I talk to one top-level agent. It routes work to specialist agents. I've built 100+ of them. Here's how a feature actually moves:
 
 1. **Spec first.** Builds start from a written spec with user stories and acceptance tests, and QA later runs against those same stories. Agents build the wrong thing confidently when the spec is vague, so the spec is where my time goes.
 2. **Build in isolation.** Parallel build agents each work in their own git workspace, so parallel agents can't overwrite each other.

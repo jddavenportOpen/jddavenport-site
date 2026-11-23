@@ -82,7 +82,7 @@ The first public version went out on July 7, 2026, with a known-issues file and 
 
 The obvious fix was to carve the bridge out of my private system. I looked, and the private session route alone pulled in more than 25 internal modules, plus account routing and domain-seat logic a stranger has no use for. Carving it would have dragged most of a very large codebase along. So in mid-September I wrote a new, small bridge instead: one thread per session, bounded fan-out to viewers, a byte ring replayed when you reattach, signed tokens, working-directory containment, no shell, loopback bind, and it refuses a weak secret. Pane history survives a bridge restart, even a hard kill, and resuming a pane restores the model's own context. Nothing is resurrected behind your back: a restored pane comes back as a readable record you choose to resume.
 
-Honest read: "extract the open-source core" is almost always "rebuild a smaller core from scratch, using the private one as a spec." Plan for that from day one and you'll save yourself a summer.
+"extract the open-source core" is almost always "rebuild a smaller core from scratch, using the private one as a spec." Plan for that from day one and you'll save yourself a summer.
 
 ## What testing as a stranger found
 

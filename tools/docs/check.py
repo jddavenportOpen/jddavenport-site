@@ -277,7 +277,9 @@ def check_generated(r: Report, articles: dict[str, Path], plan_urls: set[str], a
 def check_sitemap(r: Report, articles: dict[str, Path]):
     sm = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
     locs = set(re.findall(r"<loc>([^<]+)</loc>", sm))
-    for url in articles:
+    for url, src in articles.items():
+        if str(build.parse_front_matter(src.read_text(encoding="utf-8"))[0].get("noindex", "")).lower() == "true":
+            continue  # noindex pages stay out of the sitemap on purpose
         if build.SITE + url not in locs:
             r.f("sitemap.xml", f"missing {url}")
     if build.SITE + "/docs/" not in locs:

@@ -87,7 +87,7 @@ So when you design a receipt, give it room for every true answer:
 - **Predictable paths.** Dated names (`2026-10-05.md`) give you a free archive and make globbing trivial.
 - **Numbers in fields, not prose.** A count buried in a sentence can't be charted or alarmed on.
 - **Name the producer.** Which job, which run, which commit wrote this?
-- **Derive, don't hand-maintain.** Anything you can generate from source, generate. My public [capabilities showcase](https://nerve-center-showcase.vercel.app) regenerates daily from the live system. Hand-kept numbers drift. At one point four different public counts of my agents were live at the same time, which is why the site now says "30+ agents in daily production, 100+ built over time" and leaves exact figures to the generator.
+- **Derive, don't hand-maintain.** Anything you can generate from source, generate. My public [capabilities showcase](https://nerve-center-showcase.vercel.app) regenerates daily from the live system. Hand-kept numbers drift. At one point four different public counts of my agents were live at the same time, which is why the site now says "100+ agents built" and leaves exact figures to the generator.
 
 ## What it buys you
 

@@ -91,6 +91,6 @@ As a comparison I gave the same practice exam to frontier models of the time, an
 
 The models weren't dumb. They pattern-matched instead of computing, because nothing let them compute. A model that explains how to run a regression is a chatbot. A model that loads the data, runs the regression, reads the output and catches its own mistake is an agent.
 
-Honest read: when an agent gives you a confident wrong answer, the first question isn't "do I need a bigger model." It's "did it have a tool that would have told it the truth, and did it use it?"
+When an agent gives you a confident wrong answer, the first question isn't "do I need a bigger model." It's "did it have a tool that would have told it the truth, and did it use it?"
 
 **Next:** [Prompting Claude Code well](/docs/fundamentals/prompting-the-cli/)

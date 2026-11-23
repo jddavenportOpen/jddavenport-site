@@ -64,6 +64,6 @@ In June 2026 a teammate who isn't a developer needed to update the original prog
 
 Every pull request also got a preview URL, and every merge to main deployed to production. Setup took about an hour. The principle: if someone who has never heard of CI can be trusted with your production site, it's because the gates make the mistake impossible, not because you trusted them harder.
 
-Honest read: the Foundry's tech is the easy part. The hard part is the same as any program: finding builders who ship, finding clients with real problems, and keeping the promises you make to both. The agents help with the paperwork around that. They don't do the trust part.
+The Foundry's tech is the easy part. The hard part is the same as any program: finding builders who ship, finding clients with real problems, and keeping the promises you make to both. The agents help with the paperwork around that. They don't do the trust part.
 
 **Next:** [Build your own resume grader](/docs/builds/resume-grader/)

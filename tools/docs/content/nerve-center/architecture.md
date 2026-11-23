@@ -8,7 +8,7 @@ updated: 2026-10-05
 sources: []
 ---
 
-The Nerve Center is my production AI organization, and the whole thing fits in one sentence: a supervising service owns long-lived Claude Code sessions, a bus routes work between them and me, a shared memory gives them recall, Postgres holds durable state, and a watchdog layer assumes everything above it will eventually fail. It has run every day since April 10, 2026, with 30+ agents in daily production and 100+ built over time.
+The Nerve Center is my production AI organization, and the whole thing fits in one sentence: a supervising service owns long-lived Claude Code sessions, a bus routes work between them and me, a shared memory gives them recall, Postgres holds durable state, and a watchdog layer assumes everything above it will eventually fail. I started building it in February 2026. It has run on a schedule since April 2026, and I've built 100+ agents for it.
 
 This page is the map. Every other article in this section zooms in on one box.
 
@@ -89,7 +89,7 @@ Every guardrail in the system lands in one of four places. This is the most usef
 | Sub-agents | Blast radius. Fan-out work runs with its own tool grants | A build worker gets a worktree and repo access, not my inbox |
 | The send gate | The outside world. One chokepoint for every outbound message | Approval tokens bound to a hash of the exact recipients, subject and body |
 
-Honest read: the four places are not equally strong. In early September I audited the policy hook and found tens of thousands of "allow" decisions and zero blocks over the same stretch. It wasn't broken. Real sends happen inside Python code, where a hook that watches tool calls can't see them. The chokepoint in the code path had recorded hundreds of denials. The lesson: put enforcement where the action actually happens, then audit that it fires.
+The four places are not equally strong. In early September I audited the policy hook and found tens of thousands of "allow" decisions and zero blocks over the same stretch. It wasn't broken. Real sends happen inside Python code, where a hook that watches tool calls can't see them. The chokepoint in the code path had recorded hundreds of denials. The lesson: put enforcement where the action actually happens, then audit that it fires.
 
 > **Note:** "Prose rules do not survive contact with autonomous agents. Machine enforcement does." Every rule that matters gets a hook, a gate or a detector. A sentence in a CLAUDE.md file is documentation.
 

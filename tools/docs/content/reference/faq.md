@@ -63,9 +63,9 @@ Every agent session in my system is a Claude Code process. I tried other setups 
 
 Because I fix the process, not the symptom. The bandaid is five minutes and it recurs. The root-cause fix is thirty and it doesn't: diagnose, fix whatever produced the bug, clean up the other instances, add a guard so it can't come back, then patch what I first noticed. See [Root cause first, never bandaids](/docs/patterns/root-cause-first/).
 
-## How many agents do you run?
+## How many agents have you built?
 
-30+ agents in daily production, 100+ built over time, running every day since April 10, 2026. I don't quote an exact number in static pages, because the roster moves and a typed number goes stale. The capabilities page above shows the live count.
+I've built 100+ agents. An agent here means a named Claude Code session or scheduled job with its own instructions. I started building in February 2026, and the system has run on a schedule since April 2026. I don't quote an exact number in static pages, because the roster moves and a typed number goes stale.
 
 ## Where do I start?
 

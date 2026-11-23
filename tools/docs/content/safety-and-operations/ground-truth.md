@@ -64,7 +64,7 @@ The rule now splits by provenance:
 
 | Where the number appears | What it says |
 |---|---|
-| Static copy (prose, meta descriptions, the link-preview image, this docs site) | A durable floor: **30+ agents in daily production, 100+ built over time** |
+| Static copy (prose, meta descriptions, the link-preview image, this docs site) | A durable floor: **100+ agents built** |
 | Generated surfaces (the home page stat strip and telemetry, the capabilities page) | Exact numbers, produced by a generator from live state, with their date |
 
 The link-preview image is the strictest case. Every platform that ever rendered a link caches its card, so a number baked there outlives any correction. Mine kept showing a stale count after every page had been fixed.

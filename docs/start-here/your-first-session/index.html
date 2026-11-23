@@ -317,7 +317,7 @@ cd ~/claude-practice</code></pre></div>
 <div class="code-block"><div class="code-bar"><span class="code-lang">bash</span><button class="copy-btn" type="button" hidden aria-label="Copy code">Copy</button></div><pre><code class="language-bash">claude -c</code></pre></div>
 <p>That continues your most recent conversation in this directory. <code>claude -r</code> lets you choose an older one. Ask "what did we just do?" and it'll know about the notes file.</p>
 <h2 id="what-the-session-forgets"><a class="anchor" href="#what-the-session-forgets" aria-hidden="true" tabindex="-1">#</a>What the session forgets</h2>
-<p>Honest read: resuming is handy, but don't build on it. A conversation is a fragile place to keep anything that matters. Context windows fill up and get summarized, sessions end, and the next agent you start won't have read your old chat at all.</p>
+<p>Resuming is handy, but don't build on it. A conversation is a fragile place to keep anything that matters. Context windows fill up and get summarized, sessions end, and the next agent you start won't have read your old chat at all.</p>
 <p>The fix is simple and it's the most important habit in these docs: anything that has to outlast a session goes in a file. Decisions, rules, progress, what's left to do. The agent reads files on demand, so a good file beats a long conversation every time. My own system runs on that rule. Agent sessions get replaced constantly; the files, tables and logs they write are what make the organization remember. <a href="/docs/fundamentals/files-as-state/">Files as state</a> covers it properly.</p>
 <p><strong>Next:</strong> <a href="/docs/start-here/your-first-edit/">The working directory and your first edit</a></p>
   </div>

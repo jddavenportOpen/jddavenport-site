@@ -29,7 +29,7 @@ The common thread: none of these needed a better interface. They needed the work
 
 ## Where the thesis holds
 
-Honest read: the software most exposed is per-seat software whose main value is a screen where a person moves data between systems. Logging, updating, copying, summarizing, reformatting, chasing. That work is exactly what an agent with tool access does well, and it's a large share of what a lot of seats are paying for.
+The software most exposed is per-seat software whose main value is a screen where a person moves data between systems. Logging, updating, copying, summarizing, reformatting, chasing. That work is exactly what an agent with tool access does well, and it's a large share of what a lot of seats are paying for.
 
 It also holds for glue work between tools. Before agents, the integration between two products was a person with two browser tabs open. An agent with access to both does it without the tabs.
 

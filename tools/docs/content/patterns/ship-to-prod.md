@@ -38,7 +38,7 @@ But not every change deserves that. On July 31, 2026 I measured where the work v
 | Mechanical edits, config, test-only work | Medium |
 | Docs, plans, comments | No reviewer. The builder self-checks. |
 
-Honest read: maximum review on everything felt thorough and mostly bought rubber stamps on typo fixes. Match the review to the risk.
+Maximum review on everything felt thorough and mostly bought rubber stamps on typo fixes. Match the review to the risk.
 
 ## The merge gate
 

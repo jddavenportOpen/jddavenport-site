@@ -67,7 +67,7 @@ In early June the account had about 167 followers, and posts were getting single
 
 On June 8 I pushed Socrates toward volume: more posts, more replies under bigger accounts, less caution. The research I'd asked for that same morning said auto-posting at scale is exactly what X suppresses in 2026, and that the one pattern that holds up is drafting for a human to send. I paused the auto-firing within hours.
 
-Honest read: that morning is the whole lesson. I built a learning system for an audience that didn't exist yet, then tried to buy the audience with volume. The research was right and I should have read it first.
+That morning is the whole lesson. I built a learning system for an audience that didn't exist yet, then tried to buy the audience with volume. The research was right and I should have read it first.
 
 A daily probe added in early July checked whether the account was even searchable. It wasn't: the account was still suppressed. Go/no-go: hold.
 

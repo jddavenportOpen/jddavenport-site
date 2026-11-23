@@ -121,7 +121,7 @@ One course had a live LMS shell from mid-August, and every rail in the system ca
 | Delete superseded facts, and clear their chunks | Retrieval can't read your intent |
 | Give every expiring credential a renewal job and a health check | Silent expiry looks like "nothing due" |
 
-Honest read: the retrieval stack is the easy part. The hard part is keeping the corpus and the deadline list true as the semester moves. Most of the fixes above are about that, not about embeddings.
+The retrieval stack is the easy part. The hard part is keeping the corpus and the deadline list true as the semester moves. Most of the fixes above are about that, not about embeddings.
 
 The analytics expert led straight into the next build, which answers the questions retrieval can't: the ones you have to compute.
 

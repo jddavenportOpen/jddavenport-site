@@ -66,7 +66,7 @@ If you only read three: worktree isolation, hooks, and ship to prod. Those three
 
 ## Path 3: how a production AI organization runs
 
-For: you want to see the whole thing working. This is my own system, the Nerve Center: 30+ agents in daily production since April 2026, with the failures left in.
+For: you want to see the whole thing working. This is my own system, the Nerve Center: 100+ agents built since February 2026, with the failures left in.
 
 1. [The architecture in one page](/docs/nerve-center/architecture/)
 2. [How the system got built](/docs/nerve-center/the-story/)

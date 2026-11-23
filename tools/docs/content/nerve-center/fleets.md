@@ -100,6 +100,4 @@ The related bug: a long-running daemon that started before your fix is still run
 4. Put mechanical fleet work on the cheapest model that can do it, and audit the config that picks it.
 5. Kill process groups, not processes.
 
-Public versions: [clawd-agent-os](https://github.com/jddavenportOpen/clawd-agent-os) has the worktree-isolated fleet and a location-agnostic queue drainer; [orchestra-agents](https://github.com/jddavenportOpen/orchestra-agents) has a bounded-concurrency fleet with per-run cost tracking; [fleetwright](https://github.com/jddavenportOpen/fleetwright) packages a fleet engine with a cockpit.
-
 **Next:** [Model routing in practice](/docs/nerve-center/model-routing-in-practice/)

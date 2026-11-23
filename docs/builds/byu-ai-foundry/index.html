@@ -310,7 +310,7 @@
 <p>In June 2026 a teammate who isn't a developer needed to update the original program site. Instead of handing over the keys and hoping, I set up three things first:</p>
 <ol><li><strong>Branch protection on main.</strong> Nobody pushes directly. Changes go through a pull request.</li><li><strong>A CI check that must pass.</strong> Build and lint run on every pull request. Red means it can't merge.</li><li><strong>A plain-English guide in the repo.</strong> How to make a change, open a pull request, wait for green, and merge it yourself.</li></ol>
 <p>Every pull request also got a preview URL, and every merge to main deployed to production. Setup took about an hour. The principle: if someone who has never heard of CI can be trusted with your production site, it's because the gates make the mistake impossible, not because you trusted them harder.</p>
-<p>Honest read: the Foundry's tech is the easy part. The hard part is the same as any program: finding builders who ship, finding clients with real problems, and keeping the promises you make to both. The agents help with the paperwork around that. They don't do the trust part.</p>
+<p>The Foundry's tech is the easy part. The hard part is the same as any program: finding builders who ship, finding clients with real problems, and keeping the promises you make to both. The agents help with the paperwork around that. They don't do the trust part.</p>
 <p><strong>Next:</strong> <a href="/docs/builds/resume-grader/">Build your own resume grader</a></p>
   </div>
   

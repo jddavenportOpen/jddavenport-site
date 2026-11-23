@@ -143,7 +143,6 @@ What replaced it is better: the public [capabilities showcase](https://nerve-cen
 
 ## Skills you can copy
 
-- [context-kit](https://github.com/jddavenportOpen/context-kit) ships skill files for a personal setup: keeping a file per person, tracking open loops, watchers, a morning briefing and a session digest, plus four personal context templates.
 - [agent-evals-starter](https://github.com/jddavenportOpen/agent-evals-starter) includes an agent eval skill in `.claude/skills/agent-evals/` that walks the [agent evals](/docs/ai-core-skills/agent-evals/) method step by step and stops at the human gates on its own.
 
 **Next:** [Hooks: rules the model cannot forget](/docs/fundamentals/hooks/)

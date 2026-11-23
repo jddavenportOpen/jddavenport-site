@@ -57,7 +57,7 @@ By early September the ledger showed 123 tickets marked production-verified, and
 
 A job that comes back on its own isn't a bug fix. The weekly report now counts what was built separately from what merely cleared. When the split went in, the previous seven days showed nine closes and zero real fixes. That's a worse number and a truer one.
 
-Honest read: if I hadn't split that metric, I'd have published it. Measure what you built, not what went away.
+If I hadn't split that metric, I'd have published it. Measure what you built, not what went away.
 
 ## The Warden
 
@@ -91,7 +91,7 @@ The README is honest about its limits, and I'd point you there: it checks that a
 
 What runs now is a weekly Warden pass: a resumable job that works through a ranked queue, ships what passes the gates through independent review, and delivers a weekly brief. Plus the nightly model adoption.
 
-Honest read: the always-on Warden's problem was yield, not safety. Two unattended landings a week didn't justify running around the clock against a system that mostly didn't need fixing. Weekly fits the actual rate of real work.
+The always-on Warden's problem was yield, not safety. Two unattended landings a week didn't justify running around the clock against a system that mostly didn't need fixing. Weekly fits the actual rate of real work.
 
 ## If you build one
 
