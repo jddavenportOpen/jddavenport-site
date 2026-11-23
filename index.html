@@ -4,22 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JD Davenport · AI Product Manager · Founder, BYU AI Foundry</title>
-<!-- One counting rule, stamped everywhere a count appears in static copy:
-     agent counts always carry their system.
-     "30+ agents in daily production, 100+ built over time" is Nerve Center.
-     Never put two counts side by side without their system names. -->
-<meta name="description" content="JD Davenport founded and runs the BYU AI Foundry and is an MBA candidate at BYU Marriott. 8+ years in product, engineering and consulting at National Grid, Siemens and Deloitte. Builds Nerve Center, his own system of 30+ AI agents.">
+<!-- Counting rule (2026-11-22, one fact sheet for every surface):
+     the only agent count in static copy is "100+ agents built" (Nerve Center).
+     Never "30+ in daily production". Every other number on this page must have
+     a row in the fact sheet. -->
+<meta name="description" content="I founded and run the BYU AI Foundry, and I'm an MBA candidate at BYU Marriott. Before that I was a Principal PM at National Grid. On the side I built Nerve Center, my own agent system, and 100+ agents for it.">
 <link rel="canonical" href="https://jddavenport.com/">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jddavenport.com/">
 <meta property="og:title" content="JD Davenport · AI Product Manager · Founder, BYU AI Foundry">
-<meta property="og:description" content="JD Davenport founded and runs the BYU AI Foundry and is an MBA candidate at BYU Marriott. 8+ years in product, engineering and consulting at National Grid, Siemens and Deloitte. Builds Nerve Center, his own system of 30+ AI agents.">
+<meta property="og:description" content="I founded and run the BYU AI Foundry, and I'm an MBA candidate at BYU Marriott. Before that I was a Principal PM at National Grid. On the side I built Nerve Center, my own agent system, and 100+ agents for it.">
 <meta property="og:image" content="https://jddavenport.com/images/og-image.png">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="JD Davenport · AI Product Manager · Founder, BYU AI Foundry">
-<meta name="twitter:description" content="JD Davenport founded and runs the BYU AI Foundry and is an MBA candidate at BYU Marriott. 8+ years in product, engineering and consulting at National Grid, Siemens and Deloitte. Builds Nerve Center, his own system of 30+ AI agents.">
+<meta name="twitter:description" content="I founded and run the BYU AI Foundry, and I'm an MBA candidate at BYU Marriott. Before that I was a Principal PM at National Grid. On the side I built Nerve Center, my own agent system, and 100+ agents for it.">
 <meta name="twitter:image" content="https://jddavenport.com/images/og-image.png">
 <!-- Favicon (relative, so the page also previews from a folder) -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -33,10 +33,10 @@
   "image": "https://jddavenport.com/images/headshot.png",
   "jobTitle": "Founder & Managing Director, BYU AI Foundry",
   "email": "mailto:me@jddavenport.com",
-  "description": "JD Davenport founded and runs the BYU AI Foundry and is an MBA candidate at BYU Marriott. 8+ years in product, engineering and consulting at National Grid, Siemens and Deloitte. Builds Nerve Center, his own system of 30+ AI agents.",
+  "description": "Founder and Managing Director of the BYU AI Foundry and MBA candidate at BYU Marriott. Former Principal Product Manager at National Grid. Built Nerve Center, his own agent system, and 100+ agents for it.",
   "alumniOf": {"@type": "CollegeOrUniversity", "name": "BYU Marriott School of Business"},
   "worksFor": {"@type": "Organization", "name": "BYU AI Foundry", "url": "https://aifoundry.byu.edu/"},
-  "knowsAbout": ["AI adoption", "AI agent systems", "Multi-agent orchestration", "AI product strategy"],
+  "knowsAbout": ["AI product management", "AI agent systems", "Claude Code", "AI product strategy"],
   "sameAs": [
     "https://www.linkedin.com/in/jd-davenport/",
     "https://github.com/jddavenportOpen",
@@ -142,6 +142,12 @@ h1{font:400 clamp(2.45rem,1.4rem + 4.4vw,4.9rem)/1.03 var(--f-serif);letter-spac
 .proof li{color:var(--ink);font-size:16px;line-height:1.35}
 .proof b{display:block;font:600 clamp(1.6rem,1.3rem + 1.1vw,2.35rem)/1.05 var(--f-serif);letter-spacing:-.015em;margin-bottom:4px;white-space:nowrap;font-variant-numeric:lining-nums}
 .proof .src{display:block;margin-top:5px;font-size:15px;color:#4E5670;line-height:1.3}
+.proof a{display:block;color:inherit;text-decoration:none;border-radius:4px}
+.proof a .src{color:var(--blue);text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:1px}
+.proof a:hover .src{text-decoration-thickness:2px}
+.shown{padding-top:8px;padding-bottom:72px}
+.shown .cards{margin-top:24px}
+.card h3.w{font:400 1.35rem/1.25 var(--f-serif);letter-spacing:-.005em}
 @media (max-width:420px){.proof b{font-size:1.5rem}}
 .portrait{display:none;margin:0}
 @media (min-width:960px){.portrait{display:block;margin-top:14px}}
@@ -279,9 +285,7 @@ html:not(.js) .copy{display:none}
       <ul>
         <li><a class="tap" href="/work">Work</a></li>
         <li><a class="tap" href="/projects">Projects</a></li>
-        <li><a class="tap" href="/docs/marketplace/">Marketplace</a></li>
         <li><a class="tap" href="/teardown">Teardown</a></li>
-        <li><a class="tap" href="/newsletter">Newsletter</a></li>
         <li><a class="tap cv" href="/resume.pdf">Resume</a></li>
       </ul>
     </nav>
@@ -294,7 +298,7 @@ html:not(.js) .copy{display:none}
   <div class="wrap hero">
     <div>
       <h1 id="thesis">JD Davenport</h1>
-      <p class="sub">I founded and run the BYU AI Foundry, and I’m an MBA candidate at BYU Marriott. I’ve spent 8+ years in product, engineering and consulting at National Grid, Siemens and Deloitte. On the side, I build Nerve Center, my own system of 30+ AI agents.</p>
+      <p class="sub">I founded and run the BYU AI Foundry, and I’m an MBA candidate at BYU Marriott. I’ve spent 8+ years in product, engineering and consulting, from two Provo startups to Deloitte, National Grid and Siemens. On the side I built Nerve Center, my own agent system, and 100+ agents for it.</p>
       <p class="id"><img src="images/headshot.png" alt="" width="52" height="52">Dad of 2 in Provo, Utah</p>
       <p class="avail">Open to AI Product Manager roles. Available to start now.</p>
       <div class="acts">
@@ -304,10 +308,10 @@ html:not(.js) .copy{display:none}
         <span class="mail">or <a class="tap" href="mailto:me@jddavenport.com">me@jddavenport.com</a> · <a class="tap" href="https://www.linkedin.com/in/jd-davenport/">LinkedIn</a></span>
       </div>
       <ul class="proof" aria-label="Four numbers, each with where it happened">
-        <li><b>$2M<span aria-hidden="true"> → </span><span class="sr"> to </span>$20M+</b>internal platform chargeback, annualized<span class="src">National Grid, 2022 to 2025</span></li>
-        <li><b>8</b>client engagements, from local startups to BCG X<span class="src">BYU AI Foundry, now</span></li>
-        <li><b>3% to 65%</b>Spark AI active adoption in 10 weeks<span class="src">Siemens, summer 2026</span></li>
-        <li><b>30+</b>agents in daily production, 100+ built over time<span class="src">Nerve Center, my own agent system</span></li>
+        <li><a href="/work/national-grid-cloud-ai-platform"><b>$2M<span aria-hidden="true"> → </span><span class="sr"> to </span>$20M+</b>a year in chargeback, internal cloud platform<span class="src">National Grid, 2022 to 2025 <span aria-hidden="true">→</span></span></a></li>
+        <li><a href="/work/national-grid-cloud-ai-platform"><b>3,000+</b>monthly users on the GenAI platform I launched<span class="src">National Grid <span aria-hidden="true">→</span></span></a></li>
+        <li><a href="https://aifoundry.byu.edu/work"><b>3</b>AI products shipped with student teams, 2 live<span class="src">BYU AI Foundry <span aria-hidden="true">→</span></span></a></li>
+        <li><a href="/teardown"><b>100+</b>agents built for my own system since Feb 2026<span class="src">Nerve Center <span aria-hidden="true">→</span></span></a></li>
       </ul>
     </div>
     <figure class="portrait">
@@ -320,18 +324,42 @@ html:not(.js) .copy{display:none}
 
 <section data-stage="noon" aria-labelledby="sys-h" id="system">
   <div class="wrap noon-in">
-    <h2 id="sys-h">How I run production AI agents.</h2>
-    <p class="lede">Nerve Center is my own multi-agent system: 30+ agents in daily production, 100+ built over time. The drawing shows structure only. Every part fails eventually, so every failure needs a catch; the lettered marks are four of them.</p>
+    <div class="shown" id="work">
+      <h2 id="shown-h">Work I can show.</h2>
+      <p class="lede">Case studies from my jobs. Numbers are from my own work. Client internals are left out.</p>
+      <ul class="cards" aria-labelledby="shown-h">
+        <li class="card">
+          <p class="tag">Siemens · Summer 2026</p>
+          <h3 class="w">Spark AI</h3>
+          <p class="d">My manager had the idea. I built it: an internal tool that installs a library of Claude Code agents, each set up for one job. I demoed it live to the team at the end of the summer.</p>
+          <p class="ln"><a class="tap" href="/work/siemens-spark-ai">Read the case study</a></p>
+        </li>
+        <li class="card">
+          <p class="tag">National Grid · 2022 to 2025</p>
+          <h3 class="w">A cloud and AI platform</h3>
+          <p class="d">Grew an internal cloud services platform from $2M to $20M+ a year in chargeback. Launched an internal GenAI platform with 3,000+ monthly users.</p>
+          <p class="ln"><a class="tap" href="/work/national-grid-cloud-ai-platform">Read the case study</a></p>
+        </li>
+        <li class="card">
+          <p class="tag">Deloitte and Brio Energy</p>
+          <h3 class="w">Two earlier case studies</h3>
+          <p class="d">Machine learning work for Fortune 100 clients at Deloitte, and the sales and accounting systems I built at a solar company.</p>
+          <p class="ln"><a class="tap" href="/work">All work</a></p>
+        </li>
+      </ul>
+    </div>
+    <h2 id="sys-h">How I run my own agents.</h2>
+    <p class="lede">Nerve Center is my own agent system. I’ve built 100+ agents for it since February 2026. The drawing shows structure only. Every part fails eventually, so every failure needs a catch. The lettered marks are four of them.</p>
 
     <div class="sheet">
       <svg class="dwg dwg-h" viewBox="0 28 1120 472" role="img" aria-labelledby="dwgT dwgD">
         <title id="dwgT">Architecture drawing of Nerve Center</title>
-        <desc id="dwgD">Work flows from the operator through the cockpit, the message bus and a supervising daemon into agent sessions, where one CEO agent fans out to 30+ specialists. Sessions read and write a memory graph and durable state. Anything that speaks for JD to another person passes one send gate that waits for his yes. A watchdog layer surrounds every component. Marks A to D match the four stories after the drawing.</desc>
+        <desc id="dwgD">Work flows from the operator through the cockpit, the message bus and a supervising daemon into agent sessions, where one lead agent fans out to specialist agents. Sessions read and write a memory graph and durable state. Email and messages to other people pass one send gate, which waits for JD’s yes by default. A watchdog layer surrounds every component. Marks A to D match the four stories after the drawing.</desc>
         <defs>
           <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0358F7"/></marker>
         </defs>
         <rect class="bound" x="150" y="40" width="830" height="384" rx="6"/>
-        <text class="bl" x="168" y="410">WATCHDOG LAYER · measures work done, not uptime</text>
+        <text class="bl" x="168" y="410">WATCHDOG LAYER · checks that work got done</text>
         <line class="w" pathLength="1" style="--d:1" x1="138" y1="130" x2="168" y2="130" marker-start="url(#arr)" marker-end="url(#arr)"/>
         <line class="w" pathLength="1" style="--d:2" x1="298" y1="130" x2="322" y2="130" marker-end="url(#arr)"/>
         <line class="w" pathLength="1" style="--d:3" x1="452" y1="130" x2="476" y2="130" marker-end="url(#arr)"/>
@@ -353,12 +381,12 @@ html:not(.js) .copy{display:none}
           <rect x="630" y="70" width="190" height="180" rx="4"/>
           <text class="s" x="642" y="89">AGENT SESSIONS</text>
           <g class="spec"><rect x="675" y="98" width="100" height="30" rx="3"/></g>
-          <text class="t" x="725" y="118" text-anchor="middle" style="font-size:14px">CEO agent</text>
+          <text class="t" x="725" y="118" text-anchor="middle" style="font-size:14px">lead agent</text>
           <g class="spec"><rect x="657" y="174" width="20" height="16" rx="2"/><rect x="686" y="174" width="20" height="16" rx="2"/><rect x="715" y="174" width="20" height="16" rx="2"/><rect x="744" y="174" width="20" height="16" rx="2"/><rect x="773" y="174" width="20" height="16" rx="2"/></g>
-          <text class="t" x="642" y="217" style="font-size:13.5px">30+ specialists in</text>
-          <text class="t" x="642" y="235" style="font-size:13.5px">daily production</text>
+          <text class="t" x="642" y="217" style="font-size:13.5px">specialist agents,</text>
+          <text class="t" x="642" y="235" style="font-size:13.5px">one per job</text>
         </g>
-        <g class="n gate"><rect x="844" y="98" width="120" height="64" rx="4"/><text class="t" x="856" y="125">send gate</text><text class="s" x="856" y="146">needs my yes</text></g>
+        <g class="n gate"><rect x="844" y="98" width="120" height="64" rx="4"/><text class="t" x="856" y="125">send gate</text><text class="s" x="856" y="146">yes by default</text></g>
         <g class="n out"><rect x="992" y="98" width="116" height="64" rx="4"/><text class="t" x="1004" y="125">outside</text><text class="s" x="1004" y="146">email, posts</text></g>
         <g class="n"><rect x="470" y="300" width="140" height="60" rx="4"/><text class="t" x="482" y="326">memory graph</text><text class="s" x="482" y="346">retrieve first</text></g>
         <g class="n"><rect x="650" y="300" width="160" height="60" rx="4"/><text class="t" x="662" y="326">durable state</text><text class="s" x="662" y="346">tombstoned rows</text></g>
@@ -375,15 +403,15 @@ html:not(.js) .copy{display:none}
           <line x1="740" y1="461" x2="1110" y2="461"/>
           <line x1="890" y1="461" x2="890" y2="496"/>
           <line x1="990" y1="461" x2="990" y2="496"/>
-          <text class="tt" x="752" y="453">NERVE CENTER · PRODUCTION AI ORG</text>
+          <text class="tt" x="752" y="453">NERVE CENTER · MY AGENT SYSTEM</text>
           <text class="tk" x="752" y="476">DRAWN BY</text><text class="tv" x="752" y="491">JD Davenport</text>
           <text class="tk" x="902" y="476">SHEET</text><text class="tv" x="902" y="491">1 of 1</text>
-          <text class="tk" x="1002" y="476">REV</text><text class="tv" x="1002" y="491">2026-10-28</text>
+          <text class="tk" x="1002" y="476">REV</text><text class="tv" x="1002" y="491">2026-11-22</text>
         </g>
       </svg>
 
       <svg class="dwg dwg-v" viewBox="0 0 360 820" role="img" aria-labelledby="dwgT2">
-        <title id="dwgT2">Architecture drawing of Nerve Center: operator, cockpit, message bus, supervising daemon, agent sessions with one CEO agent and 30+ specialists, memory graph, durable state, send gate and the outside world, all inside a watchdog layer. Marks A to D match the four stories after the drawing.</title>
+        <title id="dwgT2">Architecture drawing of Nerve Center: operator, cockpit, message bus, supervising daemon, agent sessions with one lead agent and specialist agents, memory graph, durable state, send gate and the outside world, all inside a watchdog layer. Marks A to D match the four stories after the drawing.</title>
         <defs>
           <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0358F7"/></marker>
         </defs>
@@ -407,14 +435,14 @@ html:not(.js) .copy{display:none}
           <rect x="20" y="370" width="200" height="150" rx="4"/>
           <text class="s" x="32" y="389">AGENT SESSIONS</text>
           <g class="spec"><rect x="70" y="400" width="100" height="30" rx="3"/></g>
-          <text class="t" x="120" y="420" text-anchor="middle" style="font-size:14px">CEO agent</text>
+          <text class="t" x="120" y="420" text-anchor="middle" style="font-size:14px">lead agent</text>
           <g class="spec"><rect x="34" y="456" width="20" height="16" rx="2"/><rect x="72" y="456" width="20" height="16" rx="2"/><rect x="148" y="456" width="20" height="16" rx="2"/><rect x="186" y="456" width="20" height="16" rx="2"/></g>
-          <text class="t" x="32" y="494" style="font-size:13.5px">30+ specialists in</text>
-          <text class="t" x="32" y="511" style="font-size:13.5px">daily production</text>
+          <text class="t" x="32" y="494" style="font-size:13.5px">specialist agents,</text>
+          <text class="t" x="32" y="511" style="font-size:13.5px">one per job</text>
         </g>
         <g class="n"><rect x="244" y="370" width="100" height="50" rx="4"/><text class="t" x="254" y="392" style="font-size:13.5px">memory</text><text class="t" x="254" y="409" style="font-size:13.5px">graph</text></g>
         <g class="n"><rect x="244" y="450" width="100" height="50" rx="4"/><text class="t" x="254" y="472" style="font-size:13.5px">durable</text><text class="t" x="254" y="489" style="font-size:13.5px">state</text></g>
-        <g class="n gate"><rect x="20" y="560" width="200" height="60" rx="4"/><text class="t" x="32" y="585">send gate</text><text class="s" x="32" y="604">waits for my yes</text></g>
+        <g class="n gate"><rect x="20" y="560" width="200" height="60" rx="4"/><text class="t" x="32" y="585">send gate</text><text class="s" x="32" y="604">my yes, by default</text></g>
         <g class="n out"><rect x="20" y="740" width="200" height="50" rx="4"/><text class="t" x="32" y="762">outside world</text><text class="s" x="32" y="780">email, messages, posts</text></g>
         <line class="lead" x1="220" y1="315" x2="235" y2="315"/><g class="bal"><circle cx="247" cy="315" r="12"/><text x="247" y="319.5">A</text></g>
         <line class="lead" x1="220" y1="155" x2="235" y2="155"/><g class="bal"><circle cx="247" cy="155" r="12"/><text x="247" y="159.5">B</text></g>
@@ -427,55 +455,55 @@ html:not(.js) .copy{display:none}
           <li>The operator (me, on phone or desktop) works through the cockpit, a TypeScript UI.</li>
           <li>The cockpit puts work on a message bus, which queues it. A frozen modal here is caught by the watchdog (C).</li>
           <li>A supervising daemon runs the agent sessions and restarts any that die (A).</li>
-          <li>Inside the sessions, one CEO agent fans work out to 30+ specialists in daily production.</li>
+          <li>Inside the sessions, one lead agent fans work out to specialist agents, one per job.</li>
           <li>Sessions retrieve from a memory graph first, and read and write durable state, where tombstones reject a stale tab’s write (B).</li>
-          <li>Anything that speaks for me to another person (email, messages, posts) waits at one send gate for my yes (D).</li>
-          <li>A watchdog layer wraps everything and measures work done, not uptime.</li>
+          <li>Email and messages from the agents to other people pass one send gate, which waits for my yes by default (D).</li>
+          <li>A watchdog layer wraps everything and checks that work actually got done.</li>
         </ol>
       </details>
     </div>
 
     <ol class="stories" aria-label="Four failures and guardrails, matching marks A to D on the drawing">
-      <li><span class="ball" aria-hidden="true">A</span><h3><span class="sr">A: </span>Sessions die. A guard brings them back.</h3><p>Agent sessions crash and get killed mid-task. The supervising daemon notices the missing session and restarts it from durable state, so the work resumes instead of quietly vanishing.</p></li>
-      <li><span class="ball" aria-hidden="true">B</span><h3><span class="sr">B: </span>A stale tab cannot overwrite the present.</h3><p>A closed session leaves a tombstone. When an old browser tab tries to write to it later, the write is rejected rather than bringing a dead session back to life.</p></li>
-      <li><span class="ball" aria-hidden="true">C</span><h3><span class="sr">C: </span>A frozen modal cannot stall the queue for long.</h3><p>One blocking dialog can freeze a session and everything queued behind it. The watchdog measures work completed, not uptime, so it sees the stall, clears it, and the queue drains again.</p></li>
-      <li><span class="ball" aria-hidden="true">D</span><h3><span class="sr">D: </span>Nothing speaks for me without passing the gate.</h3><p>Agents draft email, messages and posts. Anything that speaks for me to another person waits at one gate for my yes. None of it skips the gate.</p></li>
+      <li><span class="ball" aria-hidden="true">A</span><h3><span class="sr">A: </span>Sessions die. A guard brings them back.</h3><p>Agent sessions crash and get killed mid-task. The supervising daemon notices the missing session and restarts it from durable state, and the work picks up where it stopped.</p></li>
+      <li><span class="ball" aria-hidden="true">B</span><h3><span class="sr">B: </span>A stale tab cannot overwrite the present.</h3><p>A closed session leaves a tombstone. When an old browser tab tries to write to it later, the write is rejected and the dead session stays dead.</p></li>
+      <li><span class="ball" aria-hidden="true">C</span><h3><span class="sr">C: </span>A frozen modal cannot stall the queue for long.</h3><p>One blocking dialog can freeze a session and everything queued behind it. The watchdog checks that work got done. When work stops, it clears the stall and the queue drains.</p></li>
+      <li><span class="ball" aria-hidden="true">D</span><h3><span class="sr">D: </span>One gate for what goes out under my name.</h3><p>Every email or message my agents send to another person passes one gate. By default it waits for my yes on the exact text. I’ve signed three narrow standing approvals, each with a cap and a kill switch. <a href="/teardown">The teardown</a> names them.</p></li>
     </ol>
     <p class="evid">The incidents behind these guards, and what changed after each one, are written up in the <a href="https://github.com/jddavenportOpen/agent-safety-case-study" target="_blank" rel="noopener">agent safety case study <span class="ext" aria-hidden="true">↗</span></a>.</p>
 
 
     <div class="builds" id="builds">
-      <h2 id="builds-h">Things I’ve shipped in the open.</h2>
-      <p class="lede">Public repos you can clone. The first row is one arc: the case study, the core, and the same controls packaged for an enterprise.</p>
+      <h2 id="builds-h">Code I pulled out of my system.</h2>
+      <p class="lede">Snapshots of tools I use every day. The live versions keep changing in my private repo. These are the parts you can clone and run.</p>
       <ul class="cards" aria-labelledby="builds-h">
         <li class="card">
           <p class="tag">Case study · start here</p>
           <h3>agent-safety-case-study</h3>
-          <p class="d">Each capability, its risk, the control that bounds it, and one incident where the control failed.</p>
+          <p class="d">What I let my AI agents do in my work and life, what broke, and what I changed after each incident.</p>
           <p class="ln"><a class="tap" href="https://github.com/jddavenportOpen/agent-safety-case-study" target="_blank" rel="noopener">GitHub <span class="ext" aria-hidden="true">↗</span></a></p>
         </li>
         <li class="card">
-          <p class="tag">Open source · MIT · Python</p>
-          <h3>orchestra-agents</h3>
-          <p class="d">The production core as installable code: bounded fan-out, a durable message bus that dead-letters loudly, circuit breakers, best-of-N with an adversarial judge, and permission tiers from read to irreversible.</p>
-          <p class="ln"><a class="tap" href="https://github.com/jddavenportOpen/orchestra-agents" target="_blank" rel="noopener">GitHub <span class="ext" aria-hidden="true">↗</span></a></p>
+          <p class="tag">Open source · AGPL-3.0 · JavaScript</p>
+          <h3>clawdling</h3>
+          <p class="d">Run several Claude Code projects at once. When an agent says done, you see the test that ran after its last edit, or a flag that nobody checked. Local, on your own Claude plan.</p>
+          <p class="ln"><a class="tap" href="https://github.com/jddavenportOpen/clawdling" target="_blank" rel="noopener">GitHub <span class="ext" aria-hidden="true">↗</span></a></p>
         </li>
         <li class="card">
           <p class="tag">Open source · MIT · Python</p>
-          <h3>claude-deploy-kit</h3>
-          <p class="d">The same controls shaped for an enterprise: one deny-by-default policy chokepoint, a destructive-command hook that holds under skip-permissions, a fail-closed eval gate, and a redacting audit log.</p>
-          <p class="ln"><a class="tap" href="https://github.com/jddavenportOpen/claude-deploy-kit" target="_blank" rel="noopener">GitHub <span class="ext" aria-hidden="true">↗</span></a></p>
+          <h3>ccstitch</h3>
+          <p class="d">A local trace viewer for Claude Code. It repairs the orphaned spans from claude-code#99607 and nests claude -p runs under the tool call that started them. Python stdlib, one SQLite file.</p>
+          <p class="ln"><a class="tap" href="https://github.com/jddavenportOpen/ccstitch" target="_blank" rel="noopener">GitHub <span class="ext" aria-hidden="true">↗</span></a></p>
         </li>
       </ul>
 
       <h3 class="also-h" id="also-h">Also shipped</h3>
       <ul class="also" aria-labelledby="also-h">
-        <li><span class="nm">mcp-judge</span><span class="ds">A calibrated multi-persona LLM judge as an MCP server, shipped with the eval harness that proves the calibration. Open-sourced through the BYU AI Foundry.</span><span class="ln"><a class="tap" href="https://github.com/jddavenportOpen/mcp-judge" target="_blank" rel="noopener">GitHub <span class="ext" aria-hidden="true">↗</span></a></span></li>
-        <li><span class="nm">claude-bug-squash</span><span class="ds">Triages a repo, fixes in an isolated worktree and proves red to green, behind blast-radius caps, a deny-list and a three-seat review. It can never merge.</span><span class="ln"><a class="tap" href="https://github.com/jddavenportOpen/claude-bug-squash" target="_blank" rel="noopener">GitHub <span class="ext" aria-hidden="true">↗</span></a></span></li>
-        <li><span class="nm">deep-research-agent</span><span class="ds">Iterative research with a knowledge-gap loop, nine parallel sources, and per-claim refute-or-survive checks.</span><span class="ln"><a class="tap" href="https://github.com/jddavenportOpen/deep-research-agent" target="_blank" rel="noopener">GitHub <span class="ext" aria-hidden="true">↗</span></a></span></li>
-        <li><span class="nm">Nerve Center</span><span class="ds">The private system all of this came out of. It runs my real work, so it stays closed; the teardown and a capabilities page it regenerates daily are open.</span><span class="ln"><a class="tap" href="/teardown">Teardown</a><a class="tap" href="/brain">Capabilities</a></span></li>
+        <li><span class="nm">warden</span><span class="ds">Lets an agent fix things on its own only when the fix can be undone and a check proves it worked. Rolls back on failure.</span><span class="ln"><a class="tap" href="https://github.com/jddavenportOpen/warden" target="_blank" rel="noopener">GitHub <span class="ext" aria-hidden="true">↗</span></a></span></li>
+        <li><span class="nm">claude-code-behavior-specs</span><span class="ds">Three Claude Code CLI bugs I hit running agents headless. Each has a repro script and the workaround I shipped.</span><span class="ln"><a class="tap" href="https://github.com/jddavenportOpen/claude-code-behavior-specs" target="_blank" rel="noopener">GitHub <span class="ext" aria-hidden="true">↗</span></a></span></li>
+        <li><span class="nm">recruit-copilot</span><span class="ds">A Claude Code plugin for a job search. It tailors a resume per posting, checks the PDF a machine reads, and never submits.</span><span class="ln"><a class="tap" href="https://github.com/jddavenportOpen/recruit-copilot" target="_blank" rel="noopener">GitHub <span class="ext" aria-hidden="true">↗</span></a></span></li>
+        <li><span class="nm">Nerve Center</span><span class="ds">The private system all of this came out of. It runs my real email and calendar, so the code stays closed. The teardown and a live map of its parts are open.</span><span class="ln"><a class="tap" href="/teardown">Teardown</a><a class="tap" href="/brain">Live map</a></span></li>
       </ul>
-      <p class="evid">More, including the engine behind the private system, at <a href="https://github.com/jddavenportOpen" target="_blank" rel="noopener">github.com/jddavenportOpen <span class="ext" aria-hidden="true">↗</span></a>.</p>
+      <p class="evid">Everything I keep public is at <a href="https://github.com/jddavenportOpen" target="_blank" rel="noopener">github.com/jddavenportOpen <span class="ext" aria-hidden="true">↗</span></a>. The longer list, with the Foundry’s work, is on <a href="/projects">Projects</a>.</p>
     </div>
   </div>
 </section>
@@ -490,9 +518,9 @@ html:not(.js) .copy{display:none}
         <p class="when">10 seconds</p>
         <h3>The short version, ready to forward</h3>
         <div class="copybox" id="summary">
-          <p>JD Davenport is an AI product leader with 8+ years across product, engineering and consulting: a machine learning consultant at Deloitte shipping production ML for Pfizer and GM, Principal Product Manager at National Grid, and now Founder &amp; Managing Director of the BYU AI Foundry, with 8 client engagements won so far.</p>
-          <p>At Siemens in summer 2026 he took Spark AI from 3% to 65% adoption in 10 weeks; at National Grid he grew an internal cloud services platform from $2M to $20M+ in annual chargeback.</p>
-          <p>He runs Nerve Center, his own system with 30+ agents in daily production. jddavenport.com</p>
+          <p>JD Davenport is an AI product manager with 8+ years in product, engineering and consulting: developer at two Provo startups, consultant at Deloitte, Principal PM at National Grid, and a summer 2026 internship in Siemens’ XPS Leadership Program. He founded and runs the BYU AI Foundry. 8 clients said yes in its first year, and 4 have signed so far.</p>
+          <p>At National Grid he grew an internal cloud services platform from $2M to $20M+ a year in chargeback and launched an internal GenAI platform with 3,000+ monthly users. At Siemens he built Spark AI, an internal tool that installs a library of Claude Code agents, each set up for one job.</p>
+          <p>On the side he built Nerve Center, his own agent system, and 100+ agents for it. jddavenport.com</p>
         </div>
         <div class="row">
           <button class="copy" type="button" data-copy="summary">Copy summary</button>
@@ -503,13 +531,13 @@ html:not(.js) .copy{display:none}
       <li>
         <p class="when">5 minutes</p>
         <h3>The Nerve Center teardown</h3>
-        <p>One system taken apart: what I built, how it fails, and what I decided along the way.</p>
+        <p>My own agent system taken apart: how it’s built, three times it broke, and what I changed after each one.</p>
         <p class="ln"><a class="tap" href="/teardown">Read the teardown</a></p>
       </li>
       <li>
         <p class="when">Go deep</p>
         <h3>The docs</h3>
-        <p>Plain-language docs on core AI skills, patterns and the architecture behind the drawing above.</p>
+        <p>How I build and run my own agents, in plain language, plus the architecture behind the drawing above.</p>
         <p class="ln"><a class="tap" href="/docs/">Read the docs</a><a class="tap" href="#system">The drawing</a></p>
       </li>
     </ol>
@@ -518,26 +546,16 @@ html:not(.js) .copy{display:none}
 
 <section data-stage="dusk" aria-labelledby="doors-h">
   <div class="wrap dusk-in">
-    <h2 id="doors-h">Four doors, by what you came to do.</h2>
+    <h2 id="doors-h">The Foundry, and press.</h2>
     <ul class="doors">
       <li>
-        <h3>Read</h3>
-        <p>Raising Clawd, my newsletter on building agent systems that hold up, and the full production teardown.</p>
-        <p class="ln"><a class="tap" href="/newsletter">Newsletter</a><a class="tap" href="/teardown">Teardown</a></p>
-      </li>
-      <li>
-        <h3>Learn</h3>
-        <p>Plain-language docs on core AI skills, in order. Students who want to ship real work can apply to the Foundry.</p>
-        <p class="ln"><a class="tap" href="/docs/">Docs</a><a class="tap" href="https://aifoundry.byu.edu/">Apply to the Foundry</a></p>
-      </li>
-      <li>
-        <h3>Build with me</h3>
-        <p>Foundry client work: a 30-builder founding cohort that has shipped 4 production AI products and won 8 client engagements. Also speaking.</p>
-        <p class="ln"><a class="tap" href="https://book.jddavenport.com">Book a call</a><a class="tap" href="mailto:me@jddavenport.com?subject=Speaking">Speaking inquiry</a></p>
+        <h3>Build with the Foundry</h3>
+        <p>Have a problem AI could help with? A BYU AI Foundry student team can build it with you. 3 AI products shipped so far. 2 are live and 1 is onboarding its first customers. Students who want to ship real work can apply too.</p>
+        <p class="ln"><a class="tap" href="https://aifoundry.byu.edu/quote">Start a project</a><a class="tap" href="https://aifoundry.byu.edu/students">For students</a><a class="tap" href="mailto:me@jddavenport.com?subject=Speaking">Speaking</a></p>
       </li>
       <li>
         <h3>Press</h3>
-        <div class="bio" id="bio">JD Davenport is Founder and Managing Director of the BYU AI Foundry, where a founding cohort of 30 student builders has shipped 4 production AI products and won 8 client engagements. He is a BYU Marriott MBA candidate (class of 2027). Before the MBA he was a Principal Product Manager at National Grid (2022 to 2025), where he grew an internal cloud services platform from $2M to $20M+ in annual chargeback and brought a generative AI platform to 3,000+ monthly users. In summer 2026, as an AI Product Strategist at Siemens, he took Spark AI from 3% to 65% adoption in 10 weeks. Earlier, as a machine learning consultant at Deloitte, he shipped production ML for Pfizer and GM. That is 8+ years across product, engineering and consulting. He also builds and runs Nerve Center, his own system of 30+ AI agents in daily production.</div>
+        <div class="bio" id="bio">JD Davenport is the Founder and Managing Director of the BYU AI Foundry, where 30 student builders have shipped 3 AI products, 2 live and 1 onboarding. 4 clients have signed so far. He is a BYU Marriott MBA candidate (class of 2027). Before the MBA he was a Principal Product Manager at National Grid (2022 to 2025), where he grew an internal cloud services platform from $2M to $20M+ a year in chargeback and launched a generative AI platform with 3,000+ monthly users. In summer 2026 he was an XPS Leadership Summer Intern at Siemens, where he built Spark AI, an internal tool that installs a library of Claude Code agents. Earlier he did machine learning work at Deloitte for clients including Pfizer and GM. He has 8+ years in product, engineering and consulting. He also built Nerve Center, his own agent system, and 100+ agents for it.</div>
         <div class="row">
           <button class="copy" type="button" data-copy="bio">Copy bio</button>
           <a class="tap" href="images/headshot.png" download="jd-davenport-headshot.png">Headshot (PNG)</a>
@@ -558,7 +576,7 @@ html:not(.js) .copy{display:none}
     <div class="sub-strip">
       <div>
         <h2 id="sub-h">Raising Clawd, in your inbox.</h2>
-        <p class="lede">My newsletter from inside Nerve Center: what 30+ agents in daily production teach me, what broke, and the guard I added after.</p>
+        <p class="lede">One email when I ship or break something worth writing up.</p>
       </div>
       <a class="btn sun" href="/newsletter">Subscribe <span aria-hidden="true">→</span></a>
     </div>

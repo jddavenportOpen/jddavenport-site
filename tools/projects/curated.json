@@ -1,0 +1,139 @@
+{
+  "about": "The one source for /projects (2026-11-22). About 15 items in four groups. Every number here has a row in the public fact sheet. Each card says who built it and links to the live thing.",
+  "groups": [
+    {
+      "id": "mine",
+      "title": "My own builds",
+      "lede": "Things I built on my own time. Most of this code was written by Claude Code agents I run. I pick what gets built, set the tests it has to pass, and check it by using it.",
+      "items": [
+        {
+          "slug": "nerve-center",
+          "title": "Nerve Center",
+          "kind": "My agent system · private",
+          "line": "My own agent system on Claude Code. I've built 100+ agents for it since February 2026. It drafts my email and writes a lot of my code.",
+          "links": [
+            {"label": "Read the teardown", "url": "https://jddavenport.com/teardown"},
+            {"label": "Live map", "url": "https://jddavenport.com/brain"}
+          ]
+        },
+        {
+          "slug": "agent-safety-case-study",
+          "title": "agent-safety-case-study",
+          "kind": "Case study · MIT",
+          "line": "What I let my AI agents do in my work and life, what broke, and what I changed after each incident. Start here.",
+          "links": [{"label": "View repo", "url": "https://github.com/jddavenportOpen/agent-safety-case-study"}]
+        },
+        {
+          "slug": "clawdling",
+          "title": "clawdling",
+          "kind": "Open source · AGPL-3.0",
+          "line": "Run several Claude Code projects at once. When an agent says done, you see the test that ran after its last edit, or a flag that nobody checked.",
+          "links": [{"label": "View repo", "url": "https://github.com/jddavenportOpen/clawdling"}]
+        },
+        {
+          "slug": "ccstitch",
+          "title": "ccstitch",
+          "kind": "Open source · MIT",
+          "line": "A local trace viewer for Claude Code. It repairs the orphaned spans from claude-code#99607 and nests claude -p runs under the tool call that started them.",
+          "links": [{"label": "View repo", "url": "https://github.com/jddavenportOpen/ccstitch"}]
+        },
+        {
+          "slug": "claude-code-behavior-specs",
+          "title": "claude-code-behavior-specs",
+          "kind": "Bug specs · MIT",
+          "line": "Three Claude Code CLI bugs I hit running agents headless. Each has a repro script and the workaround I shipped.",
+          "links": [{"label": "View repo", "url": "https://github.com/jddavenportOpen/claude-code-behavior-specs"}]
+        },
+        {
+          "slug": "warden",
+          "title": "warden",
+          "kind": "Open source · MIT",
+          "line": "Lets an agent fix things on its own only when the fix can be undone and a check proves it worked. Rolls back on failure. 28 offline tests.",
+          "links": [{"label": "View repo", "url": "https://github.com/jddavenportOpen/warden"}]
+        },
+        {
+          "slug": "recruit-copilot",
+          "title": "recruit-copilot",
+          "kind": "Claude Code plugin · MIT",
+          "line": "A Claude Code plugin for a job search. It tailors a resume for each posting, checks the PDF a machine will read, and never submits. Truthfully I hate filling in job applications.",
+          "links": [{"label": "View repo", "url": "https://github.com/jddavenportOpen/recruit-copilot"}]
+        },
+        {
+          "slug": "agent-evals-starter",
+          "title": "agent-evals-starter",
+          "kind": "Course · MIT",
+          "line": "A support-agent eval that runs offline. It includes a do-nothing agent and a do-anything agent, to show when a passing score means nothing.",
+          "links": [{"label": "View repo", "url": "https://github.com/jddavenportOpen/agent-evals-starter"}]
+        }
+      ]
+    },
+    {
+      "id": "foundry",
+      "title": "BYU AI Foundry",
+      "lede": "I founded the Foundry in 2025 and run it. Student teams build the products with real clients. These are the 3 AI products shipped so far, plus the Claude Code plugins the teams build with.",
+      "items": [
+        {
+          "slug": "ai-foundry-program",
+          "title": "BYU AI Foundry",
+          "kind": "Program · BYU Marriott",
+          "line": "A program at BYU Marriott where student teams build AI products for real clients. 30 student builders. I'm the founder and managing director.",
+          "links": [{"label": "Visit site", "url": "https://aifoundry.byu.edu"}, {"label": "Our work", "url": "https://aifoundry.byu.edu/work"}],
+          "thumb": "ai-foundry-program"
+        },
+        {
+          "slug": "lawgrader-writegrader",
+          "title": "LawGrader and WriteGrader",
+          "kind": "Foundry product · Live",
+          "line": "Grading for legal and academic writing. It drafts the scores and margin comments. The instructor decides every final grade.",
+          "links": [{"label": "LawGrader", "url": "https://lawgrader.ai"}, {"label": "WriteGrader", "url": "https://new.writegrader.com"}],
+          "thumb": "lawgrader-writegrader"
+        },
+        {
+          "slug": "french-80-20",
+          "title": "French 80/20",
+          "kind": "Foundry product · Live",
+          "line": "A French learning app for web and iPhone, built around the words you actually use.",
+          "links": [{"label": "Visit site", "url": "https://french8020.com"}],
+          "thumb": "french-80-20"
+        },
+        {
+          "slug": "carebridge-connect",
+          "title": "CareBridge Connect",
+          "kind": "Foundry product · Onboarding",
+          "line": "Turns the notes nursing-home staff already write into plain-language updates for approved family members. Onboarding its first customers.",
+          "links": [{"label": "Visit site", "url": "https://carebridgeconnect.ai"}],
+          "thumb": "carebridge-connect"
+        },
+        {
+          "slug": "foundry-marketplace",
+          "title": "AI Foundry Marketplace",
+          "kind": "Claude Code plugins · MIT",
+          "line": "The Claude Code plugins Foundry teams build with. Each skill is labeled by how well it has been tested. Install with one /plugin command.",
+          "links": [{"label": "Open the catalog", "url": "https://ai-foundry-byu.github.io/foundry-marketplace/"}, {"label": "View repo", "url": "https://github.com/ai-foundry-byu/foundry-marketplace"}],
+          "thumb": "foundry-marketplace"
+        }
+      ]
+    },
+    {
+      "id": "client-work",
+      "title": "Siemens, and client work",
+      "lede": "My summer 2026 work at Siemens, and paid consulting I've done for a software company.",
+      "items": [
+        {
+          "slug": "siemens-spark-ai",
+          "title": "Spark AI at Siemens",
+          "kind": "Siemens · Summer 2026",
+          "line": "An internal tool that installs a library of Claude Code agents, each set up for one job. My manager had the idea. I built it and demoed it live to the team.",
+          "links": [{"label": "Read the case study", "url": "https://jddavenport.com/work/siemens-spark-ai"}]
+        },
+        {
+          "slug": "fable-software",
+          "title": "Fable Software",
+          "kind": "Client work",
+          "line": "Paid consulting for Fable Software. Live products from that work include SpeedPrep, ReadyStack and Deckboard.",
+          "links": [{"label": "SpeedPrep", "url": "https://speedprep.ai"}, {"label": "ReadyStack", "url": "https://readystack.dev"}, {"label": "Deckboard", "url": "https://deckboard.party"}]
+        }
+      ]
+    }
+  ]
+}

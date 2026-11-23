@@ -20,24 +20,25 @@ SITE = "https://jddavenport.com"
 FILTER_CHIP_MIN = 2  # a tag needs at least this many items to get a filter chip
 
 ACTION = {
+    "program": "Visit site",
     "live-product": "Visit site",
     "open-source": "View repo",
     "case-study": "Read case study",
     "writing": "Read it",
 }
 KIND_LABEL = {
+    "program": "Current role",
     "live-product": "Live product",
     "open-source": "Open source",
     "case-study": "Case study",
     "writing": "Writing",
 }
 # Cards with a "group" render in their own labelled section below the main
-# list. Family ventures are real go-to-market work, but they are not AI work,
-# so they sit last rather than between the case studies and the AI repos.
-GROUPS = {
-    "family": ("family-h", "Family venture: go-to-market and SEO",
-               "Products built with Fable Software, a family venture, where my work was mostly go-to-market, SEO, positioning and build audits."),
-}
+# list. None today: /work holds the jobs (case studies, the Foundry, the
+# teardown) and every build lives once, on /projects (2026-11-22).
+GROUPS = {}
+# Search and filter chips only earn their place on a long list.
+SEARCH_MIN = 10
 
 
 def esc(s):
@@ -227,7 +228,7 @@ ANALYTICS = (
 
 
 # Primary nav, shared with tools/projects/build_projects.py. Keep in step with index.html.
-NAV = [("Work", "/work"), ("Projects", "/projects"), ("Teardown", "/teardown"), ("Newsletter", "/newsletter")]
+NAV = [("Work", "/work"), ("Projects", "/projects"), ("Teardown", "/teardown")]
 
 
 def nav_items(path):
@@ -286,7 +287,7 @@ FOOTER = """
     <div class="sub-strip">
       <div>
         <h2 id="sub-h">Raising Clawd, in your inbox.</h2>
-        <p class="lede">My newsletter from inside Nerve Center: what 30+ agents in daily production teach me, what broke, and the guard I added after.</p>
+        <p class="lede">One email when I ship or break something worth writing up.</p>
       </div>
       <a class="btn sun" href="/newsletter">Subscribe <span aria-hidden="true">→</span></a>
     </div>
@@ -454,14 +455,10 @@ def build_list(data):
       </ul>
     </section>
 """
-    desc = "Case studies for work under NDA, open-source AI tooling, products I built or helped build, and writing."
-    page = head("Work · JD Davenport", desc, "/work", LIST_CSS)
-    page += f"""
-<main id="main" data-stage="dawn">
-  <section class="wrap hero" aria-labelledby="work-h">
-    <h1 id="work-h">Work</h1>
-    <p class="lede">Case studies for work under NDA, open-source AI tooling, products I built or helped build, and writing.</p>
-    <p class="lede"><a href="/projects">Browse the full projects library</a>, including the BYU AI Foundry's work and paid client work.</p>
+    desc = ("What I did in each job: the BYU AI Foundry, Siemens, National Grid, Deloitte and Brio Energy, "
+            "plus a teardown of my own agent system.")
+    searchable = len(items) >= SEARCH_MIN
+    controls = f"""
     <div class="controls" id="controls" hidden>
       <div class="search" role="search">
         <label for="q">Search work</label>
@@ -475,21 +472,30 @@ def build_list(data):
         <legend>Topic</legend>
         {''.join(tag_chips)}
       </fieldset>
-    </div>
-  </section>
-  <section class="wrap listing" aria-label="All work">
-    <p class="count" id="count" role="status" aria-live="polite">Showing all {len(items)} items</p>
-    <ul class="cards">
-{chr(10).join(card(i) for i in items if not i.get("group"))}
-    </ul>
-{group_sections}    <div class="empty" id="empty" hidden>
+    </div>""" if searchable else ""
+    count = (f'    <p class="count" id="count" role="status" aria-live="polite">Showing all {len(items)} items</p>\n'
+             if searchable else "")
+    empty = """    <div class="empty" id="empty" hidden>
       <p>Nothing matches that search. Try a broader word, or clear the filters.</p>
       <button type="button" class="reset" id="reset">Clear search and filters</button>
     </div>
+""" if searchable else ""
+    page = head("Work · JD Davenport", desc, "/work", LIST_CSS)
+    page += f"""
+<main id="main" data-stage="dawn">
+  <section class="wrap hero" aria-labelledby="work-h">
+    <h1 id="work-h">Work</h1>
+    <p class="lede">What I did in each job. Numbers are from my own work. Client internals are left out.</p>
+    <p class="lede">The things I’ve built, and the Foundry’s work, are on <a href="/projects">Projects</a>.</p>{controls}
   </section>
+  <section class="wrap listing" aria-label="All work">
+{count}    <ul class="cards">
+{chr(10).join(card(i) for i in items if not i.get("group"))}
+    </ul>
+{group_sections}{empty}  </section>
 </main>
 """
-    page += FOOTER + SCRIPT + "</body>\n</html>\n"
+    page += FOOTER + (SCRIPT if searchable else "") + "</body>\n</html>\n"
     return page
 
 
@@ -513,12 +519,12 @@ def build_case(item, prev_item, next_item):
     page += f"""
 <main id="main" data-stage="dawn">
   <article class="wrap article">
-    <a class="back tap" href="/work?kind=case-study">← All case studies</a>
+    <a class="back tap" href="/work">← All work</a>
     <p class="kicker">Case study</p>
     <h1>{esc(item["title"])}</h1>
     <ul class="meta">{''.join(meta)}</ul>
     <p class="summary">{esc(item["summary"])}</p>
-    <p class="callout"><b>Confidentiality.</b> {esc(item.get("confidentiality_note", ""))}</p>
+    <p class="callout">{esc(item.get("confidentiality_note", ""))}</p>
     <div class="body">
 {md_to_html(item.get("body_md", ""))}
     </div>
