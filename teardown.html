@@ -3,23 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Running Agents in Production: The Full Teardown · JD Davenport</title>
-<!-- One counting rule, stamped everywhere a count appears in STATIC copy:
-     "30+ agents in daily production · 100+ built over time."
-     No precise definition count in hand-written text: the public roster is
-     curated and moves, and an exact number typed here goes stale against the
-     page it links to. Precise counts live only where they are generated. -->
-<meta name="description" content="The full production teardown of a working AI organization: 30+ agents in daily production, 100+ built over time. The architecture, three real failures with root causes and fixes, the review pipeline, real API costs, and the safety constraint that makes it runnable.">
+<title>How I run my own agent system: the teardown · JD Davenport</title>
+<!-- Counting rule (2026-11-22, one fact sheet for every surface): static copy says
+     "100+ agents built" and nothing else about agent counts. Never "30+ in daily
+     production" (no census behind it). Precise counts live only where a generator
+     produces them (/brain). -->
+<meta name="description" content="How I run my own agent system on Claude Code: the architecture, three times it broke and what I changed, how changes get reviewed, what it costs at list prices, and the gate on what goes out under my name.">
 <link rel="canonical" href="https://jddavenport.com/teardown">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jddavenport.com/teardown">
-<meta property="og:title" content="Running Agents in Production: The Full Teardown">
-<meta property="og:description" content="Architecture, three real failures with root causes, the review pipeline, real API costs, and the safety constraint that makes a production AI organization runnable.">
+<meta property="og:title" content="How I run my own agent system: the teardown">
+<meta property="og:description" content="The architecture of my own agent system, three times it broke and what I changed, and the gate on what goes out under my name.">
 <meta property="og:image" content="https://jddavenport.com/images/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Running Agents in Production: The Full Teardown">
+<meta name="twitter:title" content="How I run my own agent system: the teardown">
 <meta name="twitter:image" content="https://jddavenport.com/images/og-image.png">
-<meta name="twitter:description" content="Architecture, three real failures with root causes, the review pipeline, real API costs, and the safety constraint that makes a production AI organization runnable.">
+<meta name="twitter:description" content="The architecture of my own agent system, three times it broke and what I changed, and the gate on what goes out under my name.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <!-- Vercel Web Analytics. Inert (404s, deferred) until Web Analytics is
      switched ON for this project in the Vercel dashboard. TOGGLE IT ON. -->
@@ -125,8 +124,8 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
     <nav aria-label="Primary">
       <ul>
         <li><a class="tap" href="/work">Work</a></li>
+        <li><a class="tap" href="/projects">Projects</a></li>
         <li><a class="tap" href="/teardown" aria-current="page">Teardown</a></li>
-        <li><a class="tap" href="/newsletter">Newsletter</a></li>
         <li><a class="tap cv" href="/resume.pdf">Resume</a></li>
       </ul>
     </nav>
@@ -135,21 +134,21 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
 
 <article class="article">
   <div class="container">
-    <div class="kicker">Production teardown</div>
-    <h1>Running 30+ agents in production: what it actually takes</h1>
+    <div class="kicker">Teardown</div>
+    <h1>How I run my own agent system</h1>
     <div class="byline">
       <span>JD DAVENPORT</span>
-      <span>UPDATED 2026-11-09</span>
-      <span>~9 MIN READ</span>
+      <span>UPDATED 2026-11-22</span>
+      <span>~7 MIN READ</span>
     </div>
 
-    <p>Anyone can demo an agent. Keeping a fleet of them alive for months, with real permissions and real consequences, is a different job, and almost nothing published about agents describes it honestly. This is the teardown of the Nerve Center, the AI organization I designed, built, and operate in production: 30+ agents in daily production, 100+ built over time. The architecture, three failures with root causes and the systemic fixes, how changes get reviewed, what it costs in real dollars, and the one constraint that makes the whole thing safe to hand authority.</p>
-    <p>The build itself stays private because it runs my actual life and work. Everything below is the real operating record, sanitized only where it has to be. The system does publish its own census: <a href="/brain">the live brain</a> draws it from an inventory the system regenerates from live state every day.</p>
+    <p>I started building my own agent system in February 2026. I call it Nerve Center. It has run on a schedule since April 2026, and I've built 100+ agents for it. It drafts my email and writes a lot of my code. Keeping it running for months turned out to be harder than building it... so here are three times it broke and what I changed after each one.</p>
+    <p>The code stays private because it runs on my real email and calendar. This page is the operating record with names and hosts taken out. If you want the raw shape, <a href="/brain">the live brain</a> draws every agent, skill and scheduled job from an inventory the system writes about itself.</p>
 
     <h2>The architecture</h2>
-    <p>The system in one sentence: a supervising daemon owns long-lived agent sessions, a message bus routes work between them and me, a shared memory graph gives them recall, Postgres holds durable state, and a watchdog layer assumes everything above it will eventually fail.</p>
+    <p>A supervising daemon owns the agent sessions. A message bus routes work between the sessions and me. A memory graph gives them recall, and Postgres holds anything that has to survive a restart. Around all of it, a watchdog layer checks that work actually got done.</p>
     <div class="stackline"><b>The stack:</b> Python daemons for orchestration and services · TypeScript/Next.js cockpit, self-hosted, with a Vercel standby · Postgres on Supabase for durable state · vector + graph stores for memory · local LLM routing for rote jobs · launchd supervision on always-on hardware<br><b>The agent layer:</b> Claude Code sessions · MCP servers for capability · PreToolUse hooks for policy · sub-agents for fan-out</div>
-    <p>Concretely, the agent layer is Claude Code. Every session is a Claude Code process under the supervising daemon; capability is extended through MCP servers rather than bespoke tool code; policy is enforced by PreToolUse hooks that run before any command executes, deterministically, regardless of what the model believes it is allowed to do; and fan-out work runs as sub-agents with their own tool grants and their own blast radius. Every guardrail described below lands in one of those four places.</p>
+    <p>The agent layer is Claude Code. Every session is a Claude Code process under the daemon. MCP servers add the tools. PreToolUse hooks run before any command executes, so a rule holds no matter what the model thinks it's allowed to do. Bigger jobs fan out to sub-agents, each with its own tool grants. Every guardrail below lives in one of those four places.</p>
 
     <div class="diagram-wrap">
       <svg viewBox="0 0 900 620" role="img" aria-label="Nerve Center architecture diagram: operator and cockpit connect through a message bus to a supervising daemon that owns agent sessions; memory graph and Postgres sit beside them; a watchdog layer monitors everything; all outbound messages pass through a send gate.">
@@ -192,7 +191,7 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
         <!-- Agent sessions -->
         <rect class="box" x="240" y="388" width="420" height="76" rx="8"/>
         <text class="lbl" x="450" y="412" text-anchor="middle">agent sessions (PTY children)</text>
-        <text class="sub" x="450" y="431" text-anchor="middle">1 CEO agent → 30+ specialists in daily production</text>
+        <text class="sub" x="450" y="431" text-anchor="middle">1 lead agent → specialist agents, one per job</text>
         <text class="sub" x="450" y="449" text-anchor="middle">frontier models for hard work · small models for rote</text>
 
         <!-- Memory graph (left) -->
@@ -205,12 +204,12 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
         <rect class="box" x="664" y="292" width="212" height="76" rx="8"/>
         <text class="lbl" x="770" y="316" text-anchor="middle">durable state</text>
         <text class="sub" x="770" y="335" text-anchor="middle">Postgres / Supabase</text>
-        <text class="sub" x="770" y="353" text-anchor="middle">250+ tables · workflows</text>
+        <text class="sub" x="770" y="353" text-anchor="middle">workflows · approvals · costs</text>
 
         <!-- Watchdog layer -->
         <rect class="box dash" x="24" y="500" width="852" height="52" rx="8" style="stroke:#0358F7;fill:#EAF2FF"/>
         <text class="lbl" x="450" y="522" text-anchor="middle">watchdog layer</text>
-        <text class="sub" x="450" y="540" text-anchor="middle">liveness = work completed, not uptime · death-cluster detector · auto-unwedge · stale-job alerts</text>
+        <text class="sub" x="450" y="540" text-anchor="middle">checks that work got done · death-cluster detector · stuck-prompt fixer · stale-job alerts</text>
 
         <!-- Send gate -->
         <rect class="boxhi" x="290" y="572" width="320" height="40" rx="8"/>
@@ -226,67 +225,67 @@ footer{background:var(--night);color:var(--n-muted);border-top:1px solid var(--n
         <path class="edge" d="M450 464 L450 572" style="stroke-dasharray:5 4"/>
         <text class="tag" x="466" y="527" text-anchor="start"></text>
       </svg>
-      <div class="diagram-cap">Sanitized architecture. Every agent session is a PTY child of the supervising daemon. The watchdog layer observes every component above it. Every outbound message, no exceptions, exits through the send gate.</div>
+      <div class="diagram-cap">Names and hosts removed. Every agent session is a child process of the supervising daemon. The watchdog layer watches every part above it. Email and messages to other people leave through the send gate.</div>
     </div>
 
     <h3>The pieces, briefly</h3>
     <ul>
-      <li><b>Supervising daemon and sessions.</b> Every agent session runs as a PTY child of one supervising daemon. That gives clean lifecycle control and one place to enforce policy, and it creates the exact blast radius described in Failure 1. Architecture is a set of tradeoffs you choose on purpose; this one I keep because the failure is now machine-guarded.</li>
-      <li><b>Message bus.</b> A Python bridge routes inbound requests (chat, schedules, webhooks) to the right session and streams results back to the cockpit. Agents also message each other through it by name, so a domain specialist can ask the CEO agent for a decision instead of guessing.</li>
-      <li><b>Memory graph.</b> A vector store plus a graph store, queried together: semantic search finds candidate facts, one-hop graph expansion pulls in connected entities and decisions. Agents retrieve before they act. Without this, every agent is a goldfish.</li>
-      <li><b>Durable state.</b> Postgres on Supabase, 250+ tables: workflow runs, task ledgers, approval queues, cost records. If it matters, it lives in a table, not in a context window. Sessions rotate; state does not.</li>
-      <li><b>Sync layer.</b> The cockpit syncs open sessions across devices with per-entry tombstones and semantic writes rather than state blobs. Failure 2 explains why that distinction is load-bearing.</li>
-      <li><b>Watchdog layer.</b> Detectors that measure work completed, not process uptime: a death-cluster detector, an auto-unwedger for stuck prompts, stale-job alerting with catch-up semantics after reboots. The design assumption is that every layer above will eventually lie about its own health.</li>
+      <li><b>Supervising daemon and sessions.</b> Every agent session runs as a child process of one supervising daemon. That gives me one place to start, stop and police sessions. It also means one bad restart takes all of them down, which is Failure 1. I kept the design and put a guard on the restart.</li>
+      <li><b>Message bus.</b> A Python bridge routes chat, schedules and webhooks to the right session and streams results back to the cockpit, the web app I chat with. Agents message each other through it by name, so a specialist can ask the lead agent for a decision before it guesses.</li>
+      <li><b>Memory graph.</b> A vector store and a graph store, queried together. Search finds candidate facts. One hop through the graph pulls in the people and decisions tied to them. Agents look things up before they act.</li>
+      <li><b>Durable state.</b> Postgres on Supabase holds workflow runs, task ledgers, approval queues and cost records. A new session reads them when an old one is rotated out.</li>
+      <li><b>Sync layer.</b> The cockpit syncs open sessions across devices, with a tombstone on every entry. Failure 2 is why.</li>
+      <li><b>Watchdog layer.</b> One detector looks for several sessions dying at once. Another clears stuck prompts. Stale-job alerts catch up after a reboot. Each one asks whether work got done, because a process can report healthy while doing nothing.</li>
     </ul>
 
     <h2>Failure 1: one restart killed 12 sessions at once</h2>
-    <p>Every agent session runs as a child of the supervising daemon. One agent restarted that daemon with a raw process-manager command instead of the guarded reload script. The OS killed the whole process group, and all 12 live sessions died within the same two seconds, including the one that issued the command.</p>
-    <p>The root cause was not the command. It was that the safety check lived inside one script on the honor system, and nothing stopped an agent from going around it. An agent under token pressure or a confused plan will eventually take the shortest path, and prose instructions are not a barrier.</p>
-    <p>The fix came in three layers: a pre-execution hook that blocks raw restarts of protected services outright, reload scripts that refuse to run while sessions are live and print the casualty list if forced, and a detector that watches for multi-session death clusters and names the exact culprit session and command within five minutes. The postmortem is a file in the repo, and the rule it produced is enforced by a machine, not a memo.</p>
-    <div class="pullquote">Prose rules do not survive contact with autonomous agents. Machine enforcement does.</div>
+    <p>Every agent session runs as a child of the supervising daemon. One agent restarted that daemon with a raw process-manager command instead of the guarded reload script. The OS killed the whole process group. All 12 live sessions died within the same two seconds, including the one that sent the command.</p>
+    <p>The rule lived in a doc, and an agent restarted the service anyway. The safety check sat inside one script, and nothing stopped an agent from going around the script. An agent in a hurry takes the shortest path. I should have expected that.</p>
+    <p>Now a hook blocks that command before it runs. The reload scripts refuse to run while sessions are live, and if you force one it prints the sessions that would die. A detector also watches for several sessions dying at once and names the session and command behind it within five minutes. The postmortem is a file in the repo.</p>
 
-    <h2>Failure 2: a stale phone tab resurrected dead sessions</h2>
-    <p>The cockpit syncs open sessions across devices. A phone tab left open overnight held an old copy of that state, and its writes were last-write-wins. So it kept reviving sessions I had already closed and killed: zombie entries that burned tokens, confused the fleet, and reappeared no matter how many times I killed them.</p>
-    <p>This is a classic distributed-systems bug wearing an AI costume. The moment two devices can write the same state, a full-blob write is a time machine: the staler device overwrites the newer truth. The fix was to stop syncing state and start syncing intent. Per-entry tombstones make a close a fact that cannot be overwritten by anything, and semantic writes mean a device can only add what it knows, never erase what it missed.</p>
-    <p>The regression suite now pins that exact interleaving, a stale reader racing a newer writer, so the bug class stays dead rather than the bug instance. UI changes run end-to-end on phone and desktop viewports, because this failure taught me the device matters.</p>
+    <h2>Failure 2: a stale phone tab brought dead sessions back</h2>
+    <p>The cockpit syncs open sessions across devices. A phone tab I left open overnight held an old copy of that list. It kept reviving sessions I had already closed. They used tokens and kept coming back after I closed them.</p>
+    <p>Ordinary sync bug. Last write won, and my phone had the oldest copy. The fix was a tombstone on every entry. Closing a session now writes a record that no later write can undo.</p>
+    <p>A regression test now pins that exact race: a stale reader against a newer writer. UI changes also run end to end at phone and desktop sizes.</p>
 
-    <h2>Failure 3: a confirmation modal froze the org for 4.5 hours</h2>
-    <p>The CLI under one daemon hit a usage limit and popped a confirmation modal. The daemon's turn loop sat waiting on a prompt no human would ever see, and inbound messages queued invisibly for four and a half hours. Nothing crashed, so nothing alerted.</p>
-    <p>That is the nastiest failure shape in agent systems: alive but wedged. Process supervision says healthy, the port answers, and no work is happening. Any liveness check based on uptime is blind to it by construction.</p>
-    <p>The fix was a watchdog that detects the stuck state and auto-confirms the modal, plus liveness checks that measure output: messages processed, work completed, state advanced. The same principle got applied fleet-wide, because a relay once wedged the same way on a dead database socket and silently swallowed outbound messages for hours. Now anything that can wedge has a detector that asks "did you do work?" instead of "are you running?"</p>
+    <h2>Failure 3: a confirmation prompt froze everything for hours</h2>
+    <p>The CLI under one daemon hit a usage limit and opened a confirmation prompt. The daemon sat waiting on a prompt nobody would ever see, and incoming messages piled up behind it. No alert fired, because no process had crashed.</p>
+    <p>For hours the process was up and the port answered, but nothing got done. The health check now asks whether work actually finished.</p>
+    <p>A watchdog now spots the stuck prompt and confirms it. The liveness checks count messages processed and state that moved. I put the same check on everything else that can get stuck, after a relay hung the same way on a dead database connection and quietly held outbound messages for hours.</p>
 
     <h2>How changes get in</h2>
-    <p>Review scales with blast radius. Changes that touch autonomy, sends, money or credentials get an adversarial multi-agent review with one reviewer told to reject; normal code gets one reviewer; docs and config get the builder's own tests. I made that call after measuring that uniform top-tier review was 93% of spend and caught nothing extra on low-risk changes. Then CI gates: a QA gate, an architecture gate, and a unit-test suite. Any bug that reached production gets a fixture test reproducing the exact failure interleaving before the fix lands, which is how the failures above became regression suites instead of stories.</p>
-    <p>The same pipeline governs the autonomous work. An agent that fixes a bug does it in an isolated worktree, proves it with a failing test that passes after, and clears blast-radius caps and a deny-list before merge. I open-sourced that engine, <a href="https://github.com/jddavenportOpen/claude-bug-squash" target="_blank" rel="noopener">claude-bug-squash</a>, because the governance model is the interesting part: out of the box it can never merge. The orchestration and permission core is open too, as <a href="https://github.com/jddavenportOpen/orchestra-agents" target="_blank" rel="noopener">orchestra-agents</a>, and the same controls packaged for an enterprise are <a href="https://github.com/jddavenportOpen/claude-deploy-kit" target="_blank" rel="noopener">claude-deploy-kit</a>.</p>
+    <p>Measured at list prices over one stretch in July 2026, Opus was 93% of my model usage ($1,248 of $1,349). Every change ran on the top model, review included. I never measured what that review caught. Now review effort depends on how much a change can break.</p>
+    <p>Changes that touch autonomy, sends, money or credentials get a review from several agents, and one of them is told to reject. Normal code gets one reviewer agent. Docs and config get the builder's own tests. After that come the CI gates. Any bug that reached production gets a test that reproduces it before the fix lands, which is how the three failures above became tests.</p>
+    <p>The reviewers are agents too. I pick what gets built, set the tests it has to pass, and check it by using it.</p>
+    <p>The bug-fixing agent works the same way. It fixes a bug in an isolated worktree, proves it with a test that fails before the fix and passes after, and stops at a gate. I open-sourced it as <a href="https://github.com/jddavenportOpen/claude-bug-squash" target="_blank" rel="noopener">claude-bug-squash</a>. It won't merge unless you turn that on.</p>
 
     <h2>What it costs</h2>
-    <p>Real numbers, because "AI is expensive" and "AI is cheap" are both lazy. A heavy build session runs $30 to $35 in API cost; two recent ones came in at $34.67 across 201 model calls and $32.13 across 188. A five-reviewer audit panel is roughly 300k tokens. A rote heartbeat that formats a status report costs pennies on a small model.</p>
-    <p>So the system tiers cost by work type: frontier models for building, reviewing, and deciding; small models pinned to rote jobs like heartbeats and report formatting; local models for bulk extraction where latency and privacy beat quality. Cost is tracked per run in the same tables as everything else. The question is never the bill. It is whether the work earns the model.</p>
+    <p>One heavy build session ran $34.67 across 201 model calls. Another ran $32.13 across 188. Those are list prices. I pay a flat monthly plan, so the figures measure how much work went through the models, and a rote job like formatting a status report costs pennies on a small model.</p>
+    <p>I put the expensive models on building and review and the cheap ones on rote work. Local models handle bulk extraction where privacy matters more than quality. Every run logs its cost in the same tables as everything else.</p>
 
-    <h2>The constraint I chose on purpose</h2>
-    <p>The system can draft anything: email, messages, posts. It can send nothing. Every external message routes through one gated chokepoint with a global freeze switch and single-use approval tokens, and it transmits only after an explicit yes from me. I built it that way after watching how many places an autonomous system will grow an ungated send path if you let it; an audit found five separate paths that could have sent email without approval, all of them added for convenience, none of them malicious. They are all closed, and the gate is enforced at the same pre-execution layer as the restart guard.</p>
-    <div class="pullquote">An autonomous system is only as trustworthy as what stops it.</div>
-    <p>That principle sits under every design decision here. Capability is easy to add. The stop conditions, the tombstones, the freeze switch, the deny-list, the liveness detectors: those are the difference between a demo and something you can hand real authority.</p>
+    <h2>What goes out under my name</h2>
+    <p>Every email or message my agents send to another person passes one gate. By default it waits for my yes on the exact text. I've signed three narrow standing approvals: rescheduling AI Foundry check-ins with the teams, outreach for a case competition the Foundry runs, and cold email for AgentTree, a side project. AgentTree sends from its own domains, with my name on it. Each approval has a cap and a kill switch.</p>
+    <p>For email, the gate is one chokepoint that refuses to send without a single-use approval token. There's also a freeze switch I can hit from my phone. I built it this way after an audit found several paths that could have sent email without my approval. Agents had added them for convenience. None were malicious. All of them are closed, and the same kind of hook that guards restarts now guards sends.</p>
 
     <h2>If you are building one of these</h2>
     <ul>
-      <li><b>State outlives sessions.</b> Anything that matters goes to a table or a file, never to a context window.</li>
-      <li><b>Sync intent, not state.</b> The moment two writers exist, blob sync is a time machine. Tombstones and semantic writes.</li>
-      <li><b>Liveness is work completed.</b> Uptime checks are blind to the wedged state, and the wedged state is the common one.</li>
-      <li><b>Enforce with machines.</b> Every rule that matters gets a hook, a gate, or a detector. Prose is documentation, not enforcement.</li>
-      <li><b>Gate the sends.</b> One chokepoint for everything outbound, with a freeze switch you can hit from your phone.</li>
+      <li>Keep state in a table or a file, so a new session can pick it up.</li>
+      <li>Give every synced entry a tombstone if more than one device can write to it.</li>
+      <li>Have the health check ask whether work finished, in addition to whether the process is up.</li>
+      <li>Put the rules that matter in hooks that run before a command.</li>
+      <li>Send outbound email and messages through one gate with a freeze switch you can reach from your phone.</li>
     </ul>
 
     <div class="addendum">
-      <div class="addendum-date">Addendum · 2026-08-28</div>
-      <p>The live numbers are now generated daily by the system itself and shown on <a href="/brain">the live brain</a>: model turns, shipped work, the 30-day activity charts and the registered agent, skill and job counts all come from the inventory it republishes from live state. A number a person types by hand starts decaying the same day; this one cannot, because nobody types it. The written copy across every public surface now says the same durable thing, 30+ agents in daily production and 100+ built over time, and the exact roster count appears only where a generator produces it.</p>
+      <div class="addendum-date">A note on numbers · 2026-11-22</div>
+      <p>The counts on <a href="/brain">the live brain</a> come from an inventory the system writes about itself. Nobody types them.</p>
     </div>
 
     <div class="footer-cta">
       <h3>Who wrote this</h3>
-      <p>JD Davenport. Product leader: Founder &amp; Managing Director of the BYU AI Foundry; at Siemens, built Spark AI and took its active adoption from 3% to 65% in 10 weeks; at National Grid, grew an internal cloud services platform from $2M to $20M+ in annual chargeback; MBA candidate at BYU Marriott. The Nerve Center is what happens when an operator encodes the operating model in software.</p>
+      <p>I'm JD Davenport. I founded and run the BYU AI Foundry, and I'm an MBA candidate at BYU Marriott. Before that I was a Principal PM at National Grid, where I grew an internal cloud services platform from $2M to $20M+ a year in chargeback. In summer 2026 I was in Siemens' XPS Leadership Program and built Spark AI, an internal tool that installs a library of Claude Code agents. I'm looking for AI Product Manager roles.</p>
       <a href="/" class="btn btn-primary">Full site →</a>
-      <a href="https://github.com/jddavenportOpen/agent-safety-case-study" target="_blank" rel="noopener" class="btn btn-outline">Capability-vs-risk case study ↗</a>
+      <a href="https://github.com/jddavenportOpen/agent-safety-case-study" target="_blank" rel="noopener" class="btn btn-outline">Agent safety case study ↗</a>
       <a href="mailto:me@jddavenport.com" class="btn btn-outline">me@jddavenport.com</a>
     </div>
     <p class="hire">Hiring an AI PM? <a href="/resume.pdf">Resume (PDF)</a> · <a href="mailto:me@jddavenport.com?subject=AI%20PM%20role">me@jddavenport.com</a></p>

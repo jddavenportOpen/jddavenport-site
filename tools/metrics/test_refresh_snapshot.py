@@ -52,9 +52,9 @@ class Refresh(unittest.TestCase):
         snap = json.loads(re.search(r"^ var SNAP=(.*);$", brain, re.M).group(1))
         self.assertEqual(snap["as_of"], "2099-01-02")
         self.assertIn('<b data-k="watchdogs">70</b>', showcase)
-        # Counting rule: showcase states 30+ / 100+ in copy, never a live agent count.
+        # Counting rule: showcase states "100+ agents built" in copy, never a live agent count.
         self.assertNotIn('data-k="agents"', showcase)
-        self.assertIn("30+ agents in daily production", showcase)
+        self.assertIn("<b>100+</b><span>agents built", showcase)
         self.assertIn('live={"agents": 51, "automations": 300, "watchdogs": 70, "ships": 1234};', showcase)
         self.assertEqual(re.search(r'id="spark"[^>]*>(.*?)</svg>', showcase, re.S).group(1).count("<rect"), 3)
 
@@ -106,7 +106,7 @@ class Refresh(unittest.TestCase):
 
     def test_a_dollar_figure_in_a_page_refuses(self):
         p = self.dir / "showcase.html"
-        p.write_text(p.read_text("utf-8").replace("<h2>Open source", "<h2>$5 Open source"), "utf-8")
+        p.write_text(p.read_text("utf-8").replace("<h2>Code you can clone", "<h2>$5 Code you can clone"), "utf-8")
         self.assert_kept(FEED)
 
     def test_failed_fetch_exits_zero_and_writes_nothing(self):

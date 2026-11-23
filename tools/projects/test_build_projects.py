@@ -123,19 +123,19 @@ class BuildOutput(unittest.TestCase):
         m = re.search(r"<main\b.*?</main>", cls.html, re.S)
         cls.main = m.group(0) if m else ""
 
-    def test_has_projects_and_count_is_computed(self):
+    def test_curated_count(self):
+        # JD 2026-11-22: "cut /projects to about 15"
         n = self.data["count"]
-        self.assertGreater(n, 20)
+        self.assertGreaterEqual(n, 10)
+        self.assertLessEqual(n, 16)
         self.assertEqual(n, len(self.data["projects"]))
-        self.assertIn(f'id="total">{n} projects<', self.html)
         self.assertEqual(self.main.count('class="card"'), n)
 
     def outputs(self):
         return [(self.html, "projects.html"), (self.raw, "projects.json"), *[(t, w) for w, t in self.vendored.items()]]
 
     def test_vendored_inputs_are_scanned(self):
-        self.assertIn("tools/projects/catalog.json", self.vendored)
-        self.assertIn("tools/projects/overrides.json", self.vendored)
+        self.assertIn("tools/projects/curated.json", self.vendored)
 
     def test_phrase_guard_catches_planted_text(self):
         planted = {sha("zebrafin"), sha("7 purple"), sha("90q"), sha("example.org/secret")}
@@ -169,24 +169,29 @@ class BuildOutput(unittest.TestCase):
         self.assertEqual(EMAIL_RE.findall(self.main), [])
 
     def test_only_served_fields(self):
-        allowed = {"slug", "title", "owner", "track", "category", "status", "one_liner", "details",
-                   "tech", "links", "thumb", "image"}
+        allowed = {"slug", "group", "title", "kind", "line", "links", "thumb"}
         for p in self.data["projects"]:
             self.assertEqual(set(p), allowed, p["slug"])
 
     def test_images_exist(self):
         for p in self.data["projects"]:
-            for k in ("thumb", "image"):
+            for k in ("thumb",):
                 if p[k]:
                     path = os.path.join(ROOT, p[k].lstrip("/"))
                     self.assertTrue(os.path.exists(path), path)
                     self.assertLess(os.path.getsize(path), 150_000, path)
 
-    def test_client_section_and_top_row(self):
+    def test_client_section(self):
+        # newsletter drafts link /projects#client-work
         self.assertIn('id="client-work"', self.html)
         self.assertIn(">Client work<", self.html)
-        self.assertEqual(self.html.count('class="pick"'), 10)
         self.assertNotIn("client says yes", self.html)
+
+    def test_no_unbacked_agent_counts(self):
+        # fact sheet ruling 3: the only agent count in static copy is "100+ agents built"
+        bad = re.compile(r"\b(?:30\+|50\+|120\+)\s*(?:[a-z-]+\s+)?agents?\b|daily production", re.I)
+        for text, where in self.outputs():
+            self.assertIsNone(bad.search(text), f"unbacked agent count in {where}")
 
     def test_no_family_or_who_did_what(self):
         # JD 2026-11-10: client projects are paid consulting work; never name a family member
