@@ -82,7 +82,7 @@ This one I learned the measured way. On October 1, 2026 I ran a read-only audit 
 
 Two settings caused most of it. Every chat pane was running at the top effort level, and the median pane context was around 434K tokens. First visible text took 38 seconds at the median and 140 seconds at the 90th percentile. Every turn, the model reprocesses everything in the window. Caching helps, but a giant context is still a giant context.
 
-The fix was boring. Interactive panes now default to high effort instead of the top level, and top effort is a per-pane choice. The other half is a habit, not a setting: clear or compact a long session instead of letting it grow. I use the 1M window only when the task needs it. Don't carry 400K tokens of yesterday into a quick question.
+The fix was boring. Interactive panes now default to high effort instead of the top level, and top effort is a per-pane choice. The other half is a habit: clear or compact a long session instead of letting it grow. I use the 1M window only when the task needs it. Don't carry 400K tokens of yesterday into a quick question.
 
 ## The short version
 
