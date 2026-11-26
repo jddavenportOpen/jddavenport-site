@@ -99,9 +99,9 @@ class Refresh(unittest.TestCase):
 
     def test_counting_rule_refuses_a_precise_count_in_prose(self):
         p = self.dir / "brain.html"
-        p.write_text(p.read_text("utf-8").replace("<h1>The live brain</h1>", "<h1>48 agents</h1>"), "utf-8")
+        p.write_text(p.read_text("utf-8").replace(">The live brain</h1>", ">48 agents</h1>"), "utf-8")
         self.assert_kept(FEED)
-        p.write_text(p.read_text("utf-8").replace("<h1>48 agents</h1>", "<h1>30+ agents</h1>"), "utf-8")
+        p.write_text(p.read_text("utf-8").replace(">48 agents</h1>", ">30+ agents</h1>"), "utf-8")
         rs.refresh(FEED, self.dir)
 
     def test_a_dollar_figure_in_a_page_refuses(self):

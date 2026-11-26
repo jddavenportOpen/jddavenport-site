@@ -43,13 +43,13 @@ TIMEOUT_S = 15
 
 # Same order, colors and labels as the CAT table in brain.html.
 CATS = [
-    ("self-heal / watchdog", "#69B27A", "Self-healing watchdogs"),
-    ("routing / infra", "#7CB4CF", "Routing and infrastructure"),
-    ("delivery", "#F5A623", "Delivery"),
-    ("capture", "#F8C384", "Capture"),
-    ("memory", "#B8A4DC", "Memory"),
-    ("backup / storage", "#827F7C", "Backup and storage"),
-    ("other", "#5E5B58", "General background jobs"),
+    ("self-heal / watchdog", "#0358F7", "Self-healing watchdogs"),
+    ("routing / infra", "#1A2236", "Routing and infrastructure"),
+    ("delivery", "#A3481F", "Delivery"),
+    ("capture", "#E0662E", "Capture"),
+    ("memory", "#5A86E8", "Memory"),
+    ("backup / storage", "#566079", "Backup and storage"),
+    ("other", "#7A8299", "General background jobs"),
 ]
 WATCHDOG = "self-heal / watchdog"
 
